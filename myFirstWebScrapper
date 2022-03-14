@@ -9,6 +9,8 @@ uClient = uReq(my_url)
 page_html = uClient.read()
 uClient.close()
 
+#123123 additional code
+
 #html parsing
 page_soup = soup(page_html, "html.parser")
 
