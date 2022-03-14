@@ -1,0 +1,55 @@
+from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup as soup
+
+my_url = 'http://www.academia.edu/Documents/in/Ammunition'
+
+#opening connection to url and grabbing page
+
+uClient = uReq(my_url)
+page_html = uClient.read()
+uClient.close()
+
+#html parsing
+page_soup = soup(page_html, "html.parser")
+
+#use below line to check the html set
+#page_soup.h1
+
+#pulling all data sets on current page and verifying length
+containers = page_soup.findAll("div",{"class":"u-borderBottom1 u-borderColorGrayLighter"})
+#use below line to check the length of the dataset
+#len(containers)
+
+filename = "articles.csv"
+f = open(filename, "w")
+
+headers = "Link, Title, Description, Author, Topic\n"
+
+f.write(headers)
+
+#loop
+for container in containers:
+	link = container.div.a["href"]
+
+	title_container = container.findAll("a", {"class":"u-tcGrayDarkest js-work-link"})
+	title = title_container[0].text
+
+	full_description = container.findAll("div", {"class":"u-pb4x u-mt3x"})
+	fullDescription = full_description[0].text
+
+	author = container.findAll("a", {"class":"u-tcGrayDark u-fw700"})
+	authorName = author[0].text
+
+	tags = container.findAll("li", {"class":"InlineList-item u-positionRelative"})
+	topic = tags[0].text
+
+	print("link: " + link)
+	print("title: " + title)
+	print("fullDescription: " + fullDescription)
+	print("authorName: " + authorName)
+	print("tags: " + topic)
+
+	f.write(link + "," + title.replace(",", ";").replace("×","x") + "," + fullDescription.replace(",", ";").replace("‘","(").replace("’",")").replace("–",";").replace("×","x") + "," + authorName + "," + topic.replace(",", ";").replace("\xa0", ";") + "\n")
+
+
+f.close()
