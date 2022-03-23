@@ -2,7 +2,7 @@ from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 
 s = HTMLSession()
-url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/product-reviews/B08FYTSXGQ/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+url = "https://www.amazon.sg/UMIDIGI-Unlocked-Smartphone-Smartphones-4150mAh/product-reviews/B07VLLCBJR/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
 
 def getdata(url):
     r = s.get(url)
