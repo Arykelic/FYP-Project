@@ -2,7 +2,9 @@ from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 
 s = HTMLSession()
-search_term = "samsung+smartphones"
+print('Enter the search term to be scraped (delimit search terms with a "+")')
+search_term = input('>')
+print(f'Filtering out {search_term}')
 url = "https://www.amazon.sg/s?k={}".format(search_term)
 
 def getdata(url):

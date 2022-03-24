@@ -2,7 +2,6 @@ from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 
 my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
-my_url
 
 # opening connection to url and grabbing page
 
