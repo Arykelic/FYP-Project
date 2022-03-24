@@ -1,26 +1,29 @@
-from urllib.request import urlopen as uReq
-from bs4 import BeautifulSoup as soup
+from requests_html import HTMLSession
+from bs4 import BeautifulSoup
+s = HTMLSession()
 
-my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
+#my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
+print('Enter the url link to be scraped')
+my_url = input('>')
+print(f'Filtering out {my_url}')
 
 # opening connection to url and grabbing page
 
-uClient = uReq(my_url)
-page_html = uClient.read()
-uClient.close()
 
 # html parsing
-page_soup = soup(page_html, "html.parser")
-
+def getdata(my_url):
+    r = s.get(my_url)
+    soup = BeautifulSoup(r.text, "html.parser")
+    return soup
 # use below line to check the html set
 # page_soup.h1
-
+soup = getdata(my_url)
 # pulling all data sets on current page and verifying length
-containers = page_soup.findAll("div", {"class": "a-section celwidget"})
+containers = soup.findAll("div", {"class": "a-section celwidget"})
 # use below line to check the length of the dataset
 # len(containers)
 
-search_term_value = page_soup.find("span", {"class": "a-size-large product-title-word-break"}).text
+search_term_value = soup.find("span", {"class": "a-size-large product-title-word-break"}).text
 search_term_stripped = search_term_value.strip()
 search_term = search_term_stripped.replace('"', ",").replace("|",",")
 search_term
@@ -35,12 +38,12 @@ f.write(headers)
 
 # loop
 for container in containers:
-    Image_Url = page_soup.find("div", {"class": "imgTagWrapper"}).img["src"]
+    Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"]
 
-    Item_Name_Value = page_soup.find("span", {"class": "a-size-large product-title-word-break"}).text
+    Item_Name_Value = soup.find("span", {"class": "a-size-large product-title-word-break"}).text
     Item_Name = Item_Name_Value.strip()
 
-    Item_Price = page_soup.find("span", {"class": "a-offscreen"}).text
+    Item_Price = soup.find("span", {"class": "a-offscreen"}).text
 
     Username_Container = container.findAll("span", {"class": "a-profile-name"})
     Username = Username_Container[0].text
@@ -68,3 +71,4 @@ for container in containers:
     + "," + Rating_Score.replace(",", ".") + "," + Review_Description.replace(",", "'").replace("\U0001f60a",":)") + "," + Review_Date.replace(",", "'") + "\n")
 
 f.close()
+print("End of CSV Writing")

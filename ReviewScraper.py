@@ -1,8 +1,11 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
-
 s = HTMLSession()
-url = "https://www.amazon.sg/UMIDIGI-Unlocked-Smartphone-Smartphones-4150mAh/product-reviews/B07VLLCBJR/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+
+#my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
+print('Enter the url link to be scraped')
+url = input('>')
+print(f'Filtering out {url}')
 
 def getdata(url):
     r = s.get(url)
@@ -10,11 +13,16 @@ def getdata(url):
     return soup
 
 def getnextpage(soup):
-    page = soup.find("ul", {"class":"a-pagination"})
-    if not page.find("li", {"class":"a-disabled a-last"}):
-        url = "https://www.amazon.sg" + str(page.find("li",{"class":"a-last"}).find("a")["href"])
-        return url
-    else:
+    try:
+        page = soup.find("ul", {"class":"a-pagination"})
+        if not page.find("li", {"class":"a-disabled a-last"}):
+            url = "https://www.amazon.sg" + str(page.find("li",{"class":"a-last"}).find("a")["href"])
+            return url
+        else:
+            return
+    except TypeError:
+        return
+    except AttributeError:
         return
 
 soup = getdata(url)
@@ -78,3 +86,4 @@ while True:
         if not url:
             f.close()
             print("End of CSV Writing")
+            break
