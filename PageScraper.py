@@ -1,3 +1,4 @@
+from xml.dom.minidom import Attr
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 s = HTMLSession()

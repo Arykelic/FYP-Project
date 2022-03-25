@@ -28,7 +28,7 @@ def getnextpage(soup):
 filename = "{}_Catalogue.csv".format(search_term)
 f = open(filename, "w", encoding="utf-8")
 
-headers = "Image_Url, Item_Name, Item_Price, Average_Rating, Number_Review\n"
+headers = "Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings\n"
 
 f.write(headers)
     
@@ -61,20 +61,20 @@ while True:
                 Average_Rating_Container = container.findAll("span", {"class":"a-icon-alt"})
                 Average_Rating = Average_Rating_Container[0].text[0:4]
 
-                Number_Review_Container = container.findAll("span", {"class":"a-size-base s-underline-text"})
-                Number_Review = Number_Review_Container[0].text
+                Number_Of_Ratings_Container = container.findAll("span", {"class":"a-size-base s-underline-text"})
+                Number_Of_Ratings = Number_Of_Ratings_Container[0].text
 
             except:
                 Average_Rating = ""
-                Number_Review = ""
+                Number_Of_Ratings = ""
 
             print("Image Url: " + Image_Url)
             print("Item_Name: " + Item_Name)
             print("Item_Price: " + Item_Price)
             print("Average_Rating: " + Average_Rating)
-            print("Number_Review: " + Number_Review)
+            print("Number_Review: " + Number_Of_Ratings)
             
-            f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Item_Price.replace(",", "'") + "," + Average_Rating.replace(",", "'") + "," + Number_Review.replace(",", "'") + "\n")
+            f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Item_Price.replace(",", "'") + "," + Average_Rating.replace(",", "'") + "," + Number_Of_Ratings.replace(",", "'") + "\n")
         
     url = getnextpage(soup)
     if not url:
