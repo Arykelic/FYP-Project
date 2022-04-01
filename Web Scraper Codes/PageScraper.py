@@ -32,7 +32,7 @@ search_term
 filename = "{}_Page.csv".format(search_term)
 f = open(filename, "w")
 
-headers = "Image_Url, Item_Name, Item_Price, Username, Rating_Score, Review_Description, Review_Date \n"
+headers = "Image_Url, Item_Name, Item_Price, Username, Rating_Score (Max Score is 5), Review_Description, Review_Date \n"
 
 f.write(headers)
 

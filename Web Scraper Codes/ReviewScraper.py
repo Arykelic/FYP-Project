@@ -32,7 +32,7 @@ search_term = search_term_value.strip().replace('"', ",").replace("|",",")
 filename = "{}_Reviews.csv".format(search_term)
 f = open(filename, "w", encoding="utf-8")
 
-headers = "Image_Url, Item_Name, Username, Rating_Score, Review_Description, Review_Date \n"
+headers = "Image_Url, Item_Name, Username, Rating_Score (Max Score is 5), Review_Description, Review_Date \n"
 
 f.write(headers)
     

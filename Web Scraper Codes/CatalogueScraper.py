@@ -28,7 +28,7 @@ def getnextpage(soup):
 filename = "{}_Catalogue.csv".format(search_term)
 f = open(filename, "w", encoding="utf-8")
 
-headers = "Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings\n"
+headers = "Image_Url, Item_Name, Item_Price, Average_Rating (Max Score is 5), Number_Of_Ratings\n"
 
 f.write(headers)
     

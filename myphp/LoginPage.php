@@ -65,7 +65,7 @@
 <html>
 
 <head>
-	<title>Electronic Prescription System</title>
+	<title>eCommerce Insider</title>
 	<link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -107,8 +107,8 @@ img{
 <body>
     <div class="login-form">
     <form  method="POST" action="LoginPage.php">
-        <h2 class="text-center">Log in</h2>
-        <p><img src="aws-marketplace-logo.png" alt="logo"></p>    
+        <h2 class="text-center">Log in to eCommerce Insight</h2>
+        <p><img src="ecommerce_marketing-01_1.png" alt="logo"></p>    
         <label>Username</label>&ensp;<input type="text" class="form-control" name="username" placeholder="Username" required> <br>
         <label>Password</label>&ensp;<input type="password" class="form-control" name="password" placeholder="Password" required> <br>
         <br>
