@@ -7,14 +7,17 @@ search_term = input('>')
 print(f'Filtering out {search_term}')
 url = "https://www.amazon.sg/s?k={}".format(search_term)
 
+#Download the webpage
 def getdata(url):
     r = s.get(url)
     soup = BeautifulSoup(r.text, "html.parser")
     return soup
 
+#Parse next pagination
 def getnextpage(soup):
     try:
         page = soup.find("span", {"class":"s-pagination-strip"})
+        #if not last page
         if not page.find("span", {"class":"s-pagination-item s-pagination-next s-pagination-disabled "}):
             url = "https://www.amazon.sg" + str(page.find("a",{"class":"s-pagination-item s-pagination-next s-pagination-button s-pagination-separator"})["href"])
             return url
@@ -25,16 +28,18 @@ def getnextpage(soup):
     except AttributeError:
         return
 
+#conversion of data into CSV
 filename = "{}_Catalogue.csv".format(search_term)
 f = open(filename, "w", encoding="utf-8")
 
-headers = "Image_Url, Item_Name, Item_Price, Average_Rating (Max Score is 5), Number_Of_Ratings\n"
+headers = "Image_Url, Item_Name, Item_Price, Average_Rating (Max Score is 5), Number_Of_Ratings \n"
 
 f.write(headers)
     
 while True:
     soup = getdata(url)
     #pulling all data sets on current page and verifying length
+    #create containers group
     containers = soup.findAll("div",{"class":"sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20"})
     #use below line to check the length of the dataset
     #len(containers)
@@ -46,7 +51,7 @@ while True:
 
     #f.write(headers)
 
-    #loop
+    #loop inside each container
     for container in containers:
             Image_Url_Container = container.findAll("div", {"class":"a-section aok-relative s-image-square-aspect"})
             Image_Url = Image_Url_Container[0].img["src"]
@@ -65,6 +70,7 @@ while True:
                 Number_Of_Ratings = Number_Of_Ratings_Container[0].text
 
             except:
+                Item_Price = ""
                 Average_Rating = ""
                 Number_Of_Ratings = ""
 
@@ -75,7 +81,8 @@ while True:
             print("Number_Review: " + Number_Of_Ratings)
             
             f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Item_Price.replace(",", "'") + "," + Average_Rating.replace(",", "'") + "," + Number_Of_Ratings.replace(",", "'") + "\n")
-        
+
+    #parse the next url    
     url = getnextpage(soup)
     if not url:
         f.close()
