@@ -167,7 +167,7 @@
 }
 
 .block {
-	max-width:1500px;
+	max-width:100px;
 	margin: auto;
 	padding: 30px;
 	border: 6px solid grey;
@@ -177,7 +177,7 @@
 
 .naming{
 	font-size:30px;
-	
+	background: #5203fc;
 }
 
 .question-text{

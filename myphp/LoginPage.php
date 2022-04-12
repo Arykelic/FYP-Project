@@ -1,106 +1,20 @@
-<?php
-    include_once("LoginController.php");
-    include_once("UserController.php");
-      session_start();
-      $_SESSION = array();
-	  
-    if($_SERVER['REQUEST_METHOD']=='POST')
-    {
-		//create logincontrol variable
-        $LoginControl = new LoginControl();
-		//send validation to login controller class
-        $validation = $LoginControl->onSubmit($_POST['username'],$_POST['password']);
-		//retrieve information from controller
-		
-        if($validation==false)
-        {
-            echo '<script>alert("Wrong Username/Password")</script>';
-        }
-        else{
-            $userid = $_SESSION['validation']["0"];
-            $username = $_SESSION['validation']["1"];
-            $UserProfile = $_SESSION['validation']["3"];
-            
-            //create session variables
-            $_SESSION['userid']=$userid;
-            $_SESSION['username']=$username;
-            //$_SESSION['password']=$password;
-            $_SESSION['UserProfile']=$UserProfile;
-            
-            $UserControl = new UserControl(); //create new user controller class to run retrieveUserProfileID function
-            $validation2 = $UserControl->retrieveUserProfileID($userid,$UserProfile); // retrieves UserProfile info using userid and userprofile
-            if($validation2==true)
-            {
-                $UserProfileInfo = $_SESSION['validation']["0"]; // uses first entry of userprofile info
-                $UCUserProfile = ucfirst($UserProfile); // changes userprofile first letter to capital
-                $ProfileID = $UCUserProfile."Id"; // add ID to userprofile to reference to the desired userprofileid
-                $UserProfileID = $UserProfileInfo[$ProfileID]; // assigns to the userprofileid
-                $_SESSION['UserProfileID']=$UserProfileID; //assigns to the session userprofileid
-            }
-            
-            if ($_SESSION['UserProfile']!=null){
-                switch($_SESSION['UserProfile'])
-                {
-                    case 'admin':
-                        header("Location:Admin_Main_Page.php");
-                        break;
 
-                    case 'doctor':
-                        header("Location:Doctor_Main_Page.php");
-                        break;
-
-                    case 'patient':
-                        header("Location:Patient_Main_Page.php");
-                        break;
-
-                    case 'pharmacist':
-                        header("Location:Pharmacist_Main_Page.php");
-                        break;
-                }
-            }
-        }
-        
-    }
-?>
 <html>
 
 <head>
 	<title>eCommerce Insider</title>
-	<link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+     <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <style>
-        .login-form {
-    width: 340px;
-    margin: 50px auto;
-  	font-size: 15px;
-}
-.login-form form {
-    margin-bottom: 15px;
-    background: #f7f7f7;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    padding: 30px;
-}
-.login-form h2 {
-    margin: 0 0 15px;
-}
-.form-control, .btn {
-    min-height: 38px;
-    border-radius: 2px;
-}
-.btn {        
-    margin: 0 0 0 0;
-    font-size: 15px;
-    font-weight: bold;
-}
-img{
-    width: 100%;
-    height: auto;
-}
-    </style>
+    
+    
 
 </head>
 
