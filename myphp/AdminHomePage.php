@@ -43,7 +43,7 @@
                         </ul>
                     </li>
                     <li class="d-flex">
-                        <button class="btn btn-primary  " type="button" href="#" >Logout</button>
+                        <button class="btn btn-primary float-end" type="button" href="#" >Logout</button>
                     </li>
                 </ul>
             </div>
