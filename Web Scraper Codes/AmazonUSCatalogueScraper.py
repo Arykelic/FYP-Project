@@ -1,6 +1,7 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 import re
+import os
 s = HTMLSession()
 
 #my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
@@ -34,7 +35,7 @@ filename = "{}_Reviews.csv".format(search_term)
 f = open(filename, "w", encoding="utf-8")
 
 #headers = "Image_Url, Item_Name, Username, Rating_Score (Max Score is 5), Review_Description, Review_Date \n"
-headers = "Image_Url, Item_Name, Username, Rating_Score (Max Score is 5), Review_Date \n"
+headers = "Image_Url, Item_Name, Username, Rating_Score (Max Score is 5), Review_Location, Review_Date \n"
 
 
 f.write(headers)
@@ -71,6 +72,10 @@ while True:
                 #Review_Description_Value = Review_Description_Container[0].text
                 #Review_Description = Review_Description_Value.strip()
 
+                Review_Location_Container = container.findAll("span", {"class": "a-size-base a-color-secondary review-date"})
+                Review_Location = Review_Location_Container[0].text[12:]
+                Review_Location_Cleaned = Review_Location.strip
+
                 Review_Date_Container = container.findAll("span", {"class": "a-size-base a-color-secondary review-date"})
                 Review_Date = Review_Date_Container[0].text[12:]
 
@@ -80,13 +85,14 @@ while True:
                 print("Username: " + Username)
                 print("Rating_Score: " + Rating_Score)
                 #print("Review_Description: " + Review_Description)
+                print("Review_Location: " + Review_Location)
                 print("Review_Date: " + Review_Date)
 
                 #f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Username.replace(",", ".") 
                 #+ "," + Rating_Score.replace(",", ".") + "," + Review_Description.replace(",", "'").replace("\U0001f60a",":)") + "," + Review_Date.replace(",", "'") + "\n")
 
                 f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Username.replace(",", ".") 
-                + "," + Rating_Score.replace(",", ".") + ","  + Review_Date.replace(",", "'") + "\n")
+                + "," + Rating_Score.replace(",", ".") + "," + Review_Location.replace(",", "|") + "," + Review_Date.replace(",", "'") + "\n")
         
         url = getnextpage(soup)
         if not url:
