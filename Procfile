@@ -1,1 +1,1 @@
-web: sh setup.sh && vendor/bin/heroku-php-apache2 WebApp/Login.php
+web: sh setup.sh && vendor/bin/heroku-php-apache2 WebApp/

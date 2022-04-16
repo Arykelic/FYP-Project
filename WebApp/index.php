@@ -1,94 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Music-to-go</title>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Welcome to eCommerce Insight</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</head>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row px-3">
+        <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+          <div class="img-left d-none d-md-flex"></div>
+          <div class="card-body">
+            <h4 class="title text-center mt-4">
+              Login into account
+            </h4>
+            <form class="form-box px-3">
+              <div class="form-input">
+                <span><i class="fa fa-envelope-o"></i></span>
+                <input type="username" name="" placeholder="username" tabindex="10" required>
+              </div>
+              <div class="form-input">
+                <span><i class="fa fa-key"></i></span>
+                <input type="password" name="" placeholder="password" required>
+              </div>
+              <div class="mb-3">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="cb1" name="">
+                  <label class="custom-control-label" for="cb1">
+                    Remember me</label>
+                </div>
+              </div>
 
-<body>
-    <div class="container-fluid p-5 my-5 bg-dark text-white text-center ">
-        <h1>Hello, <b></b>. Welcome to eCommerce Insight (Admin)</h1>
+              <div class="mb-3">
+                <button type="submit" class="btn btn-block text-uppercase">
+                  Login
+                </button>
+              </div>
 
-    </div>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="AdminHomePage.php">Home</a>
+              <div class="text-right">
+                <a href="#" class="forget-link">
+                  Forget Password?
+                </a>
+              </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+              <div class="text-center mb-3">
+                or login with
+              </div>
+              <div class="row mb-3">
+                <div class="col-4">
+                  <a href="#" class="btn btn-block btn-social btn-facebook">
+                    facebook
+                  </a>
+                </div>
 
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Add User Accounts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Search User Accounts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Manage User Accounts</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dropdown</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Link</a></li>
-                            <li><a class="dropdown-item" href="#">Another link</a></li>
-                            <li><a class="dropdown-item" href="#">A third link</a></li>
-                        </ul>
-                    </li>
-                    <li class="d-flex">
-                        <button class="btn btn-primary float-end" type="button" href="#" >Logout</button>
-                    </li>
-                </ul>
-            </div>
+                <div class="col-4">
+                  <a href="#" class="btn btn-block btn-social btn-google">
+                    google
+                  </a>
+                </div>
+
+                <div class="col-4">
+                  <a href="#" class="btn btn-block btn-social btn-twitter">
+                    twitter
+                  </a>
+                </div>
+              </div>
+
+              <hr class="my-4">
+              <div class="text-center mb-2">
+                Don't have an account?
+                <a href="#" class="register-link">
+                  Register here
+                </a>
+              </div>
+            </form>
+          </div>
         </div>
-    </nav>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-4 text-white">Conditions of Use</div>
-                <div class="col-sm-4 text-white">Privacy Statement</div>
-                <div class="col-sm-4 text-white">2022, eCommerce Insight</div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="form-style">
-        <label class="naming">User Account Management</label>
+      </div>
     </div>
-
-    <div class="block">
-        <div class="form-style">
-
-            <br>
-            <table class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Rent Id</th>
-                        <th>User Id</th>
-                        <th>Product Id</th>
-                        <th>Rent Start Date</th>
-                        <th>Rent End Date</th>
-                        <th>Returned Date</th>
-                        <th>Rent Status</th>
-                        <th>Payment Status</th>
-                        <th>Payment Amount</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-</body>
-
+  </body>
 </html>
