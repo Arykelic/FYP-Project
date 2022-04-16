@@ -5,6 +5,7 @@
 
     RewriteEngine On
 
+    DirectoryIndex Login.php
     RewriteCond %{REQUEST_URI} !^public
     RewriteRule ^(.*) public/$1 [L]
     # Redirect Trailing Slashes If Not A Folder...
