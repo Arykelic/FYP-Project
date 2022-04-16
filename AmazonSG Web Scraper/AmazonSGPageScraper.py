@@ -28,12 +28,12 @@ containers = soup.findAll("div", {"class": "a-section celwidget"})
 
 search_term_value = soup.find("span", {"class": "a-size-large product-title-word-break"}).text
 search_term_stripped = search_term_value.strip()
-search_term = search_term_stripped.replace('"', ",").replace("|",",")
+search_term = search_term_stripped.replace('"', ",").replace("|",",").replace("-",",")
 
 #Change Directory
 os.chdir('AmazonSG Page Files')
 
-filename = "{}_Page.csv".format(search_term)
+filename = "{}+Page.csv".format(search_term)
 f = open(filename, "w")
 
 headers = "Image_Url, Item_Name, Item_Price, Username, Rating_Score (Max Score is 5), Review_Description, Review_Date \n"

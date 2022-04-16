@@ -29,12 +29,12 @@ def getnextpage(soup):
 
 soup = getdata(url)
 search_term_value = soup.find("h1", {"class":"a-size-large a-text-ellipsis"}).text
-search_term = search_term_value.strip().replace('"', ",").replace("|",",").replace("/",",")
+search_term = search_term_value.strip().replace('"', ",").replace("|",",").replace("/",",").replace("-",",")
 
 #Change Directory
 os.chdir('AmazonSG Review Files')
 
-filename = "{}_Reviews.csv".format(search_term)
+filename = "{}+Reviews.csv".format(search_term)
 f = open(filename, "w", encoding="utf-8")
 #headers = "Image_Url, Item_Name, Username, Rating_Score (Max Score is 5), Review_Description, Review_Date \n"
 headers = "Image_Url, Item_Name, Username, Rating_Score (Max Score is 5), Review_Location, Review_Date \n"
