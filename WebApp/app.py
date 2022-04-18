@@ -1,3 +1,10 @@
+import sys
+from streamlit import cli as stcli
+
+if __name__ == '__main__':
+    sys.argv = ["streamlit", "run", "app,py"]
+    sys.exit(stcli.main())
+
 import streamlit as st
 import numpy as np
 import pandas as pd
