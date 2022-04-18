@@ -1,10 +1,5 @@
 import sys
-from streamlit import cli as stcli
-
-if __name__ == '__main__':
-    sys.argv = ["streamlit", "run", "app,py"]
-    sys.exit(stcli.main())
-
+import subprocess
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -18,6 +13,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from streamlit_lottie import st_lottie
+
+subprocess.run([f"{sys.executable}", "app.py"])
 
 st.set_page_config(layout="wide")
 
