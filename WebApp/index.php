@@ -119,7 +119,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </h4>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-box px-3">
 
-              <div class="form-input <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+              <div class="form-input">
                 <span><i class="fa fa-envelope-o"></i></span>
                 <input type="text" name="username" placeholder="username" tabindex="10" required>
               </div>
@@ -152,35 +152,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <button type="submit" class="btn btn-block text-uppercase">
                   Login
                 </button>
-              </div>
-
-              <div class="text-right">
-                <a href="#" class="forget-link">
-                  Forget Password?
-                </a>
-              </div>
-
-              <div class="text-center mb-3">
-                or login with
-              </div>
-              <div class="row mb-3">
-                <div class="col-4">
-                  <a href="#" class="btn btn-block btn-social btn-facebook">
-                    facebook
-                  </a>
-                </div>
-
-                <div class="col-4">
-                  <a href="#" class="btn btn-block btn-social btn-google">
-                    google
-                  </a>
-                </div>
-
-                <div class="col-4">
-                  <a href="#" class="btn btn-block btn-social btn-twitter">
-                    twitter
-                  </a>
-                </div>
               </div>
 
               <hr class="my-4">

@@ -16,9 +16,7 @@ for i,row in empdata.iterrows():
             #here %S means string values 
             sql = "INSERT INTO cataloguedata (image_url, item_name, item_price, average_rating, number_of_ratings) VALUES (%s,%s,%s,%s,%s)"
             cursor.execute(sql, tuple(row))
-            count = 0
-            print("Record inserted" + count)
-            count = count + 1
+            print("Record inserted")
             # the connection is not auto committed by default, so we must commit to save our changes
             connection.commit()
 
