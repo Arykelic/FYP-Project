@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT userid, username, password, usertype FROM user WHERE username = ?";
+        $sql = "SELECT userid, username, password, firstname, lastname, usertype FROM user WHERE username = ?";
         
         if($stmt = $mysqli->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if($stmt->num_rows == 1){                    
                     // Bind result variables
-                    $stmt->bind_result($userid, $username, $passwordtest, $usertype);
+                    $stmt->bind_result($userid, $username, $passwordtest, $firstname, $lastname, $usertype);
                     if($stmt->fetch()){
                         if(password_verify($password, $passwordtest)){
                             // Password is correct, so start a new session
@@ -62,15 +62,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["usertype"] = $usertype;
 							
 							
-							// Redirect user to welcome page based on role
-							if($usertype == "admin"){
-								header("location: AdminHome.php");
-								}
-							if($usertype == "user"){
-								header("location: UserHome.php");
-							}
-                            
-                            
+                            if ($_SESSION['usertype']!=null){
+                              switch($_SESSION['usertype'])
+                              {
+                                  case 'Admin':
+                                      header("Location:AdminHomePage.php");
+                                      break;
+              
+                                  case 'User':
+                                      header("Location:UserHomePage.php");
+                                      break;
+                              }
+                          }                            
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -119,47 +122,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </h4>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-box px-3">
 
-              <div class="form-input">
+              <div class="form-input <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <span><i class="fa fa-envelope-o"></i></span>
-                <input type="text" name="username" placeholder="username" tabindex="10" required>
+                <input type="text" name="username" placeholder="username" tabindex="10" value="<?php echo $username; ?>" required>
+                <label class="error"><?php echo $username_err; ?></label>
               </div>
 
-              <div class="question-text <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
-			          <input type="text" name="username" class="input-field" value="<?php echo $username; ?>">
-                <label class="error"><?php echo $username_err; ?></label>
-            </div>
-                
-            <div class="question-text <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input type="password" name="password" class="input-field">
-                <label class="error"><?php echo $password_err; ?></label>
-            </div>
-
-              <div class="form-input">
+              <div class="form-input <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <span><i class="fa fa-key"></i></span>
                 <input type="password" name="" placeholder="password" required>
+                <label class="error"><?php echo $password_err; ?></label>
               </div>
-              <div class="mb-3">
+<!--               <div class="mb-3">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="cb1" name="">
                   <label class="custom-control-label" for="cb1">
                     Remember me</label>
                 </div>
-              </div>
+              </div> -->
 
               <div class="mb-3">
                 <button type="submit" class="btn btn-block text-uppercase">
                   Login
                 </button>
               </div>
-
               <hr class="my-4">
               <div class="text-center mb-2">
-                Don't have an account?
-                <a href="#" class="register-link">
-                  Register here
-                </a>
                 <a href="AdminHomePage.php" class="register-link">
                   Dashboard
                 </a>
@@ -168,6 +156,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </a>
               </div>
             </form>
+
           </div>
         </div>
       </div>

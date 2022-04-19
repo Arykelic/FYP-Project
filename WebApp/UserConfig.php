@@ -6,19 +6,19 @@ $password = "moMOpaacUP";
 $dbname = "y0vryqAKXK";
 
 // Create connection
-$mysqli = new mysqli($servername, $username, $password);
+//$mysqli = new mysqli($servername, $username, $password);
 // Check connection
-if ($mysqli->connect_error) 
-{ die("Connection failed: " . $mysqli->connect_error); }
+//if ($mysqli->connect_error) 
+//{ die("Connection failed: " . $mysqli->connect_error); }
 
 // Create database
-$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
-if ($mysqli->query($sql) === TRUE)
+//$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
+//if ($mysqli->query($sql) === TRUE)
 { /* echo "Database exists or created successfully","<br>"; */ }
-else
+//else
 { /* echo "Error creating database: " . $mysqli->error; */ }
 
-$mysqli->close();
+//$mysqli->close();
 
 // Create connection
 $mysqli = new mysqli($servername, $username, $password, $dbname);
