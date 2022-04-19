@@ -119,16 +119,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <h4 class="title text-center mt-4">
               Login into account
             </h4>
-            <form class="form-box px-3">
-              <div class="form-input">
+            <form class="form-box px-3" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
+
+            <div class="form-input">
                 <span><i class="fa fa-envelope-o"></i></span>
-                <input type="username" name="username" placeholder="username" tabindex="10" required>
+                <input type="username" name="username" placeholder="username" tabindex="10" value="<?php echo $username; ?>" required>
+                <label class="error"><?php echo (!empty($username_err)) ? 'has-error' : ''; ?></label>
+                <label class="error"><?php echo $username_err; ?></label>
               </div>
+
               <div class="form-input">
                 <span><i class="fa fa-key"></i></span>
                 <input type="password" name="password" placeholder="password" required>
+                <label class="error"><?php echo (!empty($password_err)) ? 'has-error' : ''; ?></label>
+                <label class="error"><?php echo $password_err; ?></label>
               </div>
-
+        
               <!-- <div class="mb-3">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="cb1" name="">
