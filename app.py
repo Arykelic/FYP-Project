@@ -97,8 +97,8 @@ with header:
     col2.metric("Total No. of Items", len(item_list))
     col3.metric("Total No. of Rated Scores", len(rs_list))
 
-st.write("check out this [link](https://share.streamlit.io/mesmith027/streamlit_webapps/main/MC_pi/streamlit_app.py)")
-navigation_button = st.sidebar.button('Back', on_click="AdminHomePage.php")
+st.sidebar.write("check out this [link](https://fyp-project-recommender-system.herokuapp.com/AdminHomePage.php)")
+navigation_button = st.sidebar.button('Back', on_click="https://fyp-project-recommender-system.herokuapp.com/AdminHomePage.php")
 with option1:
     
     askcategory = st.sidebar.radio("Do you want to view the overall plots?" + '📊',('Yes', 'No'), index=0)
