@@ -99,7 +99,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -108,6 +107,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- JavaScript Bundle with Popper -->
@@ -131,13 +131,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span><i class="fa fa-key"></i></span>
                 <input type="password" name="" placeholder="password" required>
               </div>
-              <div class="mb-3">
+              <!-- <div class="mb-3">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="cb1" name="">
                   <label class="custom-control-label" for="cb1">
                     Remember me</label>
                 </div>
-              </div>
+              </div> -->
 
               <div class="mb-3">
                 <button type="submit" class="btn btn-block text-uppercase">
@@ -151,28 +151,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </a>
               </div>
 
-              <div class="text-center mb-3">
-                or login with
-              </div>
-              <div class="row mb-3">
-                <div class="col-4">
-                  <a href="#" class="btn btn-block btn-social btn-facebook">
-                    facebook
-                  </a>
-                </div>
-
-                <div class="col-4">
-                  <a href="#" class="btn btn-block btn-social btn-google">
-                    google
-                  </a>
-                </div>
-
-                <div class="col-4">
-                  <a href="#" class="btn btn-block btn-social btn-twitter">
-                    twitter
-                  </a>
-                </div>
-              </div>
 
               <hr class="my-4">
               <div class="text-center mb-2">
