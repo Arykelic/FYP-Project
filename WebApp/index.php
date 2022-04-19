@@ -129,13 +129,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span><i class="fa fa-key"></i></span>
                 <input type="password" name="" placeholder="password" required>
               </div>
-              <div class="mb-3">
+              
+              <!-- <div class="mb-3">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="cb1" name="">
                   <label class="custom-control-label" for="cb1">
                     Remember me</label>
                 </div>
-              </div>
+              </div> -->
 
               <div class="mb-3">
                 <button type="submit" class="btn btn-block text-uppercase">
@@ -149,29 +150,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </a>
               </div>
 
-              <div class="text-center mb-3">
-                or login with
-              </div>
-              <div class="row mb-3">
-                <div class="col-4">
-                  <a href="#" class="btn btn-block btn-social btn-facebook">
-                    facebook
-                  </a>
-                </div>
-
-                <div class="col-4">
-                  <a href="#" class="btn btn-block btn-social btn-google">
-                    google
-                  </a>
-                </div>
-
-                <div class="col-4">
-                  <a href="#" class="btn btn-block btn-social btn-twitter">
-                    twitter
-                  </a>
-                </div>
-              </div>
-
+              
               <hr class="my-4">
               <div class="text-center mb-2">
                 Don't have an account?

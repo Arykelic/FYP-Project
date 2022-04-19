@@ -52,6 +52,6 @@ If (!$table_exists) {
 	{ /* echo "Error creating table: " . $mysqli->error; */ }
 }
 else
-{ /* echo "Table exist.\n"; */ }
+{  echo "Table exist.\n";  }
 
 ?>
