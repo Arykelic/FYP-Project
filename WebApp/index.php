@@ -122,11 +122,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <form class="form-box px-3">
               <div class="form-input">
                 <span><i class="fa fa-envelope-o"></i></span>
-                <input type="username" name="" placeholder="username" tabindex="10" required>
+                <input type="username" name="username" placeholder="username" tabindex="10" required>
               </div>
               <div class="form-input">
                 <span><i class="fa fa-key"></i></span>
-                <input type="password" name="" placeholder="password" required>
+                <input type="password" name="password" placeholder="password" required>
               </div>
 
               <!-- <div class="mb-3">
