@@ -43,6 +43,7 @@ If (!$table_exists) {
 		firstname VARCHAR(50) NOT NULL,
 		lastname VARCHAR (50) NOT NULL,
 		phonenumber INT(8) NOT NULL,
+		birthdate DATE NOT NULL,
 		emailaddress VARCHAR(100) NOT NULL,
 		usertype VARCHAR(100) NOT NULL)";
 
@@ -52,6 +53,6 @@ If (!$table_exists) {
 	{ /* echo "Error creating table: " . $mysqli->error; */ }
 }
 else
-{  echo "Table exist.\n";  }
+{ /* echo "Table exist.\n"; */ }
 
 ?>

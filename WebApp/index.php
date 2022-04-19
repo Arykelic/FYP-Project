@@ -62,7 +62,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             $_SESSION["usertype"] = $usertype;
 							
-							
                             if ($_SESSION['usertype']!=null){
                               switch($_SESSION['usertype'])
                               {
@@ -129,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span><i class="fa fa-key"></i></span>
                 <input type="password" name="" placeholder="password" required>
               </div>
-              
+
               <!-- <div class="mb-3">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="cb1" name="">
