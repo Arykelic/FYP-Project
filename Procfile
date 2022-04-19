@@ -1,1 +1,1 @@
-web: sh setup.sh && vendor/bin/heroku-php-apache2 /WebApp && streamlit run app.py
+web: sh setup.sh && streamlit run app.py
