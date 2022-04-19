@@ -1,3 +1,103 @@
+<?php
+// Initialize the session
+session_start();
+// Check if the user is already logged in, if yes then redirect him to welcome page
+ 
+// Include config file
+include "GlobalClass.php";
+include "UserConfig.php";
+ 
+// Define variables and initialize with empty values
+$username = $password = "";
+$username_err = $password_err = "";
+ 
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+    // Check if username is empty
+    if(empty(test_input($_POST["username"]))){
+        $username_err = "Please enter username.";
+    } else{
+        $username = test_input($_POST["username"]);
+    }
+    
+    // Check if password is empty
+    if(empty(test_input($_POST["password"]))){
+        $password_err = "Please enter your password.";
+    } else{
+        $password = test_input($_POST["password"]);
+    }
+    
+    // Validate credentials
+    if(empty($username_err) && empty($password_err)){
+        // Prepare a select statement
+        $sql = "SELECT userid, username, password, firstname, lastname, usertype FROM user WHERE username = ?";
+        
+        if($stmt = $mysqli->prepare($sql)){
+            // Bind variables to the prepared statement as parameters
+            $stmt->bind_param("s", $param_username);
+            
+            // Set parameters
+            $param_username = $username;
+            
+            // Attempt to execute the prepared statement
+            if($stmt->execute()){
+                // Store result
+                $stmt->store_result();
+                
+                // Check if username exists, if yes then verify password
+                if($stmt->num_rows == 1){                    
+                    // Bind result variables
+                    $stmt->bind_result($userid, $username, $passwordtest, $firstname, $lastname, $usertype);
+                    if($stmt->fetch()){
+                        #if(password_verify($password, $passwordtest))
+                        if($password == $passwordtest)
+                        {
+                            // Password is correct, so start a new session
+                            session_start();
+                            
+                            // Store data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["userid"] = $userid;
+                            $_SESSION["username"] = $username;                            
+                            $_SESSION["usertype"] = $usertype;
+							
+							
+                            if ($_SESSION['usertype']!=null){
+                              switch($_SESSION['usertype'])
+                              {
+                                  case 'Admin':
+                                      header("Location:adminhome.php");
+                                      break;
+              
+                                  case 'User':
+                                      header("Location:userhome.php");
+                                      break;
+                              }
+                          }                            
+                        } else{
+                            // Display an error message if password is not valid
+                            $password_err = "The password you entered was not valid.";
+                        }
+                    }
+                } else{
+                    // Display an error message if username doesn't exist
+                    $username_err = "No account found with that username.";
+                }
+            } else{
+                echo "Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            $stmt->close();
+        }
+    }
+    
+    // Close connection
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
