@@ -150,7 +150,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               </div>
               <hr class="my-4">
               <div class="text-center mb-2">
-                <a href="AdminHomePage.php" class="register-link">
+                <a href="adminhome.php" class="register-link">
                   Dashboard
                 </a>
                 <a href="app.py" class="register-link">
@@ -158,7 +158,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </a>
               </div>
             </form>
-
+            <div class="text-center mb-2">
+                <a href="adminhome.php" class="register-link">
+                  Dashboard
+                </a>
+                <a href="app.py" class="register-link">
+                  Testing app
+                </a>
+              </div>
           </div>
         </div>
       </div>
