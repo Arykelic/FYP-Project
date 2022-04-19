@@ -10,16 +10,16 @@
   </head>
   <body>
     <input type="checkbox" id="nav-toggle">
+    
     <div class="sidebar">
-
       <div class="sidebar-menu">
         <ul>
           <li>
-            <a href="" class="active"><i class="fa-solid fa-house"></i>
+            <a href="adminhome.pgp" class="active"><i class="fa-solid fa-house"></i>
             <span>Home</span></a>
           </li>
           <li>
-            <a href=""><span class="las la-users"></span>
+            <a href="manageruser.php"><span class="las la-users"></span>
             <span>Manage Users</span></a>
           </li>
           <li>
@@ -32,7 +32,7 @@
           </li>
           <li>
             <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
-            <span>Add Users</span></a>
+            <span>Logout</span></a>
           </li>
         </ul>
       </div>

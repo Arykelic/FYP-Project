@@ -11,28 +11,29 @@
   </head>
   <body>
     <input type="checkbox" id="nav-toggle">
+    
     <div class="sidebar">
-      <div class="sidebar-brand">
-        <h2><span class="lab la-eCommerce-insights"></span>E-Commerce Insights</h2>
-      </div>
-
       <div class="sidebar-menu">
         <ul>
           <li>
-            <a href="" class="active"><span class="las la-igloo"></span>
+            <a href="adminhome.pgp" class="active"><i class="fa-solid fa-house"></i>
             <span>Home</span></a>
           </li>
           <li>
-            <a href=""><span class="las la-users"></span>
+            <a href="manageruser.php"><span class="las la-users"></span>
             <span>Manage Users</span></a>
           </li>
           <li>
-            <a href=""><span class="las la-user-circle"></span>
+            <a href="edituser.php"><span class="las la-user-circle"></span>
             <span>Edit Account</span></a>
           </li>
           <li>
             <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
             <span>Add Users</span></a>
+          </li>
+          <li>
+            <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span></a>
           </li>
         </ul>
       </div>
