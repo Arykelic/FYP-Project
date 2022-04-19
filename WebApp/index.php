@@ -122,42 +122,66 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <h4 class="title text-center mt-4">
               Login into account
             </h4>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-box px-3">
-
-              <div class="form-input <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+            <form class="form-box px-3">
+              <div class="form-input">
                 <span><i class="fa fa-envelope-o"></i></span>
-                <input type="text" name="username" placeholder="username" tabindex="10" value="<?php echo $username; ?>" required>
-                <label class="error"><?php echo $username_err; ?></label>
+                <input type="username" name="" placeholder="username" tabindex="10" required>
               </div>
-
-              <div class="form-input <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+              <div class="form-input">
                 <span><i class="fa fa-key"></i></span>
-                <input type="password" name="password" placeholder="password" required>
-                <label class="error"><?php echo $password_err; ?></label>
+                <input type="password" name="" placeholder="password" required>
               </div>
-<!--               <div class="mb-3">
+              <div class="mb-3">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="cb1" name="">
                   <label class="custom-control-label" for="cb1">
                     Remember me</label>
                 </div>
-              </div> -->
+              </div>
 
               <div class="mb-3">
                 <button type="submit" class="btn btn-block text-uppercase">
                   Login
                 </button>
               </div>
-              
+
+              <div class="text-right">
+                <a href="#" class="forget-link">
+                  Forget Password?
+                </a>
+              </div>
+
+              <div class="text-center mb-3">
+                or login with
+              </div>
+              <div class="row mb-3">
+                <div class="col-4">
+                  <a href="#" class="btn btn-block btn-social btn-facebook">
+                    facebook
+                  </a>
+                </div>
+
+                <div class="col-4">
+                  <a href="#" class="btn btn-block btn-social btn-google">
+                    google
+                  </a>
+                </div>
+
+                <div class="col-4">
+                  <a href="#" class="btn btn-block btn-social btn-twitter">
+                    twitter
+                  </a>
+                </div>
+              </div>
+
+              <hr class="my-4">
+              <div class="text-center mb-2">
+                Don't have an account?
+                <a href="#" class="register-link">
+                  Register here
+                </a>
+              </div>
             </form>
-            <div class="text-center mb-2">
-                <a href="adminhome.php" class="register-link">
-                  Dashboard
-                </a>
-                <a href="app.py" class="register-link">
-                  Testing app
-                </a>
-            </div>
           </div>
         </div>
       </div>
