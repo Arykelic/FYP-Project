@@ -96,9 +96,11 @@ with header:
     col1.metric("Total No. of Customers",len(user_list))
     col2.metric("Total No. of Items", len(item_list))
     col3.metric("Total No. of Rated Scores", len(rs_list))
-    
-with option1:
 
+st.write("check out this [link](https://share.streamlit.io/mesmith027/streamlit_webapps/main/MC_pi/streamlit_app.py)")
+navigation_button = st.sidebar.button('Back', on_click="AdminHomePage.php")
+with option1:
+    
     askcategory = st.sidebar.radio("Do you want to view the overall plots?" + '📊',('Yes', 'No'), index=0)
      
     if askcategory == 'Yes':
