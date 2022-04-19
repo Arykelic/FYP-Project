@@ -1,6 +1,0 @@
-pandas
-xlrd
-streamlit
-plotly
-surprise
-streamlit_lottie
