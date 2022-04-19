@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>E-Commerce Insight Admin</title>
+    <title>E-Commerce Insight (Admin)</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
@@ -11,14 +11,11 @@
   <body>
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
-      <div class="sidebar-brand">
-        <h2><span class="lab la-eCommerce-insights"></span>E-Commerce Insights</h2>
-      </div>
 
       <div class="sidebar-menu">
         <ul>
           <li>
-            <a href="" class="active"><span class="las la-igloo"></span>
+            <a href="" class="active"><i class="fa-solid fa-house"></i>
             <span>Home</span></a>
           </li>
           <li>
@@ -26,7 +23,7 @@
             <span>Manage Users</span></a>
           </li>
           <li>
-            <a href=""><span class="las la-user-circle"></span>
+            <a href="edituser.php"><span class="las la-user-circle"></span>
             <span>Edit Account</span></a>
           </li>
           <li>
@@ -34,7 +31,7 @@
             <span>Add Users</span></a>
           </li>
           <li>
-            <a href="Logout.php"><i class="fa-solid fa-user-plus"></i>
+            <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
             <span>Add Users</span></a>
           </li>
         </ul>
@@ -47,7 +44,7 @@
           <label for="nav-toggle">
             <span class="las la-bars"></span>
           </label>
-          Home
+          E-Commerce Insights (Admin)(Home)
         </h2>
         <div class="search-wrapper">
           <span class="las la-search"></span>

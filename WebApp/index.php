@@ -117,7 +117,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <div class="img-left d-none d-md-flex"></div>
           <div class="card-body">
             <h4 class="title text-center mt-4">
-              Login into account
+              Login into e-Commerce Insight
             </h4>
             <form class="form-box px-3" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
 
@@ -148,21 +148,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   Login
                 </button>
               </div>
-
+  
+              <hr class="my-4">
               <div class="text-right">
                 <a href="#" class="forget-link">
                   Forget Password?
                 </a>
               </div>
 
-              
-              <hr class="my-4">
-              <div class="text-center mb-2">
-                Don't have an account?
-                <a href="#" class="register-link">
-                  Register here
-                </a>
-              </div>
             </form>
           </div>
         </div>
