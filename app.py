@@ -98,6 +98,7 @@ with header:
     col3.metric("Total No. of Rated Scores", len(rs_list))
 
 st.sidebar.write("check out this [link](https://fyp-project-recommender-system.herokuapp.com/AdminHomePage.php)")
+st.sidebar.write("check out this [link](AdminHomePage.php)")
 navigation_button = st.sidebar.button('Back', on_click="https://fyp-project-recommender-system.herokuapp.com/AdminHomePage.php")
 with option1:
     
@@ -110,8 +111,7 @@ with option1:
         useryes = st.sidebar.checkbox('Customers')
         ratingyes = st.sidebar.checkbox('Rating Scores')
        
-     
-    
+        
 
         if itemyes:
             
