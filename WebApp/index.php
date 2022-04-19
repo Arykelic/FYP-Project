@@ -68,11 +68,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                               switch($_SESSION['usertype'])
                               {
                                   case 'Admin':
-                                      header("Location:AdminHomePage.php");
+                                      header("Location:adminhome.php");
                                       break;
               
                                   case 'User':
-                                      header("Location:UserHomePage.php");
+                                      header("Location:userhome.php");
                                       break;
                               }
                           }                            
@@ -148,15 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   Login
                 </button>
               </div>
-              <hr class="my-4">
-              <div class="text-center mb-2">
-                <a href="adminhome.php" class="register-link">
-                  Dashboard
-                </a>
-                <a href="app.py" class="register-link">
-                  Testing app
-                </a>
-              </div>
+              
             </form>
             <div class="text-center mb-2">
                 <a href="adminhome.php" class="register-link">
@@ -165,7 +157,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <a href="app.py" class="register-link">
                   Testing app
                 </a>
-              </div>
+            </div>
           </div>
         </div>
       </div>

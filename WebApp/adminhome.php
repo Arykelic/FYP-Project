@@ -33,6 +33,10 @@
             <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
             <span>Add Users</span></a>
           </li>
+          <li>
+            <a href="Logout.php"><i class="fa-solid fa-user-plus"></i>
+            <span>Add Users</span></a>
+          </li>
         </ul>
       </div>
     </div>
