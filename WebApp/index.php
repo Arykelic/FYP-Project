@@ -67,11 +67,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                               switch($_SESSION['usertype'])
                               {
                                   case 'Admin':
-                                      header("Location:AdminHomePage.php");
+                                      header("Location:adminhome.php");
                                       break;
               
                                   case 'User':
-                                      header("Location:UserHomePage.php");
+                                      header("Location:userhome.php");
                                       break;
                               }
                           }                            
@@ -98,7 +98,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -107,6 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- JavaScript Bundle with Popper -->
@@ -121,20 +121,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <h4 class="title text-center mt-4">
               Login into account
             </h4>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-box px-3">
-
-              <div class="form-input <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+            <form class="form-box px-3">
+              <div class="form-input">
                 <span><i class="fa fa-envelope-o"></i></span>
-                <input type="text" name="username" placeholder="username" tabindex="10" value="<?php echo $username; ?>" required>
-                <label class="error"><?php echo $username_err; ?></label>
+                <input type="username" name="" placeholder="username" tabindex="10" required>
               </div>
-
-              <div class="form-input <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+              <div class="form-input">
                 <span><i class="fa fa-key"></i></span>
-                <input type="password" name="password" placeholder="password" required>
-                <label class="error"><?php echo $password_err; ?></label>
+                <input type="password" name="" placeholder="password" required>
               </div>
-<!--               <div class="mb-3">
+              <!-- <div class="mb-3">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="cb1" name="">
                   <label class="custom-control-label" for="cb1">
@@ -147,24 +143,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   Login
                 </button>
               </div>
+
+              <div class="text-right">
+                <a href="#" class="forget-link">
+                  Forget Password?
+                </a>
+              </div>
+
+
               <hr class="my-4">
               <div class="text-center mb-2">
-                <a href="adminhome.php" class="register-link">
-                  Dashboard
-                </a>
-                <a href="app.py" class="register-link">
-                  Testing app
+                Don't have an account?
+                <a href="#" class="register-link">
+                  Register here
                 </a>
               </div>
             </form>
-            <div class="text-center mb-2">
-                <a href="adminhome.php" class="register-link">
-                  Dashboard
-                </a>
-                <a href="app.py" class="register-link">
-                  Testing app
-                </a>
-              </div>
           </div>
         </div>
       </div>
