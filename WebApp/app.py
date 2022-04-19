@@ -1,5 +1,3 @@
-import sys
-import subprocess
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -9,12 +7,14 @@ from PIL import Image
 from surprise import Reader, Dataset
 from surprise import SVD
 import plotly.express as px
+import time
+
+from sqlalchemy import create_engine
+import pymysql
 
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from streamlit_lottie import st_lottie
-
-subprocess.run([f"{sys.executable}", "app.py"])
 
 st.set_page_config(layout="wide")
 
@@ -35,33 +35,45 @@ option3 = st.container()
 svdAlgo = st.container()
 calculate = st.container()
 
-#st.markdown("""<style>.main{background-color: #F5F5F5;}</style>""",unsafe_allow_html=True)
+db_connection_str = 'mysql+pymysql://y0vryqAKXK:moMOpaacUP@remotemysql.com/y0vryqAKXK'
 
+query = 'select * from combinedreview'
 
-
+@st.cache(allow_output_mutation=True)
+def get_connection():
+    return create_engine(db_connection_str)
 
 @st.cache
-def get_data(filename):
-    ratings  = pd.read_csv(filename)
-    return ratings
+def load_data(query):
+    with st.spinner('Loading Data...'):
+        time.sleep(0.5)
+        df = pd.read_sql(query, get_connection())
+    return df
 
+df = load_data(query)
+
+        
 def load_lottiefile(filepath: str):
     with open(filepath, 'r') as f:
         return json.load(f)
+        
 
-ratings = get_data('merged2.csv')    
-item_list = ratings.iloc[:, 1].unique().tolist() 
-user_list = ratings.iloc[:, 2].unique().tolist()
-rs_list = ratings.iloc[:, 3].tolist()
-country_list = ratings.iloc[:, 4].unique().tolist()
-date_list = ratings.iloc[:, 5].unique().tolist()
 
+#data = run_query("SELECT * from combinedreview;")
+#item = run_query("SELECT distinct item_name from combinedreview;")
+#user = run_query("SELECT distinct customername from combinedreview;")
+#rating = run_query("SELECT rating_score from combinedreview;")
+
+
+item_list = df.iloc[:, 2].unique().tolist() 
+user_list = df.iloc[:, 3].unique().tolist()
+rs_list = df.iloc[:, 4].tolist()
+country_list = df.iloc[:, 5].unique().tolist()
+date_list = df.iloc[:, 6].unique().tolist()
 
 
 with header:
-    #img1 = Image.open('system.png')
-    #img1 = img1.resize((300,250),) #length, width
-    #st.image(img1,use_column_width=False)
+
     
     lottie_img = load_lottiefile('lottie/system.json')
     
@@ -85,7 +97,6 @@ with header:
     col2.metric("Total No. of Items", len(item_list))
     col3.metric("Total No. of Rated Scores", len(rs_list))
     
-    
 with option1:
 
     askcategory = st.sidebar.radio("Do you want to view the overall plots?" + '📊',('Yes', 'No'), index=0)
@@ -102,13 +113,16 @@ with option1:
 
         if itemyes:
             
+            #item_list = [row[0] for row in item]
+            #data_list = [row[0] for row in data]
             #date_list = ratings.iloc[:, 5].unique().tolist()
             #top_n = st.sidebar.number_input("Please indicate the number of Items",min_value=1, max_value=len(item_list))
             top_n = st.sidebar.multiselect("Select Items",item_list,default=item_list[0])
             #dateopts = st.sidebar.date_input("Select Date")
             
-            filteritem = ratings[ratings['Item_Name'].isin(top_n)]
-            itemcolumns2 = filteritem['Item_Name'].str.split('|').str[0]
+            filteritem = df[df['item_name'].isin(top_n)]
+            
+            itemcolumns2 = filteritem['item_name'].str.split('|').str[0]
             itemcolumns3 = itemcolumns2.str.split('5G').str[0]
            
             
@@ -117,7 +131,7 @@ with option1:
             #filtercol4 = filtercol3.dt.strftime('%Y-%m-%d')
             
           
-            itemcrosstab = pd.crosstab(itemcolumns3, ratings['Rating_Score'])
+            itemcrosstab = pd.crosstab(itemcolumns3, df['rating_score'])
             #itemcrosstab_text = itemcrosstab.iloc[:,0].tolist()
            
            
@@ -137,8 +151,8 @@ with option1:
             #top_n = st.sidebar.slider("How many users do u want to see?", 0,999,10)
             #top_n = st.sidebar.number_input("Please indicate the number of Customers",value=10,min_value=1, max_value=len(user_list))
             top_n = st.sidebar.multiselect("Select Customers",user_list,default='Amazon Customer')
-            filteruser = ratings[ratings['Username'].isin(top_n)]
-            usercrosstab = pd.crosstab(filteruser['Username'], ratings['Rating_Score'])
+            filteruser = df[df['customername'].isin(top_n)]
+            usercrosstab = pd.crosstab(filteruser['customername'], df['rating_score'])
             
             fig = px.bar(usercrosstab,text_auto=True,title='Number of each Ratings per Customer', barmode='group')
             fig.update_layout(xaxis=dict(tickmode='linear'), width=800,plot_bgcolor='rgba(0,0,0,0)', yaxis=(dict(showgrid=False)),)
@@ -149,7 +163,7 @@ with option1:
     
         if ratingyes:
             #st.subheader('Number of each Rating Scores')
-            ratingcounts = ratings['Rating_Score'].value_counts()
+            ratingcounts = df['rating_score'].value_counts()
             
             fig3 = px.bar(ratingcounts, text=ratingcounts,color_discrete_sequence = ['#F63366'],title='Number of each Rating Scores')
             fig3.update_layout(xaxis=dict(tickmode='linear'), plot_bgcolor='rgba(0,0,0,0)', yaxis=(dict(showgrid=False)),)
@@ -163,11 +177,6 @@ with option1:
         
             rate1.plotly_chart(fig3,use_container_width=True)
             rate2.plotly_chart(fig4, use_container_width=True)
-          
-
-
-            
-            
             
 with option2:
    
@@ -184,16 +193,16 @@ with option2:
     
         
         
-        x = ratings[ratings['Item_Name'] == checkitem]
+        x = df[df['item_name'] == checkitem]
 
-        itemdetails = x['Rating_Score'].value_counts()
+        itemdetails = x['rating_score'].value_counts()
         
         st.write(checkitem)
         
         #filtercol = x['Review_Date '].str.split('Reviewed in').str[1]
         #filtercol2 = filtercol.str.split('on').str[0]
 
-        countrydetails = x['Review_Location'].value_counts()
+        countrydetails = x['review_location'].value_counts()
         
         
         
@@ -213,11 +222,12 @@ with option2:
         c2.plotly_chart(fig3, use_container_width=True)
         
         
-        sort_order = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        sort_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         
         
-        filtercol = x['Review_Date'].str.split('-').str[1]
-        filtercol2 = x['Review_Date'].str.split('-').str[2]
+        filtercol = x['review_date'].str.split(' ').str[1]
+
+        filtercol2 = x['review_date'].str.split(' ').str[2]
         filtercol3 = filtercol +' '+ filtercol2
         
         
@@ -241,7 +251,7 @@ with option2:
         
         st.markdown(f'*Available Results:* **{result}**')
         
-        dfgrouped = x[mask].groupby(by=['Rating_Score']).count()[['Review_Date']]
+        dfgrouped = x[mask].groupby(by=['rating_score']).count()[['review_date']]
         
         
         c3, c4 = st.columns(2)
@@ -302,10 +312,10 @@ with option3:
         st.markdown('''<h4 style='text-align: left; color:#28e515;'>Displaying the User's Statistics</h4>''',
                     unsafe_allow_html=True)
                     
-        dropimage = ratings.drop(columns=['Image_Url'])
+        dropimage = df.drop(columns=['image_url', 'combinedreviewid'])
         
-        x = dropimage[dropimage['Username'] == checkuser]   
-        userdetails = x['Rating_Score'].value_counts()    
+        x = dropimage[dropimage['customername'] == checkuser]   
+        userdetails = x['rating_score'].value_counts()    
                     
         st.write('**Customer name**: '+checkuser)  
         st.write('**Total no. of items rated:** ',(sum(userdetails)))            
@@ -346,11 +356,11 @@ with svdAlgo:
 
     #Define a Reader object
     #The Reader object helps in parsing the file or dataframe containing ratings
-    ratings = ratings.drop(columns=['Image_Url','Review_Date','Review_Location'])
+    df = df.drop(columns=['combinedreviewid','image_url','review_date','review_location'])
 
     reader = Reader()
     #dataset creation
-    data = Dataset.load_from_df(ratings, reader)
+    data = Dataset.load_from_df(df, reader)
     #model
     svd = SVD()
 
@@ -361,8 +371,8 @@ with svdAlgo:
     
 with calculate:
 
-    user_list = ratings.iloc[:, 1].unique().tolist()
-    item_list = ratings.iloc[:, 0].unique().tolist()
+    user_list = df.iloc[:, 1].unique().tolist()
+    item_list = df.iloc[:, 0].unique().tolist()
 
     
     usersopt = st.sidebar.selectbox('Predict a Customer Rating Score' + '⭐', ['--Please type a customer name--']+user_list)
@@ -424,20 +434,3 @@ with calculate:
                 st.sidebar.subheader('Estimated Rating Score out of 5 is:')  
                 
                 result = st.sidebar.success(svd.predict(itemsopt, usersopt).est.round(2))
-                
-                
-
-#codes for formating date
-#filtercol = x['Review_Date '].str.split('Reviewed in').str[1]
-#filtercol2 = filtercol.str.split('on').str[0]
-#filtercol3 = filtercol.str.split('on').str[1]
-#countrydetails = filtercol2.value_counts()
- 
-#date_list = filtercol3.unique().tolist()
- 
-#for d in date_list:
-#	datetimeformat = parse(d)   
-
-
-
-        
