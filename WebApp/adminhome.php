@@ -15,11 +15,11 @@
       <div class="sidebar-menu">
         <ul>
           <li>
-            <a href="adminhome.pgp" class="active"><i class="fa-solid fa-house"></i>
+            <a href="adminhome.php" class="active"><i class="fa-solid fa-house"></i>
             <span>Home</span></a>
           </li>
           <li>
-            <a href="manageruser.php"><span class="las la-users"></span>
+            <a href="manageuser.php"><span class="las la-users"></span>
             <span>Manage Users</span></a>
           </li>
           <li>
