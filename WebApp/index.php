@@ -132,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
               <div class="form-input <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <span><i class="fa fa-key"></i></span>
-                <input type="password" name="" placeholder="password" required>
+                <input type="password" name="password" placeholder="password" required>
                 <label class="error"><?php echo $password_err; ?></label>
               </div>
 <!--               <div class="mb-3">
