@@ -1,13 +1,14 @@
 <?php
 // Initialize the session
 session_start();
+
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && $_SESSION["usertype"] === "Admin" && $_SESSION["account_status"] === "Active" ){
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true && $_SESSION["usertype"] == "Admin" && $_SESSION["account_status"] == "Active"){
   header("location: adminhome.php");
   exit;
 }
 
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && $_SESSION["usertype"] === "User" && $_SESSION["account_status"] === "Active" ){
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true && $_SESSION["usertype"] == "User" && $_SESSION["account_status"] == "Active" ){
   header("location: userhome.php");
   exit;
 }
