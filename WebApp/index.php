@@ -135,15 +135,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             <div class="form-input">
                 <span><i class="fa fa-envelope-o"></i></span>
-                <input type="username" name="username" placeholder="username" tabindex="10" value="<?php echo $username; ?>">
-                <label class="error"><?php echo (!empty($username_err)) ? 'has-error' : ''; ?></label>
+                <input type="username" name="username" placeholder="username" tabindex="10" value="<?php echo $username; ?>" required>
                 <label class="error"><?php echo $username_err; ?></label>
               </div>
 
               <div class="form-input">
                 <span><i class="fa fa-key"></i></span>
-                <input type="password" name="password" placeholder="password">
-                <label class="error"><?php echo (!empty($password_err)) ? 'has-error' : ''; ?></label>
+                <input type="password" name="password" placeholder="password" required>
                 <label class="error"><?php echo $password_err; ?></label>
               </div>
         
