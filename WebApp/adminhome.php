@@ -25,6 +25,7 @@ include "UserConfig.php";
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
   </head>
   <body>
+
     <input type="checkbox" id="nav-toggle"></input>
     
     <div class="sidebar">
@@ -71,7 +72,7 @@ include "UserConfig.php";
           <span class="las la-user-circle fa-3x"></span>
           <div>
             <h4> <?php echo htmlspecialchars($_SESSION["username"]); ?> </h4>
-            <small>Super admin</small>
+            <small><?php echo htmlspecialchars($_SESSION["firstname"]); ?></small>
           </div>
         </div>
       </header>

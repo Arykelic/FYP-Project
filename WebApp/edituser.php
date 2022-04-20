@@ -41,59 +41,80 @@
 
     <div class="main-content">
       <header>
-        <h2>
-          <label for="nav-toggle">
-            <span class="las la-bars"></span>
-          </label>
-          E-Commerce Insights (Admin)(Edit Profile)
-        </h2>
-        <div class="search-wrapper">
-          <span class="las la-search"></span>
-          <input type="search" placeholder="Search here"/>
-        </div>
+          <h2>
+            <label for="nav-toggle">
+              <span class="las la-bars"></span>
+            </label>
+            E-Commerce Insights (Admin)(Home)
+          </h2>
+          <div class="search-wrapper">
+            <span class="las la-search"></span>
+            <input type="search" placeholder="Search here"/>
+          </div>
 
-        <div class="user-wrapper">
-          <span class="las la-user-circle fa-3x"></span>
-          <div>
-            <h4>Admin1</h4>
-            <small>Super admin</small>
-          </div>
-        </div>
-      </header>
-      <main>
-        <div class="pic">
-          <img src="user1.jpg" alt="profile" class="center">
-          <h2>#Admin1</h2>
-        </div>
-        <form class="row g-3">
-          <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">First name</label>
-            <input type="text" class="form-control" id="validationDefault01" required>
-          </div>
-          <div class="col-md-4">
-            <label for="validationDefault02" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="validationDefault02" required>
-          </div>
-          <div class="col-md-4">
-            <label for="validationDefaultUsername" class="form-label">Username</label>
-            <div class="input-group">
-              <span class="input-group-text" id="inputGroupPrepend2">@</span>
-              <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+          <div class="user-wrapper">
+            <span class="las la-user-circle fa-3x"></span>
+            <div>
+            <h4> <?php echo htmlspecialchars($_SESSION["username"]); ?> </h4>
+            <small><?php echo htmlspecialchars($_SESSION["firstname"]); ?></small>
             </div>
           </div>
-          <div class="col-md-6">
-            <label for="validationDefault03" class="form-label">Password</label>
-            <input type="password" class="form-control" id="validationDefault03" required>
+        </header>
+
+      <main>
+      <div class="recent-grid">
+          <div class="projects">
+            <div class="card">
+              <div class="card-header">
+                <h3>Recommender System</h3>
+
+                <button>See all<span class="las la-arrow-right"></span></button>
+              </div>
+
+              <div class="card-body">
+                <div class="table-responsive">
+                <table width="100%">
+                  <thead>
+                    <tr>
+                      <td>Project Title</td>
+                      <td>Department</td>
+                      <td>Status</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                        <td>UI/UX Design</td>
+                        <td>UI team</td>
+                        <td>
+                          <span class="status purple"></span>
+                          review
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Web Development</td>
+                        <td>Frontend</td>
+                        <td>
+                          <span class="status pink"></span>
+                          in progress
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Ushop app</td>
+                        <td>Mobile team</td>
+                        <td>
+                          <span class="status orange"></span>
+                          pending
+                        </td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+              </div>
+            </div>
           </div>
-          <div class="col-md-3">
-            <label for="validationDefault04" class="form-label">State</label>
-            <select class="form-select" id="validationDefault04" required>
-              <option selected disabled value="">Choose...</option>
-              <option>Admin</option>
-              <option>User</option>
-            </select>
-          </div>
+
       </main>
+      
     </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
