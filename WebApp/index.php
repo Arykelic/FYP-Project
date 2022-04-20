@@ -59,7 +59,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["userid"] = $userid;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["username"] = $username;
+                            $_SESSION["firstname"] = $firstname;                         
                             $_SESSION["usertype"] = $usertype;
 							
                             if ($_SESSION['usertype']!=null){

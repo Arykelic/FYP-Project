@@ -1,3 +1,19 @@
+<?php
+// Initialize the session
+session_start();
+ 
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["usertype"] !== "admin") {
+    header("location: login.php");
+    exit;
+}
+
+include "GlobalClass.php";
+include "UserConfig.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -54,7 +70,7 @@
         <div class="user-wrapper">
           <span class="las la-user-circle fa-3x"></span>
           <div>
-            <h4>Admin1</h4>
+            <h4> <?php echo htmlspecialchars($_SESSION["username"]); ?> </h4>
             <small>Super admin</small>
           </div>
         </div>
@@ -224,13 +240,13 @@
               <div class="card-body">
                 
                 <?php
-                  $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
+                  /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
                   $app_data = file_get_contents($app_link);
                   echo "<br><br>" . $app_data;
 
                   $command =  escapeshellcmd('app.py');
                   $result = shell_exec($command);
-                  echo $result; 
+                  echo $result;  */
                 ?>
 
               </div>
