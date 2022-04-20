@@ -10,6 +10,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION[
 }
 
 include "GlobalClass.php";
+include "UserConfig.php";
+
+// Define variables and initialize with empty values
+$username = $password = $manufactureyear = $characteristics = $status = $cost = $overduecost = "";
+$category_err = $brand_err = $manufactureyear_err = $characteristics_err = $status_err = $cost_err = $overduecost_err = "";
+
 ?>
 
 <!DOCTYPE html>
