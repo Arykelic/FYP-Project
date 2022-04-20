@@ -213,30 +213,29 @@
           </div>
           </div>
 
-          <div class="customers">
+         <!--  <div class="customers">
             <div class="card">
-            <div class="card-header">
-              <h3>Python Test</h3>
+              <div class="card-header">
+                <h3>Python Test</h3>
 
-              <button>See all<span class="las la-arrow-right"></span></button>
+                  <button>See all<span class="las la-arrow-right"></span></button>
+              </div>
+
+              <div class="card-body">
+                
+                <?php
+                  $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
+                  $app_data = file_get_contents($app_link);
+                  echo "<br><br>" . $app_data;
+
+                  $command =  escapeshellcmd('app.py');
+                  $result = shell_exec($command);
+                  echo $result; 
+                ?>
+
+              </div>
             </div>
-
-            <div class="card-body">
-              
-              <?php
-              $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
-              $app_data = file_get_contents($app_link);
-              echo "<br><br>" . $app_data;
-
-              $command =  escapeshellcmd('app.py');
-              $result = shell_exec($command);
-              echo $result;
-              ?>
-
-            </div>
-
-          </div>
-          </div>
+          </div> -->
 
 
         </div>
