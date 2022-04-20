@@ -75,7 +75,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["usertype"] = $usertype;
                             $_SESSION["accountstatus"] = $accountstatus;
 
-                            if ($_SESSION['accountstatus']!="Active"){
+                            if ($_SESSION['accountstatus']!=="Active"){
+                              header("Location:index.php");
                               $accountstatus_err = "Your account is locked, please contact an admin to unlock it.";
                             }
 							
