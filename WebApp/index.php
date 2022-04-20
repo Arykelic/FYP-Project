@@ -2,7 +2,16 @@
 // Initialize the session
 session_start();
 // Check if the user is already logged in, if yes then redirect him to welcome page
- 
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && $_SESSION["usertype"] === "Admin" && $_SESSION["account_status"] === "Active" ){
+  header("location: adminhome.php");
+  exit;
+}
+
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && $_SESSION["usertype"] === "User" && $_SESSION["account_status"] === "Active" ){
+  header("location: userhome.php");
+  exit;
+}
+
 // Include config file
 include "GlobalClass.php";
 include "UserConfig.php";
@@ -31,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT userid, username, password, firstname, lastname, usertype FROM user WHERE username = ?";
+        $sql = "SELECT userid, username, password, firstname, lastname, usertype, account_status FROM user WHERE username = ?";
         
         if($stmt = $mysqli->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -48,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if($stmt->num_rows == 1){                    
                     // Bind result variables
-                    $stmt->bind_result($userid, $username, $passwordtest, $firstname, $lastname, $usertype);
+                    $stmt->bind_result($userid, $username, $passwordtest, $firstname, $lastname, $usertype, $account_status);
                     if($stmt->fetch()){
                         #if(password_verify($password, $passwordtest))
                         if($password == $passwordtest)
@@ -60,8 +69,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["userid"] = $userid;
                             $_SESSION["username"] = $username;
-                            $_SESSION["firstname"] = $firstname;                         
+                            $_SESSION["firstname"] = $firstname;
+                            $_SESSION["lastname"] = $lastname;                          
                             $_SESSION["usertype"] = $usertype;
+                            $_SESSION["account_status"] = $account_status;
 							
                             if ($_SESSION['usertype']!=null){
                               switch($_SESSION['usertype'])
