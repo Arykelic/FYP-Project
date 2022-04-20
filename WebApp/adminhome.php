@@ -208,7 +208,13 @@
                 </div>
               </div>
 
-              <?php 
+              <?php
+
+              $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
+              $app_data = file_get_contents($app_link);
+
+              echo "<br><br>" . $app_data;
+
               $command =  escapeshellcmd('app.py');
               $result = shell_exec($command);
               echo $result;
