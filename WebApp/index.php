@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if($password == $passwordtest)
                         {
                           // Password is correct, so check account status
-                          if ($_SESSION['accountstatus']=="Active"){
+                          if ($_SESSION['accountstatus'] === "Active"){
                             
                             // Account status is active, so start a new session
                             session_start();
@@ -90,8 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                       break;
                               }
                           }                            
-                        }
-                        else{
+                        }else{
                           // Display an error message if account status is not valid
                           $accountstatus_err = "Your account is locked, please contact an admin to unlock it.";
                         }
