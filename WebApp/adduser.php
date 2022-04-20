@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </head>
   <body>
   <input type="checkbox" id="nav-toggle"></input>
     
-    <div class="sidebar">
+  <div class="sidebar">
       <div class="sidebar-menu">
         <ul>
           <li>
@@ -20,16 +21,16 @@
             <span>Home</span></a>
           </li>
           <li>
+            <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
+            <span>Add Users</span></a>
+          </li>
+          <li>
             <a href="manageuser.php"><span class="las la-users"></span>
             <span>Manage Users</span></a>
           </li>
           <li>
-            <a href="edituser.php"><span class="las la-user-circle"></span>
-            <span>Edit Account</span></a>
-          </li>
-          <li>
-            <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
-            <span>Add Users</span></a>
+            <a href="updatepersonalinfo.php"><span class="las la-user-circle"></span>
+            <span>Edit Personal Account</span></a>
           </li>
           <li>
             <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
@@ -99,6 +100,6 @@
 
       </main>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
   </body>
 </html>

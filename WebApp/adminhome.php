@@ -36,16 +36,16 @@ include "UserConfig.php";
             <span>Home</span></a>
           </li>
           <li>
+            <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
+            <span>Add Users</span></a>
+          </li>
+          <li>
             <a href="manageuser.php"><span class="las la-users"></span>
             <span>Manage Users</span></a>
           </li>
           <li>
-            <a href="edituser.php"><span class="las la-user-circle"></span>
-            <span>Edit Account</span></a>
-          </li>
-          <li>
-            <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
-            <span>Add Users</span></a>
+            <a href="updatepersonalinfo.php"><span class="las la-user-circle"></span>
+            <span>Edit Personal Account</span></a>
           </li>
           <li>
             <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
