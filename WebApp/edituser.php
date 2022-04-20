@@ -10,34 +10,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   </head>
   <body>
-    <input type="checkbox" id="nav-toggle">
-
-    <div class="sidebar">
-      <div class="sidebar-menu">
-        <ul>
-          <li>
-            <a href="adminhome.php" class="active"><i class="fa-solid fa-house"></i>
-            <span>Home</span></a>
-          </li>
-          <li>
-            <a href="manageuser.php"><span class="las la-users"></span>
-            <span>Manage Users</span></a>
-          </li>
-          <li>
-            <a href="edituser.php"><span class="las la-user-circle"></span>
-            <span>Edit Account</span></a>
-          </li>
-          <li>
-            <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
-            <span>Add Users</span></a>
-          </li>
-          <li>
-            <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
-            <span>Logout</span></a>
-          </li>
-        </ul>
+    <input type="checkbox" id="nav-toggle"></input>
+      
+      <div class="sidebar">
+        <div class="sidebar-menu">
+          <ul>
+            <li>
+              <a href="adminhome.php" class="active"><i class="fa-solid fa-house"></i>
+              <span>Home</span></a>
+            </li>
+            <li>
+              <a href="manageuser.php"><span class="las la-users"></span>
+              <span>Manage Users</span></a>
+            </li>
+            <li>
+              <a href="edituser.php"><span class="las la-user-circle"></span>
+              <span>Edit Account</span></a>
+            </li>
+            <li>
+              <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
+              <span>Add Users</span></a>
+            </li>
+            <li>
+              <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
+              <span>Logout</span></a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
 
     <div class="main-content">
       <header>

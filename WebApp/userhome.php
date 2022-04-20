@@ -4,9 +4,9 @@ session_start();
  
  
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] != true || $_SESSION["usertype"] != "user" || $_SESSION["account_status"] != "Active") {
-    header("location: login.php");
-    exit;
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["usertype"] !== "User"){
+  header("location: login.php");
+  exit;
 }
 
 include "GlobalClass.php";
@@ -19,13 +19,14 @@ include "UserConfig.php";
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>E-Commerce Insight Admin</title>
+    <title>E-Commerce Insight (User)</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <input type="checkbox" id="nav-toggle">
+  <input type="checkbox" id="nav-toggle"></input>
+    
     <div class="sidebar">
       <div class="sidebar-menu">
         <ul>
@@ -34,16 +35,8 @@ include "UserConfig.php";
             <span>Home</span></a>
           </li>
           <li>
-            <a href="manageuser.php"><span class="las la-users"></span>
-            <span>Manage Users</span></a>
-          </li>
-          <li>
             <a href="edituser.php"><span class="las la-user-circle"></span>
             <span>Edit Account</span></a>
-          </li>
-          <li>
-            <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
-            <span>Add Users</span></a>
           </li>
           <li>
             <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
