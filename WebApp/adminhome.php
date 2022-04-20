@@ -4,7 +4,7 @@ session_start();
  
  
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["usertype"] !== "Admin" && $_SESSION["accountstatus"] !== "Active"){
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["usertype"] !== "Admin" || $_SESSION["accountstatus"] !== "Active"){
   header("location: index.php");
   exit;
 }
@@ -75,6 +75,7 @@ include "UserConfig.php";
             <small><?php echo htmlspecialchars($_SESSION["firstname"]); ?></small>
           </div>
         </div>
+
       </header>
 
       <main>

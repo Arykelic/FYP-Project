@@ -21,10 +21,8 @@
       <div class="sidebar-menu">
         <ul>
           <li>
-            <form id="UpdatePersonalUserInfo" method="POST" action="Update_Personal_User_Info.php">
-            <input type='hidden' name = 'action' value = 'Back'>
-            <button class="active" type="submit" name="back" class="btn btn-primary btn-lg" style="float: right; margin:0 20px 0 0;"> <i class="fa-solid fa-house"></i>Home</button>
-            </form>
+            <a href="adminhome.php" class="active"><i class="fa-solid fa-house"></i>
+            <span>Home</span></a>
           </li>
           <li>
             <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
