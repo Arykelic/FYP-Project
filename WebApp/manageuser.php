@@ -45,7 +45,7 @@
           <label for="nav-toggle">
             <span class="las la-bars"></span>
           </label>
-          Home
+          E-Commerce Insights (Admin)(Manage User)
         </h2>
         <div class="search-wrapper">
           <span class="las la-search"></span>

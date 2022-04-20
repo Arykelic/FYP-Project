@@ -208,6 +208,9 @@
                 </div>
               </div>
 
+              <?php $result = exec("app.py");
+              echo $result; ?>
+
 
             </div>
           </div>
