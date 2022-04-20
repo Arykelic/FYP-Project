@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <input type="checkbox" id="nav-toggle">
+    <input type="checkbox" id="nav-toggle"></input>
     
     <div class="sidebar">
       <div class="sidebar-menu">
