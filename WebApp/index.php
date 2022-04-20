@@ -112,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>Welcome to eCommerce Insight</title>
+    <title>Welcome to E-Commerce Insight</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -129,7 +129,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <div class="img-left d-none d-md-flex"></div>
           <div class="card-body">
             <h4 class="title text-center mt-4">
-              Login into e-Commerce Insight
+              Login into E-Commerce Insight
             </h4>
             <form class="form-box px-3" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
 

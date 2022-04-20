@@ -19,7 +19,7 @@ include "UserConfig.php";
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>E-Commerce Insight (Admin)</title>
+    <title>E-Commerce Insight (Admin)(Home)</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
@@ -61,7 +61,7 @@ include "UserConfig.php";
           <label for="nav-toggle">
             <span class="las la-bars"></span>
           </label>
-          E-Commerce Insights (Admin)(Home)
+          E-Commerce Insight (Admin)(Home)
         </h2>
         <div class="search-wrapper">
           <span class="las la-search"></span>
