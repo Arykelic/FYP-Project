@@ -208,8 +208,11 @@
                 </div>
               </div>
 
-              <?php $result = exec("app.py");
-              echo $result; ?>
+              <?php 
+              $command =  escapeshellcmd('app.py');
+              $result = shell_exec($command);
+              echo $result;
+              ?>
 
 
             </div>
