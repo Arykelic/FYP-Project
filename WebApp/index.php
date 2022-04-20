@@ -63,7 +63,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         #if(password_verify($password, $passwordtest))
                         if($password == $passwordtest)
                         {
-                            // Password is correct, so start a new session
+                          // Password is correct, so check account status
+                          if ($_SESSION['accountstatus']=="Active"){
+                            
+                            // Account status is active, so start a new session
                             session_start();
                             
                             // Store data in session variables
@@ -74,11 +77,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["lastname"] = $lastname;                          
                             $_SESSION["usertype"] = $usertype;
                             $_SESSION["accountstatus"] = $accountstatus;
-
-                            if ($_SESSION['accountstatus']!=="Active"){
-                              header("Location:index.php");
-                              $accountstatus_err = "Your account is locked, please contact an admin to unlock it.";
-                            }
 							
                             if ($_SESSION['usertype']!=null){
                               switch($_SESSION['usertype'])
@@ -92,7 +90,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                       break;
                               }
                           }                            
-                        } else{
+                        }
+                        else{
+                          // Display an error message if account status is not valid
+                          $accountstatus_err = "Your account is locked, please contact an admin to unlock it.";
+                        }
+                      } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
                         }
