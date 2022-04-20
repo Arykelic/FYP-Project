@@ -4,10 +4,10 @@ session_start();
  
  
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["usertype"] !== "User"){
+/* if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["usertype"] !== "User"){
   header("location: login.php");
   exit;
-}
+} */
 
 include "GlobalClass.php";
 include "UserConfig.php";
