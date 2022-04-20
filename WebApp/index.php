@@ -17,8 +17,9 @@ include "GlobalClass.php";
 include "UserConfig.php";
  
 // Define variables and initialize with empty values
-$username = $password = "";
-$username_err = $password_err = "";
+$username = $password = $accountstatus = "";
+$username_err = $password_err = $accountstatus_err = "";
+
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -73,6 +74,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["lastname"] = $lastname;                          
                             $_SESSION["usertype"] = $usertype;
                             $_SESSION["accountstatus"] = $accountstatus;
+
+                            if ($_SESSION['accountstatus']!="Active"){
+                              $accountstatus_err = "Your account is locked, please contact an admin to unlock it.";
+                            }
 							
                             if ($_SESSION['usertype']!=null){
                               switch($_SESSION['usertype'])
@@ -143,6 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span><i class="fa fa-key"></i></span>
                 <input type="password" name="password" placeholder="password" required>
                 <label class="error"><?php echo $password_err; ?></label>
+                <label class="error"><?php echo $accountstatus_err; ?></label>
               </div>
         
               <!-- <div class="mb-3">
