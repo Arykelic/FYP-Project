@@ -58,8 +58,8 @@ include "UserConfig.php";
         <div class="user-wrapper">
           <span class="las la-user-circle fa-3x"></span>
           <div>
-            <h4>Admin1</h4>
-            <small>Super admin</small>
+            <h4> <?php echo htmlspecialchars($_SESSION["username"]); ?> </h4>
+            <small><?php echo htmlspecialchars($_SESSION["firstname"]); ?></small>
           </div>
         </div>
       </header>
