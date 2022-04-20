@@ -44,7 +44,7 @@ include "UserConfig.php";
             <span>Manage Users</span></a>
           </li>
           <li>
-            <a href="updatepersonalinfo.php"><span class="las la-user-circle"></span>
+            <a href="adminupdatepersonalinfo.php"><span class="las la-user-circle"></span>
             <span>Edit Personal Account</span></a>
           </li>
           <li>
