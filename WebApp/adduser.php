@@ -135,6 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
 
 </head>
 
