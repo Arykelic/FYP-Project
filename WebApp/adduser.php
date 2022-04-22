@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- JavaScript Bundle with Popper -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  
+
 </head>
 
 <body>
@@ -179,10 +179,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </label>
         E-Commerce Insight (Admin)(Add User)
       </h2>
-      <div class="search-wrapper">
-        <span class="las la-search"></span>
-        <input type="search" placeholder="Search here" />
-      </div>
 
       <div class="user-wrapper">
         <span class="las la-user-circle fa-3x"></span>
@@ -204,43 +200,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label>Password: </label>
         <input type="Password" class="form-control" id="Password" name="password" placeholder="Password" required><br><br>
         <!-- create password text for Username for user to input username text -->
-        <label for="sel1">User Profile</label>&ensp;
+        <label for="sel1">User Type</label>&ensp;
         <select class="form-control form-select-sm" name = "usertype" id="usertype">
                   <option value = "Admin" >Admin</option>
                   <option value = "User" >User</option>
-              </select> <br><br>
+        </select>
+        <label for="sel1">Account Status</label>&ensp;
+        <select class="form-control form-select-sm" name = "accountstatus" id="accountstatus">
+                  <option value = "Admin" >Admin</option>
+                  <option value = "User" >User</option>
+        </select>
+        <br>
         <!-- create option input for User Profile for user to select user profile -->
         <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
-
-        <form class="form-box px-3" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
-        <div class="form-input">
-              <span><i class="fa fa-envelope-o"></i></span>
-              <input type="username" name="username" placeholder="username" tabindex="10" required>
-              <input type="username" name="username" placeholder="username" tabindex="10" value="<?php echo $username; ?>" required>
-              <label class="error"><?php echo $username_err; ?></label>
-            </div>
-
-            <div class="form-input">
-              <span><i class="fa fa-key"></i></span>
-              <input type="password" name="password" placeholder="password" required>
-              <label class="error"><?php echo $password_err; ?></label>
-              <label class="error"><?php echo $accountstatus_err; ?></label>
-            </div>
-
-            <!-- <div class="mb-3">
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="cb1" name="">
-                  <label class="custom-control-label" for="cb1">
-                    Remember me</label>
-                </div>
-              </div> -->
-
-            <div class="mb-3">
-              <button type="submit" class="btn btn-block text-uppercase">
-                Login
-              </button>
-            </div>
-        </form>
 
         </div>
       </form> 

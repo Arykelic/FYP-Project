@@ -69,11 +69,7 @@ include "UserConfig.php";
           </label>
           E-Commerce Insight (Admin)(Home)
         </h2>
-        <div class="search-wrapper">
-          <span class="las la-search"></span>
-          <input type="search" placeholder="Search here"/>
-        </div>
-
+        
         <div class="user-wrapper">
           <span class="las la-user-circle fa-3x"></span>
           <div>
@@ -151,7 +147,7 @@ include "UserConfig.php";
                         <td>UI/UX Design</td>
                         <td>UI team</td>
                         <td>
-                          <span class="status purple"></span>
+                          <span class="status green"></span>
                           review
                         </td>
                       </tr>
@@ -159,7 +155,7 @@ include "UserConfig.php";
                         <td>Web Development</td>
                         <td>Frontend</td>
                         <td>
-                          <span class="status pink"></span>
+                          <span class="status green"></span>
                           in progress
                         </td>
                       </tr>
@@ -167,7 +163,7 @@ include "UserConfig.php";
                         <td>Ushop app</td>
                         <td>Mobile team</td>
                         <td>
-                          <span class="status orange"></span>
+                          <span class="status red"></span>
                           pending
                         </td>
                       </tr>
