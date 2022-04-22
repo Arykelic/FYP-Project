@@ -219,7 +219,7 @@ div {
     </header>
 
     <main>
-        <form id="AdminAddUserPage" method="POST" action="adduser.php">
+        <form id="AdminAddUserPage" method="POST">
         
         <h4 class="title mt-4">
             Create New User
