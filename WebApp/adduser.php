@@ -133,7 +133,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <title>E-Commerce Insight (Admin)(Add User)</title>
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
   <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
 </head>
 
@@ -191,6 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main>
         <form id="AdminAddUserPage" method="POST" action="Admin_Add_User_Page.php">
+        
         <div class="form-group">
         <!-- create form wih post method to the same page -->
         <label>Username: </label>
@@ -206,6 +206,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </select> <br><br>
         <!-- create option input for User Profile for user to select user profile -->
         <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
+
+        <form class="form-box px-3" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
+        <div class="form-input">
+              <span><i class="fa fa-envelope-o"></i></span>
+              <input type="username" name="username" placeholder="username" tabindex="10" required>
+              <input type="username" name="username" placeholder="username" tabindex="10" value="<?php echo $username; ?>" required>
+              <label class="error"><?php echo $username_err; ?></label>
+            </div>
+
+            <div class="form-input">
+              <span><i class="fa fa-key"></i></span>
+              <input type="password" name="password" placeholder="password" required>
+              <label class="error"><?php echo $password_err; ?></label>
+              <label class="error"><?php echo $accountstatus_err; ?></label>
+            </div>
+
+            <!-- <div class="mb-3">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="cb1" name="">
+                  <label class="custom-control-label" for="cb1">
+                    Remember me</label>
+                </div>
+              </div> -->
+
+            <div class="mb-3">
+              <button type="submit" class="btn btn-block text-uppercase">
+                Login
+              </button>
+            </div>
+        </form>
+        
         </div>
       </form> 
     </main>
