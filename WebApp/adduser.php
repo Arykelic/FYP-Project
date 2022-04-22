@@ -134,8 +134,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
 
 </head>
 
@@ -193,26 +191,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-group">
         <!-- create form wih post method to the same page -->
         <label>Username: </label>
-        <input type="text" class="form-control" id="Username" name="username" placeholder="Username" required><br><br>
+        <input type="text" class="form-input" id="Username" name="username" placeholder="Username" required><br><br>
         <!-- create input text for Username for user to input username text -->
         <label>Password: </label>
-        <input type="Password" class="form-control" id="Password" name="password" placeholder="Password" required><br><br>
+        <input type="Password" class="form-input" id="Password" name="password" placeholder="Password" required><br><br>
         <!-- create password text for Username for user to input username text -->
         <label for="sel1">User Type</label>&ensp;
-        <select class="form-control form-select-sm" name = "usertype" id="usertype">
+        <select class="form-input form-select-sm" name = "usertype" id="usertype">
                   <option value = "Admin" >Admin</option>
                   <option value = "User" >User</option>
         </select>
         <label for="sel1">Account Status</label>&ensp;
-        <select class="form-control form-select-sm" name = "accountstatus" id="accountstatus">
+        <select class="form-input form-select-sm" name = "accountstatus" id="accountstatus">
                   <option value = "Active" >Active</option>
                   <option value = "Disabled" >Disabled</option>
         </select>
         <br>
         <!-- create option input for User Profile for user to select user profile -->
-        <button class="btn btn-primary mb-3" type="submit" value="Submit">Submit</button>
+        <button class="btn btn-block text-uppercase" type="submit" value="Submit">Submit</button>
 
         </div>
+
       </form> 
     </main>
   </div>
