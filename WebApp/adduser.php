@@ -195,22 +195,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-box px-3">
         <!-- create form wih post method to the same page -->
         <label>Username: </label>
-        <input type="text" id="Username" name="username" placeholder="Username" required><br><br>
+        <input type="text" id="Username" name="username" placeholder="Username" required>
+        <br><br>
         <!-- create input text for Username for user to input username text -->
         <label>Password: </label>
-        <input type="Password" class="form-input" id="Password" name="password" placeholder="Password" required><br><br>
+        <input type="Password" class="form-input" id="Password" name="password" placeholder="Password" required>
+        <br><br>
         <!-- create password text for Username for user to input username text -->
         <label>User Type</label>
         <select class="form-input form-select-sm" name = "usertype" id="usertype">
                   <option value = "Admin" >Admin</option>
                   <option value = "User" >User</option>
-        </select>
+        </select><br><br>
         <label>Account Status</label>
         <select class="form-input form-select-sm" name = "accountstatus" id="accountstatus">
                   <option value = "Active" >Active</option>
                   <option value = "Disabled" >Disabled</option>
         </select>
-        <br>
+        <br><br>
         <!-- create option input for User Profile for user to select user profile -->
         <button class="btn btn-block text-uppercase" type="submit" value="Submit">Submit</button>
 
