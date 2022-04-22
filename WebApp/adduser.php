@@ -186,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
     <main>
-        <form id="AdminAddUserPage" method="POST" action="Admin_Add_User_Page.php">
+        <form id="AdminAddUserPage" method="POST" action="adduser.php">
         
         <div class="form-group">
         <!-- create form wih post method to the same page -->
@@ -208,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </select>
         <br>
         <!-- create option input for User Profile for user to select user profile -->
-        <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
+        <button class="btn btn-primary mb-3" type="submit" value="Submit">Submit</button>
 
         </div>
       </form> 
