@@ -141,7 +141,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-input">
               <span><i class="fa fa-envelope-o"></i></span>
               <input type="username" name="username" placeholder="username" tabindex="10" required>
-              <input type="username" name="username" placeholder="username" tabindex="10" value="<?php echo $username; ?>" required>
               <label class="error"><?php echo $username_err; ?></label>
             </div>
 
