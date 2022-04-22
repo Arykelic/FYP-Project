@@ -206,7 +206,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <select class="form-input form-select-sm" name = "usertype" id="usertype">
                   <option value = "Admin" >Admin</option>
                   <option value = "User" >User</option>
-        </select><br><br>
+        </select>
+        <br><br>
         <label>Account Status</label>
         <select class="form-input form-select-sm" name = "accountstatus" id="accountstatus">
                   <option value = "Active" >Active</option>
