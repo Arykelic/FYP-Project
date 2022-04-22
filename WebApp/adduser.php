@@ -188,20 +188,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <form id="AdminAddUserPage" method="POST" action="adduser.php">
         
-        <div class="form-group">
+        <h4 class="title mt-4">
+            Create New User
+        </h4>
+
+        <div class="form-box px-3">
         <!-- create form wih post method to the same page -->
         <label>Username: </label>
-        <input type="text" class="form-input" id="Username" name="username" placeholder="Username" required><br><br>
+        <input type="text" id="Username" name="username" placeholder="Username" required><br><br>
         <!-- create input text for Username for user to input username text -->
         <label>Password: </label>
         <input type="Password" class="form-input" id="Password" name="password" placeholder="Password" required><br><br>
         <!-- create password text for Username for user to input username text -->
-        <label for="sel1">User Type</label>&ensp;
+        <label>User Type</label>
         <select class="form-input form-select-sm" name = "usertype" id="usertype">
                   <option value = "Admin" >Admin</option>
                   <option value = "User" >User</option>
         </select>
-        <label for="sel1">Account Status</label>&ensp;
+        <label>Account Status</label>
         <select class="form-input form-select-sm" name = "accountstatus" id="accountstatus">
                   <option value = "Active" >Active</option>
                   <option value = "Disabled" >Disabled</option>
