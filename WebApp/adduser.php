@@ -133,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <title>E-Commerce Insight (Admin)(Add User)</title>
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
   <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
 </head>
 
@@ -200,11 +200,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="Password" class="form-control" id="Password" name="password" placeholder="Password" required><br><br>
         <!-- create password text for Username for user to input username text -->
         <label for="sel1">User Profile</label>&ensp;
-        <select class="form-control form-select-sm" name = "userprofile" id="userprofile">
-                  <option value = "admin" >Admin</option>
-                  <option value = "doctor" >Doctor</option>
-                  <option value = "patient" >Patient</option>
-                  <option value = "pharmacist" >Pharmacist</option>
+        <select class="form-control form-select-sm" name = "usertype" id="usertype">
+                  <option value = "Admin" >Admin</option>
+                  <option value = "User" >User</option>
               </select> <br><br>
         <!-- create option input for User Profile for user to select user profile -->
         <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
