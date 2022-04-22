@@ -11,6 +11,60 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION[
 
 include "GlobalClass.php";
 
+
+// Define variables and initialize with empty values
+$username = $password = $confirm_password = $firstname = $lastname = $phonenumber = $emailaddress = $BirthDate = $Gender = $usertype = $accountstatus = "";
+$username_err = $password_err = $confirm_password_err = $firstname_err = $lastname_err = $phonenumber_err = $emailaddress_err = $BirthDate_err = $Gender_err = $usertype_err = $accountstatus_err ="";
+$phoneregex = "/^(^[689]{1})(\d{7})$/";
+$emailregex = "/^[^0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/";
+
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+  if(empty(test_input($_POST["firstname"]))){
+    $firstname_err = "Please enter your first name.";     
+} else{
+    $firstname = test_input($_POST["firstname"]);
+    }
+
+if(empty(test_input($_POST["lastname"]))){
+    $lastname_err = "Please enter your last name.";     
+} else{
+    $lastname = test_input($_POST["lastname"]);
+    }
+
+if(empty(test_input($_POST["phonenumber"]))){
+    $phonenumber_err = "Please enter your phone number.";     
+}	elseif (!preg_match($phoneregex, $_POST["phonenumber"])) {
+$phonenumber_err="Please enter a valid phone number."; 
+}	else{
+    $phonenumber = test_input($_POST["phonenumber"]);
+    }	
+
+if(empty(test_input($_POST["emailaddress"]))){
+    $emailaddress_err = "Please enter your email address.";     
+}	elseif (!preg_match($emailregex, $_POST["emailaddress"])) {
+$emailaddress_err="Please enter a valid email address.";
+}	else{
+    $emailaddress = test_input($_POST["emailaddress"]);
+    }
+
+if(empty(test_input($_POST["BirthDate"]))){
+    $emailaddress_err = "Please enter your email address.";     
+}	elseif (!preg_match($emailregex, $_POST["emailaddress"])) {
+$emailaddress_err="Please enter a valid email address.";
+}	else{
+    $emailaddress = test_input($_POST["emailaddress"]);
+    }
+
+if(empty(test_input($_POST["Gender"]))){
+    $emailaddress_err = "Please enter your email address.";     
+}	elseif (!preg_match($emailregex, $_POST["emailaddress"])) {
+  $emailaddress_err="Please enter a valid email address.";
+}	else{
+      $emailaddress = test_input($_POST["emailaddress"]);
+      }
+
 ?>
 
 <!DOCTYPE html>
