@@ -170,7 +170,7 @@ include "UserConfig.php";
       </div>
 
       <div class="recent-grid">
-        <div class="projects">
+        <div class="projects" width="100%">
           <div class="card">
             <div class="card-header">
               <h3>Recommender System</h3>
@@ -183,36 +183,51 @@ include "UserConfig.php";
                 <table width="100%">
                   <thead>
                     <tr>
-                      <td>Project Title</td>
-                      <td>Department</td>
-                      <td>Status</td>
+                      <td>User Id</td>
+                      <td>Username</td>
+                      <td>First Name</td>
+                      <td>Last Name</td>
+                      <td>Phone Number</td>
+                      <td>Email Address</td>
+                      <td>Birth Date</td>
+                      <td>Gender</td>
+                      <th>User Type</th>
+                      <th>Account Status</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>UI/UX Design</td>
-                      <td>UI team</td>
-                      <td>
-                        <span class="status green"></span>
-                        review
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Web Development</td>
-                      <td>Frontend</td>
-                      <td>
-                        <span class="status orange"></span>
-                        in progress
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Ushop app</td>
-                      <td>Mobile team</td>
-                      <td>
-                        <span class="status red"></span>
-                        pending
-                      </td>
-                    </tr>
+                    <?php
+                    // Attempt select query execution
+                    $mysqli = new mysqli($servername, $username, $password, $dbname);
+                    $sql = "SELECT * FROM user";
+                    if ($result = $mysqli->query($sql)) {
+                      if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_array()) {
+                          echo "<tr>";
+                          echo "<td>" . $row['userid'] . "</td>";
+                          echo "<td>" . $row['username'] . "</td>";
+                          echo "<td>" . $row['firstname'] . "</td>";
+                          echo "<td>" . $row['lastname'] . "</td>";
+                          echo "<td>" . $row['phonenumber'] . "</td>";
+                          echo "<td>" . $row['emailaddress'] . "</td>";
+                          echo "<td> " . $row['BirthDate'] . "</td>";
+                          echo "<td> " . $row['Gender'] . "</td>";
+                          echo "<td> " . $row['usertype'] . "</td>";
+                          echo "<td> " . $row['accountstatus'] . "</td>";
+                          echo "</tr>";
+                        }
+                        // Free result set
+                        $result->free();
+                      } else {
+                        echo "<label class='question-text'>No records were found.</label>";
+                      }
+                    } else {
+                      echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+                    }
+
+                    // Close connection
+                    $mysqli->close();
+                    ?>
                   </tbody>
                 </table>
               </div>
