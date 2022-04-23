@@ -233,14 +233,17 @@ input[type=submit]:hover {
         <!-- create form wih post method to the same page -->
         <label>Username: </label>
         <input type="text" id="Username" name="username" placeholder="Username" required>
+        <label class="error"><?php echo $username_err; ?></label>
         <br><br>
         <!-- create input text for Username for user to input username text -->
         <label>Password: </label>
         <input type="Password" class="form-input" id="Password" name="password" placeholder="Password" required>
+        <label class="error"><?php echo $password_err; ?></label>
         <br><br>
 
         <label>Confirm Password: </label>
         <input type="Password" class="form-input" id="confirm_password" name="confirm_password" placeholder="Confirm the Password" required>
+        <label class="error"><?php echo $confirm_password_err; ?></label>
         <br><br>
         <!-- create password text for Username for user to input username text -->
         <label>User Type</label>
