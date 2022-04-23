@@ -13,10 +13,8 @@ include "GlobalClass.php";
 include "UserConfig.php";
 
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = $firstname = $lastname = $phonenumber = $emailaddress = $BirthDate = $Gender = $usertype = $accountstatus = "";
-$username_err = $password_err = $confirm_password_err = $firstname_err = $lastname_err = $phonenumber_err = $emailaddress_err = $BirthDate_err = $Gender_err = $usertype_err = $accountstatus_err = "";
-$phoneregex = "/^(^[689]{1})(\d{7})$/";
-$emailregex = "/^[^0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/";
+$username = $password = $confirm_password = $usertype = $accountstatus = "";
+$username_err = $password_err = $confirm_password_err = $usertype_err = $accountstatus_err = "";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -26,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username_err = "Please enter a username.";
   } else {
     // Prepare a select statement
-    $sql = "SELECT userid FROM usertable WHERE username = ?";
+    $sql = "SELECT userid FROM user WHERE username = ?";
 
     if ($stmt = $mysqli->prepare($sql)) {
       // Bind variables to the prepared statement as parameters
@@ -217,8 +215,9 @@ input[type=submit]:hover {
       <div class="user-wrapper">
         <span class="las la-user-circle fa-3x"></span>
         <div>
-          <h4>Admin1</h4>
-          <small>Super admin</small>
+        <h4> <?php echo htmlspecialchars($_SESSION["username"]); ?> </h4>
+            <small><?php echo htmlspecialchars($_SESSION["firstname"]); ?></small>
+            <small><?php echo htmlspecialchars($_SESSION["lastname"]); ?></small>
         </div>
       </div>
     </header>
@@ -226,10 +225,10 @@ input[type=submit]:hover {
     <main>
         <form id="AdminAddUserPage" method="POST">
         
-        <h4 class="title mt-4">
+        <h3 class="title mt-4">
             Create New User
-        </h4>
-
+        </h3>
+        <br><br>
         <div class="form-box px-3">
         <!-- create form wih post method to the same page -->
         <label>Username: </label>
@@ -238,6 +237,10 @@ input[type=submit]:hover {
         <!-- create input text for Username for user to input username text -->
         <label>Password: </label>
         <input type="Password" class="form-input" id="Password" name="password" placeholder="Password" required>
+        <br><br>
+
+        <label>Confirm Password: </label>
+        <input type="Password" class="form-input" id="confirm_password" name="confirm_password" placeholder="Confirm the Password" required>
         <br><br>
         <!-- create password text for Username for user to input username text -->
         <label>User Type</label>
@@ -253,7 +256,7 @@ input[type=submit]:hover {
         </select>
         <br><br>
         <!-- create option input for User Profile for user to select user profile -->
-        <input class="btn btn-block text-uppercase" type="submit" value="Submit">Submit</input>
+        <input class="btn btn-block text-uppercase" type="submit" value="Create User Account"></input>
 
         </div>
 
