@@ -172,8 +172,8 @@ include "UserConfig.php";
 
       </div>
 
-      
-        <div class="cards">
+      <div class="cards">
+        <div class="card">
           <div class="card-header">
             <h3>Recommender System</h3>
 
@@ -235,10 +235,11 @@ include "UserConfig.php";
             </div>
           </div>
         </div>
+      </div>
 
 
 
-        <!--  <div class="customers">
+      <!--  <div class="customers">
             <div class="card">
               <div class="card-header">
                 <h3>Python Test</h3>
