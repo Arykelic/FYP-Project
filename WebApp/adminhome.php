@@ -84,9 +84,6 @@ include "UserConfig.php";
     </header>
 
     <main>
-
-
-
       <div class="cards">
         <div class="card-single">
           <div>
@@ -172,7 +169,8 @@ include "UserConfig.php";
 
       </div>
 
-      <div class="cards">
+      <br><br>
+
         <div class="card">
           <div class="card-header">
             <h3>Recommender System</h3>
@@ -235,7 +233,6 @@ include "UserConfig.php";
             </div>
           </div>
         </div>
-      </div>
 
 
 
