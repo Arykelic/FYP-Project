@@ -12,6 +12,30 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 include "GlobalClass.php";
 include "UserConfig.php";
 
+// Attempt select query execution
+$mysqli = new mysqli($servername, $username, $password, $dbname);
+$sql = "SELECT COUNT(userid) FROM user";
+if ($stmt = $mysqli->prepare($sql)) {
+  // Bind variables to the prepared statement as parameters
+  $stmt->bind_param("i", $count_userid);
+
+  // Set parameters
+  $count_userid = $userid;
+
+  // Attempt to execute the prepared statement
+  if ($stmt->execute()) {
+    $result = $stmt->get_result();
+    if ($result->num_rows == 1) {
+      /* Fetch result row as an associative array. Since the result set
+      contains only one row, we don't need to use while loop */
+      $usercountrow = $result->fetch_array(MYSQLI_ASSOC);
+    }
+  } else {
+    echo "<h1> Something went wrong. Please try again later </h1>";
+  }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -90,31 +114,8 @@ include "UserConfig.php";
       <div class="cards">
         <div class="card-single">
           <div>
-            <?php
-            // Attempt select query execution
-            /* $mysqli = new mysqli($servername, $username, $password, $dbname);
-            $sql = "SELECT COUNT(userid) FROM user";
-            if ($stmt = $mysqli->prepare($sql)) {
-              // Bind variables to the prepared statement as parameters
-              $stmt->bind_param("i", $count_userid);
 
-              // Set parameters
-              $count_userid = $userid;
-
-              // Attempt to execute the prepared statement
-              if ($stmt->execute()) {
-                $result = $stmt->get_result();
-                echo $sql;
-                echo $userid;
-                echo $result;
-                echo "<h1>" . $result . "</h1>";
-                }
-              } else {
-                echo "<h1> Something went wrong. Please try again later </h1>";
-              } */
-            
-            ?>
-            
+            <h1 value="<?php echo $usercountrow; ?>"></h1>
             <span>Total Users</span>
           </div>
           <div>
@@ -208,7 +209,7 @@ include "UserConfig.php";
             <span>Disabled Accounts</span>
           </div>
           <div>
-            <span class="lab la-user-slash"></span>
+            <span class="las la-user-slash"></span>
           </div>
         </div>
       </div>
