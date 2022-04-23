@@ -91,10 +91,10 @@ include "UserConfig.php";
         <div class="card-single">
           <div>
             <?php
-            $sql="select count(*) as total from user";
-            $result=mysqli_query($mysqli,$sql);
-            $data=mysqli_fetch_assoc($result);
-            echo $data['total'];
+            $sql = "select count(*) as total from user";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>";
             ?>
             <span>Total Users</span>
           </div>
@@ -106,25 +106,10 @@ include "UserConfig.php";
         <div class="card-single">
           <div>
             <?php
-            // Attempt select query execution
-            /* $mysqli = new mysqli($servername, $username, $password, $dbname);
-            $sql = "SELECT COUNT(userid) FROM user WHERE usertype LIKE 'Admin'";
-            if ($result = $mysqli->query($sql)) {
-              if ($result->num_rows > 0) {
-                while ($row = $result->fetch_array()) {
-                  echo "<h1>" . $result . "</h1>";
-                }
-                // Free result set
-                $result->free();
-              } else {
-                echo "<label class='question-text'>No records were found.</label>";
-              }
-            } else {
-              echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-            }
-
-            // Close connection
-            $mysqli->close(); */
+            $sql = "select count(*) as total from user where usertype like 'Admin'";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>";
             ?>
             <span>Admin Accounts</span>
           </div>
@@ -136,25 +121,10 @@ include "UserConfig.php";
         <div class="card-single">
           <div>
             <?php
-            // Attempt select query execution
-            /* $mysqli = new mysqli($servername, $username, $password, $dbname);
-            $sql = "SELECT COUNT(userid) FROM user WHERE usertype LIKE 'User'";
-            if ($result = $mysqli->query($sql)) {
-              if ($result->num_rows > 0) {
-                while ($row = $result->fetch_array()) {
-                  echo "<h1>" . $sql . "</h1>";
-                }
-                // Free result set
-                $result->free();
-              } else {
-                echo "<label class='question-text'>No records were found.</label>";
-              }
-            } else {
-              echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-            }
-
-            // Close connection
-            $mysqli->close(); */
+            $sql = "select count(*) as total from user where usertype like 'User'";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>";
             ?>
             <span>User Accounts</span>
           </div>
@@ -166,25 +136,10 @@ include "UserConfig.php";
         <div class="card-single">
           <div>
             <?php
-            // Attempt select query execution
-            /* $mysqli = new mysqli($servername, $username, $password, $dbname);
-            $sql = "SELECT COUNT(userid) FROM user WHERE accountstatus LIKE 'Disabled'";
-            if ($result = $mysqli->query($sql)) {
-              if ($result->num_rows > 0) {
-                while ($row = $result->fetch_array()) {
-                  echo "<h1>" . $result . "</h1>";
-                }
-                // Free result set
-                $result->free();
-              } else {
-                echo "<label class='question-text'>No records were found.</label>";
-              }
-            } else {
-              echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-            }
-
-            // Close connection
-            $mysqli->close(); */
+            $sql = "select count(*) as total from user where accountstatus like 'Disabled'";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>";
             ?>
             <span>Disabled Accounts</span>
           </div>
