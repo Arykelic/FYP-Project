@@ -173,7 +173,7 @@ include "UserConfig.php";
       </div>
 
       
-        <div class="card">
+        <div class="cards">
           <div class="card-header">
             <h3>Recommender System</h3>
 
