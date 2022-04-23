@@ -96,17 +96,17 @@ include "UserConfig.php";
             $sql = "SELECT COUNT(userid) FROM user";
             if ($stmt = $mysqli->prepare($sql)) {
               // Bind variables to the prepared statement as parameters
-              $stmt->bind_param("i", $param_userid);
+              $stmt->bind_param("i", $count_userid);
 
               // Set parameters
-              $param_userid = $userid;
+              $count_userid = $userid;
 
               // Attempt to execute the prepared statement
               if ($stmt->execute()) {
                 $result = $stmt->get_result();
-                echo $sql;
-                echo $userid;
-                echo $result;
+                /* echo $sql; */
+                /* echo $userid;
+                echo $result; */
                 echo "<h1>" . $result . "</h1>";
                 }
               } else {
