@@ -92,11 +92,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($usertype_err) && empty($accountstatus_err)) {
 
     // Prepare an insert statement
-    $sql = "INSERT INTO user (username, password, usertype, accountstatus, createddatetime) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO user (username, password, usertype, accountstatus) VALUES (?, ?, ?, ?)";
 
     if ($stmt = $mysqli->prepare($sql)) {
       // Bind variables to the prepared statement as parameters
-      $stmt->bind_param("sssss", $param_username, $param_password, $param_usertype, $param_accountstatus);
+      $stmt->bind_param("ssss", $param_username, $param_password, $param_usertype, $param_accountstatus);
 
       // Set parameters
       $param_username = $username;
@@ -148,6 +148,16 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
+input[type=Password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 input[type=submit] {
   width: 100%;
   background-color: #4CAF50;
@@ -163,11 +173,6 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
-div {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
 </style> -->
 
 <body>
@@ -248,7 +253,7 @@ div {
         </select>
         <br><br>
         <!-- create option input for User Profile for user to select user profile -->
-        <button class="btn btn-block text-uppercase" type="submit" value="Submit">Submit</button>
+        <input><button class="btn btn-block text-uppercase" type="submit" value="Submit">Submit</button></input>
 
         </div>
 
