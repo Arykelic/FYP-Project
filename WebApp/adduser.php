@@ -105,9 +105,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Attempt to execute the prepared statement
       if ($stmt->execute()) {
         // Redirect to login page
-        echo '<script>alert("<h1>User added succesfully</h1>")</script>';
+        echo '<script>alert("User added succesfully")</script>';
       } else {
-        echo '<script>alert(<h1>"Something went wrong. Please try again later"</h1>)</script>';
+        echo '<script>alert("Something went wrong. Please try again later")</script>';
       }
 
       // Close statement
