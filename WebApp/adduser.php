@@ -137,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </head>
 
-<style>
+<!-- <style>
 input[type=text], select {
   width: 100%;
   padding: 12px 20px;
@@ -168,7 +168,7 @@ div {
   background-color: #f2f2f2;
   padding: 20px;
 }
-</style>
+</style> -->
 
 <body>
   <input type="checkbox" id="nav-toggle"></input>
