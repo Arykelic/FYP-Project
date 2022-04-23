@@ -64,6 +64,8 @@ if(empty(test_input($_POST["Gender"]))){
 }	else{
       $emailaddress = test_input($_POST["emailaddress"]);
       }
+      
+    }
 
 ?>
 
