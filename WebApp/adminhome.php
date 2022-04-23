@@ -171,14 +171,14 @@ include "UserConfig.php";
 
       <div class="recent-grid">
         <div class="cards" width="100%">
-          <div class="card">
-            <div class="card-header">
+          <div class="card" width="100%">
+            <div class="card-header" width="100%">
               <h3>Recommender System</h3>
 
               <button>See all<span class="las la-arrow-right"></span></button>
             </div>
 
-            <div class="card-body">
+            <div class="card-body" width="100%">
               <div class="table-responsive">
                 <table width="100%">
                   <thead>
@@ -232,60 +232,6 @@ include "UserConfig.php";
                 </table>
               </div>
             </div>
-
-            <table class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>User Id</th>
-                  <th>Username</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Phone Number</th>
-                  <th>Email Address</th>
-                  <th>Birth Date</th>
-                  <th>Gender</th>
-                  <th>User Type</th>
-                  <th>Account Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                // Attempt select query execution
-                $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM user";
-                if ($result = $mysqli->query($sql)) {
-                  if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_array()) {
-                      echo "<tr>";
-                      echo "<td>" . $row['userid'] . "</td>";
-                      echo "<td>" . $row['username'] . "</td>";
-                      echo "<td>" . $row['firstname'] . "</td>";
-                      echo "<td>" . $row['lastname'] . "</td>";
-                      echo "<td>" . $row['phonenumber'] . "</td>";
-                      echo "<td>" . $row['emailaddress'] . "</td>";
-                      echo "<td> " . $row['BirthDate'] . "</td>";
-                      echo "<td> " . $row['Gender'] . "</td>";
-                      echo "<td> " . $row['usertype'] . "</td>";
-                      echo "<td> " . $row['accountstatus'] . "</td>";
-                      echo "</tr>";
-                    }
-                    // Free result set
-                    $result->free();
-                  } else {
-                    echo "<label class='question-text'>No records were found.</label>";
-                  }
-                } else {
-                  echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-                }
-
-                // Close connection
-                $mysqli->close();
-                ?>
-              </tbody>
-            </table>
-
-
-
           </div>
         </div>
 
