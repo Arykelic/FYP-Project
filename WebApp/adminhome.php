@@ -104,25 +104,17 @@ include "UserConfig.php";
               // Attempt to execute the prepared statement
               if ($stmt->execute()) {
                 $result = $stmt->get_result();
-
-                if ($result->num_rows == 1) {
-                  /* Fetch result row as an associative array. Since the result set
-                              contains only one row, we don't need to use while loop */
-                  $row = $result->fetch_array(MYSQLI_ASSOC);
-
-                  // Retrieve individual field value
-                  $userid = $row["userid"];
-
-                } else {
-                  // URL doesn't contain valid id. Redirect to error page
-                  echo '<script>alert("<h1>User added succesfully</h1>")</script>';
+                echo $sql;
+                echo $userid;
+                echo $result;
+                echo "<h1>" . $result . "</h1>";
                 }
               } else {
-                echo '<script>alert(<h1>"Something went wrong. Please try again later"</h1>)</script>';
+                echo "<h1> Something went wrong. Please try again later </h1>";
               }
-            }
-
+            
             ?>
+            
             <span>Total Users</span>
           </div>
           <div>
@@ -134,7 +126,7 @@ include "UserConfig.php";
           <div>
             <?php
             // Attempt select query execution
-            $mysqli = new mysqli($servername, $username, $password, $dbname);
+            /* $mysqli = new mysqli($servername, $username, $password, $dbname);
             $sql = "SELECT COUNT(userid) FROM user WHERE usertype LIKE 'Admin'";
             if ($result = $mysqli->query($sql)) {
               if ($result->num_rows > 0) {
@@ -151,7 +143,7 @@ include "UserConfig.php";
             }
 
             // Close connection
-            $mysqli->close();
+            $mysqli->close(); */
             ?>
             <span>Admin Accounts</span>
           </div>
@@ -164,7 +156,7 @@ include "UserConfig.php";
           <div>
             <?php
             // Attempt select query execution
-            $mysqli = new mysqli($servername, $username, $password, $dbname);
+            /* $mysqli = new mysqli($servername, $username, $password, $dbname);
             $sql = "SELECT COUNT(userid) FROM user WHERE usertype LIKE 'User'";
             if ($result = $mysqli->query($sql)) {
               if ($result->num_rows > 0) {
@@ -181,7 +173,7 @@ include "UserConfig.php";
             }
 
             // Close connection
-            $mysqli->close();
+            $mysqli->close(); */
             ?>
             <span>User Accounts</span>
           </div>
@@ -194,7 +186,7 @@ include "UserConfig.php";
           <div>
             <?php
             // Attempt select query execution
-            $mysqli = new mysqli($servername, $username, $password, $dbname);
+            /* $mysqli = new mysqli($servername, $username, $password, $dbname);
             $sql = "SELECT COUNT(userid) FROM user WHERE accountstatus LIKE 'Disabled'";
             if ($result = $mysqli->query($sql)) {
               if ($result->num_rows > 0) {
@@ -211,7 +203,7 @@ include "UserConfig.php";
             }
 
             // Close connection
-            $mysqli->close();
+            $mysqli->close(); */
             ?>
             <span>Disabled Accounts</span>
           </div>
