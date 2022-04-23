@@ -217,67 +217,63 @@ include "UserConfig.php";
                 </table>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="customers">
-          <div class="card">
-            <div class="card-header">
-              <h3>Web Scraper</h3>
+            <table class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>User Id</th>
+                  <th>Username</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Phone Number</th>
+                  <th>Email Address</th>
+                  <th>Birth Date</th>
+                  <th>Gender</th>
+                  <th>User Type</th>
+                  <th>Account Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                // Attempt select query execution
+                $mysqli = new mysqli($servername, $username, $password, $dbname);
+                $sql = "SELECT * FROM user";
+                if ($result = $mysqli->query($sql)) {
+                  if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_array()) {
+                      echo "<tr>";
+                      echo "<td>" . $row['userid'] . "</td>";
+                      echo "<td>" . $row['username'] . "</td>";
+                      echo "<td>" . $row['firstname'] . "</td>";
+                      echo "<td>" . $row['lastname'] . "</td>";
+                      echo "<td>" . $row['phonenumber'] . "</td>";
+                      echo "<td>" . $row['emailaddress'] . "</td>";
+                      echo "<td> " . $row['BirthDate'] . "</td>";
+                      echo "<td> " . $row['Gender'] . "</td>";
+                      echo "<td> " . $row['usertype'] . "</td>";
+                      echo "<td> " . $row['accountstatus'] . "</td>";
+                      echo "</tr>";
+                    }
+                    // Free result set
+                    $result->free();
+                  } else {
+                    echo "<label class='question-text'>No records were found.</label>";
+                  }
+                } else {
+                  echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+                }
 
-              <button>See all<span class="las la-arrow-right"></span></button>
-            </div>
+                // Close connection
+                $mysqli->close();
+                ?>
+              </tbody>
+            </table>
 
-            <div class="card-body">
-              <div class="customer">
-                <div class="info">
-                  <img src="user1.jpg" width="40px" height="40px" alt="">
-                  <div>
-                    <h4>Dominic</h4>
-                    <small>User</small>
-                  </div>
-                </div>
-                <div class="contact">
-                  <span class="las la-user-circle"></span>
-                  <span class="las la-comment"></span>
-                  <span class="las la-phone"></span>
-                </div>
-              </div>
-
-              <div class="customer">
-                <div class="info">
-                  <img src="user1.jpg" width="40px" height="40px" alt="">
-                  <div>
-                    <h4>Dominic</h4>
-                    <small>User</small>
-                  </div>
-                </div>
-                <div class="contact">
-                  <span class="las la-user-circle"></span>
-                  <span class="las la-comment"></span>
-                  <span class="las la-phone"></span>
-                </div>
-              </div>
-
-              <div class="customer">
-                <div class="info">
-                  <img src="user1.jpg" width="40px" height="40px" alt="">
-                  <div>
-                    <h4>Dominic</h4>
-                    <small>User</small>
-                  </div>
-                </div>
-                <div class="contact">
-                  <span class="las la-user-circle"></span>
-                  <span class="las la-comment"></span>
-                  <span class="las la-phone"></span>
-                </div>
-              </div>
-            </div>
 
 
           </div>
         </div>
+
 
         <!--  <div class="customers">
             <div class="card">
