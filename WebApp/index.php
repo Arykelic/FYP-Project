@@ -127,6 +127,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </head>
 
+<style>
+.error {
+  color: red;
+}
+
+</style>
+
 <body>
   <div class="container">
     <div class="row px-3">

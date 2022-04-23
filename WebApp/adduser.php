@@ -137,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </head>
 
-<!-- <style>
+<style>
 input[type=text], select {
   width: 100%;
   padding: 12px 20px;
@@ -173,7 +173,7 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
-</style> -->
+</style>
 
 <body>
   <input type="checkbox" id="nav-toggle"></input>
@@ -253,7 +253,7 @@ input[type=submit]:hover {
         </select>
         <br><br>
         <!-- create option input for User Profile for user to select user profile -->
-        <input><button class="btn btn-block text-uppercase" type="submit" value="Submit">Submit</button></input>
+        <input class="btn btn-block text-uppercase" type="submit" value="Submit">Submit</input>
 
         </div>
 
