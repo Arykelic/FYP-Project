@@ -82,11 +82,34 @@ include "UserConfig.php";
       </header>
 
       <main>
+      
+
+
         <div class="cards">
           <div class="card-single">
             <div>
-              <h1>54</h1>
-              <span>Users</span>
+            <?php
+                    // Attempt select query execution
+					$mysqli = new mysqli($servername, $username, $password, $dbname);
+                    $sql = "SELECT COUNT(userid) FROM user";
+                    if($result = $mysqli->query($sql)){
+                        if($result->num_rows > 0){
+								          while($row = $result->fetch_array()){
+                            echo "<h1>" .$sql. "</h1>";
+                          }
+                            // Free result set
+                            $result->free();
+                        } else{
+                            echo "<label class='question-text'>No records were found.</label>";
+                        }
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+                    }
+                    
+                    // Close connection
+                    $mysqli->close();
+          ?>
+              <span>Total Users</span>
             </div>
             <div>
               <span class="las la-users"></span>
@@ -95,31 +118,91 @@ include "UserConfig.php";
 
           <div class="card-single">
             <div>
-              <h1>2</h1>
-              <span>Admins</span>
+            <?php
+                    // Attempt select query execution
+					$mysqli = new mysqli($servername, $username, $password, $dbname);
+                    $sql = "SELECT COUNT(userid) FROM user WHERE usertype LIKE 'Admin'";
+                    if($result = $mysqli->query($sql)){
+                        if($result->num_rows > 0){
+								          while($row = $result->fetch_array()){
+                            echo "<h1>" .$sql. "</h1>";
+                          }
+                            // Free result set
+                            $result->free();
+                        } else{
+                            echo "<label class='question-text'>No records were found.</label>";
+                        }
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+                    }
+                    
+                    // Close connection
+                    $mysqli->close();
+      ?>
+              <span>Admin Accounts</span>
             </div>
             <div>
-              <i class="fa-solid fa-user-ninja"></i>
+              <i class="las la-user-cog"></i>
             </div>
           </div>
 
           <div class="card-single">
             <div>
-              <h1>124</h1>
-              <span>Orders</span>
+            <?php
+                    // Attempt select query execution
+					$mysqli = new mysqli($servername, $username, $password, $dbname);
+                    $sql = "SELECT COUNT(userid) FROM user WHERE usertype LIKE 'User'";
+                    if($result = $mysqli->query($sql)){
+                        if($result->num_rows > 0){
+								          while($row = $result->fetch_array()){
+                            echo "<h1>" .$sql. "</h1>";
+                          }
+                            // Free result set
+                            $result->free();
+                        } else{
+                            echo "<label class='question-text'>No records were found.</label>";
+                        }
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+                    }
+                    
+                    // Close connection
+                    $mysqli->close();
+      ?>
+              <span>User Accounts</span>
             </div>
             <div>
-              <span class="las la-shopping-bag"></span>
+              <span class="las la-user"></span>
             </div>
           </div>
 
           <div class="card-single">
               <div>
-                <h1>$6k</h1>
-                <span>Income</span>
+              <?php
+                    // Attempt select query execution
+					$mysqli = new mysqli($servername, $username, $password, $dbname);
+                    $sql = "SELECT COUNT(userid) FROM user WHERE accountstatus LIKE 'Disabled'";
+                    if($result = $mysqli->query($sql)){
+                        if($result->num_rows > 0){
+								          while($row = $result->fetch_array()){
+                            echo "<h1>" .$sql. "</h1>";
+                          }
+                            // Free result set
+                            $result->free();
+                        } else{
+                            echo "<label class='question-text'>No records were found.</label>";
+                        }
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+                    }
+                    
+                    // Close connection
+                    $mysqli->close();
+      ?>
+                <span>Disabled Accounts</span>
               </div>
               <div>
-                <span class="lab la-google-wallet"></span>
+                <span class="lab la-user-slash"></span>
               </div>
           </div>
         </div>

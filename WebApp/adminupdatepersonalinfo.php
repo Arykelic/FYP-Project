@@ -34,12 +34,12 @@ if(empty(test_input($_POST["lastname"]))){
     }
 
 if(empty(test_input($_POST["phonenumber"]))){
-    $phonenumber_err = "Please enter your phone number.";     
+  $phonenumber_err = "Please enter your phone number.";
 }	elseif (!preg_match($phoneregex, $_POST["phonenumber"])) {
-$phonenumber_err="Please enter a valid phone number."; 
+  $phonenumber_err="Please enter a valid phone number."; 
 }	else{
     $phonenumber = test_input($_POST["phonenumber"]);
-    }	
+    }
 
 if(empty(test_input($_POST["emailaddress"]))){
     $emailaddress_err = "Please enter your email address.";     
@@ -64,7 +64,7 @@ if(empty(test_input($_POST["Gender"]))){
 }	else{
       $emailaddress = test_input($_POST["emailaddress"]);
       }
-      
+
     }
 
 ?>
