@@ -169,8 +169,8 @@ include "UserConfig.php";
         </div>
       </div>
 
-      <div class="recent-grid">
         <div class="cards">
+          <div class="card">
             <div class="card-header" width="100%">
               <h3>Recommender System</h3>
 
@@ -230,9 +230,9 @@ include "UserConfig.php";
                   </tbody>
                 </table>
               </div>
-            
+            </div>
           </div>
-        </div>
+
 
 
         <!--  <div class="customers">
