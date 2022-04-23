@@ -170,7 +170,7 @@ include "UserConfig.php";
       </div>
 
       <div class="recent-grid">
-        <div class="projects" width="100%">
+        <div class="cards" width="100%">
           <div class="card">
             <div class="card-header">
               <h3>Recommender System</h3>
@@ -191,8 +191,8 @@ include "UserConfig.php";
                       <td>Email Address</td>
                       <td>Birth Date</td>
                       <td>Gender</td>
-                      <th>User Type</th>
-                      <th>Account Status</th>
+                      <td>User Type</td>
+                      <td>Account Status</td>
                     </tr>
                   </thead>
                   <tbody>
