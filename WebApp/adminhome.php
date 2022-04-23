@@ -92,7 +92,7 @@ include "UserConfig.php";
           <div>
             <?php
             // Attempt select query execution
-            $mysqli = new mysqli($servername, $username, $password, $dbname);
+            /* $mysqli = new mysqli($servername, $username, $password, $dbname);
             $sql = "SELECT COUNT(userid) FROM user";
             if ($stmt = $mysqli->prepare($sql)) {
               // Bind variables to the prepared statement as parameters
@@ -104,14 +104,14 @@ include "UserConfig.php";
               // Attempt to execute the prepared statement
               if ($stmt->execute()) {
                 $result = $stmt->get_result();
-                /* echo $sql; */
-                /* echo $userid;
-                echo $result; */
+                echo $sql;
+                echo $userid;
+                echo $result;
                 echo "<h1>" . $result . "</h1>";
                 }
               } else {
                 echo "<h1> Something went wrong. Please try again later </h1>";
-              }
+              } */
             
             ?>
             
