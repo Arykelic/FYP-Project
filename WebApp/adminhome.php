@@ -143,23 +143,25 @@ include "UserConfig.php";
             ?>
             <span>Disabled Accounts</span>
           </div>
+          <br>
           <div>
             <?php
             $sql = "select count(*) as total from user where accountstatus like 'Disabled' and usertype like 'User'";
             $result = mysqli_query($mysqli, $sql);
             $data = mysqli_fetch_assoc($result);
-            echo "<h1>" . $data['total'] . "</h1>";
+            echo "<span>" . $data['total'] . "</span>";
             ?>
-            <span>User Disabled Accounts</span>
+            <span>User</span>
           </div>
+          <br>
           <div>
             <?php
             $sql = "select count(*) as total from user where accountstatus like 'Disabled' and usertype like 'Admin'";
             $result = mysqli_query($mysqli, $sql);
             $data = mysqli_fetch_assoc($result);
-            echo "<h1>" . $data['total'] . "</h1>";
+            echo "<span>" . $data['total'] . "</span>";
             ?>
-            <span>Admin Disabled Accounts</span>
+            <span>Admin</span>
           </div>
           <div>
             <span class="las la-user-slash"></span>
