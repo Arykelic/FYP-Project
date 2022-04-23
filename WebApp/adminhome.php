@@ -169,12 +169,11 @@ include "UserConfig.php";
 
       </div>
 
-      <br><br>
+      <br>
 
         <div class="card">
           <div class="card-header">
-            <h3>Recommender System</h3>
-
+            <h3>User Account Management</h3>
           </div>
 
           <div class="card-body" width="100%">
