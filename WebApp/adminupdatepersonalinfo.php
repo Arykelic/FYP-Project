@@ -76,16 +76,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt = $mysqli->prepare($sql)) {
       // Bind variables to the prepared statement as parameters
-      $stmt->bind_param("ississs", $param_userid, $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender);
+      $stmt->bind_param("ssisssi", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender, $param_userid);
 
       // Set parameters
-      $param_userid = $_SESSION["userid"];
       $param_firstname = $firstname;
       $param_lastname = $lastname;
       $param_phonenumber = $phonenumber;
       $param_emailaddress = $emailaddress;
       $param_BirthDate = $BirthDate;
       $param_Gender = $Gender;
+      $param_userid = $userid;
 
       // Attempt to execute the prepared statement
       if ($stmt->execute()) {
