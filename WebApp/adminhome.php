@@ -44,12 +44,12 @@ include "UserConfig.php";
             <span>Home</span></a>
         </li>
         <li>
-          <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
-            <span>Add Users</span></a>
-        </li>
-        <li>
           <a href="manageuser.php"><span class="las la-users"></span>
             <span>Manage Users</span></a>
+        </li>
+        <li>
+          <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
+            <span>Add Users</span></a>
         </li>
         <li>
           <a href="adminupdatepersonalinfo.php"><span class="las la-user-circle"></span>
@@ -174,7 +174,6 @@ include "UserConfig.php";
       <div class="card">
         <div class="card-header">
           <h2>User Account Management (Disabled Accounts)</h2>
-          <button><a href="manageuser.php">See all<span class="las la-arrow-right"></span></a></button>
           <a href="manageuser.php"><button>See all<span class="las la-arrow-right"></span></button></a>
         </div>
 

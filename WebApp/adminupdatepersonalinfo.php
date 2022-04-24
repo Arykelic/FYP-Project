@@ -13,8 +13,8 @@ include "GlobalClass.php";
 
 
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = $firstname = $lastname = $phonenumber = $emailaddress = $BirthDate = $Gender = $usertype = $accountstatus = "";
-$username_err = $password_err = $confirm_password_err = $firstname_err = $lastname_err = $phonenumber_err = $emailaddress_err = $BirthDate_err = $Gender_err = $usertype_err = $accountstatus_err = "";
+$firstname = $lastname = $phonenumber = $emailaddress = $BirthDate = $Gender = "";
+$firstname_err = $lastname_err = $phonenumber_err = $emailaddress_err = $BirthDate_err = $Gender_err = "";
 $phoneregex = "/^(^[689]{1})(\d{7})$/";
 $emailregex = "/^[^0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/";
 
@@ -91,12 +91,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <span>Home</span></a>
         </li>
         <li>
-          <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
-            <span>Add Users</span></a>
-        </li>
-        <li>
           <a href="manageuser.php"><span class="las la-users"></span>
             <span>Manage Users</span></a>
+        </li>
+        <li>
+          <a href="adduser.php"><i class="fa-solid fa-user-plus"></i>
+            <span>Add Users</span></a>
         </li>
         <li>
           <a href="adminupdatepersonalinfo.php"><span class="las la-user-circle"></span>
@@ -161,10 +161,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </select>
           <br><br>
           <label>Birth Date</label>
-          <select class="form-input form-select-sm" name="BirthDate" id="BirthDate">
-            <option value="Active">Active</option>
-            <option value="Disabled">Disabled</option>
-          </select>
+          <input type="date" name="rentreturndate" class="input-field" readonly value="<?php echo $rentreturndate; ?>">
+          <label class="error"><?php echo $BirthDate_err; ?></label>
           <br><br>
           <label>Gender</label>
           <select class="form-input form-select-sm" name="Gender" id="Gender">
