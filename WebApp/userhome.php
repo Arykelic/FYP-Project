@@ -31,11 +31,11 @@ include "UserConfig.php";
       <div class="sidebar-menu">
         <ul>
           <li>
-            <a href="UserHome.php" class="active"><i class="fa-solid fa-house"></i>
+            <a href="userhome.php" class="active"><i class="fa-solid fa-house"></i>
             <span>Home</span></a>
           </li>
           <li>
-            <a href="UserUpdatePersonalInfo.php"><span class="las la-user-circle"></span>
+            <a href="userupdatepersonalinfo.php"><span class="las la-user-circle"></span>
             <span>Edit Personal Information</span></a>
           </li>
           <li>

@@ -3,12 +3,12 @@
 session_start();
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && $_SESSION["usertype"] === "Admin" && $_SESSION["accountstatus"] === "Active") {
-  header("location: AdminHome.php");
+  header("location: adminhome.php");
   exit;
 }
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && $_SESSION["usertype"] === "User" && $_SESSION["accountstatus"] === "Active") {
-  header("location: UserHome.php");
+  header("location: userhome.php");
   exit;
 }
 
@@ -77,11 +77,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($_SESSION['usertype'] != null) {
                   switch ($_SESSION['usertype']) {
                     case 'Admin':
-                      header("Location:AdminHome.php");
+                      header("Location:adminhome.php");
                       break;
 
                     case 'User':
-                      header("Location:UserHome.php");
+                      header("Location:userhome.php");
                       break;
                   }
                 }
