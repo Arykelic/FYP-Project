@@ -77,11 +77,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($_SESSION['usertype'] != null) {
                   switch ($_SESSION['usertype']) {
                     case 'Admin':
-                      header("Location:adminhome.php");
+                      header("Location:AdminHome.php");
                       break;
 
                     case 'User':
-                      header("Location:userhome.php");
+                      header("Location:UserHome.php");
                       break;
                   }
                 }
