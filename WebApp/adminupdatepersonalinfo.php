@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt = $mysqli->prepare($sql)) {
       // Bind variables to the prepared statement as parameters
-      $stmt->bind_param("ssisssi", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender,$param_userid);
+      $stmt->bind_param("ssisssi", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender, $param_userid);
 
       // Set parameters
       $param_firstname = $firstname;
@@ -81,6 +81,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $param_BirthDate = $BirthDate;
       $param_Gender = $Gender;
       $param_userid = $userid;
+      
+      //UPDATE Session Variables
+      $_SESSION["firstname"] = $firstname;
+      $_SESSION["lastname"] = $lastname;
+      $_SESSION["phonenumber"] = $phonenumber;
+      $_SESSION["emailaddress"] = $emailaddress;
+      $_SESSION["BirthDate"] = $BirthDate;
+      $_SESSION["Gender"] = $Gender;
 
       // Attempt to execute the prepared statement
       if ($stmt->execute()) {
