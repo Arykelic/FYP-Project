@@ -14,6 +14,7 @@ include "UserConfig.php";
 
 
 // Define variables and initialize with empty values except for defaulted values from logged in session
+$userid = $_SESSION["userid"];
 $firstname = $_SESSION["firstname"];
 $lastname = $_SESSION["lastname"];
 $phonenumber = $_SESSION["phonenumber"];
@@ -71,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($firstname_err) && empty($lastname_err) && empty($phonenumber_err) && empty($emailaddress_err) && empty($BirthDate_err) && empty($Gender_err)) {
 
     // Prepare an insert statement
-    $sql = "UPDATE user SET firstname=?, lastname=? phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, updateddatetime = CURRENT_TIMESTAMP) WHERE userid=?";
+    $sql = "UPDATE user SET firstname=?, lastname=? phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, updateddatetime = CURRENT_TIMESTAMP WHERE userid=?";
 
     if ($stmt = $mysqli->prepare($sql)) {
       // Bind variables to the prepared statement as parameters
@@ -192,7 +193,7 @@ $mysqli->close();
           <br><br>
           <!-- create password text for Username for user to input username text -->
           <label>Email Address</label>
-          <input type="email" name="emailaddress" class="form-input" placeholder="Enter your Phone Number" value="<?php echo $emailaddress; ?>" required>
+          <input type="email" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $emailaddress; ?>" required>
           <label class="error"><?php echo $emailaddress_err; ?></label>
           <br><br>
           <label>Birth Date</label>
