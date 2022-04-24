@@ -58,10 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check if username exists, if yes then verify password
         if ($stmt->num_rows == 1) {
           // Bind result variables
-          $stmt->bind_result($userid, $username, $passwordtest, $firstname, $lastname, $usertype, $accountstatus);
+          $stmt->bind_result($userid, $username, $passwordtest, $firstname, $lastname, $phonenumber, $emailaddress, $BirthDate, $Gender, $usertype, $accountstatus);
           if ($stmt->fetch()) {
             #if(password_verify($password, $passwordtest))
-            if ($password == $passwordtest) {
+            if (password_verify($password, $passwordtest)) {
               // Password is correct, so store data in session variables and check account status
               session_start();
               $_SESSION["loggedin"] = true;
@@ -69,6 +69,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               $_SESSION["username"] = $username;
               $_SESSION["firstname"] = $firstname;
               $_SESSION["lastname"] = $lastname;
+              $_SESSION["phonenumber"] = $phonenumber;
+              $_SESSION["emailaddress"] = $emailaddress;
+              $_SESSION["BirthDate"] = $BirthDate;
+              $_SESSION["Gender"] = $Gender;
               $_SESSION["usertype"] = $usertype;
               $_SESSION["accountstatus"] = $accountstatus;
 

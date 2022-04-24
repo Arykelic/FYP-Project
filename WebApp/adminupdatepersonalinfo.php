@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($firstname_err) && empty($lastname_err) && empty($phonenumber_err) && empty($emailaddress_err) && empty($BirthDate_err) && empty($Gender_err)) {
 
     // Prepare an insert statement
-    $sql = "UPDATE user (firstname, lastname, phonenumber, emailaddress, BirthDate, Gender) VALUES (?, ?, ?, ?, ?, ?) WHERE userid=?";
+    $sql = "UPDATE user SET firstname=?, lastname=? phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, updateddatetime = CURRENT_TIMESTAMP) WHERE userid=?";
 
     if ($stmt = $mysqli->prepare($sql)) {
       // Bind variables to the prepared statement as parameters
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Attempt to execute the prepared statement
       if ($stmt->execute()) {
         // Redirect to login page
-        echo '<script>alert("User added succesfully")</script>';
+        echo '<script>alert("Personal Information Updated Succesfully")</script>';
       } else {
         echo '<script>alert("Something went wrong. Please try again later")</script>';
       }
@@ -201,7 +201,7 @@ $mysqli->close();
           <br><br>
           <!-- create option input for User Profile for user to select user profile -->
           <input class="btn btn-block text-uppercase" type="submit" value="Update User Information"></input>
-
+          <input type="reset" class="btn btn-block text-uppercase" value="Reset">
         </div>
 
       </form>
