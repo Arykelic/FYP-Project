@@ -53,7 +53,7 @@ include "UserConfig.php";
         </li>
         <li>
           <a href="adminupdatepersonalinfo.php"><span class="las la-user-circle"></span>
-            <span>Edit Personal Account</span></a>
+            <span>Edit Personal Information</span></a>
         </li>
         <li>
           <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
@@ -171,67 +171,68 @@ include "UserConfig.php";
 
       <br>
 
-        <div class="card">
-          <div class="card-header">
-            <h3>User Account Management</h3>
-          </div>
-
-          <div class="card-body" width="100%">
-            <!-- <div class="table-responsive"> -->
-            <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-              <table width="100%">
-                <thead>
-                  <tr>
-                    <td>User Id</td>
-                    <td>Username</td>
-                    <td>First Name</td>
-                    <td>Last Name</td>
-                    <td>Phone Number</td>
-                    <td>Email Address</td>
-                    <td>Birth Date</td>
-                    <td>Gender</td>
-                    <td>User Type</td>
-                    <td>Account Status</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  // Attempt select query execution
-                  $mysqli = new mysqli($servername, $username, $password, $dbname);
-                  $sql = "SELECT * FROM user";
-                  if ($result = $mysqli->query($sql)) {
-                    if ($result->num_rows > 0) {
-                      while ($row = $result->fetch_array()) {
-                        echo "<tr>";
-                        echo "<td>" . $row['userid'] . "</td>";
-                        echo "<td>" . $row['username'] . "</td>";
-                        echo "<td>" . $row['firstname'] . "</td>";
-                        echo "<td>" . $row['lastname'] . "</td>";
-                        echo "<td>" . $row['phonenumber'] . "</td>";
-                        echo "<td>" . $row['emailaddress'] . "</td>";
-                        echo "<td> " . $row['BirthDate'] . "</td>";
-                        echo "<td> " . $row['Gender'] . "</td>";
-                        echo "<td> " . $row['usertype'] . "</td>";
-                        echo "<td> " . $row['accountstatus'] . "</td>";
-                        echo "</tr>";
-                      }
-                      // Free result set
-                      $result->free();
-                    } else {
-                      echo "<label class='question-text'>No records were found.</label>";
+      <div class="card">
+        <div class="card-header">
+          <h2>User Account Management (Disabled Accounts)</h2>
+        </div>
+        <button><a href ="manageuser.php" >See all<span class="las la-arrow-right"></span></a></button>
+        
+        <div class="card-body" width="100%">
+          <!-- <div class="table-responsive"> -->
+          <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
+            <table width="100%">
+              <thead>
+                <tr>
+                  <td>User Id</td>
+                  <td>Username</td>
+                  <td>First Name</td>
+                  <td>Last Name</td>
+                  <td>Phone Number</td>
+                  <td>Email Address</td>
+                  <td>Birth Date</td>
+                  <td>Gender</td>
+                  <td>User Type</td>
+                  <td>Account Status</td>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                // Attempt select query execution
+                $mysqli = new mysqli($servername, $username, $password, $dbname);
+                $sql = "SELECT * FROM user WHERE accountstatus LIKE 'Disabled'";
+                if ($result = $mysqli->query($sql)) {
+                  if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_array()) {
+                      echo "<tr>";
+                      echo "<td>" . $row['userid'] . "</td>";
+                      echo "<td>" . $row['username'] . "</td>";
+                      echo "<td>" . $row['firstname'] . "</td>";
+                      echo "<td>" . $row['lastname'] . "</td>";
+                      echo "<td>" . $row['phonenumber'] . "</td>";
+                      echo "<td>" . $row['emailaddress'] . "</td>";
+                      echo "<td> " . $row['BirthDate'] . "</td>";
+                      echo "<td> " . $row['Gender'] . "</td>";
+                      echo "<td> " . $row['usertype'] . "</td>";
+                      echo "<td> " . $row['accountstatus'] . "</td>";
+                      echo "</tr>";
                     }
+                    // Free result set
+                    $result->free();
                   } else {
-                    echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+                    echo "<label class='error'>No records were found.</label>";
                   }
+                } else {
+                  echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+                }
 
-                  // Close connection
-                  $mysqli->close();
-                  ?>
-                </tbody>
-              </table>
-            </div>
+                // Close connection
+                $mysqli->close();
+                ?>
+              </tbody>
+            </table>
           </div>
         </div>
+      </div>
 
 
 

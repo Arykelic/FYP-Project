@@ -136,41 +136,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <style>
-input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+  input[type=text],
+  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
-input[type=Password], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+  input[type=Password],
+  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
-input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
 </style>
 
 <body>
@@ -193,7 +194,7 @@ input[type=submit]:hover {
         </li>
         <li>
           <a href="adminupdatepersonalinfo.php"><span class="las la-user-circle"></span>
-            <span>Edit Personal Account</span></a>
+            <span>Edit Personal Information</span></a>
         </li>
         <li>
           <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
@@ -215,55 +216,55 @@ input[type=submit]:hover {
       <div class="user-wrapper">
         <span class="las la-user-circle fa-3x"></span>
         <div>
-        <h4> <?php echo htmlspecialchars($_SESSION["username"]); ?> </h4>
-            <small><?php echo htmlspecialchars($_SESSION["firstname"]); ?></small>
-            <small><?php echo htmlspecialchars($_SESSION["lastname"]); ?></small>
+          <h4> <?php echo htmlspecialchars($_SESSION["username"]); ?> </h4>
+          <small><?php echo htmlspecialchars($_SESSION["firstname"]); ?></small>
+          <small><?php echo htmlspecialchars($_SESSION["lastname"]); ?></small>
         </div>
       </div>
     </header>
 
     <main>
-        <form id="AdminAddUserPage" method="POST">
-        
-        <h3 class="title mt-4">
-            Create New User
-        </h3>
+      <form id="AdminAddUserPage" method="POST">
+
+        <h2 class="title mt-4">
+          Create New User
+        </h2>
         <br><br>
         <div class="form-box px-3">
-        <!-- create form wih post method to the same page -->
-        <label>Username: </label>
-        <input type="text" id="Username" name="username" placeholder="Username" required>
-        <label class="error"><?php echo $username_err; ?></label>
-        <br><br>
-        <!-- create input text for Username for user to input username text -->
-        <label>Password: </label>
-        <input type="Password" class="form-input" id="Password" name="password" placeholder="Password" required>
-        <label class="error"><?php echo $password_err; ?></label>
-        <br><br>
+          <!-- create form wih post method to the same page -->
+          <label>Username: </label>
+          <input type="text" id="Username" name="username" placeholder="Username" required>
+          <label class="error"><?php echo $username_err; ?></label>
+          <br><br>
+          <!-- create input text for Username for user to input username text -->
+          <label>Password: </label>
+          <input type="Password" class="form-input" id="Password" name="password" placeholder="Password" required>
+          <label class="error"><?php echo $password_err; ?></label>
+          <br><br>
 
-        <label>Confirm Password: </label>
-        <input type="Password" class="form-input" id="confirm_password" name="confirm_password" placeholder="Confirm the Password" required>
-        <label class="error"><?php echo $confirm_password_err; ?></label>
-        <br><br>
-        <!-- create password text for Username for user to input username text -->
-        <label>User Type</label>
-        <select class="form-input form-select-sm" name = "usertype" id="usertype">
-                  <option value = "Admin" >Admin</option>
-                  <option value = "User" >User</option>
-        </select>
-        <br><br>
-        <label>Account Status</label>
-        <select class="form-input form-select-sm" name = "accountstatus" id="accountstatus">
-                  <option value = "Active" >Active</option>
-                  <option value = "Disabled" >Disabled</option>
-        </select>
-        <br><br>
-        <!-- create option input for User Profile for user to select user profile -->
-        <input class="btn btn-block text-uppercase" type="submit" value="Create User Account"></input>
+          <label>Confirm Password: </label>
+          <input type="Password" class="form-input" id="confirm_password" name="confirm_password" placeholder="Confirm the Password" required>
+          <label class="error"><?php echo $confirm_password_err; ?></label>
+          <br><br>
+          <!-- create password text for Username for user to input username text -->
+          <label>User Type</label>
+          <select class="form-input form-select-sm" name="usertype" id="usertype">
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+          </select>
+          <br><br>
+          <label>Account Status</label>
+          <select class="form-input form-select-sm" name="accountstatus" id="accountstatus">
+            <option value="Active">Active</option>
+            <option value="Disabled">Disabled</option>
+          </select>
+          <br><br>
+          <!-- create option input for User Profile for user to select user profile -->
+          <input class="btn btn-block text-uppercase" type="submit" value="Create User Account"></input>
 
         </div>
 
-      </form> 
+      </form>
     </main>
   </div>
 
