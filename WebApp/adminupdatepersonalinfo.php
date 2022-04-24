@@ -61,42 +61,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $Gender = test_input($_POST["Gender"]);
   }
-}
 
-// Check input errors before inserting in database
-if (empty($firstname_err) && empty($lastname_err) && empty($phonenumber_err) && empty($emailaddress_err) && empty($BirthDate_err) && empty($Gender_err)) {
+  // Check input errors before inserting in database
+  if (empty($firstname_err) && empty($lastname_err) && empty($phonenumber_err) && empty($emailaddress_err) && empty($BirthDate_err) && empty($Gender_err)) {
 
-  // Prepare an insert statement
-  $sql = "UPDATE user (firstname, lastname, phonenumber, emailaddress, BirthDate, Gender) VALUES (?, ?, ?, ?, ?, ?) WHERE userid=?";
+    // Prepare an insert statement
+    $sql = "UPDATE user (firstname, lastname, phonenumber, emailaddress, BirthDate, Gender) VALUES (?, ?, ?, ?, ?, ?) WHERE userid=?";
 
-  if ($stmt = $mysqli->prepare($sql)) {
-    // Bind variables to the prepared statement as parameters
-    $stmt->bind_param("ssisss", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender);
+    if ($stmt = $mysqli->prepare($sql)) {
+      // Bind variables to the prepared statement as parameters
+      $stmt->bind_param("ssisss", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender);
 
-    // Set parameters
-    $param_firstname = $firstname;
-    $param_lastname = $lastname;
-    $param_phonenumber = $phonenumber;
-    $param_emailaddress = $emailaddress;
-    $param_BirthDate = $BirthDate;
-    $param_Gender = $Gender;
+      // Set parameters
+      $param_firstname = $firstname;
+      $param_lastname = $lastname;
+      $param_phonenumber = $phonenumber;
+      $param_emailaddress = $emailaddress;
+      $param_BirthDate = $BirthDate;
+      $param_Gender = $Gender;
 
-    // Attempt to execute the prepared statement
-    if ($stmt->execute()) {
-      // Redirect to login page
-      echo '<script>alert("User added succesfully")</script>';
-    } else {
-      echo '<script>alert("Something went wrong. Please try again later")</script>';
+      // Attempt to execute the prepared statement
+      if ($stmt->execute()) {
+        // Redirect to login page
+        echo '<script>alert("User added succesfully")</script>';
+      } else {
+        echo '<script>alert("Something went wrong. Please try again later")</script>';
+      }
+
+      // Close statement
+      $stmt->close();
     }
-
-    // Close statement
-    $stmt->close();
   }
 }
 
 // Close connection
 $mysqli->close();
-
 
 ?>
 
