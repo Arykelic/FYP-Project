@@ -87,7 +87,6 @@ include "UserConfig.php";
           <a href="adminsearchuser.php"><button>Search Users<span class="las la-arrow-right"></span></button></a>
         </div>
 
-
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">

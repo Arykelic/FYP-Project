@@ -146,11 +146,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           <label>Phone Number: </label>
           <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $phonenumber; ?>" required>
-          <label class="error"><?php echo $confirm_password_err; ?></label>
+          <label class="error"><?php echo $phonenumber_err; ?></label>
           <br><br>
           <!-- create password text for Username for user to input username text -->
           <label>Email Address</label>
           <input type="email" name="emailaddress" class="form-input" value="<?php echo $emailaddress; ?>">
+          <label class="error"><?php echo $emailaddress_err; ?></label>
           <br><br>
           <label>Birth Date</label>
           <input type="date" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>">
