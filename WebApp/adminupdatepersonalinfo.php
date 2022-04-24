@@ -61,6 +61,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Gender = test_input($_POST["Gender"]);
   }
 }
+
+// Check input errors before inserting in database
+if (empty($firstname_err) && empty($lastname_err) && empty($phonenumber_err) && empty($emailaddress_err) && empty($BirthDate_err) && empty($Gender_err)) {
+
+  // Prepare an insert statement
+  $sql = "INSERT INTO user (firstname, lastname, phonenumber, emailaddress, BirthDate, Gender) VALUES (?, ?, ?, ?, ?, ?)";
+
+  if ($stmt = $mysqli->prepare($sql)) {
+    // Bind variables to the prepared statement as parameters
+    $stmt->bind_param("ssisss", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender);
+
+    // Set parameters
+    $param_firstname = $firstname;
+    $param_lastname = $lastname;
+    $param_phonenumber = $phonenumber;
+    $param_emailaddress = $emailaddress;
+    $param_BirthDate = $BirthDate;
+    $param_Gender = $Gender;
+
+    // Attempt to execute the prepared statement
+    if ($stmt->execute()) {
+      // Redirect to login page
+      echo '<script>alert("User added succesfully")</script>';
+    } else {
+      echo '<script>alert("Something went wrong. Please try again later")</script>';
+    }
+
+    // Close statement
+    $stmt->close();
+  }
+}
+
+// Close connection
+$mysqli->close();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -150,17 +186,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <br><br>
           <!-- create password text for Username for user to input username text -->
           <label>Email Address</label>
-          <input type="email" name="emailaddress" class="form-input" value="<?php echo $emailaddress; ?>">
+          <input type="email" name="emailaddress" class="form-input" placeholder="Enter your Phone Number" value="<?php echo $emailaddress; ?>" required>
           <label class="error"><?php echo $emailaddress_err; ?></label>
           <br><br>
           <label>Birth Date</label>
-          <input type="date" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>">
+          <input type="date" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>" required>
           <label class="error"><?php echo $BirthDate_err; ?></label>
           <br><br>
           <label>Gender</label>
-          <select class="form-input" name="Gender" id="Gender">
-            <option value="M">Male</option>
-            <option value="F">Female</option>
+          <select class="form-input" name="Gender" id="Gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
           <br><br>
           <!-- create option input for User Profile for user to select user profile -->
