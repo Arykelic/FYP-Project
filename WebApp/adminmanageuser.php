@@ -127,9 +127,10 @@ include "UserConfig.php";
                       echo "<td> " . $row['usertype'] . "</td>";
                       echo "<td> " . $row['accountstatus'] . "</td>";
                       echo "<td>";
-                      echo "<a href='AdminViewUser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
-                      echo "<a href='AdminUpdateUser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-                      echo "<a href='AdminDeleteUser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+                      echo "<a href='AdminViewUser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><span class='las la-meh-rolling-eyes'></span></a>";
+                      echo "<a href='AdminViewUser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><span class='las la-eye'></span></a>";
+                      echo "<a href='AdminUpdateUser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><span class='las la-edit'></span></a>";
+                      echo "<a href='AdminDeleteUser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><span class='las la-trash'></span></a>";
                       echo "</td>";
                       echo "</tr>";
                     }
