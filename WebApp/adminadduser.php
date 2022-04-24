@@ -233,12 +233,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-box px-3">
           <!-- create form wih post method to the same page -->
           <label>Username: </label>
-          <input type="text" id="Username" name="username" placeholder="Username" required>
+          <input class="form-input" type="text" id="Username" name="username" placeholder="Username" value="<?php echo $username; ?>" required>
           <label class="error"><?php echo $username_err; ?></label>
           <br><br>
           <!-- create input text for Username for user to input username text -->
           <label>Password: </label>
-          <input type="Password" class="form-input" id="Password" name="password" placeholder="Password" required>
+          <input type="Password" class="form-input" id="Password" name="password" placeholder="Enter a Password (At least 6 Characters)" required>
           <label class="error"><?php echo $password_err; ?></label>
           <br><br>
 

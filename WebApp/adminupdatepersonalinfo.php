@@ -50,21 +50,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if (empty(test_input($_POST["BirthDate"]))) {
-    $emailaddress_err = "Please enter your email address.";
-  } elseif (!preg_match($emailregex, $_POST["emailaddress"])) {
-    $emailaddress_err = "Please enter a valid email address.";
+    $BirthDate_err = "Please enter your Birth Date.";
   } else {
-    $emailaddress = test_input($_POST["emailaddress"]);
+    $BirthDate = test_input($_POST["BirthDate"]);
   }
 
   if (empty(test_input($_POST["Gender"]))) {
-    $emailaddress_err = "Please enter your email address.";
-  } elseif (!preg_match($emailregex, $_POST["emailaddress"])) {
-    $emailaddress_err = "Please enter a valid email address.";
+    $Gender_err = "Please enter your Gender.";
   } else {
-    $emailaddress = test_input($_POST["emailaddress"]);
+    $Gender = test_input($_POST["Gender"]);
   }
-}
 
 ?>
 
@@ -150,18 +145,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <br><br>
 
           <label>Phone Number: </label>
-          <input type="Password" class="form-input" id="confirm_password" name="confirm_password" placeholder="Confirm the Password" required>
+          <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $phonenumber; ?>" required>
           <label class="error"><?php echo $confirm_password_err; ?></label>
           <br><br>
           <!-- create password text for Username for user to input username text -->
           <label>Email Address</label>
-          <select class="form-input" name="emailaddress" id="usertype">
-            <option value="Admin">Admin</option>
-            <option value="User">User</option>
-          </select>
+          <input type="email" name="emailaddress" class="form-input" value="<?php echo $emailaddress; ?>">
           <br><br>
           <label>Birth Date</label>
-          <input type="date" name="BirthDate" class="form-input" value="<?php echo $rentreturndate; ?>">
+          <input type="date" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>">
           <label class="error"><?php echo $BirthDate_err; ?></label>
           <br><br>
           <label>Gender</label>
@@ -171,7 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </select>
           <br><br>
           <!-- create option input for User Profile for user to select user profile -->
-          <input class="btn btn-block text-uppercase" type="submit" value="Create User Account"></input>
+          <input class="btn btn-block text-uppercase" type="submit" value="Update User Information"></input>
 
         </div>
 
