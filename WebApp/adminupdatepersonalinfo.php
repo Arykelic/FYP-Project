@@ -13,14 +13,8 @@ include "GlobalClass.php";
 include "UserConfig.php";
 
 
-// Define variables and initialize with empty values except for defaulted values from logged in session so it can be shown as default values
+// Define variables and initialize with empty values and assign userid to session userid
 $userid = $_SESSION["userid"];
-$firstname = $_SESSION["firstname"];
-$lastname = $_SESSION["lastname"];
-$phonenumber = $_SESSION["phonenumber"];
-$emailaddress = $_SESSION["emailaddress"];
-$BirthDate = $_SESSION["BirthDate"];
-$Gender = $_SESSION["Gender"];
 $firstname_err = $lastname_err = $phonenumber_err = $emailaddress_err = $BirthDate_err = $Gender_err = "";
 $phoneregex = "/^(^[689]{1})(\d{7})$/";
 $emailregex = "/^[^0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/";
@@ -72,11 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($firstname_err) && empty($lastname_err) && empty($phonenumber_err) && empty($emailaddress_err) && empty($BirthDate_err) && empty($Gender_err)) {
 
     // Prepare an insert statement
-    $sql = "UPDATE user SET firstname=?, lastname=? phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, updateddatetime = CURRENT_TIMESTAMP WHERE userid=?";
+    $sql = "UPDATE user SET firstname=?, lastname=? phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, updateddatetime = CURRENT_TIMESTAMP WHERE userid=$userid";
 
     if ($stmt = $mysqli->prepare($sql)) {
       // Bind variables to the prepared statement as parameters
-      $stmt->bind_param("ssisssi", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender, $param_userid);
+      $stmt->bind_param("ssisss", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender);
 
       // Set parameters
       $param_firstname = $firstname;
@@ -85,7 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $param_emailaddress = $emailaddress;
       $param_BirthDate = $BirthDate;
       $param_Gender = $Gender;
-      $param_userid = $userid;
 
       // Attempt to execute the prepared statement
       if ($stmt->execute()) {
