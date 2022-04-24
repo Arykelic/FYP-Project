@@ -13,8 +13,13 @@ include "GlobalClass.php";
 include "UserConfig.php";
 
 
-// Define variables and initialize with empty values
-$firstname = $lastname = $phonenumber = $emailaddress = $BirthDate = $Gender = "";
+// Define variables and initialize with empty values except for defaulted values from logged in session
+$firstname = $_SESSION["firstname"];
+$lastname = $_SESSION["lastname"];
+$phonenumber = $_SESSION["phonenumber"];
+$emailaddress = $_SESSION["emailaddress"];
+$BirthDate = $_SESSION["BirthDate"];
+$Gender = $_SESSION["Gender"];
 $firstname_err = $lastname_err = $phonenumber_err = $emailaddress_err = $BirthDate_err = $Gender_err = "";
 $phoneregex = "/^(^[689]{1})(\d{7})$/";
 $emailregex = "/^[^0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/";
@@ -70,9 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt = $mysqli->prepare($sql)) {
       // Bind variables to the prepared statement as parameters
-      $stmt->bind_param("ssisss", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender);
+      $stmt->bind_param("ississs", $param_userid, $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender);
 
       // Set parameters
+      $param_userid = $_SESSION["userid"];
       $param_firstname = $firstname;
       $param_lastname = $lastname;
       $param_phonenumber = $phonenumber;
@@ -171,12 +177,12 @@ $mysqli->close();
         <div class="form-box px-3">
           <!-- create form wih post method to the same page -->
           <label>First Name: </label>
-          <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" required>
+          <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>" required>
           <label class="error"><?php echo $firstname_err; ?></label>
           <br><br>
           <!-- create input text for Username for user to input username text -->
           <label>Last Name: </label>
-          <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" required>
+          <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" value="<?php echo $lastname; ?>" required>
           <label class="error"><?php echo $lastname_err; ?></label>
           <br><br>
 
@@ -194,14 +200,14 @@ $mysqli->close();
           <label class="error"><?php echo $BirthDate_err; ?></label>
           <br><br>
           <label>Gender</label>
-          <select class="form-input" name="Gender" id="Gender" required>
+          <select class="form-input" name="Gender" id="Gender" value="<?php echo $Gender; ?>" required>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
           <br><br>
           <!-- create option input for User Profile for user to select user profile -->
           <input class="btn btn-block text-uppercase" type="submit" value="Update User Information"></input>
-          <input type="reset" class="btn btn-block text-uppercase" value="Reset">
+          <input type="reset" class="btn btn-block text-uppercase" value="Reset Fields"></input>
         </div>
 
       </form>
