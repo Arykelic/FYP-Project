@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $Gender = test_input($_POST["Gender"]);
   }
-
+}
 ?>
 
 <!DOCTYPE html>
