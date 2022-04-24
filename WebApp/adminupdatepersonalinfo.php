@@ -15,6 +15,7 @@ include "UserConfig.php";
 
 // Define variables and initialize with empty values and assign userid to session userid
 $userid = $_SESSION["userid"];
+$updatedby = $_SESSION["username"];
 $firstname = $_SESSION["firstname"];
 $lastname = $_SESSION["lastname"];
 $phonenumber = $_SESSION["phonenumber"];
@@ -29,55 +30,35 @@ $emailregex = "/^[^0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  if (empty(test_input($_POST["firstname"]))) {
-    $firstname_err = "Please enter your first name.";
-  } else {
-    $firstname = test_input($_POST["firstname"]);
-  }
 
-  if (empty(test_input($_POST["lastname"]))) {
-    $lastname_err = "Please enter your last name.";
-  } else {
-    $lastname = test_input($_POST["lastname"]);
-  }
+  $firstname = test_input($_POST["firstname"]);
+  $lastname = test_input($_POST["lastname"]);
 
-  if (empty(test_input($_POST["phonenumber"]))) {
-    $phonenumber_err = "Please enter your phone number.";
-  } elseif (!preg_match($phoneregex, $_POST["phonenumber"])) {
+  if (!preg_match($phoneregex, $_POST["phonenumber"])) {
     $phonenumber_err = "Please enter a valid phone number.";
   } else {
     $phonenumber = test_input($_POST["phonenumber"]);
   }
 
-  if (empty(test_input($_POST["emailaddress"]))) {
-    $emailaddress_err = "Please enter your email address.";
-  } elseif (!preg_match($emailregex, $_POST["emailaddress"])) {
+  if (!preg_match($emailregex, $_POST["emailaddress"])) {
     $emailaddress_err = "Please enter a valid email address.";
   } else {
     $emailaddress = test_input($_POST["emailaddress"]);
   }
 
-  if (empty(test_input($_POST["BirthDate"]))) {
-    $BirthDate_err = "Please enter your Birth Date.";
-  } else {
-    $BirthDate = test_input($_POST["BirthDate"]);
-  }
+  $BirthDate = test_input($_POST["BirthDate"]);
+  $Gender = test_input($_POST["Gender"]);
 
-  if (empty(test_input($_POST["Gender"]))) {
-    $Gender_err = "Please enter your Gender.";
-  } else {
-    $Gender = test_input($_POST["Gender"]);
-  }
 
   // Check input errors before inserting in database
   if (empty($firstname_err) && empty($lastname_err) && empty($phonenumber_err) && empty($emailaddress_err) && empty($BirthDate_err) && empty($Gender_err)) {
 
     // Prepare an UPDATE statement
-    $sql = "UPDATE user SET firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, updateddatetime = CURRENT_TIMESTAMP WHERE userid=? ";
+    $sql = "UPDATE user SET firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, updateddatetime = CURRENT_TIMESTAMP, updatedby =? WHERE userid=? ";
 
     if ($stmt = $mysqli->prepare($sql)) {
       // Bind variables to the prepared statement as parameters
-      $stmt->bind_param("ssisssi", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender, $param_userid);
+      $stmt->bind_param("ssissssi", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender, $param_updatedby, $param_userid);
 
       // Set parameters
       $param_firstname = $firstname;
@@ -86,8 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $param_emailaddress = $emailaddress;
       $param_BirthDate = $BirthDate;
       $param_Gender = $Gender;
+      $param_updatedby = $updatedby;
       $param_userid = $userid;
-      
+
       //UPDATE Session Variables
       $_SESSION["firstname"] = $firstname;
       $_SESSION["lastname"] = $lastname;
@@ -187,30 +169,30 @@ $mysqli->close();
         <div class="form-box px-3">
           <!-- create form wih post method to the same page -->
           <label>First Name: </label>
-          <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>" required>
+          <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>">
           <label class="error"><?php echo $firstname_err; ?></label>
           <br><br>
           <!-- create input text for Username for user to input username text -->
           <label>Last Name: </label>
-          <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" value="<?php echo $lastname; ?>" required>
+          <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" value="<?php echo $lastname; ?>">
           <label class="error"><?php echo $lastname_err; ?></label>
           <br><br>
 
           <label>Phone Number: </label>
-          <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $phonenumber; ?>" required>
+          <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $phonenumber; ?>">
           <label class="error"><?php echo $phonenumber_err; ?></label>
           <br><br>
           <!-- create password text for Username for user to input username text -->
           <label>Email Address</label>
-          <input type="email" id="emailaddress" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $emailaddress; ?>" required>
+          <input type="email" id="emailaddress" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $emailaddress; ?>">
           <label class="error"><?php echo $emailaddress_err; ?></label>
           <br><br>
           <label>Birth Date</label>
-          <input type="date" id="BirthDate" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>" required>
+          <input type="date" id="BirthDate" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>">
           <label class="error"><?php echo $BirthDate_err; ?></label>
           <br><br>
           <label>Gender</label>
-          <select class="form-input" name="Gender" id="Gender" value="<?php echo $Gender; ?>" required>
+          <select class="form-input" name="Gender" id="Gender" value="<?php echo $Gender; ?>">
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
