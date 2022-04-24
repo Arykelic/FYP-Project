@@ -94,7 +94,7 @@ include "UserConfig.php";
             <table width="100%">
               <thead>
                 <tr>
-                  <td>User Id</td>
+                  <td width="5%">User Id</td>
                   <td>Username</td>
                   <td>First Name</td>
                   <td>Last Name</td>
@@ -127,12 +127,9 @@ include "UserConfig.php";
                       echo "<td> " . $row['usertype'] . "</td>";
                       echo "<td> " . $row['accountstatus'] . "</td>";
                       echo "<td>";
-                      echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><span class='lar la-eye'></span></a>";
                       echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='lar la-eye'></i></a>";
-                      echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><span class='las la-eye'></span></a>";
-                      echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='las la-eye'></i></a>";
-                      echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><span class='lar la-edit'></span></a>";
-                      echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><span class='lar la-trash-alt'></span></a>";
+                      echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><i class='lar la-edit'></i></a>";
+                      echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><i class='lar la-trash-alt'></i></a>";
                       echo "</td>";
                       echo "</tr>";
                     }
