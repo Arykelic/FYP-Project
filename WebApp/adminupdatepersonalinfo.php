@@ -15,7 +15,13 @@ include "UserConfig.php";
 
 // Define variables and initialize with empty values and assign userid to session userid
 $userid = $_SESSION["userid"];
-$firstname = $lastname = $phonenumber = $emailaddress = $BirthDate = $Gender = "";
+$_SESSION["firstname"] = $firstname;
+$_SESSION["lastname"] = $lastname;
+$_SESSION["phonenumber"] = $phonenumber;
+$_SESSION["emailaddress"] = $emailaddress;
+$_SESSION["BirthDate"] = $BirthDate;
+$_SESSION["Gender"] = $Gender;
+
 $firstname_err = $lastname_err = $phonenumber_err = $emailaddress_err = $BirthDate_err = $Gender_err = "";
 $phoneregex = "/^(^[689]{1})(\d{7})$/";
 $emailregex = "/^[^0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/";
