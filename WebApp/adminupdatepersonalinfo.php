@@ -15,6 +15,7 @@ include "UserConfig.php";
 
 // Define variables and initialize with empty values and assign userid to session userid
 $userid = $_SESSION["userid"];
+$firstname = $lastname = $phonenumber = $emailaddress = $BirthDate = $Gender = "";
 $firstname_err = $lastname_err = $phonenumber_err = $emailaddress_err = $BirthDate_err = $Gender_err = "";
 $phoneregex = "/^(^[689]{1})(\d{7})$/";
 $emailregex = "/^[^0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/";
@@ -65,12 +66,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Check input errors before inserting in database
   if (empty($firstname_err) && empty($lastname_err) && empty($phonenumber_err) && empty($emailaddress_err) && empty($BirthDate_err) && empty($Gender_err)) {
 
-    // Prepare an insert statement
-    $sql = "UPDATE user SET firstname=?, lastname=? phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, updateddatetime = CURRENT_TIMESTAMP WHERE userid=$userid";
+    // Prepare an UPDATE statement
+    $sql = "UPDATE user SET firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, updateddatetime = CURRENT_TIMESTAMP WHERE userid=? ";
 
     if ($stmt = $mysqli->prepare($sql)) {
       // Bind variables to the prepared statement as parameters
-      $stmt->bind_param("ssisss", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender);
+      $stmt->bind_param("ssisssi", $param_firstname, $param_lastname, $param_phonenumber, $param_emailaddress, $param_BirthDate, $param_Gender,$param_userid);
 
       // Set parameters
       $param_firstname = $firstname;
@@ -79,6 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $param_emailaddress = $emailaddress;
       $param_BirthDate = $BirthDate;
       $param_Gender = $Gender;
+      $param_userid = $userid;
 
       // Attempt to execute the prepared statement
       if ($stmt->execute()) {
@@ -186,11 +188,11 @@ $mysqli->close();
           <br><br>
           <!-- create password text for Username for user to input username text -->
           <label>Email Address</label>
-          <input type="email" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $emailaddress; ?>" required>
+          <input type="email" id="emailaddress" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $emailaddress; ?>" required>
           <label class="error"><?php echo $emailaddress_err; ?></label>
           <br><br>
           <label>Birth Date</label>
-          <input type="date" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>" required>
+          <input type="date" id="BirthDate" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>" required>
           <label class="error"><?php echo $BirthDate_err; ?></label>
           <br><br>
           <label>Gender</label>
