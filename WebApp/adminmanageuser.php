@@ -94,7 +94,7 @@ include "UserConfig.php";
             <table width="100%">
               <thead>
                 <tr>
-                  <td width="5%">User Id</td>
+                  <td>User Id</td>
                   <td>Username</td>
                   <td>First Name</td>
                   <td>Last Name</td>

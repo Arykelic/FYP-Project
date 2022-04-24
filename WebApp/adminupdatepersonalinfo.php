@@ -140,13 +140,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-box px-3">
           <!-- create form wih post method to the same page -->
           <label>First Name: </label>
-          <input type="text" id="Username" name="username" placeholder="Username" required>
-          <label class="error"><?php echo $username_err; ?></label>
+          <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" required>
+          <label class="error"><?php echo $firstname_err; ?></label>
           <br><br>
           <!-- create input text for Username for user to input username text -->
           <label>Last Name: </label>
-          <input type="Password" class="form-input" id="Password" name="password" placeholder="Password" required>
-          <label class="error"><?php echo $password_err; ?></label>
+          <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" required>
+          <label class="error"><?php echo $lastname_err; ?></label>
           <br><br>
 
           <label>Phone Number: </label>
@@ -155,17 +155,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <br><br>
           <!-- create password text for Username for user to input username text -->
           <label>Email Address</label>
-          <select class="form-input form-select-sm" name="usertype" id="usertype">
+          <select class="form-input" name="emailaddress" id="usertype">
             <option value="Admin">Admin</option>
             <option value="User">User</option>
           </select>
           <br><br>
           <label>Birth Date</label>
-          <input type="date" name="rentreturndate" class="input-field" readonly value="<?php echo $rentreturndate; ?>">
+          <input type="date" name="BirthDate" class="form-input" value="<?php echo $rentreturndate; ?>">
           <label class="error"><?php echo $BirthDate_err; ?></label>
           <br><br>
           <label>Gender</label>
-          <select class="form-input form-select-sm" name="Gender" id="Gender">
+          <select class="form-input" name="Gender" id="Gender">
             <option value="M">Male</option>
             <option value="F">Female</option>
           </select>
