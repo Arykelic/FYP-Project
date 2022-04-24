@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if (empty($firstname_err) && empty($lastname_err) && empty($phonenumber_err) && empty($emailaddress_err) && empty($BirthDate_err) && empty($Gender_err)) {
 
   // Prepare an insert statement
-  $sql = "INSERT INTO user (firstname, lastname, phonenumber, emailaddress, BirthDate, Gender) VALUES (?, ?, ?, ?, ?, ?)";
+  $sql = "UPDATE user (firstname, lastname, phonenumber, emailaddress, BirthDate, Gender) VALUES (?, ?, ?, ?, ?, ?) WHERE userid=?";
 
   if ($stmt = $mysqli->prepare($sql)) {
     // Bind variables to the prepared statement as parameters
