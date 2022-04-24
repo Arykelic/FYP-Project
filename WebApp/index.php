@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           if ($stmt->fetch()) {
             #if(password_verify($password, $passwordtest))
             if (password_verify($password, $passwordtest)) {
-              // Password is correct, so store data in session variables and check account status
+              // Password is correct, so store user data in session variables and check account status
               session_start();
               $_SESSION["loggedin"] = true;
               $_SESSION["userid"] = $userid;

@@ -13,7 +13,7 @@ include "GlobalClass.php";
 include "UserConfig.php";
 
 
-// Define variables and initialize with empty values except for defaulted values from logged in session
+// Define variables and initialize with empty values except for defaulted values from logged in session so it can be shown as default values
 $userid = $_SESSION["userid"];
 $firstname = $_SESSION["firstname"];
 $lastname = $_SESSION["lastname"];
