@@ -176,6 +176,7 @@ include "UserConfig.php";
           <h2>User Account Management (Disabled Accounts)</h2>
         </div>
         <button><a href ="manageuser.php" >See all<span class="las la-arrow-right"></span></a></button>
+        <a href="manageuser.php"><button>See all<span class="las la-arrow-right"></span></button></a>
         
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
