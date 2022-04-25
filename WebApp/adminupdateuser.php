@@ -270,6 +270,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <!-- create input text for Username for user to input username text -->
                     <label>User Name: </label>
                     <input type="text" class="form-input" id="username" name="username" placeholder="Enter a User Name" value="<?php echo $username; ?>" required>
+                    <label class="error"><?php echo $username_err; ?></label>
                     <br><br>
                     <label>First Name: </label>
                     <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>">
@@ -278,11 +279,11 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" value="<?php echo $lastname; ?>">
                     <br><br>
                     <label>Phone Number: </label>
-                    <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $phonenumber; ?>">
+                    <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $phonenumber; ?>" required>
                     <label class="error"><?php echo $phonenumber_err; ?></label>
                     <br><br>
                     <label>Email Address: </label>
-                    <input type="email" id="emailaddress" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $emailaddress; ?>">
+                    <input type="email" id="emailaddress" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $emailaddress; ?>" required>
                     <label class="error"><?php echo $emailaddress_err; ?></label>
                     <br><br>
                     <label>Birth Date: </label>
@@ -317,7 +318,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <br><br>
 
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
-                    <a href="adminmanageuser.php"><input class="btn btn-block text-uppercase" type="backbutton" value="Back"></input></a>
+                    <input class="btn btn-block text-uppercase" type="backbutton" value="Back"><a href="adminmanageuser.php"></a></input>
                 </div>
 
             </form>
