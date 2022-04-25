@@ -274,11 +274,11 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 <div class="form-box px-3">
                     <!-- create form wih post method to the same page -->
                     <label>User Id: </label>
-                    <input type="text" name="userid" value="<?php echo $userid; ?>" disabled>
+                    <input type="text"  value="<?php echo $userid; ?>" disabled>
                     <br><br>
                     <!-- create input text for Username for user to input username text -->
                     <label>User Name: </label>
-                    <input type="text" class="form-input" id="username" name="username" placeholder="Enter a User Name" value="<?php echo $username; ?>" disabled>
+                    <input type="text" class="form-input"  placeholder="Enter a User Name" value="<?php echo $username; ?>" disabled>
                     <br><br>
                     <label>First Name: </label>
                     <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>">
@@ -324,6 +324,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <label>Updated By: </label>
                     <input id="updatedby" name="updatedby" class="form-input" type="text" value="<?php echo $updatedby; ?>" disabled>
                     <br><br>
+                    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
 
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
                 </div>
