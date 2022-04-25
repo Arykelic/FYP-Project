@@ -263,59 +263,59 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 <div class="form-box px-3">
                     <!-- create form wih post method to the same page -->
                     <label>User Id: </label>
-                    <input type="text" value="<?php echo $row["userid"]; ?>" disabled>
+                    <input type="text" name="userid" value="<?php echo $userid; ?>" disabled>
                     <br><br>
                     <!-- create input text for Username for user to input username text -->
                     <label>User Name: </label>
-                    <input type="text" class="form-input" id="username" name="username" placeholder="Enter a User Name" value="<?php echo $row["username"]; ?>">
+                    <input type="text" class="form-input" id="username" name="username" placeholder="Enter a User Name" value="<?php echo $username; ?>">
                     <br><br>
                     <label>First Name: </label>
-                    <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $row["firstname"]; ?>">
+                    <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>">
                     <br><br>
                     <label>Last Name: </label>
-                    <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" value="<?php echo $row["lastname"]; ?>">
+                    <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" value="<?php echo $lastname; ?>">
                     <br><br>
                     <label>Phone Number: </label>
-                    <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $row["phonenumber"]; ?>">
+                    <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $phonenumber; ?>">
                     <label class="error"><?php echo $phonenumber_err; ?></label>
                     <br><br>
                     <label>Email Address: </label>
-                    <input type="email" id="emailaddress" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $row["emailaddress"]; ?>">
+                    <input type="email" id="emailaddress" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $emailaddress; ?>">
                     <label class="error"><?php echo $emailaddress_err; ?></label>
                     <br><br>
                     <label>Birth Date: </label>
-                    <input type="date" id="BirthDate" name="BirthDate" class="form-input" value="<?php echo $row["BirthDate"]; ?>">
+                    <input type="date" id="BirthDate" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>">
                     <br><br>
                     <label>Gender: </label>
-                    <select class="form-input" name="Gender" id="Gender" value="<?php echo $row["Gender"]; ?>">
+                    <select class="form-input" name="Gender" id="Gender" value="<?php echo $Gender; ?>">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                     <br><br>
                     <label>User Type</label>
-                    <select class="form-input" name="usertype" id="usertype" value="<?php echo $row["Gender"]; ?>">
+                    <select class="form-input" name="usertype" id="usertype" value="<?php echo $usertype; ?>">
                         <option value="Admin">Admin</option>
                         <option value="User">User</option>
                     </select>
                     <br><br>
                     <label>Account Status</label>
-                    <select class="form-input" name="accountstatus" id="accountstatus" value="<?php echo $row["Gender"]; ?>">
+                    <select class="form-input" name="accountstatus" id="accountstatus" value="<?php echo $accountstatus; ?>">
                         <option value="Active">Active</option>
                         <option value="Disabled">Disabled</option>
                     </select>
                     <br><br>
                     <label>Created Date Time: </label>
-                    <input type="text" value="<?php echo $row["createddatetime"]; ?>" disabled>
+                    <input type="text" value="<?php echo $createddatetime; ?>" disabled>
                     <br><br>
                     <label>Updated Date Time: </label>
-                    <input type="text" value="<?php echo $row["updateddatetime"]; ?>" disabled>
+                    <input type="text" value="<?php echo $updateddatetime; ?>" disabled>
                     <br><br>
                     <label>Updated By: </label>
-                    <input type="text" value="<?php echo $row["updatedby"]; ?>" disabled>
+                    <input type="text" value="<?php echo $updatedby; ?>" disabled>
                     <br><br>
-                    <input type="hidden" name="productid" value="<?php echo $productid; ?>" />
+                    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
-                    <input class = "backbutton"><button><a href="adminmanageuser.php">Back</a></button></input>
+                    <input class="backbutton" value="Back"><button><a href="adminmanageuser.php"></a></button></input>
                 </div>
 
             </form>
