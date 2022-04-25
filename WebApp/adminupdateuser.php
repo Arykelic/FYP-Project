@@ -314,7 +314,8 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <input type="text" value="<?php echo $row["updatedby"]; ?>" disabled>
                     <br><br>
                     <input type="hidden" name="productid" value="<?php echo $productid; ?>" />
-                    <button><a href="adminmanageuser.php" class="backbutton">Back</a></button>
+                    <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
+                    <input class = "backbutton"><button><a href="adminmanageuser.php">Back</a></button></input>
                 </div>
 
             </form>

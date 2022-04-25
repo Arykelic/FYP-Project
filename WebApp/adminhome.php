@@ -174,7 +174,7 @@ include "UserConfig.php";
       <div class="card">
         <div class="card-header">
           <h2>User Account Management (Disabled Accounts)</h2>
-          <a href="adminmanageuser.php"><button>See all<span class="las la-arrow-right"></span></button></a>
+          <a href="adminmanageuser.php"><button>See All Users<span class="las la-arrow-right"></span></button></a>
         </div>
 
 
