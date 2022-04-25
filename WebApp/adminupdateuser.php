@@ -94,8 +94,9 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
         if ($stmt = $mysqli->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
             $stmt->bind_param(
-                "sssisssssi",
-                $param_username,
+                "isssisssss",
+                $param_userid .
+                    $param_username,
                 $param_firstname,
                 $param_lastname,
                 $param_phonenumber,
@@ -103,11 +104,12 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 $param_BirthDate,
                 $param_Gender,
                 $param_usertype,
-                $param_accountstatus,
-                $param_userid
+                $param_accountstatus
+
             );
 
             // Set parameters
+            $param_userid = $userid;
             $param_username = $username;
             $param_firstname = $firstname;
             $param_lastname = $lastname;
@@ -117,7 +119,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
             $param_Gender = $Gender;
             $param_usertype = $usertype;
             $param_accountstatus = $accountstatus;
-            $param_userid = $userid;
+
 
             // Attempt to execute the prepared statement
             if ($stmt->execute()) {
@@ -313,9 +315,9 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <label>Updated By: </label>
                     <input type="text" value="<?php echo $updatedby; ?>" disabled>
                     <br><br>
-                    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
-                    <input class="backbutton" value="Back"><button><a href="adminmanageuser.php"></a></button></input>
+                    <input class="btn btn-block text-uppercase backbutton" value="Back"> <a href="adminmanageuser.php"></a></input>
                 </div>
 
             </form>
