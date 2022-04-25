@@ -93,15 +93,15 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
     // Check input errors before inserting in database
     if (/* empty($username_err) && */empty($phonenumber_err) && empty($emailaddress_err) && empty($usertype_err) && empty($accountstatus_err)) {
         // Prepare an update statement
-        $sql = "UPDATE user SET username=?, firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?,
+        $sql = "UPDATE user SET /* username=?, */ firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?,
         Gender=?, usertype=?, accountstatus=?, updateddatetime = CURRENT_TIMESTAMP, updatedby=? WHERE userid=?";
 
         if ($stmt = $mysqli->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
             $stmt->bind_param(
-                "sssissssssi",
+                "ssissssssi",
 
-                $param_username,
+                /* $param_username, */
                 $param_firstname,
                 $param_lastname,
                 $param_phonenumber,
@@ -117,7 +117,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
 
             // Set parameters
 
-            $param_username = $username;
+            /* $param_username = $username; */
             $param_firstname = $firstname;
             $param_lastname = $lastname;
             $param_phonenumber = $phonenumber;
@@ -136,7 +136,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 header("location: adminhome.php");
                 exit();
             } else {
-                echo "Something went wrong. Please try again later.";
+                echo '<script>alert("Something went wrong. Please try again later")</script>';
             }
         }
 
