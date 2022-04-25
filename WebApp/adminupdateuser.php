@@ -157,7 +157,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
 } else {
     if (isset($_GET["userid"]) && !empty(trim($_GET["userid"]))) {
         // Prepare a select statement
-        $userid = trim($_GET["userid"]);
+        $displayuserid = trim($_GET["userid"]);
 
         $sql = "SELECT * FROM user WHERE userid = ?";
         if ($stmt = $mysqli->prepare($sql)) {
@@ -307,21 +307,21 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <br><br>
                     <label>Gender: </label>
                     <select class="form-input" name="Gender" id="Gender" value="<?php echo $displayGender; ?>">
-                        <option> <?php echo $Gender; ?> </option>
+                        <option> <?php echo $displayGender; ?> </option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                     <br><br>
                     <label>User Type</label>
                     <select class="form-input" name="usertype" id="usertype" value="<?php echo $displayusertype; ?>" required>
-                        <option> <?php echo $usertype; ?> </option>
+                        <option> <?php echo $displayusertype; ?> </option>
                         <option value="Admin">Admin</option>
                         <option value="User">User</option>
                     </select>
                     <br><br>
                     <label>Account Status</label>
                     <select class="form-input" name="accountstatus" id="accountstatus" value="<?php echo $displayaccountstatus; ?>" required>
-                        <option> <?php echo $accountstatus; ?> </option>
+                        <option> <?php echo $displayaccountstatus; ?> </option>
                         <option value="Active">Active</option>
                         <option value="Disabled">Disabled</option>
                     </select>
