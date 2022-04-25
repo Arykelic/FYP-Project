@@ -20,10 +20,12 @@ $phoneregex = "/^(^[689]{1})(\d{7})$/";
 $emailregex = "/^[^0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/";
 
 if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
-    // Get hidden input value
+    // Get hidden/disabled input value
     $userid = $_POST["userid"];
+    $username = $_POST["username"];
+    $updatedby = $_SESSION["username"];
 
-    // Validate username and code to change username
+    /* // Validate username and code to change username
     if (empty(test_input($_POST["username"]))) {
         $username_err = "Please enter a username.";
     } else {
@@ -54,7 +56,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
             // Close statement
             $stmt->close();
         }
-    }
+    } */
 
     $firstname = test_input($_POST["firstname"]);
     $lastname = test_input($_POST["lastname"]);
@@ -89,14 +91,14 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
     // Check input errors before inserting in database
     if (empty($username_err) && empty($phonenumber_err) && empty($emailaddress_err) && empty($usertype_err) && empty($accountstatus_err)) {
         // Prepare an update statement
-        $sql = "UPDATE user SET username=?, firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, usertype=?, accountstatus=? WHERE userid=?";
+        $sql = "UPDATE user SET username=?, firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, usertype=?, accountstatus=?, updatedby=? WHERE userid=?";
 
         if ($stmt = $mysqli->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
             $stmt->bind_param(
                 "isssisssss",
                 $param_userid .
-                    $param_username,
+                $param_username,
                 $param_firstname,
                 $param_lastname,
                 $param_phonenumber,
@@ -104,7 +106,8 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 $param_BirthDate,
                 $param_Gender,
                 $param_usertype,
-                $param_accountstatus
+                $param_accountstatus,
+                $param_updatedby
 
             );
 
@@ -269,8 +272,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <br><br>
                     <!-- create input text for Username for user to input username text -->
                     <label>User Name: </label>
-                    <input type="text" class="form-input" id="username" name="username" placeholder="Enter a User Name" value="<?php echo $username; ?>" required>
-                    <label class="error"><?php echo $username_err; ?></label>
+                    <input type="text" class="form-input" id="username" name="username" placeholder="Enter a User Name" value="<?php echo $username; ?>" readonly>
                     <br><br>
                     <label>First Name: </label>
                     <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>">
@@ -318,7 +320,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <br><br>
 
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
-                    <input class="btn btn-block text-uppercase" type="backbutton" value="Back"><a href="adminmanageuser.php"></a></input>
+                    <a href="adminmanageuser.php"><button class="backbutton" value="Back"></button></a>
                 </div>
 
             </form>
