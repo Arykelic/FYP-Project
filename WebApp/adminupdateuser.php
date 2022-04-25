@@ -23,7 +23,6 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
     // Get hidden/disabled input value
     $userid = $_POST["userid"];
     $username = $_POST["username"];
-    $updatedby = $_SESSION["username"];
 
     /* // Validate username and code to change username
     if (empty(test_input($_POST["username"]))) {
@@ -87,17 +86,21 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
     } else {
         $accountstatus = test_input($_POST["accountstatus"]);
     }
+    $createddatetime = $_POST["createddatetime"];
+    $updateddatetime = $_POST["updateddatetime"];
+    $updatedby = $_SESSION["username"];
 
     // Check input errors before inserting in database
-    if (empty($username_err) && empty($phonenumber_err) && empty($emailaddress_err) && empty($usertype_err) && empty($accountstatus_err)) {
+    if (/* empty($username_err) && */empty($phonenumber_err) && empty($emailaddress_err) && empty($usertype_err) && empty($accountstatus_err)) {
         // Prepare an update statement
-        $sql = "UPDATE user SET username=?, firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?, Gender=?, usertype=?, accountstatus=?, updatedby=? WHERE userid=?";
+        $sql = "UPDATE user SET username=?, firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?,
+        Gender=?, usertype=?, accountstatus=?, updateddatetime = CURRENT_TIMESTAMP, updatedby=? WHERE userid=?";
 
         if ($stmt = $mysqli->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
             $stmt->bind_param(
-                "isssisssss",
-                $param_userid .
+                "sssissssssi",
+
                 $param_username,
                 $param_firstname,
                 $param_lastname,
@@ -107,12 +110,13 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 $param_Gender,
                 $param_usertype,
                 $param_accountstatus,
-                $param_updatedby
+                $param_updatedby,
+                $param_userid
 
             );
 
             // Set parameters
-            $param_userid = $userid;
+
             $param_username = $username;
             $param_firstname = $firstname;
             $param_lastname = $lastname;
@@ -122,6 +126,8 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
             $param_Gender = $Gender;
             $param_usertype = $usertype;
             $param_accountstatus = $accountstatus;
+            $param_updatedby = $updatedby;
+            $param_userid = $userid;
 
 
             // Attempt to execute the prepared statement
@@ -268,11 +274,11 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 <div class="form-box px-3">
                     <!-- create form wih post method to the same page -->
                     <label>User Id: </label>
-                    <input type="text" name="userid" value="<?php echo $userid; ?>" readonly>
+                    <input type="text" name="userid" value="<?php echo $userid; ?>" disabled>
                     <br><br>
                     <!-- create input text for Username for user to input username text -->
                     <label>User Name: </label>
-                    <input type="text" class="form-input" id="username" name="username" placeholder="Enter a User Name" value="<?php echo $username; ?>" readonly>
+                    <input type="text" class="form-input" id="username" name="username" placeholder="Enter a User Name" value="<?php echo $username; ?>" disabled>
                     <br><br>
                     <label>First Name: </label>
                     <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>">
@@ -310,20 +316,19 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     </select>
                     <br><br>
                     <label>Created Date Time: </label>
-                    <input id="createddatetime" name="createddatetime" class="form-input" type="text" value="<?php echo $createddatetime; ?>" readonly>
+                    <input id="createddatetime" name="createddatetime" class="form-input" type="text" value="<?php echo $createddatetime; ?>" disabled>
                     <br><br>
                     <label>Updated Date Time: </label>
-                    <input id="updateddatetime" name="updateddatetime" class="form-input" type="text" value="<?php echo $updateddatetime; ?>" readonly>
+                    <input id="updateddatetime" name="updateddatetime" class="form-input" type="text" value="<?php echo $updateddatetime; ?>" disabled>
                     <br><br>
                     <label>Updated By: </label>
-                    <input id="updatedby" name="updatedby" class="form-input" type="text" value="<?php echo $updatedby; ?>" readonly>
+                    <input id="updatedby" name="updatedby" class="form-input" type="text" value="<?php echo $updatedby; ?>" disabled>
                     <br><br>
 
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
-                    <a href="adminmanageuser.php"><button class="backbutton" value="Back"></button></a>
                 </div>
-                <a href="adminmanageuser.php"><button class="backbutton" value="Back">Back</button></a>
             </form>
+            <a href="adminmanageuser.php"><button class="backbutton" value="Back">Back</button></a>
             <!-- <div class="recent-grid">
         <div class="projects">
           <div class="card">
