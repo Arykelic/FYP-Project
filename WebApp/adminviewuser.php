@@ -177,6 +177,7 @@ if (isset($_GET["userid"]) && !empty(trim($_GET["userid"]))) {
                     <label>Updated By: </label>
                     <input type="text" value="<?php echo $row["updatedby"]; ?>" readonly >
                     <br><br>
+                    <button><a href="adminmanageuser.php" class="backbutton">Back</a></button>
                 </div>
 
             </form>
