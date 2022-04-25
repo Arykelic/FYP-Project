@@ -13,7 +13,7 @@ include "GlobalClass.php";
 include "UserConfig.php";
 
 
-$username = $username = $firstname = $lastname = $phonenumber = $emailaddress = $BirthDate = $Gender = $usertype = $accountstatus = $createddatetime = $updateddatetime = $updatedby = "";
+$username = $firstname = $lastname = $phonenumber = $emailaddress = $BirthDate = $Gender = $usertype = $accountstatus = $createddatetime = $updateddatetime = $updatedby = "";
 $username_err = $phonenumber_err = $emailaddress_err = $usertype_err = $accountstatus_err = "";
 
 $phoneregex = "/^(^[689]{1})(\d{7})$/";
@@ -86,22 +86,19 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
     } else {
         $accountstatus = test_input($_POST["accountstatus"]);
     }
-    $createddatetime = $_POST["createddatetime"];
-    $updateddatetime = $_POST["updateddatetime"];
+
     $updatedby = $_SESSION["username"];
 
     // Check input errors before inserting in database
-    if (/* empty($username_err) && */empty($phonenumber_err) && empty($emailaddress_err) && empty($usertype_err) && empty($accountstatus_err)) {
+    if (empty($phonenumber_err) && empty($emailaddress_err) && empty($usertype_err) && empty($accountstatus_err)) {
         // Prepare an update statement
-        $sql = "UPDATE user SET /* username=?, */ firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?,
+        $sql = "UPDATE user SET firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?,
         Gender=?, usertype=?, accountstatus=?, updateddatetime = CURRENT_TIMESTAMP, updatedby=? WHERE userid=?";
 
         if ($stmt = $mysqli->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
             $stmt->bind_param(
                 "ssissssssi",
-
-                /* $param_username, */
                 $param_firstname,
                 $param_lastname,
                 $param_phonenumber,
@@ -274,11 +271,11 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 <div class="form-box px-3">
                     <!-- create form wih post method to the same page -->
                     <label>User Id: </label>
-                    <input type="text"  value="<?php echo $userid; ?>" disabled>
+                    <input type="text" value="<?php echo $userid; ?>" disabled>
                     <br><br>
                     <!-- create input text for Username for user to input username text -->
                     <label>User Name: </label>
-                    <input type="text" class="form-input"  placeholder="Enter a User Name" value="<?php echo $username; ?>" disabled>
+                    <input type="text" class="form-input" placeholder="Enter a User Name" value="<?php echo $username; ?>" disabled>
                     <br><br>
                     <label>First Name: </label>
                     <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>">
@@ -314,17 +311,18 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                         <option value="Active">Active</option>
                         <option value="Disabled">Disabled</option>
                     </select>
+                    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
                     <br><br>
                     <label>Created Date Time: </label>
-                    <input id="createddatetime" name="createddatetime" class="form-input" type="text" value="<?php echo $createddatetime; ?>" disabled>
+                    <input  class="form-input" type="text" value="<?php echo $createddatetime; ?>" disabled>
                     <br><br>
                     <label>Updated Date Time: </label>
-                    <input id="updateddatetime" name="updateddatetime" class="form-input" type="text" value="<?php echo $updateddatetime; ?>" disabled>
+                    <input  class="form-input" type="text" value="<?php echo $updateddatetime; ?>" disabled>
                     <br><br>
                     <label>Updated By: </label>
-                    <input id="updatedby" name="updatedby" class="form-input" type="text" value="<?php echo $updatedby; ?>" disabled>
+                    <input  class="form-input" type="text" value="<?php echo $updatedby; ?>" disabled>
                     <br><br>
-                    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+                    
 
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
                 </div>
