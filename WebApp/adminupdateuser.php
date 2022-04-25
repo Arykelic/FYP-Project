@@ -134,8 +134,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
             $_SESSION["emailaddress"] = $emailaddress;
             $_SESSION["BirthDate"] = $BirthDate;
             $_SESSION["Gender"] = $Gender;
-            $_SESSION["usertype"] = $usertype;
-            $_SESSION["accountstatus"] = $accountstatus;
+            
 
             // Attempt to execute the prepared statement
             if ($stmt->execute()) {
