@@ -317,7 +317,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <br><br>
 
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
-                    <input class="btn btn-block text-uppercase backbutton" value="Back"> <a href="adminmanageuser.php"></a></input>
+                    <a href="adminmanageuser.php"><input class="btn btn-block text-uppercase" type="backbutton" value="Back"></input></a>
                 </div>
 
             </form>
