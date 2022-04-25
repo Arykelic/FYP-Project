@@ -170,21 +170,19 @@ $mysqli->close();
           <!-- create form wih post method to the same page -->
           <label>First Name: </label>
           <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>">
-          <label class="error"><?php echo $firstname_err; ?></label>
           <br><br>
           <!-- create input text for Username for user to input username text -->
           <label>Last Name: </label>
           <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" value="<?php echo $lastname; ?>">
-          <label class="error"><?php echo $lastname_err; ?></label>
           <br><br>
 
           <label>Phone Number: </label>
-          <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $phonenumber; ?>">
+          <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $phonenumber; ?>" required>
           <label class="error"><?php echo $phonenumber_err; ?></label>
           <br><br>
           <!-- create password text for Username for user to input username text -->
           <label>Email Address</label>
-          <input type="email" id="emailaddress" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $emailaddress; ?>">
+          <input type="email" id="emailaddress" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $emailaddress; ?>" required>
           <label class="error"><?php echo $emailaddress_err; ?></label>
           <br><br>
           <label>Birth Date</label>
@@ -193,6 +191,7 @@ $mysqli->close();
           <br><br>
           <label>Gender</label>
           <select class="form-input" name="Gender" id="Gender" value="<?php echo $Gender; ?>">
+            <option> <?php echo $Gender; ?> </option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>

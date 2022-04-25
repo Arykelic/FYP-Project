@@ -126,11 +126,21 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
             $param_updatedby = $updatedby;
             $param_userid = $userid;
 
+            //UPDATE Session Variables
+
+            $_SESSION["firstname"] = $firstname;
+            $_SESSION["lastname"] = $lastname;
+            $_SESSION["phonenumber"] = $phonenumber;
+            $_SESSION["emailaddress"] = $emailaddress;
+            $_SESSION["BirthDate"] = $BirthDate;
+            $_SESSION["Gender"] = $Gender;
+            $_SESSION["usertype"] = $usertype;
+            $_SESSION["accountstatus"] = $accountstatus;
 
             // Attempt to execute the prepared statement
             if ($stmt->execute()) {
                 // Records updated successfully. Redirect to landing page
-                header("location: adminhome.php");
+                header("location: adminmanageuser.php");
                 exit();
             } else {
                 echo '<script>alert("Something went wrong. Please try again later")</script>';
@@ -314,15 +324,15 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
                     <br><br>
                     <label>Created Date Time: </label>
-                    <input  class="form-input" type="text" value="<?php echo $createddatetime; ?>" disabled>
+                    <input class="form-input" type="text" value="<?php echo $createddatetime; ?>" disabled>
                     <br><br>
                     <label>Updated Date Time: </label>
-                    <input  class="form-input" type="text" value="<?php echo $updateddatetime; ?>" disabled>
+                    <input class="form-input" type="text" value="<?php echo $updateddatetime; ?>" disabled>
                     <br><br>
                     <label>Updated By: </label>
-                    <input  class="form-input" type="text" value="<?php echo $updatedby; ?>" disabled>
+                    <input class="form-input" type="text" value="<?php echo $updatedby; ?>" disabled>
                     <br><br>
-                    
+
 
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
                 </div>
