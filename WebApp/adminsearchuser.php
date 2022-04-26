@@ -10,7 +10,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 }
 
 include "GlobalClass.php";
-include "UserConfig.php";
+
 
 if (isset($_POST['searchValue'])) {
     $searchValue = $_POST['searchValue'];
