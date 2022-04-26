@@ -97,11 +97,15 @@ include "UserConfig.php";
                     <h2>Search User Account</h2>
                 </div>
 
-                <div class="search-wrapper">
-                    <span class="las la-search"></span>
-                    <input type="search" autocomplete="off" placeholder="Search here" />
-                </div>
-
+                <form action="" method="GET">
+                    <div class="card-header">
+                        <div class="search-wrapper">
+                            <span class="las la-search"></span>
+                            <input type="search" autocomplete="off" placeholder="Search here">
+                            <button type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
 
                 <div class="card-body" width="100%">
                     <!-- <div class="table-responsive"> -->
@@ -123,20 +127,7 @@ include "UserConfig.php";
                                 </tr>
                             </thead>
                             <tbody>
-                                <script>
-                                    $(document).ready(function() {
-                                        $('.search-wrapper input[type="search"]').on("keyup input", function() {
-                                            /* Get input value on change */
-                                            var inputVal = $(this).val();
-                                            if (inputVal.length) {
-                                                $.get("adminbackendsearch.php", {term: inputVal}).done(function(data) {
-                                                    // Display the returned data in browser
-                                                    resultDropdown.html(data);
-                                                });
-                                            }
-                                        });
-                                    });
-                                </script>
+
                                 <?php
                                 // Attempt select query execution
                                 /* $mysqli = new mysqli($servername, $username, $password, $dbname);
