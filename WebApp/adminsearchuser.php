@@ -12,6 +12,24 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 include "GlobalClass.php";
 include "UserConfig.php";
 
+if (isset($_POST['search'])) {
+    $searchValue = $_POST['searchValue'];
+    // search in all table columns
+    // using concat mysql function
+    $query = "SELECT * FROM `user` WHERE CONCAT(`userid`, `username`, `firstname`, `lastname`, `phonenumber`, `emailaddress` ,
+     `BirthDate`, `Gender` , `usertype`, `accountstatus`, `createddatetime`, `createdby`, `updateddatetime` , `updatedby`) LIKE '%" . $searchValue . "%'";
+    $search_result = filterTable($query);
+} else {
+    $query = "SELECT * FROM `users`";
+    $search_result = filterTable($query);
+}
+
+function filterTable($query)
+{
+    $connect = mysqli_connect("remotemysql.com", "y0vryqAKXK", "moMOpaacUP", "y0vryqAKXK");
+    $filter_Result = mysqli_query($connect, $query);
+    return $filter_Result;
+}
 
 ?>
 
@@ -94,15 +112,15 @@ include "UserConfig.php";
 
             <div class="card">
                 <div class="card-header">
-                    <h2>Search User Account</h2>
+                    <h2>Search User</h2>
                 </div>
 
-                <form action="" method="GET">
+                <form action="adminsearchuser.php" method="POST">
                     <div class="card-header">
                         <div class="search-wrapper">
                             <span class="las la-search"></span>
-                            <input type="search" autocomplete="off" placeholder="Search here">
-                            <button type="submit">Search</button>
+                            <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
+                            <input><button type="submit" name="search">Search</button></input>
                         </div>
                     </div>
                 </form>
@@ -123,50 +141,39 @@ include "UserConfig.php";
                                     <td>Gender</td>
                                     <td>User Type</td>
                                     <td>Account Status</td>
+                                    <td>Created Date Time</td>
+                                    <td>Created By</td>
+                                    <td>Updated Date Time</td>
+                                    <td>Updated By</td>
                                     <td>Action</td>
                                 </tr>
                             </thead>
                             <tbody>
-
-                                <?php
-                                // Attempt select query execution
-                                /* $mysqli = new mysqli($servername, $username, $password, $dbname);
-                                    $sql = "SELECT * FROM user";
-                                    if ($result = $mysqli->query($sql)) {
-                                        if ($result->num_rows > 0) {
-                                            while ($row = $result->fetch_array()) {
-                                                echo "<div class='result'>";
-                                                echo "<tr>";
-                                                echo "<td>" . $row['userid'] . "</td>";
-                                                echo "<td>" . $row['username'] . "</td>";
-                                                echo "<td>" . $row['firstname'] . "</td>";
-                                                echo "<td>" . $row['lastname'] . "</td>";
-                                                echo "<td>" . $row['phonenumber'] . "</td>";
-                                                echo "<td>" . $row['emailaddress'] . "</td>";
-                                                echo "<td> " . $row['BirthDate'] . "</td>";
-                                                echo "<td> " . $row['Gender'] . "</td>";
-                                                echo "<td> " . $row['usertype'] . "</td>";
-                                                echo "<td> " . $row['accountstatus'] . "</td>";
-                                                echo "<td>";
-                                                echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='fa-solid fa-eye'></i></a>";
-                                                echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><i class='fa-solid fa-pen-to-square'></i></a>";
-                                                echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><i class='fa-solid fa-trash'></i></a>";
-                                                echo "</td>";
-                                                echo "</tr>";
-                                                echo "</div>";
-                                            }
-                                            // Free result set
-                                            $result->free();
-                                        } else {
-                                            echo "<label class='error'>No records were found.</label>";
-                                        }
-                                    } else {
-                                        echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-                                    }
-
-                                    // Close connection
-                                    $mysqli->close(); */
-                                ?>
+                                <?php while ($row = mysqli_fetch_array($search_result)) : ?>
+                                    <tr>
+                                        <td><?php echo $row['userid']; ?></td>
+                                        <td><?php echo $row['username']; ?></td>
+                                        <td><?php echo $row['firstname']; ?></td>
+                                        <td><?php echo $row['lastname']; ?></td>
+                                        <td><?php echo $row['phonenumber']; ?></td>
+                                        <td><?php echo $row['emailaddress']; ?></td>
+                                        <td><?php echo $row['BirthDate']; ?></td>
+                                        <td><?php echo $row['Gender']; ?></td>
+                                        <td><?php echo $row['usertype']; ?></td>
+                                        <td><?php echo $row['accountstatus']; ?></td>
+                                        <td><?php echo $row['createddatetime']; ?></td>
+                                        <td><?php echo $row['createdby']; ?></td>
+                                        <td><?php echo $row['updateddatetime']; ?></td>
+                                        <td><?php echo $row['updatedby']; ?></td>
+                                        <?php
+                                        echo "<td>";
+                                        echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='fa-solid fa-eye'></i></a>";
+                                        echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><i class='fa-solid fa-pen-to-square'></i></a>";
+                                        echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><i class='fa-solid fa-trash'></i></a>";
+                                        echo "</td>";
+                                        ?>
+                                    </tr>
+                                <?php endwhile; ?>
                             </tbody>
                         </table>
                     </div>
