@@ -242,6 +242,10 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                         <span>Edit Personal Information</span></a>
                 </li>
                 <li>
+                    <a href="adminresetpassword.php"><span class="las la-user-circle"></span>
+                        <span>Reset Password</span></a>
+                </li>
+                <li>
                     <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
                         <span>Logout</span></a>
                 </li>
@@ -283,7 +287,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <br><br>
                     <!-- create input text for Username for user to input username text -->
                     <label>User Name: </label>
-                    <input type="text" class="form-input"  value="<?php echo $username; ?>" disabled>
+                    <input type="text" class="form-input" value="<?php echo $username; ?>" disabled>
                     <br><br>
                     <label>First Name: </label>
                     <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>" required>
@@ -336,7 +340,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <input class="form-input" type="text" value="<?php echo $updatedby; ?>" disabled>
                     <br><br>
                     <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
-                    
+
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
                 </div>
             </form>

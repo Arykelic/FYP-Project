@@ -72,6 +72,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     $Usertype = $row["usertype"];
                     $AccountStatus = $row["accountstatus"];
                     $createddatetime = $row["createddatetime"];
+                    $createdby = $row["createdby"];
                     $updateddatetime = $row["updateddatetime"];
                     $updatedby = $row["updatedby"];
                 } else {
@@ -98,7 +99,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>E-Commerce Insight (Admin)(Add User)</title>
+    <title>E-Commerce Insight (Admin)(Delete User)</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
@@ -128,6 +129,10 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                         <span>Edit Personal Information</span></a>
                 </li>
                 <li>
+                    <a href="adminresetpassword.php"><span class="las la-user-circle"></span>
+                        <span>Reset Password</span></a>
+                </li>
+                <li>
                     <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
                         <span>Logout</span></a>
                 </li>
@@ -141,7 +146,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
-                E-Commerce Insight (Admin)(Add User)
+                E-Commerce Insight (Admin)(Delete User)
             </h2>
 
             <div class="user-wrapper">
@@ -197,6 +202,9 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <br><br>
                     <label>Created Date Time: </label>
                     <input type="text" value="<?php echo $row["createddatetime"]; ?>" readonly>
+                    <br><br>
+                    <label>Created By: </label>
+                    <input type="text" value="<?php echo $row["createdby"]; ?>" readonly>
                     <br><br>
                     <label>Updated Date Time: </label>
                     <input type="text" value="<?php echo $row["updateddatetime"]; ?>" readonly>
