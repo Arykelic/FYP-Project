@@ -27,32 +27,6 @@ include "UserConfig.php";
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $('.search-wrapper input[type="search"]').on("keyup input", function() {
-                /* Get input value on change */
-                var inputVal = $(this).val();
-                var resultDropdown = $(this).siblings(".result");
-                if (inputVal.length) {
-                    $.get("adminbackendsearch.php", {
-                        term: inputVal
-                    }).done(function(data) {
-                        // Display the returned data in browser
-                        resultDropdown.html(data);
-                    });
-                } else {
-                    resultDropdown.empty();
-                }
-            });
-
-            // Set search input value on click of result item
-            $(document).on("click", ".result td", function() {
-                $(this).parents(".search-wrapper").find('input[type="search"]').val($(this).text());
-                $(this).parent(".result").empty();
-            });
-        });
-    </script>
-
 </head>
 
 
@@ -149,10 +123,23 @@ include "UserConfig.php";
                                 </tr>
                             </thead>
                             <tbody>
-                                <div class="result">
-                                    <?php
-                                    // Attempt select query execution
-                                    $mysqli = new mysqli($servername, $username, $password, $dbname);
+                                <script>
+                                    $(document).ready(function() {
+                                        $('.search-wrapper input[type="search"]').on("keyup input", function() {
+                                            /* Get input value on change */
+                                            var inputVal = $(this).val();
+                                            if (inputVal.length) {
+                                                $.get("adminbackendsearch.php", {term: inputVal}).done(function(data) {
+                                                    // Display the returned data in browser
+                                                    resultDropdown.html(data);
+                                                });
+                                            }
+                                        });
+                                    });
+                                </script>
+                                <?php
+                                // Attempt select query execution
+                                /* $mysqli = new mysqli($servername, $username, $password, $dbname);
                                     $sql = "SELECT * FROM user";
                                     if ($result = $mysqli->query($sql)) {
                                         if ($result->num_rows > 0) {
@@ -187,9 +174,8 @@ include "UserConfig.php";
                                     }
 
                                     // Close connection
-                                    $mysqli->close();
-                                    ?>
-                                </div>
+                                    $mysqli->close(); */
+                                ?>
                             </tbody>
                         </table>
                     </div>
