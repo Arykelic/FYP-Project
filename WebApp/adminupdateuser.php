@@ -99,7 +99,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
         if ($stmt = $mysqli->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
             $stmt->bind_param(
-                "ssissssssi",
+                "ssisssssssi",
                 $param_firstname,
                 $param_lastname,
                 $param_phonenumber,
@@ -276,7 +276,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 Update User
             </h2>
             <br><br>
-            
+
             <form id="adminviewuser" method="POST" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>">
 
                 <div class="form-box px-3">
