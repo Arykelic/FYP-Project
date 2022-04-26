@@ -37,13 +37,14 @@ $table_exists = $checktable->num_rows >= 1; //mysql_num_rows($checktable) > 0;
 If (!$table_exists) {
 	// sql to create table
 	$sql = "CREATE TABLE $dbtable (
-		catalogueid INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        product_url VARCHAR(255),
+		pageid INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        review_url VARCHAR(255),
 		image_url VARCHAR(255),
 		item_name VARCHAR(255),
-		item_price VARCHAR(255),
-		average_rating VARCHAR(255),
-		number_of_ratings VARCHAR(255)
+		item_price DECIMAL(10,2),
+        item_brand VARCHAR(255),
+		average_rating DECIMAL(5,2),
+		number_of_ratings INT(10)
 		)";
 
 	if ($mysqli->query($sql) === TRUE)

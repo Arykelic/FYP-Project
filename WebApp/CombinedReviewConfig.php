@@ -38,14 +38,12 @@ If (!$table_exists) {
 	// sql to create table
 	$sql = "CREATE TABLE $dbtable (
 		combinedreviewid INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        product_url VARCHAR(255),
 		image_url VARCHAR(255),
 		item_name VARCHAR(255),
         customername VARCHAR(255),
         rating_score INT(10),
-		item_price VARCHAR(255),
-		average_rating VARCHAR(255),
-		number_of_ratings VARCHAR(255)
+		review_location VARCHAR(255),
+		review_date VARCHAR(255)
 		)";
 
 	if ($mysqli->query($sql) === TRUE)

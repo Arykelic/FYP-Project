@@ -43,7 +43,7 @@ If (!$table_exists) {
 		item_name VARCHAR(255),
 		item_price DECIMAL(10,2),
 		average_rating DECIMAL(5,2),
-		number_of_ratings VARCHAR(255)
+		number_of_ratings INT(10)
 		)";
 
 	if ($mysqli->query($sql) === TRUE)
