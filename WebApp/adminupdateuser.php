@@ -185,6 +185,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     $usertype = $row["usertype"];
                     $accountstatus = $row["accountstatus"];
                     $createddatetime = $row["createddatetime"];
+                    $createdby = $row["createdby"];
                     $updateddatetime = $row["updateddatetime"];
                     $updatedby = $row["updatedby"];
                 } else {
@@ -324,6 +325,9 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <br><br>
                     <label>Created Date Time: </label>
                     <input class="form-input" type="text" value="<?php echo $createddatetime; ?>" disabled>
+                    <br><br>
+                    <label>Created By: </label>
+                    <input class="form-input" type="text" value="<?php echo $createdby; ?>" disabled>
                     <br><br>
                     <label>Updated Date Time: </label>
                     <input class="form-input" type="text" value="<?php echo $updateddatetime; ?>" disabled>

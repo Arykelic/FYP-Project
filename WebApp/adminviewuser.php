@@ -44,6 +44,7 @@ if (isset($_GET["userid"]) && !empty(trim($_GET["userid"]))) {
         $Usertype = $row["usertype"];
         $AccountStatus = $row["accountstatus"];
         $createddatetime = $row["createddatetime"];
+        $createdby = $row["createdby"];
         $updateddatetime = $row["updateddatetime"];
         $updatedby = $row["updatedby"];
       } else {
@@ -168,6 +169,9 @@ if (isset($_GET["userid"]) && !empty(trim($_GET["userid"]))) {
           <br><br>
           <label>Created Date Time: </label>
           <input type="text" value="<?php echo $row["createddatetime"]; ?>" readonly>
+          <br><br>
+          <label>Created By: </label>
+          <input type="text" value="<?php echo $row["createdby"]; ?>" readonly>
           <br><br>
           <label>Updated Date Time: </label>
           <input type="text" value="<?php echo $row["updateddatetime"]; ?>" readonly>
