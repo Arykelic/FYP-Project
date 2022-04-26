@@ -205,8 +205,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <input type="text" value="<?php echo $row["updatedby"]; ?>" readonly>
                     <br><br>
                     <input type="hidden" name="userid" value="<?php echo trim($_GET["userid"]); ?>" />
-                    <input class="deletebutton" type="submit" value="Delete User"></input>
-                    
+                    <input id="deletebutton" type="submit" value="Delete User"></input>
                 </div>
             </form>
             <a href="adminmanageuser.php"><button class="backbutton" value="Back">Back</button></a>
