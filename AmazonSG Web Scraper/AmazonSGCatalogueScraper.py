@@ -59,6 +59,9 @@ while True:
 
     #loop inside each container
     for container in containers:
+            Product_Url_Container = container.findAll("a", {"class":"a-link-normal s-no-outline"})
+            Product_Url = "https://www.amazon.sg" + str(Product_Url_Container[0]["href"])
+
             Image_Url_Container = container.findAll("div", {"class":"a-section aok-relative s-image-square-aspect"})
             Image_Url = Image_Url_Container[0].img["src"]
 
@@ -67,7 +70,7 @@ while True:
 
             try:
                 Item_Price_Container = container.findAll("span", {"class":"a-offscreen"})
-                Item_Price = Item_Price_Container[0].text
+                Item_Price = Item_Price_Container[0].text[2:]
                 
                 Average_Rating_Container = container.findAll("span", {"class":"a-icon-alt"})
                 Average_Rating = Average_Rating_Container[0].text[0:4]
@@ -80,11 +83,12 @@ while True:
                 Average_Rating = ""
                 Number_Of_Ratings = ""
 
-            print("Image Url: " + Image_Url)
-            print("Item_Name: " + Item_Name)
-            print("Item_Price: " + Item_Price)
-            print("Average_Rating: " + Average_Rating)
-            print("Number_Review: " + Number_Of_Ratings)
+            print("product_url: " + Product_Url)
+            print("image_url: " + Image_Url)
+            print("item_name: " + Item_Name)
+            print("item_price: " + Item_Price)
+            print("average_rating: " + Average_Rating)
+            print("number_of_ratings: " + Number_Of_Ratings)
             
             f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Item_Price.replace(",", "'") + "," + Average_Rating.replace(",", "'") + "," + Number_Of_Ratings.replace(",", "'") + "\n")
 

@@ -55,10 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Attempt to execute the prepared statement
             if ($stmt->execute()) {
                 // Redirect to login page
-                echo '<script>alert("Password Resetted Successfully!! Relogin with your new details")</script>';
                 session_destroy();
                 header("location: index.php");
                 exit();
+                echo '<script>alert("Password Resetted Successfully!! Relogin with your new details")</script>';
             } else {
                 echo '<script>alert("Something went wrong. Please try again later")</script>';
             }
