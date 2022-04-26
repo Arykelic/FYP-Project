@@ -20,7 +20,7 @@ if (isset($_POST['searchValue'])) {
      `BirthDate`, `Gender` , `usertype`, `accountstatus`, `createddatetime`, `createdby`, `updateddatetime` , `updatedby`) LIKE '%" . $searchValue . "%'";
     $search_result = filterTable($query);
 } else {
-    $query = "SELECT * FROM `users`";
+    $query = "SELECT * FROM `user` ";
     $search_result = filterTable($query);
 }
 
