@@ -166,13 +166,12 @@ $mysqli->close();
         <div class="form-box px-3">
           <!-- create form wih post method to the same page -->
           <label>First Name: </label>
-          <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>">
+          <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>" required>
           <br><br>
           <!-- create input text for Username for user to input username text -->
           <label>Last Name: </label>
-          <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" value="<?php echo $lastname; ?>">
+          <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" value="<?php echo $lastname; ?>" required>
           <br><br>
-
           <label>Phone Number: </label>
           <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $phonenumber; ?>" required>
           <label class="error"><?php echo $phonenumber_err; ?></label>
@@ -183,11 +182,11 @@ $mysqli->close();
           <label class="error"><?php echo $emailaddress_err; ?></label>
           <br><br>
           <label>Birth Date</label>
-          <input type="date" id="BirthDate" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>">
+          <input type="date" id="BirthDate" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>" required>
           <label class="error"><?php echo $BirthDate_err; ?></label>
           <br><br>
           <label>Gender</label>
-          <select class="form-input" name="Gender" id="Gender" value="<?php echo $Gender; ?>">
+          <select class="form-input" name="Gender" id="Gender" value="<?php echo $Gender; ?>" required>
             <option> <?php echo $Gender; ?> </option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>

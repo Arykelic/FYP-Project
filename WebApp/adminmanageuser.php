@@ -126,7 +126,7 @@ include "UserConfig.php";
                       echo "<td> " . $row['usertype'] . "</td>";
                       echo "<td> " . $row['accountstatus'] . "</td>";
                       echo "<td>";
-                      echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='lar la-eye'></i></a>";
+                      echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='fa-solid fa-eye'></i></a>";
                       echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><i class='lar la-edit'></i></a>";
                       echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><i class='lar la-trash-alt'></i></a>";
                       echo "</td>";

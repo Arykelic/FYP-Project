@@ -249,13 +249,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <br><br>
           <!-- create password text for Username for user to input username text -->
           <label>User Type</label>
-          <select class="form-input" name="usertype" id="usertype">
+          <select class="form-input" name="usertype" id="usertype" required>
             <option value="Admin">Admin</option>
             <option value="User">User</option>
           </select>
           <br><br>
           <label>Account Status</label>
-          <select class="form-input form-select-sm" name="accountstatus" id="accountstatus">
+          <select class="form-input form-select-sm" name="accountstatus" id="accountstatus" required>
             <option value="Active">Active</option>
             <option value="Disabled">Disabled</option>
           </select>
