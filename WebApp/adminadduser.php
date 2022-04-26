@@ -85,22 +85,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $accountstatus = $input_accountstatus;
   }
 
+  $createdby = $_SESSION["username"];
+
 
   // Check input errors before inserting in database
   if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($usertype_err) && empty($accountstatus_err)) {
 
     // Prepare an insert statement
-    $sql = "INSERT INTO user (username, password, usertype, accountstatus) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO user (username, password, usertype, accountstatus, createdby) VALUES (?, ?, ?, ?, ?)";
 
     if ($stmt = $mysqli->prepare($sql)) {
       // Bind variables to the prepared statement as parameters
-      $stmt->bind_param("ssss", $param_username, $param_password, $param_usertype, $param_accountstatus);
+      $stmt->bind_param("sssss", $param_username, $param_password, $param_usertype, $param_accountstatus, $param_createdby);
 
       // Set parameters
       $param_username = $username;
       $param_password = password_hash($password, PASSWORD_DEFAULT); //Creates a password hash
       $param_usertype = $usertype;
       $param_accountstatus = $accountstatus;
+      $param_createdby = $createdby;
 
       // Attempt to execute the prepared statement
       if ($stmt->execute()) {
