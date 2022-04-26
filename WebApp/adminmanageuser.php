@@ -103,7 +103,7 @@ include "UserConfig.php";
                   <td>Gender</td>
                   <td>User Type</td>
                   <td>Account Status</td>
-                  <th>Action</th>
+                  <td>Action</td>
                 </tr>
               </thead>
               <tbody>
@@ -127,8 +127,8 @@ include "UserConfig.php";
                       echo "<td> " . $row['accountstatus'] . "</td>";
                       echo "<td>";
                       echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='fa-solid fa-eye'></i></a>";
-                      echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><i class='lar la-edit'></i></a>";
-                      echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><i class='lar la-trash-alt'></i></a>";
+                      echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><i class='fa-solid fa-pen-to-square'></i></a>";
+                      echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><i class='fa-solid fa-trash'></i></a>";
                       echo "</td>";
                       echo "</tr>";
                     }

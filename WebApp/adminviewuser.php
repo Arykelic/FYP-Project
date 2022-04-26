@@ -60,8 +60,6 @@ if (isset($_GET["userid"]) && !empty(trim($_GET["userid"]))) {
 } else {
   // URL doesn't contain id parameter. Redirect to error page
   echo '<script>alert("An error has occurred finding a valid id parameter. Redirecting you back to E-Commerce Insight (Admin)(Manage User)")</script>';
-  header("location: adminmanageuser.php");
-  exit();
 }
 
 ?>

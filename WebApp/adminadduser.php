@@ -135,45 +135,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </head>
 
-<style>
-  input[type=text],
-  select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-
-  input[type=Password],
-  select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-
-  input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-</style>
-
 <body>
   <input type="checkbox" id="nav-toggle"></input>
 
@@ -238,7 +199,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <label class="error"><?php echo $username_err; ?></label>
           <br><br>
           <!-- create input text for Username for user to input username text -->
-          <label>Password: </label>
+          <label>Password (At least 6 characters): </label>
           <input type="Password" class="form-input" id="Password" name="password" placeholder="Enter a Password (At least 6 Characters)" required>
           <label class="error"><?php echo $password_err; ?></label>
           <br><br>
