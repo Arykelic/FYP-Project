@@ -41,7 +41,7 @@ If (!$table_exists) {
         product_url VARCHAR(255),
 		image_url VARCHAR(255),
 		item_name VARCHAR(255),
-		item_price DECIMAL(10,2),
+		item_price VARCHAR(255),
 		average_rating DECIMAL(5,2),
 		number_of_ratings INT(10)
 		)";
