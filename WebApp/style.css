@@ -502,6 +502,22 @@ input[type=reset]:hover {
   background-color: #09407a;
 }
 
+.deletebutton{
+  width: 100%;
+  background-color: rgb(209, 0, 10);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.deletebutton:hover {
+  background-color: #7e0303;
+}
+
 .error {
   color: red;
 }

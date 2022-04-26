@@ -333,7 +333,6 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <br><br>
                     <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
                     
-
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
                 </div>
             </form>
