@@ -100,7 +100,7 @@ if (isset($_GET["userid"]) && !empty(trim($_GET["userid"]))) {
             <span>Edit Personal Information</span></a>
         </li>
         <li>
-          <a href="adminresetpassword.php"><span class="las la-user-circle"></span>
+          <a href="adminresetpassword.php"><span class="las la-key"></span>
             <span>Reset Password</span></a>
         </li>
         <li>

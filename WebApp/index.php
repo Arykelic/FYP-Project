@@ -175,12 +175,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </button>
             </div>
 
-            <hr class="my-4">
+            <!-- <hr class="my-4">
             <div class="text-right">
               <a href="#" class="forget-link">
                 Forget Password?
               </a>
-            </div>
+            </div> -->
 
           </form>
         </div>

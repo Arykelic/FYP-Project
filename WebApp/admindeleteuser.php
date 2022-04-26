@@ -110,35 +110,35 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
     <input type="checkbox" id="nav-toggle"></input>
 
     <div class="sidebar">
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a href="adminhome.php" class="active"><i class="fa-solid fa-house"></i>
-                        <span>Home</span></a>
-                </li>
-                <li>
-                    <a href="adminmanageuser.php"><span class="las la-users"></span>
-                        <span>Manage Users</span></a>
-                </li>
-                <li>
-                    <a href="adminadduser.php"><i class="fa-solid fa-user-plus"></i>
-                        <span>Add Users</span></a>
-                </li>
-                <li>
-                    <a href="adminupdatepersonalinfo.php"><span class="las la-user-circle"></span>
-                        <span>Edit Personal Information</span></a>
-                </li>
-                <li>
-                    <a href="adminresetpassword.php"><span class="las la-user-circle"></span>
-                        <span>Reset Password</span></a>
-                </li>
-                <li>
-                    <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
-                        <span>Logout</span></a>
-                </li>
-            </ul>
-        </div>
+    <div class="sidebar-menu">
+      <ul>
+        <li>
+          <a href="adminhome.php" class="active"><i class="fa-solid fa-house"></i>
+            <span>Home</span></a>
+        </li>
+        <li>
+          <a href="adminmanageuser.php"><span class="las la-users"></span>
+            <span>Manage Users</span></a>
+        </li>
+        <li>
+          <a href="adminadduser.php"><i class="fa-solid fa-user-plus"></i>
+            <span>Add Users</span></a>
+        </li>
+        <li>
+          <a href="adminupdatepersonalinfo.php"><span class="las la-user-circle"></span>
+            <span>Edit Personal Information</span></a>
+        </li>
+        <li>
+          <a href="adminresetpassword.php"><span class="las la-key"></span>
+            <span>Reset Password</span></a>
+        </li>
+        <li>
+          <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span></a>
+        </li>
+      </ul>
     </div>
+  </div>
 
     <div class="main-content">
         <header>
