@@ -53,7 +53,7 @@ if (isset($_REQUEST["term"])) {
                     echo "</tr>";
                 }
             } else {
-                echo "<p>No matches found</p>";
+                echo "<td>No matches found</td>";
             }
         } else {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);

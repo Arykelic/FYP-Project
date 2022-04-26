@@ -345,6 +345,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 </div>
             </form>
             <a href="adminmanageuser.php"><button class="backbutton" value="Back">Back</button></a>
+            <button class="backbutton" value="Back" onclick="history.back()">Back</button>
             <!-- <div class="recent-grid">
         <div class="projects">
           <div class="card">

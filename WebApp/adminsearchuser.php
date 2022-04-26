@@ -46,7 +46,7 @@ include "UserConfig.php";
             });
 
             // Set search input value on click of result item
-            $(document).on("click", ".result p", function() {
+            $(document).on("click", ".result td", function() {
                 $(this).parents(".search-wrapper").find('input[type="search"]').val($(this).text());
                 $(this).parent(".result").empty();
             });
