@@ -94,12 +94,12 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
     if (empty($phonenumber_err) && empty($emailaddress_err) && empty($usertype_err) && empty($accountstatus_err)) {
         // Prepare an update statement
         $sql = "UPDATE user SET firstname=?, lastname=?, phonenumber=?, emailaddress=?, BirthDate=?,
-        Gender=?, usertype=?, accountstatus=?, createddatetime=?, updateddatetime = CURRENT_TIMESTAMP, updatedby=? WHERE userid=?";
+        Gender=?, usertype=?, accountstatus=?, updateddatetime = CURRENT_TIMESTAMP, updatedby=? WHERE userid=?";
 
         if ($stmt = $mysqli->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
             $stmt->bind_param(
-                "ssisssssssi",
+                "ssissssssi",
                 $param_firstname,
                 $param_lastname,
                 $param_phonenumber,
@@ -108,7 +108,6 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 $param_Gender,
                 $param_usertype,
                 $param_accountstatus,
-                $param_createddatetime,
                 $param_updatedby,
                 $param_userid
 
@@ -125,7 +124,6 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
             $param_Gender = $Gender;
             $param_usertype = $usertype;
             $param_accountstatus = $accountstatus;
-            $param_createddatetime = $createddatetime;
             $param_updatedby = $updatedby;
             $param_userid = $userid;
 
@@ -333,7 +331,8 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <label>Updated By: </label>
                     <input class="form-input" type="text" value="<?php echo $updatedby; ?>" disabled>
                     <br><br>
-                    <input type="text" name="userid" value="<?php echo $userid; ?>" />
+                    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+                    
 
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
                 </div>

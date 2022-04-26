@@ -40,12 +40,18 @@ If (!$table_exists) {
 		userid INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		username VARCHAR(100) NOT NULL UNIQUE,
 		password VARCHAR(255) NOT NULL,
-		firstname VARCHAR(50) NOT NULL,
-		lastname VARCHAR (50) NOT NULL,
-		phonenumber INT(8) NOT NULL,
-		birthdate DATE NOT NULL,
-		emailaddress VARCHAR(100) NOT NULL,
-		usertype VARCHAR(100) NOT NULL)";
+		firstname VARCHAR(50),
+		lastname VARCHAR (50),
+		phonenumber INT(10),
+		emailaddress VARCHAR(255),
+		BirthDate DATE,
+		Gender VARCHAR(10),
+		usertype VARCHAR(100) NOT NULL,
+		accountstatus VARCHAR(100) NOT NULL,
+		createddatetime DATETIME,
+		updateddatetime DATETIME,
+		updatedby VARCHAR(255)
+		)";
 
 	if ($mysqli->query($sql) === TRUE)
 	{ /* echo "Table $dbtable created successfully","<br>"; */ }
