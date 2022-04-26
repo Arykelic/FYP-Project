@@ -32,7 +32,7 @@ if(isset($_REQUEST["term"])){
             if($result->num_rows > 0){
                 // Fetch result rows as an associative array
                 while($row = $result->fetch_array(MYSQLI_ASSOC)){
-                    echo "<p>" . $row["name"] . "</p>";
+                    echo "<p>" . $row["username"] . "</p>";
                 }
             } else{
                 echo "<p>No matches found</p>";
