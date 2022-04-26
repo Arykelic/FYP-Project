@@ -224,12 +224,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
     <main>
+      <h2 class="title mt-4">
+        Create New User
+      </h2>
+      <br><br>
+
       <form id="adminadduser" method="POST">
 
-        <h2 class="title mt-4">
-          Create New User
-        </h2>
-        <br><br>
         <div class="form-box px-3">
           <!-- create form wih post method to the same page -->
           <label>Username: </label>

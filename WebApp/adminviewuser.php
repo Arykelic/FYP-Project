@@ -129,12 +129,12 @@ if (isset($_GET["userid"]) && !empty(trim($_GET["userid"]))) {
 
     <main>
 
-      <form id="adminviewuser" method="POST">
+      <h2 class="title mt-4">
+        View User
+      </h2>
+      <br><br>
 
-        <h2 class="title mt-4">
-          View User
-        </h2>
-        <br><br>
+      <form id="adminviewuser" method="POST">
         <div class="form-box px-3">
           <!-- create form wih post method to the same page -->
           <label>User Id: </label>

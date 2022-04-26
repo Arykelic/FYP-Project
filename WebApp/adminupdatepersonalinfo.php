@@ -30,7 +30,6 @@ $emailregex = "/^[^0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-
   $firstname = test_input($_POST["firstname"]);
   $lastname = test_input($_POST["lastname"]);
 
@@ -159,13 +158,11 @@ $mysqli->close();
     </header>
 
     <main>
-
+      <h2 class="title mt-4">
+        Update Personal Information
+      </h2>
+      <br><br>
       <form id="adminupdatepersonalinfo" method="POST">
-
-        <h2 class="title mt-4">
-          Update Personal Information
-        </h2>
-        <br><br>
         <div class="form-box px-3">
           <!-- create form wih post method to the same page -->
           <label>First Name: </label>

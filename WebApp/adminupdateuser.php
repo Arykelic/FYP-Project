@@ -157,7 +157,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
 } else {
     if (isset($_GET["userid"]) && !empty(trim($_GET["userid"]))) {
         // Prepare a select statement
-        $displayuserid = trim($_GET["userid"]);
+        $userid = trim($_GET["userid"]);
 
         $sql = "SELECT * FROM user WHERE userid = ?";
         if ($stmt = $mysqli->prepare($sql)) {
@@ -177,18 +177,18 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     $row = $result->fetch_array(MYSQLI_ASSOC);
 
                     // Retrieve individual field value
-                    $displayusername = $row["username"];
-                    $displayfirstname = $row["firstname"];
-                    $displaylastname = $row["lastname"];
-                    $displayphonenumber = $row["phonenumber"];
-                    $displayemailaddress = $row["emailaddress"];
-                    $displayBirthDate = $row["BirthDate"];
-                    $displayGender = $row["Gender"];
-                    $displayusertype = $row["usertype"];
-                    $displayaccountstatus = $row["accountstatus"];
-                    $displaycreateddatetime = $row["createddatetime"];
-                    $displayupdateddatetime = $row["updateddatetime"];
-                    $displayupdatedby = $row["updatedby"];
+                    $firstname = $row["firstname"];
+                    $username = $row["username"];
+                    $lastname = $row["lastname"];
+                    $phonenumber = $row["phonenumber"];
+                    $emailaddress = $row["emailaddress"];
+                    $BirthDate = $row["BirthDate"];
+                    $Gender = $row["Gender"];
+                    $usertype = $row["usertype"];
+                    $accountstatus = $row["accountstatus"];
+                    $createddatetime = $row["createddatetime"];
+                    $updateddatetime = $row["updateddatetime"];
+                    $updatedby = $row["updatedby"];
                 } else {
                     // URL doesn't contain valid id parameter. Redirect to error page
                     echo '<script>alert("An error has occurred finding a valid id parameter")</script>';
@@ -272,68 +272,68 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
         </header>
 
         <main>
+            <h2 class="title mt-4">
+                Update User
+            </h2>
+            <br><br>
+            
+            <form id="adminviewuser" method="POST" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>">
 
-            <form id="adminviewuser" method="POST">
-
-                <h2 class="title mt-4">
-                    Update User
-                </h2>
-                <br><br>
                 <div class="form-box px-3">
                     <!-- create form wih post method to the same page -->
                     <label>User Id: </label>
-                    <input type="text" value="<?php echo $displayuserid; ?>" disabled>
+                    <input type="text" value="<?php echo $userid; ?>" disabled>
                     <br><br>
                     <!-- create input text for Username for user to input username text -->
                     <label>User Name: </label>
-                    <input type="text" class="form-input" placeholder="Enter a User Name" value="<?php echo $displayusername; ?>" disabled>
+                    <input type="text" class="form-input" placeholder="Enter a User Name" value="<?php echo $username; ?>" disabled>
                     <br><br>
                     <label>First Name: </label>
-                    <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $displayfirstname; ?>">
+                    <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>">
                     <br><br>
                     <label>Last Name: </label>
-                    <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" value="<?php echo $displaylastname; ?>">
+                    <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter your Last Name" value="<?php echo $lastname; ?>">
                     <br><br>
                     <label>Phone Number: </label>
-                    <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $displayphonenumber; ?>" required>
+                    <input type="tel" class="form-input" id="phonenumber" name="phonenumber" placeholder="Enter your Phone Number" value="<?php echo $phonenumber; ?>" required>
                     <label class="error"><?php echo $phonenumber_err; ?></label>
                     <br><br>
                     <label>Email Address: </label>
-                    <input type="email" id="emailaddress" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $displayemailaddress; ?>" required>
+                    <input type="email" id="emailaddress" name="emailaddress" class="form-input" placeholder="Enter your Email Address" value="<?php echo $emailaddress; ?>" required>
                     <label class="error"><?php echo $emailaddress_err; ?></label>
                     <br><br>
                     <label>Birth Date: </label>
-                    <input type="date" id="BirthDate" name="BirthDate" class="form-input" value="<?php echo $displayBirthDate; ?>">
+                    <input type="date" id="BirthDate" name="BirthDate" class="form-input" value="<?php echo $BirthDate; ?>">
                     <br><br>
                     <label>Gender: </label>
-                    <select class="form-input" name="Gender" id="Gender" value="<?php echo $displayGender; ?>">
-                        <option> <?php echo $displayGender; ?> </option>
+                    <select class="form-input" name="Gender" id="Gender" value="<?php echo $Gender; ?>">
+                        <option> <?php echo $Gender; ?> </option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                     <br><br>
                     <label>User Type</label>
-                    <select class="form-input" name="usertype" id="usertype" value="<?php echo $displayusertype; ?>" required>
-                        <option> <?php echo $displayusertype; ?> </option>
+                    <select class="form-input" name="usertype" id="usertype" value="<?php echo $usertype; ?>" required>
+                        <option> <?php echo $usertype; ?> </option>
                         <option value="Admin">Admin</option>
                         <option value="User">User</option>
                     </select>
                     <br><br>
                     <label>Account Status</label>
-                    <select class="form-input" name="accountstatus" id="accountstatus" value="<?php echo $displayaccountstatus; ?>" required>
-                        <option> <?php echo $displayaccountstatus; ?> </option>
+                    <select class="form-input" name="accountstatus" id="accountstatus" value="<?php echo $accountstatus; ?>" required>
+                        <option> <?php echo $accountstatus; ?> </option>
                         <option value="Active">Active</option>
                         <option value="Disabled">Disabled</option>
                     </select>
                     <br><br>
                     <label>Created Date Time: </label>
-                    <input class="form-input" type="text" value="<?php echo $displaycreateddatetime; ?>" disabled>
+                    <input class="form-input" type="text" value="<?php echo $createddatetime; ?>" disabled>
                     <br><br>
                     <label>Updated Date Time: </label>
-                    <input class="form-input" type="text" value="<?php echo $displayupdateddatetime; ?>" disabled>
+                    <input class="form-input" type="text" value="<?php echo $updateddatetime; ?>" disabled>
                     <br><br>
                     <label>Updated By: </label>
-                    <input class="form-input" type="text" value="<?php echo $displayupdatedby; ?>" disabled>
+                    <input class="form-input" type="text" value="<?php echo $updatedby; ?>" disabled>
                     <br><br>
                     <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
 
