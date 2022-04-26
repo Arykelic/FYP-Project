@@ -333,7 +333,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <label>Updated By: </label>
                     <input class="form-input" type="text" value="<?php echo $updatedby; ?>" disabled>
                     <br><br>
-                    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+                    <input type="text" name="userid" value="<?php echo $userid; ?>" />
 
                     <input class="btn btn-block text-uppercase" type="submit" value="Update User"></input>
                 </div>
