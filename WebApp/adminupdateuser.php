@@ -22,7 +22,7 @@ $emailregex = "/^[^0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z
 if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
     // Get hidden/disabled input value
     $userid = $_POST["userid"];
-    $username = $_POST["username"];
+    /* $username = $_POST["username"]; */
 
     /* // Validate username and code to change username
     if (empty(test_input($_POST["username"]))) {
@@ -206,8 +206,6 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
     }
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -277,7 +275,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
             </h2>
             <br><br>
 
-            <form id="adminviewuser" method="POST" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>">
+            <form id="adminviewuser" method="post" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>">
 
                 <div class="form-box px-3">
                     <!-- create form wih post method to the same page -->
@@ -286,7 +284,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                     <br><br>
                     <!-- create input text for Username for user to input username text -->
                     <label>User Name: </label>
-                    <input type="text" class="form-input" placeholder="Enter a User Name" value="<?php echo $username; ?>" disabled>
+                    <input type="text" class="form-input"  value="<?php echo $username; ?>" disabled>
                     <br><br>
                     <label>First Name: </label>
                     <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter your First Name" value="<?php echo $firstname; ?>">
