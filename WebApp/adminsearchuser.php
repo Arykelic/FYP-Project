@@ -12,7 +12,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 include "GlobalClass.php";
 include "UserConfig.php";
 
-if (isset($_POST['search'])) {
+if (isset($_POST['searchValue'])) {
     $searchValue = $_POST['searchValue'];
     // search in all table columns
     // using concat mysql function
@@ -91,11 +91,7 @@ function filterTable($query)
                 E-Commerce Insight (Admin)(Search User)
             </h2>
 
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" autocomplete="off" placeholder="Search here" />
-                <div class="result"></div>
-            </div>
+
 
 
             <div class="user-wrapper">
