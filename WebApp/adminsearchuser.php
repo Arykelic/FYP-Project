@@ -27,56 +27,9 @@ include "UserConfig.php";
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    <style>
-        body {
-            font-family: Arail, sans-serif;
-        }
-
-        /* Formatting search box */
-        .search-box {
-            width: 300px;
-            position: relative;
-            display: inline-block;
-            font-size: 14px;
-        }
-
-        .search-box input[type="text"] {
-            height: 32px;
-            padding: 5px 10px;
-            border: 1px solid #CCCCCC;
-            font-size: 14px;
-        }
-
-        .result {
-            position: absolute;
-            z-index: 999;
-            top: 100%;
-            left: 0;
-        }
-
-        .search-box input[type="text"],
-        .result {
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        /* Formatting result items */
-        .result p {
-            margin: 0;
-            padding: 7px 10px;
-            border: 1px solid #CCCCCC;
-            border-top: none;
-            cursor: pointer;
-        }
-
-        .result p:hover {
-            background: #f2f2f2;
-        }
-    </style>
-
     <script>
         $(document).ready(function() {
-            $('.search-box input[type="text"]').on("keyup input", function() {
+            $('.search-wrapper input[type="search"]').on("keyup input", function() {
                 /* Get input value on change */
                 var inputVal = $(this).val();
                 var resultDropdown = $(this).siblings(".result");
@@ -94,7 +47,7 @@ include "UserConfig.php";
 
             // Set search input value on click of result item
             $(document).on("click", ".result p", function() {
-                $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+                $(this).parents(".search-wrapper").find('input[type="search"]').val($(this).text());
                 $(this).parent(".result").empty();
             });
         });
@@ -148,13 +101,10 @@ include "UserConfig.php";
 
             <div class="search-wrapper">
                 <span class="las la-search"></span>
-                <input type="search" placeholder="Search here" />
-            </div>
-            
-            <div class="search-box">
-                <input type="text" autocomplete="off" placeholder="Search country..." />
+                <input type="search" autocomplete="off" placeholder="Search here" />
                 <div class="result"></div>
             </div>
+
 
             <div class="user-wrapper">
                 <span class="las la-user-circle fa-3x"></span>
@@ -172,6 +122,12 @@ include "UserConfig.php";
                 <div class="card-header">
                     <h2>Search User Account</h2>
                 </div>
+
+                <div class="search-wrapper">
+                    <span class="las la-search"></span>
+                    <input type="search" autocomplete="off" placeholder="Search here" />
+                </div>
+
 
                 <div class="card-body" width="100%">
                     <!-- <div class="table-responsive"> -->
@@ -193,43 +149,47 @@ include "UserConfig.php";
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                // Attempt select query execution
-                                $mysqli = new mysqli($servername, $username, $password, $dbname);
-                                $sql = "SELECT * FROM user";
-                                if ($result = $mysqli->query($sql)) {
-                                    if ($result->num_rows > 0) {
-                                        while ($row = $result->fetch_array()) {
-                                            echo "<tr>";
-                                            echo "<td>" . $row['userid'] . "</td>";
-                                            echo "<td>" . $row['username'] . "</td>";
-                                            echo "<td>" . $row['firstname'] . "</td>";
-                                            echo "<td>" . $row['lastname'] . "</td>";
-                                            echo "<td>" . $row['phonenumber'] . "</td>";
-                                            echo "<td>" . $row['emailaddress'] . "</td>";
-                                            echo "<td> " . $row['BirthDate'] . "</td>";
-                                            echo "<td> " . $row['Gender'] . "</td>";
-                                            echo "<td> " . $row['usertype'] . "</td>";
-                                            echo "<td> " . $row['accountstatus'] . "</td>";
-                                            echo "<td>";
-                                            echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='fa-solid fa-eye'></i></a>";
-                                            echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><i class='fa-solid fa-pen-to-square'></i></a>";
-                                            echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><i class='fa-solid fa-trash'></i></a>";
-                                            echo "</td>";
-                                            echo "</tr>";
+                                <div class="result">
+                                    <?php
+                                    // Attempt select query execution
+                                    $mysqli = new mysqli($servername, $username, $password, $dbname);
+                                    $sql = "SELECT * FROM user";
+                                    if ($result = $mysqli->query($sql)) {
+                                        if ($result->num_rows > 0) {
+                                            while ($row = $result->fetch_array()) {
+                                                echo "<div class='result'>";
+                                                echo "<tr>";
+                                                echo "<td>" . $row['userid'] . "</td>";
+                                                echo "<td>" . $row['username'] . "</td>";
+                                                echo "<td>" . $row['firstname'] . "</td>";
+                                                echo "<td>" . $row['lastname'] . "</td>";
+                                                echo "<td>" . $row['phonenumber'] . "</td>";
+                                                echo "<td>" . $row['emailaddress'] . "</td>";
+                                                echo "<td> " . $row['BirthDate'] . "</td>";
+                                                echo "<td> " . $row['Gender'] . "</td>";
+                                                echo "<td> " . $row['usertype'] . "</td>";
+                                                echo "<td> " . $row['accountstatus'] . "</td>";
+                                                echo "<td>";
+                                                echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='fa-solid fa-eye'></i></a>";
+                                                echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><i class='fa-solid fa-pen-to-square'></i></a>";
+                                                echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><i class='fa-solid fa-trash'></i></a>";
+                                                echo "</td>";
+                                                echo "</tr>";
+                                                echo "</div>";
+                                            }
+                                            // Free result set
+                                            $result->free();
+                                        } else {
+                                            echo "<label class='error'>No records were found.</label>";
                                         }
-                                        // Free result set
-                                        $result->free();
                                     } else {
-                                        echo "<label class='error'>No records were found.</label>";
+                                        echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
                                     }
-                                } else {
-                                    echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-                                }
 
-                                // Close connection
-                                $mysqli->close();
-                                ?>
+                                    // Close connection
+                                    $mysqli->close();
+                                    ?>
+                                </div>
                             </tbody>
                         </table>
                     </div>
