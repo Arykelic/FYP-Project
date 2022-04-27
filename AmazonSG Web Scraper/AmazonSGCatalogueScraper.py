@@ -71,7 +71,7 @@ while True:
         Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
         Image_Url = Image_Url_Container[0].img["src"]
 
-        Item_Name_Container = container.findAll("span", {"class": "a-size-medium a-color-base a-text-normal"})
+        Item_Name_Container = container.findAll("span", {"class": "a-size-base a-color-base a-text-normal"})
         Item_Name = Item_Name_Container[0].text
 
         try:
