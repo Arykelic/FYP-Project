@@ -119,6 +119,7 @@ function filterTable($query)
                         </div>
                         <span>
                             <button type="submit" name="search">Search</button>
+                            <button type="submit" name="reset">Reset</button>
                         </span>
                         <!-- <div class="search-wrapper">
                             <button type="submit" name="filterResults">Filter Empty Fields</button>
