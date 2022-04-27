@@ -234,9 +234,13 @@ include "PageDataConfig.php"
               $app_data = file_get_contents($app_link);
               echo "<br><br>" . $app_data; */
 
-                $command =  escapeshellcmd('sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false');
+                /* $command =  escapeshellcmd('sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false');
                 $result = shell_exec($command);
-                echo $result;
+                echo $result; */
+
+                /* $command =  escapeshellcmd('streamlit run app.py --server.enableXsrfProtection=false');
+                $result = shell_exec($command);
+                echo $result; */
 
 
                 $command =  escapeshellcmd('python AmazonSGWebScraper/AmazonSGCatalogueScraper.py');
