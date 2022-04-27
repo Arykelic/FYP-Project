@@ -39,7 +39,7 @@ def getnextpage(soup):
 
 
 # Change Directory
-os.chdir('AmazonSG Catalogue Files')
+os.chdir('AmazonSGCatalogueFiles')
 
 filename = "{}+Catalogue.csv".format(search_term)
 f = open(filename, "w", encoding="utf-8")

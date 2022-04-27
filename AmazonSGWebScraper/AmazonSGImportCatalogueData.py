@@ -2,7 +2,7 @@ from debugpy import connect
 import pymysql
 import pandas as pd
 
-empdata = pd.read_csv('C://xampp//htdocs//FYP-Project//AmazonSG Catalogue Files//*.csv', index_col=False, delimiter = ',')
+empdata = pd.read_csv('C://xampp//htdocs//FYP-Project//AmazonSGCatalogueFiles//*.csv', index_col=False, delimiter = ',')
 empdata[" item_price"].fillna("NA", inplace = True) 
 empdata[" average_rating (Max Score is 5)"].fillna("NA", inplace = True) 
 empdata[" number_of_ratings "].fillna("NA", inplace = True) 

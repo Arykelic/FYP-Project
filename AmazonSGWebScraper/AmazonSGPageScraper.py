@@ -31,7 +31,7 @@ search_term_stripped = search_term_value.strip()
 search_term = search_term_stripped.replace('"', ",").replace("|",",").replace("-",",")
 
 #Change Directory
-os.chdir('AmazonSG Page Files')
+os.chdir('AmazonSGPageFiles')
 
 filename = "{}+Page.csv".format(search_term)
 f = open(filename, "w")
