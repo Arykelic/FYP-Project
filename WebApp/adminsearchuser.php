@@ -12,15 +12,15 @@ include "UserConfig.php";
 include "GlobalClass.php";
 
 
-if (isset($_POST["searchValue"]) && !empty(trim($_POST["searchValue"]))) {
-    $searchValue = $_POST["searchValue"];
+if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
+    $searchValue = $_GET["searchValue"];
     // search in all table columns
     // using concat mysql function
     $query = "SELECT * FROM `user` WHERE CONCAT(`userid`, `username`, `firstname`, `lastname`, `phonenumber`, `emailaddress` ,
      `BirthDate`, `Gender` , `usertype`, `accountstatus`) LIKE '%" . $searchValue . "%'";
     $search_result = filterTable($query);
 } else {
-    if (empty(trim($_POST["searchValue"]))) {
+    if (empty(trim($_GET["searchValue"]))) {
         $query = "SELECT * FROM `user` ";
         $search_result = filterTable($query);
     }
@@ -110,7 +110,7 @@ function filterTable($query)
                     <h2>Search User</h2>
                 </div>
 
-                <form action="adminsearchuser.php" method="POST">
+                <form action="adminsearchuser.php" method="GET">
                     <div class="card-header">
                         <div class="search-wrapper">
                             <span class="las la-search"></span>
@@ -119,7 +119,7 @@ function filterTable($query)
                         </div>
                         <span>
                             <button type="submit" name="search">Search</button>
-                            <button type="submit" name="reset">Reset</button>
+                            <button type="submit" name="refresh">Refresh</button>
                         </span>
                         <!-- <div class="search-wrapper">
                             <button type="submit" name="filterResults">Filter Empty Fields</button>
