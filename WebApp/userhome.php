@@ -235,18 +235,19 @@ include "UserConfig.php";
 
               <?php
 
-              /* if (isset($_POST['GO'])) {
-                shell_exec("python AmazonSG Web Scraper/AmazonSGCatalogueScraper.py");
+              if (isset($_POST['GO'])) {
+                shell_exec("app.py");
                 echo "success";
-              }
 
-              $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
+                /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
               $app_data = file_get_contents($app_link);
               echo "<br><br>" . $app_data; */
 
-              $command =  escapeshellcmd('streamlit run app.py');
+                /* $command =  escapeshellcmd('streamlit run app.py');
               $result = shell_exec($command);
-              echo $result;
+              echo $result; */
+              }
+
               ?>
 
             </div>
