@@ -127,14 +127,15 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
             $param_updatedby = $updatedby;
             $param_userid = $userid;
 
-            //UPDATE Session Variables
+            //UPDATE Session Variables if updating self
+            if($_SESSION["userid"]==$userid){
             $_SESSION["firstname"] = $firstname;
             $_SESSION["lastname"] = $lastname;
             $_SESSION["phonenumber"] = $phonenumber;
             $_SESSION["emailaddress"] = $emailaddress;
             $_SESSION["BirthDate"] = $BirthDate;
             $_SESSION["Gender"] = $Gender;
-
+            }
 
             // Attempt to execute the prepared statement
             if ($stmt->execute()) {
