@@ -202,7 +202,7 @@ include "PageDataConfig.php"
             <span>Total Page Data</span>
           </div>
           <div>
-            <span class="fa-solid fa-page"></span>
+            <span class="las la-file"></span>
           </div>
         </div>
 
@@ -217,7 +217,7 @@ include "PageDataConfig.php"
             <span>Total Combined Reviews</span>
           </div>
           <div>
-            <span class="fa-regular fa-list-dropdown"></span>
+            <span class="las la-star"></span>
           </div>
         </div>
 
@@ -229,7 +229,7 @@ include "PageDataConfig.php"
             $data = mysqli_fetch_assoc($result);
             echo "<h1>" . $data['total'] . "</h1>"; */
             ?>
-            <span>Data Based On</span>
+            <h1>Data Based On AmazonSG</h1>
           </div>
           <div>
             <span class="fa-brands fa-amazon"></span>
