@@ -234,7 +234,12 @@ include "PageDataConfig.php"
               $app_data = file_get_contents($app_link);
               echo "<br><br>" . $app_data; */
 
-                $command =  escapeshellcmd('heroku run web sh setup.sh && streamlit run app.py');
+                $command =  escapeshellcmd('sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false');
+                $result = shell_exec($command);
+                echo $result;
+
+
+                $command =  escapeshellcmd('python AmazonSGWebScraper/AmazonSGCatalogueScraper.py');
                 $result = shell_exec($command);
                 echo $result;
               }
