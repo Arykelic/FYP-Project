@@ -137,10 +137,6 @@ function filterTable($query)
                                     <td>Gender</td>
                                     <td>User Type</td>
                                     <td>Account Status</td>
-                                    <td>Created Date Time</td>
-                                    <td>Created By</td>
-                                    <td>Updated Date Time</td>
-                                    <td>Updated By</td>
                                     <td>Action</td>
                                 </tr>
                             </thead>
