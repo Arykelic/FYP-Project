@@ -116,8 +116,8 @@ function filterTable($query)
                         <div class="search-wrapper">
                             <span class="las la-search"></span>
                             
-                            <input type="search" name="searchValue" autocomplete="off" placeholder="Search here"><br><br>
-                            <button type="submit" name="clearResults">Clear Results</button>
+                            <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
+                            <button type="submit" name="filterResults">Filter Empty Results</button>
                             <button type="submit" name="search">Search</button>
                         </div>
 
