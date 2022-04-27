@@ -75,6 +75,7 @@ include "PageDataConfig.php"
 
     <main>
       <div class="cards">
+
         <div class="card-single">
           <div>
             <?php
@@ -83,7 +84,7 @@ include "PageDataConfig.php"
             $data = mysqli_fetch_assoc($result);
             echo "<h1>" . $data['total'] . "</h1>";
             ?>
-            <span>Total Catalogue Data</span>
+            <span>Total Catalogue Items</span>
           </div>
           <div>
             <span class="fa-solid fa-book-atlas"></span>
@@ -98,10 +99,10 @@ include "PageDataConfig.php"
             $data = mysqli_fetch_assoc($result);
             echo "<h1>" . $data['total'] . "</h1>";
             ?>
-            <span>Total Page Data</span>
+            <span>Total Item Pages</span>
           </div>
           <div>
-            <i class="fa-solid fa-page"></i>
+            <span class="las la-file"></span>
           </div>
         </div>
 
@@ -116,7 +117,7 @@ include "PageDataConfig.php"
             <span>Total Combined Reviews</span>
           </div>
           <div>
-            <span class="fa-solid fa-list-dropdown"></span>
+            <span class="las la-star"></span>
           </div>
         </div>
 
@@ -128,12 +129,13 @@ include "PageDataConfig.php"
             $data = mysqli_fetch_assoc($result);
             echo "<h1>" . $data['total'] . "</h1>"; */
             ?>
-            <span>Data Based On</span>
+            <h2>Data Based On AmazonSG</h2>
           </div>
           <div>
             <span class="fa-brands fa-amazon"></span>
           </div>
         </div>
+
       </div>
 
       <div class="r-grid">
