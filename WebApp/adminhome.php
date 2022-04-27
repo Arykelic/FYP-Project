@@ -202,7 +202,7 @@ include "PageDataConfig.php"
             <span>Total Page Data</span>
           </div>
           <div>
-            <i class="fa-solid fa-page"></i>
+            <span class="fa-solid fa-page"></span>
           </div>
         </div>
 
@@ -217,7 +217,7 @@ include "PageDataConfig.php"
             <span>Total Combined Reviews</span>
           </div>
           <div>
-            <span class="fa-solid fa-list-dropdown"></span>
+            <span class="fa-regular fa-list-dropdown"></span>
           </div>
         </div>
 
