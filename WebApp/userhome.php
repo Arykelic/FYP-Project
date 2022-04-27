@@ -243,7 +243,7 @@ include "UserConfig.php";
               $app_data = file_get_contents($app_link);
               echo "<br><br>" . $app_data; */
 
-                $command =  escapeshellcmd('streamlit run app.py');
+              $command =  escapeshellcmd('heroku run web sh setup.sh && streamlit run app.py');
               $result = shell_exec($command);
               echo $result;
               }
