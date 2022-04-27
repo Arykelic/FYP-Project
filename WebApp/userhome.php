@@ -230,27 +230,27 @@ include "UserConfig.php";
             <div class="card-body">
 
               <form method="post">
-
                 <input type="submit" value="GO" name="GO">
               </form>
 
               <?php
 
-              if (isset($_POST['GO'])) {
+              /* if (isset($_POST['GO'])) {
                 shell_exec("python AmazonSG Web Scraper/AmazonSGCatalogueScraper.py");
                 echo "success";
               }
 
               $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
               $app_data = file_get_contents($app_link);
-              echo "<br><br>" . $app_data;
+              echo "<br><br>" . $app_data; */
 
-              $command =  escapeshellcmd('app.py');
+              $command =  escapeshellcmd('streamlit run app.py');
               $result = shell_exec($command);
               echo $result;
               ?>
 
             </div>
+
           </div>
         </div>
       </div>
