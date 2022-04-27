@@ -10,7 +10,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 }
 
 include "GlobalClass.php";
-include "UserConfig.php";
+include "CatalogueConfig.php";
+include "CombinedReviewConfig.php";
+include "PageDataConfig.php"
 
 ?>
 
@@ -41,6 +43,10 @@ include "UserConfig.php";
             <span>Edit Personal Information</span></a>
         </li>
         <li>
+          <a href="userresetpassword.php"><span class="las la-key"></span>
+            <span>Reset Password</span></a>
+        </li>
+        <li>
           <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span></a>
         </li>
@@ -62,6 +68,7 @@ include "UserConfig.php";
         <div>
           <h4> <?php echo htmlspecialchars($_SESSION["username"]); ?> </h4>
           <small><?php echo htmlspecialchars($_SESSION["firstname"]); ?></small>
+          <small><?php echo htmlspecialchars($_SESSION["lastname"]); ?></small>
         </div>
       </div>
     </header>
@@ -70,41 +77,61 @@ include "UserConfig.php";
       <div class="cards">
         <div class="card-single">
           <div>
-            <h1>54</h1>
-            <span>Users</span>
+            <?php
+            $sql = "select count(*) as total from cataloguedata";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>";
+            ?>
+            <span>Total Catalogue Data</span>
           </div>
           <div>
-            <span class="las la-users"></span>
-          </div>
-        </div>
-
-        <div class="card-single">
-          <div>
-            <h1>2</h1>
-            <span>Admins</span>
-          </div>
-          <div>
-            <i class="fa-solid fa-user-ninja"></i>
+            <span class="fa-solid fa-book-atlas"></span>
           </div>
         </div>
 
         <div class="card-single">
           <div>
-            <h1>124</h1>
-            <span>Orders</span>
+            <?php
+            $sql = "select count(*) as total from pagedata";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>";
+            ?>
+            <span>Total Page Data</span>
           </div>
           <div>
-            <span class="las la-shopping-bag"></span>
+            <i class="fa-solid fa-page"></i>
           </div>
         </div>
 
         <div class="card-single">
           <div>
-            <h1>$6k</h1>
-            <span>Income</span>
+            <?php
+            $sql = "select count(*) as total from combinedreview";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>";
+            ?>
+            <span>Total Combined Reviews</span>
           </div>
           <div>
-            <span class="lab la-google-wallet"></span>
+            <span class="fa-solid fa-list-dropdown"></span>
+          </div>
+        </div>
+
+        <div class="card-single">
+          <div>
+            <?php
+            /* $sql = "select count(*) as total from user where accountstatus like 'Disabled'";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>"; */
+            ?>
+            <span>Data Based On</span>
+          </div>
+          <div>
+            <span class="fa-brands fa-amazon"></span>
           </div>
         </div>
       </div>
@@ -118,45 +145,7 @@ include "UserConfig.php";
               <button>See all<span class="las la-arrow-right"></span></button>
             </div>
 
-            <div class="card-body">
-              <div class="table-responsive">
-                <table width="100%">
-                  <thead>
-                    <tr>
-                      <td>Project Title</td>
-                      <td>Department</td>
-                      <td>Status</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>UI/UX Design</td>
-                      <td>UI team</td>
-                      <td>
-                        <span class="status purple"></span>
-                        review
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Web Development</td>
-                      <td>Frontend</td>
-                      <td>
-                        <span class="status pink"></span>
-                        in progress
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Ushop app</td>
-                      <td>Mobile team</td>
-                      <td>
-                        <span class="status orange"></span>
-                        pending
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+
           </div>
         </div>
 
@@ -243,9 +232,9 @@ include "UserConfig.php";
               $app_data = file_get_contents($app_link);
               echo "<br><br>" . $app_data; */
 
-              $command =  escapeshellcmd('heroku run python -m streamlit run app.py');
-              $result = shell_exec($command);
-              echo $result;
+                $command =  escapeshellcmd('heroku run web sh setup.sh && streamlit run app.py');
+                $result = shell_exec($command);
+                echo $result;
               }
 
               ?>

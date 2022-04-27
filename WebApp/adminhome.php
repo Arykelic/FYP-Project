@@ -11,6 +11,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 
 include "GlobalClass.php";
 include "UserConfig.php";
+include "CatalogueConfig.php";
+include "CombinedReviewConfig.php";
+include "PageDataConfig.php"
 
 ?>
 
@@ -169,6 +172,68 @@ include "UserConfig.php";
             <span class="las la-user-slash"></span>
           </div>
 
+        </div>
+
+        <!-- 2nd row of cards -->
+
+        <div class="card-single">
+          <div>
+            <?php
+            $sql = "select count(*) as total from cataloguedata";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>";
+            ?>
+            <span>Total Catalogue Data</span>
+          </div>
+          <div>
+            <span class="fa-solid fa-book-atlas"></span>
+          </div>
+        </div>
+
+        <div class="card-single">
+          <div>
+            <?php
+            $sql = "select count(*) as total from pagedata";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>";
+            ?>
+            <span>Total Page Data</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-page"></i>
+          </div>
+        </div>
+
+        <div class="card-single">
+          <div>
+            <?php
+            $sql = "select count(*) as total from combinedreview";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>";
+            ?>
+            <span>Total Combined Reviews</span>
+          </div>
+          <div>
+            <span class="fa-solid fa-list-dropdown"></span>
+          </div>
+        </div>
+
+        <div class="card-single">
+          <div>
+            <?php
+            /* $sql = "select count(*) as total from user where accountstatus like 'Disabled'";
+            $result = mysqli_query($mysqli, $sql);
+            $data = mysqli_fetch_assoc($result);
+            echo "<h1>" . $data['total'] . "</h1>"; */
+            ?>
+            <span>Data Based On</span>
+          </div>
+          <div>
+            <span class="fa-brands fa-amazon"></span>
+          </div>
         </div>
 
       </div>
