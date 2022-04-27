@@ -12,8 +12,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 include "GlobalClass.php";
 
 
-if (isset($_POST['searchValue'])) {
-    $searchValue = $_POST['searchValue'];
+if (isset($_GET['searchValue'])) {
+    $searchValue = $_GET['searchValue'];
     // search in all table columns
     // using concat mysql function
     $query = "SELECT * FROM `user` WHERE CONCAT(`userid`, `username`, `firstname`, `lastname`, `phonenumber`, `emailaddress` ,
@@ -111,7 +111,7 @@ function filterTable($query)
                     <h2>Search User</h2>
                 </div>
 
-                <form action="adminsearchuser.php" method="POST">
+                <form action="adminsearchuser.php" method="get">
                     <div class="card-header">
                         <div class="search-wrapper">
                             <span class="las la-search"></span>
@@ -157,10 +157,6 @@ function filterTable($query)
                                         <td><?php echo $row['Gender']; ?></td>
                                         <td><?php echo $row['usertype']; ?></td>
                                         <td><?php echo $row['accountstatus']; ?></td>
-                                        <td><?php echo $row['createddatetime']; ?></td>
-                                        <td><?php echo $row['createdby']; ?></td>
-                                        <td><?php echo $row['updateddatetime']; ?></td>
-                                        <td><?php echo $row['updatedby']; ?></td>
                                         <?php
                                         echo "<td>";
                                         echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='fa-solid fa-eye'></i></a>";
