@@ -12,8 +12,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 include "GlobalClass.php";
 
 
-if (isset($_GET['searchValue'])) {
-    $searchValue = $_GET['searchValue'];
+if (isset($_POST['searchValue'])) {
+    $searchValue = $_POST['searchValue'];
     // search in all table columns
     // using concat mysql function
     $query = "SELECT * FROM `user` WHERE CONCAT(`userid`, `username`, `firstname`, `lastname`, `phonenumber`, `emailaddress` ,
@@ -111,20 +111,22 @@ function filterTable($query)
                     <h2>Search User</h2>
                 </div>
 
-                <form action="adminsearchuser.php" method="get">
+                <form action="adminsearchuser.php" method="POST">
                     <div class="card-header">
                         <div class="search-wrapper">
                             <span class="las la-search"></span>
-
                             <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
-
                             <!-- <button type="submit" name="filterResults">Refresh</button> -->
                         </div>
-                        <div class="search-wrapper">
+                        <button type="submit" name="search">Search</button>
+                        <!-- Removes lines with empty fields by doing an empty post with no values -->
+                        <button type="submit" name="filterResults">Filter Empty Fields</button>
+                        <button type="submit" onclick="location.reload();">Refresh</button>
+                        <!-- <div class="search-wrapper">
                             <button type="submit" name="filterResults">Filter Empty Fields</button>
                             <button type="submit" name="search">Search</button>
                             <button type="submit" onclick="location.reload();">Refresh</button>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
 
