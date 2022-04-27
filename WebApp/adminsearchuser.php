@@ -117,8 +117,10 @@ function filterTable($query)
                             <span class="las la-search"></span>
                             
                             <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
-                            <button type="submit" name="filterResults">Filter Empty Results</button>
+                            <button type="submit" name="filterResults">Filter Empty Fields</button>
                             <button type="submit" name="search">Search</button>
+                            <!-- <button type="submit" name="filterResults">Refresh</button> -->
+                            <button type="submit" onclick="location.reload();">Refresh</button>
                         </div>
 
                     </div>
