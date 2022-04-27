@@ -8,20 +8,22 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
     header("location: index.php");
     exit;
 }
-
+include "UserConfig.php";
 include "GlobalClass.php";
 
 
-if (isset($_GET['searchValue'])) {
-    $searchValue = $_GET['searchValue'];
+if (isset($_POST["searchValue"]) && !empty(trim($_POST["searchValue"]))) {
+    $searchValue = $_POST["searchValue"];
     // search in all table columns
     // using concat mysql function
     $query = "SELECT * FROM `user` WHERE CONCAT(`userid`, `username`, `firstname`, `lastname`, `phonenumber`, `emailaddress` ,
      `BirthDate`, `Gender` , `usertype`, `accountstatus`) LIKE '%" . $searchValue . "%'";
     $search_result = filterTable($query);
 } else {
-    $query = "SELECT * FROM `user` ";
-    $search_result = filterTable($query);
+    if (isset($_GET["userid"]) && !empty(trim($_GET["userid"]))) {
+        $query = "SELECT * FROM `user` ";
+        $search_result = filterTable($query);
+    }
 }
 
 function filterTable($query)
@@ -111,7 +113,7 @@ function filterTable($query)
                     <h2>Search User</h2>
                 </div>
 
-                <form action="adminsearchuser.php" method="get">
+                <form action="adminsearchuser.php" method="POST">
                     <div class="card-header">
                         <div class="search-wrapper">
                             <span class="las la-search"></span>
@@ -120,14 +122,6 @@ function filterTable($query)
                         </div>
                         <span>
                             <button type="submit" name="search">Search</button>
-                            <!-- Removes lines with empty fields by doing an empty post with no values -->
-                            <button type="submit" name="filterResults">Filter Empty Fields</button>
-                            <button type="submit" onclick="myFunction()">Refresh Page</button>
-                            <script>
-                                function myFunction() {
-                                    location.assign("https://fyp-project-recommender-system.herokuapp.com/adminsearchuser.php");
-                                }
-                            </script>
                         </span>
                         <!-- <div class="search-wrapper">
                             <button type="submit" name="filterResults">Filter Empty Fields</button>
@@ -138,7 +132,6 @@ function filterTable($query)
                 </form>
 
                 <div class="card-body" width="100%">
-                    <!-- <div class="table-responsive"> -->
                     <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
                         <table width="100%">
                             <thead>
