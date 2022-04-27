@@ -20,7 +20,7 @@ if (isset($_POST["searchValue"]) && !empty(trim($_POST["searchValue"]))) {
      `BirthDate`, `Gender` , `usertype`, `accountstatus`) LIKE '%" . $searchValue . "%'";
     $search_result = filterTable($query);
 } else {
-    if (isset($_GET["userid"]) && !empty(trim($_GET["userid"]))) {
+    if (empty(trim($_POST["searchValue"]))) {
         $query = "SELECT * FROM `user` ";
         $search_result = filterTable($query);
     }
@@ -92,9 +92,6 @@ function filterTable($query)
                 </label>
                 E-Commerce Insight (Admin)(Search User)
             </h2>
-
-
-
 
             <div class="user-wrapper">
                 <span class="las la-user-circle fa-3x"></span>
