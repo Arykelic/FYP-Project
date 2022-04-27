@@ -140,8 +140,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
             // Attempt to execute the prepared statement
             if ($stmt->execute()) {
                 // Records updated successfully. Redirect to landing page
-                header("location: adminmanageuser.php");
-                exit();
+                echo '<script>alert("User has been Updated Succesfully")</script>';
             } else {
                 echo '<script>alert("Something went wrong. Please try again later")</script>';
             }
