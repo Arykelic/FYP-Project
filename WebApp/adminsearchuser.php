@@ -17,7 +17,7 @@ if (isset($_GET['searchValue'])) {
     // search in all table columns
     // using concat mysql function
     $query = "SELECT * FROM `user` WHERE CONCAT(`userid`, `username`, `firstname`, `lastname`, `phonenumber`, `emailaddress` ,
-     `BirthDate`, `Gender` , `usertype`, `accountstatus`, `createddatetime`, `createdby`, `updateddatetime` , `updatedby`) LIKE '%" . $searchValue . "%'";
+     `BirthDate`, `Gender` , `usertype`, `accountstatus`) LIKE '%" . $searchValue . "%'";
     $search_result = filterTable($query);
 } else {
     $query = "SELECT * FROM `user` ";
@@ -116,8 +116,9 @@ function filterTable($query)
                         <div class="search-wrapper">
                             <span class="las la-search"></span>
                             <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
-                            <button type="submit" name="search">Search</button>
                         </div>
+                        <button type="submit" name="search">Search</button>
+                        <button type="submit" name="clearResults">Clear Results</button>
                     </div>
                 </form>
 
