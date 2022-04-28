@@ -252,7 +252,7 @@ include "PageDataConfig.php"
                 web: vendor/bin/heroku-php-apache2 WebApp/
                 web: sh setup.sh && streamlit run WebApp/app.py */
 
-                $command = system("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py" . $_POST["cataloguescraper"]);
+                $command = system("python AmazonSGCatalogueScraper.py" . $_POST["cataloguescraper"]);
                 /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
                 $result = shell_exec($command);
                 echo "<pre>";
