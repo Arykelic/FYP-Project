@@ -226,8 +226,8 @@ include "PageDataConfig.php"
               </form>
 
               <?php
-              
-              
+
+
 
               if (isset($_POST['GO'])) {
                 /* shell_exec("app.py");
@@ -252,10 +252,13 @@ include "PageDataConfig.php"
                 web: vendor/bin/heroku-php-apache2 WebApp/
                 web: sh setup.sh && streamlit run WebApp/app.py */
 
-                system("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py".$_POST["cataloguescraper"]);
-                $command =  escapeshellcmd('python AmazonSGWebScraper/AmazonSGCatalogueScraper.py');
+                $command = system("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py" . $_POST["cataloguescraper"]);
+                /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
                 $result = shell_exec($command);
-                echo $result;
+                echo "<pre>";
+                print_r($result);
+                echo "</pre>";
+                
               }
 
               ?>
