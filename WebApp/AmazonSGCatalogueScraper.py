@@ -1,5 +1,6 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
+import sys
 import re
 import os
 s = HTMLSession()
@@ -35,8 +36,6 @@ def getnextpage(soup):
         return
 
 # conversion of data into CSV
-
-
 
 # Change Directory
 os.chdir('AmazonSGCatalogueFiles')
