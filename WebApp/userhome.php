@@ -221,7 +221,7 @@ include "PageDataConfig.php"
             <div class="card-body">
 
               <form method="post">
-                <input type="text" name="cataloguescraper"><br>
+                <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
                 <input type="submit" value="GO" name="GO">
               </form>
 
