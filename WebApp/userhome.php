@@ -245,9 +245,9 @@ include "PageDataConfig.php"
                 /* Testing the procfile variables */
 
                 /*  
-                web: python pythonap.py
+                web: python AmazonSGWebScraper/AmazonSGCatalogueScraper.py
                 web: vendor/bin/heroku-php-apache2 WebApp/
-                web: sh setup.sh && streamlit run app.py */
+                web: sh setup.sh && streamlit run WebApp/app.py */
 
 
                 $command =  escapeshellcmd('python AmazonSGWebScraper/AmazonSGCatalogueScraper.py');
