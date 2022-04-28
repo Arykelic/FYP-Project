@@ -260,10 +260,9 @@ include "PageDataConfig.php"
                 echo "</pre>"; */
 
                 $result = exec("python AmazonSGCatalogueScraper.py food");
-                $result_array = json_decode($result);
-                foreach ($result_array as $row) {
-                  echo $row . "<br>";
-                }
+                echo "<pre>";
+                print_r($result);
+                echo "</pre>";
               }
 
               ?>
