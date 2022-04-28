@@ -5,10 +5,12 @@ import re
 import os
 s = HTMLSession()
 
-print('Enter the search term to be scraped (delimit search terms with a "+")')
+""" print('Enter the search term to be scraped (delimit search terms with a "+")')
 search_term = input('>')
 print(f'Filtering out {search_term}')
-url = "https://www.amazon.sg/s?k={}".format(search_term)
+url = "https://www.amazon.sg/s?k={}".format(search_term) """
+
+url = "https://www.amazon.sg/s?k=food"
 
 # Download the webpage
 
@@ -40,7 +42,8 @@ def getnextpage(soup):
 # Change Directory
 os.chdir('AmazonSGCatalogueFiles')
 
-filename = "{}+Catalogue.csv".format(search_term)
+#filename = "{}+Catalogue.csv".format(search_term)
+filename = "food+Catalogue.csv"
 f = open(filename, "w", encoding="utf-8")
 
 headers = "product_url, image_url, item_name, item_price, average_rating (Max Score is 5), number_of_ratings \n"
