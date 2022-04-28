@@ -259,7 +259,7 @@ include "PageDataConfig.php"
                 print_r($result);
                 echo "</pre>"; */
 
-                $result = exec("python AmazonSGCatalogueScraper.py food");
+                $result = shell_exec("python AmazonSGCatalogueScraper.py food");
                 echo "<pre>";
                 print_r($result);
                 echo "</pre>";
