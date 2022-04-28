@@ -144,7 +144,57 @@ include "PageDataConfig.php"
             <div class="card-header">
               <h3>Recommender System</h3>
 
-              <button>See all<span class="las la-arrow-right"></span></button>
+            </div>
+
+            <div class="card-body">
+
+              <form method="POST">
+                <input type="submit" value="Enter Recommender System" name="recommendersystem">
+              </form>
+
+              <?php
+
+
+
+              if (isset($_POST['recommendersystem'])) {
+                /* shell_exec("app.py");
+                echo "success"; */
+
+                /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
+              $app_data = file_get_contents($app_link);
+              echo "<br><br>" . $app_data; */
+
+                /* $command =  escapeshellcmd('sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false');
+                $result = shell_exec($command);
+                echo $result; */
+
+                /* $command =  escapeshellcmd('streamlit run app.py --server.enableXsrfProtection=false');
+                $result = shell_exec($command);
+                echo $result; */
+
+                /* Testing the procfile variables */
+
+                /*  
+                web: python AmazonSGWebScraper/AmazonSGCatalogueScraper.py
+                web: vendor/bin/heroku-php-apache2 WebApp/
+                web: sh setup.sh && streamlit run WebApp/app.py */
+
+                /* $command = system("python AmazonSGCatalogueScraper.py" . $_POST["cataloguescraper"]); */
+                /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
+                /* $result = shell_exec($command);
+                echo "<pre>";
+                print_r($result);
+                echo "</pre>"; */
+
+                $command =  escapeshellcmd("streamlit run app.py --server.enableXsrfProtection=false 2>&1");
+                $result = shell_exec($command);
+                echo "<pre>";
+                print_r($result);
+                echo "</pre>";
+              }
+
+              ?>
+
             </div>
 
 
@@ -156,80 +206,18 @@ include "PageDataConfig.php"
             <div class="card-header">
               <h3>Web Scraper</h3>
 
-              <button>See all<span class="las la-arrow-right"></span></button>
-            </div>
-
-            <div class="card-body">
-              <div class="customer">
-                <div class="info">
-                  <img src="user1.jpg" width="40px" height="40px" alt="">
-                  <div>
-                    <h4>Dominic</h4>
-                    <small>User</small>
-                  </div>
-                </div>
-                <div class="contact">
-                  <span class="las la-user-circle"></span>
-                  <span class="las la-comment"></span>
-                  <span class="las la-phone"></span>
-                </div>
-              </div>
-
-              <div class="customer">
-                <div class="info">
-                  <img src="user1.jpg" width="40px" height="40px" alt="">
-                  <div>
-                    <h4>Dominic</h4>
-                    <small>User</small>
-                  </div>
-                </div>
-                <div class="contact">
-                  <span class="las la-user-circle"></span>
-                  <span class="las la-comment"></span>
-                  <span class="las la-phone"></span>
-                </div>
-              </div>
-
-              <div class="customer">
-                <div class="info">
-                  <img src="user1.jpg" width="40px" height="40px" alt="">
-                  <div>
-                    <h4>Dominic</h4>
-                    <small>User</small>
-                  </div>
-                </div>
-                <div class="contact">
-                  <span class="las la-user-circle"></span>
-                  <span class="las la-comment"></span>
-                  <span class="las la-phone"></span>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-        </div>
-
-        <div class="customers">
-          <div class="card">
-            <div class="card-header">
-              <h3>Python Test</h3>
-
-              <button>See all<span class="las la-arrow-right"></span></button>
             </div>
 
             <div class="card-body">
 
-              <form method="GET">
+            <form method="GET">
                 <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
-                <input type="submit" value="GO" name="GO">
+                <input type="submit" value="Scrape" name="webscraper">
               </form>
 
               <?php
 
-
-
-              if (isset($_GET['GO'])) {
+              if (isset($_GET['webscraper'])) {
                 /* shell_exec("app.py");
                 echo "success"; */
 
@@ -266,11 +254,73 @@ include "PageDataConfig.php"
               }
 
               ?>
+              
+              <div class="customer">
+                <div class="info">
+                  <img src="user1.jpg" width="40px" height="40px" alt="">
+                  <div>
+                    <h4>Dominic</h4>
+                    <small>User</small>
+                  </div>
+                </div>
+                <div class="contact">
+                  <span class="las la-user-circle"></span>
+                  <span class="las la-comment"></span>
+                  <span class="las la-phone"></span>
+                </div>
+              </div>
+
+              <div class="customer">
+                <div class="info">
+                  <img src="user1.jpg" width="40px" height="40px" alt="">
+                  <div>
+                    <h4>Dominic</h4>
+                    <small>User</small>
+                  </div>
+                </div>
+                <div class="contact">
+                  <span class="las la-user-circle"></span>
+                  <span class="las la-comment"></span>
+                  <span class="las la-phone"></span>
+                </div>
+              </div>
+
+              <div class="customer">
+                <div class="info">
+                  <img src="user1.jpg" width="40px" height="40px" alt="">
+                  <div>
+                    <h4>Dominic</h4>
+                    <small>User</small>
+                  </div>
+                </div>
+                <div class="contact">
+                  <span class="las la-user-circle"></span>
+                  <span class="las la-comment"></span>
+                  <span class="las la-phone"></span>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="customers">
+          <div class="card">
+            <div class="card-header">
+              <h3>Python Test</h3>
+
+            </div>
+
+            <div class="card-body">
+
+              
 
             </div>
 
           </div>
-        </div>
+        </div> -->
+
       </div>
     </main>
   </div>
