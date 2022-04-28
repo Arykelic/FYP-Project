@@ -220,7 +220,7 @@ include "PageDataConfig.php"
 
             <div class="card-body">
 
-              <form method="post">
+              <form method="GET">
                 <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
                 <input type="submit" value="GO" name="GO">
               </form>
@@ -229,7 +229,7 @@ include "PageDataConfig.php"
 
 
 
-              if (isset($_POST['GO'])) {
+              if (isset($_GET['GO'])) {
                 /* shell_exec("app.py");
                 echo "success"; */
 
@@ -261,11 +261,9 @@ include "PageDataConfig.php"
 
                 $result = exec("python AmazonSGCatalogueScraper.py food");
                 $result_array = json_decode($result);
-                foreach($result_array as $row){
+                foreach ($result_array as $row) {
                   echo $row . "<br>";
                 }
-
-                
               }
 
               ?>
