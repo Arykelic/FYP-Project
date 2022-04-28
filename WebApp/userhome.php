@@ -221,11 +221,14 @@ include "PageDataConfig.php"
             <div class="card-body">
 
               <form method="post">
+                <input type="text" name="cataloguescraper"><br>
                 <input type="submit" value="GO" name="GO">
               </form>
 
               <?php
-
+              
+              system("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py".$_POST["cataloguescraper"]);
+              
               if (isset($_POST['GO'])) {
                 /* shell_exec("app.py");
                 echo "success"; */
