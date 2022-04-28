@@ -240,14 +240,15 @@ include "PageDataConfig.php"
                 web: vendor/bin/heroku-php-apache2 WebApp/
                 web: sh setup.sh && streamlit run WebApp/app.py */
 
-                /* $command = system("python AmazonSGCatalogueScraper.py" . $_POST["cataloguescraper"]); */
+                /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                 /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
                 /* $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
                 echo "</pre>"; */
-
-                $result = shell_exec("python AmazonSGCatalogueScraper.py 2>&1");
+                
+                $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper . 2>&1"]);
+                $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
                 echo "</pre>";
