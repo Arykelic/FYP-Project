@@ -11,6 +11,7 @@ search_term = sys.argv[1]
 print(f'Filtering out {search_term}')
 url = "https://www.amazon.sg/s?k={}".format(search_term)
 
+print(url)
 """ url = "https://www.amazon.sg/s?k=food" """
 
 # Download the webpage
