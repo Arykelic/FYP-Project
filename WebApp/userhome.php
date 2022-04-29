@@ -254,10 +254,14 @@ include "PageDataConfig.php"
                     print $input;
                     /* $command = system("python AmazonSGCatalogueScraper.py '$input' "); */
                     /* $result = shell_exec($command); */
-                    $result = shell_exec("python AmazonSGCatalogueScraper.py '$input' 2>&1");
+                    
+                    /* echo shell_exec("python AmazonSGCatalogueScraper.py '$input' 2>&1"); */
+
+
+                    /* $result = shell_exec("python AmazonSGCatalogueScraper.py '$input' 2>&1");
                     echo "<pre>";
                     print_r($result);
-                    echo "</pre>";
+                    echo "</pre>"; */
                   }
                   ?>
                 </div>
