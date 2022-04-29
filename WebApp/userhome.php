@@ -214,10 +214,9 @@ include "PageDataConfig.php"
 
               <h3>Catalogue Scraper</h3>
               <div class="customer">
-                <div>
                   <form method="POST">
                     <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
-                    <input type="submit" value="Scrape" name="Scrape Catalogue Page">
+                    <input type="submit" value="Scrape Catalogue Page" name="Scrape">
                   </form>
 
                   <?php
@@ -229,9 +228,7 @@ include "PageDataConfig.php"
                     /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
               $app_data = file_get_contents($app_link);
               echo "<br><br>" . $app_data; */
-
-
-                    
+              
                     /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                     $command =  escapeshellcmd('python WebApp/AmazonSGCatalogueScraper.py');
                     $result = shell_exec($command);
@@ -263,7 +260,7 @@ include "PageDataConfig.php"
                     echo "</pre>"; */
                   }
                   ?>
-                </div>
+
               </div>
 
               <div class="customer">
