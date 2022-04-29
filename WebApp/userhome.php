@@ -228,20 +228,7 @@ include "PageDataConfig.php"
               $app_data = file_get_contents($app_link);
               echo "<br><br>" . $app_data; */
 
-                    /* $command =  escapeshellcmd('sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false');
-                $result = shell_exec($command);
-                echo $result; */
 
-                    /* $command =  escapeshellcmd('streamlit run app.py --server.enableXsrfProtection=false');
-                $result = shell_exec($command);
-                echo $result; */
-
-                    /* Testing the procfile variables */
-
-                    /*  
-                web: python AmazonSGWebScraper/AmazonSGCatalogueScraper.py
-                web: vendor/bin/heroku-php-apache2 WebApp/
-                web: sh setup.sh && streamlit run WebApp/app.py */
 
                     /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                     /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
@@ -251,10 +238,10 @@ include "PageDataConfig.php"
                 echo "</pre>"; */
 
                     $input = $_GET["cataloguescraper"];
-                    print $input;
+                    echo $input;
                     /* $command = system("python AmazonSGCatalogueScraper.py '$input' "); */
                     /* $result = shell_exec($command); */
-                    
+
                     /* echo shell_exec("python AmazonSGCatalogueScraper.py '$input' 2>&1"); */
 
 
