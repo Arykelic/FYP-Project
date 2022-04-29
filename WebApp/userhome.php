@@ -231,7 +231,7 @@ include "PageDataConfig.php"
               
                     /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                     $input = $_POST["cataloguescraper"];
-                    $command =  escapeshellcmd("python AmazonSGCatalogueScraper.py '$input' 2>&1");
+                    $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py '$input' 2>&1");
                     $result = shell_exec($command);
                     echo "<pre>";
                     print_r($result);
@@ -260,22 +260,6 @@ include "PageDataConfig.php"
                     echo "</pre>"; */
                   }
                   ?>
-
-
-              <div class="customer">
-                <div class="info">
-                  <img src="user1.jpg" width="40px" height="40px" alt="">
-                  <div>
-                    <h4>Dominic</h4>
-                    <small>User</small>
-                  </div>
-                </div>
-                <div class="contact">
-                  <span class="las la-user-circle"></span>
-                  <span class="las la-comment"></span>
-                  <span class="las la-phone"></span>
-                </div>
-              </div>
 
 
 
