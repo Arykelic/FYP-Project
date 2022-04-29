@@ -240,9 +240,9 @@ include "PageDataConfig.php"
                 echo "</pre>"; */
 
                     $input = $_POST["cataloguescraper"];
-                    echo "<pre>";
+                    /* echo "<pre>";
                     print_r($input);
-                    echo "</pre>";
+                    echo "</pre>"; */
                     /* $command = system("python AmazonSGCatalogueScraper.py '$input' "); */
                     /* $result = shell_exec($command); */
 
@@ -251,17 +251,17 @@ include "PageDataConfig.php"
                     /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
                     /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
                     /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
-                    $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'");
+                    /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'");
                     $output = shell_exec($command);
                     echo "<pre>";
                     print_r($output);
-                    echo "</pre>";
+                    echo "</pre>"; */
 
                     /* Working version */
-                    /* $result = shell_exec("python AmazonSGCatalogueScraper.py '$input' 2>&1");
+                    $result = shell_exec("python AmazonSGCatalogueScraper.py '$input' 2>&1");
                     echo "<pre>";
                     print_r($result);
-                    echo "</pre>"; */
+                    echo "</pre>";
                   }
                   ?>
                 </div>
