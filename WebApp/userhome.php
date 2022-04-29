@@ -213,14 +213,14 @@ include "PageDataConfig.php"
               <h3>Catalogue Scraper</h3>
               <div class="customer">
                 <div>
-                  <form method="GET">
+                  <form method="POST">
                     <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
                     <input type="submit" value="Scrape" name="Scrape Catalogue Page">
                   </form>
 
                   <?php
 
-                  if (isset($_GET['Scrape'])) {
+                  if (isset($_POST['Scrape'])) {
                     /* shell_exec("app.py");
                 echo "success"; */
 
@@ -237,12 +237,14 @@ include "PageDataConfig.php"
                 print_r($result);
                 echo "</pre>"; */
 
-                    $input = $_GET["cataloguescraper"];
+                    $input = $_POST["cataloguescraper"];
                     echo $input;
                     /* $command = system("python AmazonSGCatalogueScraper.py '$input' "); */
                     /* $result = shell_exec($command); */
 
-                    /* echo shell_exec("python AmazonSGCatalogueScraper.py '$input' 2>&1"); */
+                    /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
+                    $command = system("python3 AmazonSGCatalogueScraper.py '$input'");
+                    $output = shell_exec($command);
 
 
                     /* $result = shell_exec("python AmazonSGCatalogueScraper.py '$input' 2>&1");
