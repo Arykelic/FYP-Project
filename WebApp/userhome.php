@@ -245,7 +245,7 @@ include "PageDataConfig.php"
                     /* $result = shell_exec($command); */
 
                     /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
-                    $command = system("python3 AmazonSGCatalogueScraper.py '$input'");
+                    $command = system("python AmazonSGCatalogueScraper.py '$input'");
                     $output = shell_exec($command);
 
 
