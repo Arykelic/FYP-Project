@@ -278,20 +278,6 @@ include "PageDataConfig.php"
                 </div>
               </div>
 
-              <div class="customer">
-                <div class="info">
-                  <img src="user1.jpg" width="40px" height="40px" alt="">
-                  <div>
-                    <h4>Dominic</h4>
-                    <small>User</small>
-                  </div>
-                </div>
-                <div class="contact">
-                  <span class="las la-user-circle"></span>
-                  <span class="las la-comment"></span>
-                  <span class="las la-phone"></span>
-                </div>
-              </div>
 
 
             </div>
