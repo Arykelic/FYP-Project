@@ -7,7 +7,7 @@ import os
 s = HTMLSession()
 
 print('Enter the search term to be scraped (delimit search terms with a "+")')
-search_term = input('>')
+search_term = sys.argv[1]
 print(f'Filtering out {search_term}')
 url = "https://www.amazon.sg/s?k={}".format(search_term)
 

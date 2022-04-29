@@ -142,7 +142,7 @@ include "PageDataConfig.php"
         <div class="projects">
           <div class="card">
             <div class="card-header">
-              <h3>Recommender System</h3>
+              <h2> Recommender System</h2>
 
             </div>
 
@@ -186,7 +186,7 @@ include "PageDataConfig.php"
                 print_r($result);
                 echo "</pre>"; */
 
-                $command =  escapeshellcmd("streamlit run app.py --server.enableXsrfProtection=false 2>&1");
+                $command =  escapeshellcmd("streamlit run WebApp/app.py --server.enableXsrfProtection=false 2>&1");
                 $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
@@ -204,20 +204,22 @@ include "PageDataConfig.php"
         <div class="customers">
           <div class="card">
             <div class="card-header">
-              <h3>Web Scraper</h3>
+              <h2>Web Scraper</h2>
 
             </div>
 
             <div class="card-body">
 
+            <h3>Catalogue Scraper</h3>
+            <div class="customer">
             <form method="GET">
                 <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
-                <input type="submit" value="Scrape" name="webscraper">
+                <input type="submit" value="Scrape" name="Scrape Catalogue Page">
               </form>
 
               <?php
 
-              if (isset($_GET['webscraper'])) {
+              if (isset($_GET['Scrape'])) {
                 /* shell_exec("app.py");
                 echo "success"; */
 
@@ -246,8 +248,9 @@ include "PageDataConfig.php"
                 echo "<pre>";
                 print_r($result);
                 echo "</pre>"; */
-                
-                $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper . 2>&1"]);
+
+                $input = $_GET["cataloguescraper"];
+                $command = system("python AmazonSGCatalogueScraper.py '$input' ");
                 $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
@@ -255,6 +258,7 @@ include "PageDataConfig.php"
               }
 
               ?>
+              </div>
               
               <div class="customer">
                 <div class="info">
