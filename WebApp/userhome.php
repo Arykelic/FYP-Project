@@ -250,8 +250,8 @@ include "PageDataConfig.php"
 
                     /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
                     /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-                    $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1");
-                    /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
+                    /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
+                    $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'");
                     $output = shell_exec($command);
                     echo "<pre>";
                     print_r($output);
