@@ -177,7 +177,9 @@ include "PageDataConfig.php"
                 /*  
                 web: python AmazonSGWebScraper/AmazonSGCatalogueScraper.py
                 web: vendor/bin/heroku-php-apache2 WebApp/
-                web: sh setup.sh && streamlit run WebApp/app.py */
+                web: sh setup.sh && streamlit run WebApp/app.py
+                myworker:  python dowork.py
+                */
 
                 /* $command = system("python AmazonSGCatalogueScraper.py" . $_POST["cataloguescraper"]); */
                 /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
@@ -186,7 +188,7 @@ include "PageDataConfig.php"
                 print_r($result);
                 echo "</pre>"; */
 
-                $command =  escapeshellcmd("streamlit run WebApp/app.py --server.enableXsrfProtection=false 2>&1");
+                $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false 2>&1");
                 $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
