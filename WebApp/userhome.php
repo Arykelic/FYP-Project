@@ -203,7 +203,7 @@ include "PageDataConfig.php"
           </div>
         </div>
 
-        <div class="customers">
+        <div class="projects">
           <div class="card">
             <div class="card-header">
               <h2>Web Scraper</h2>
@@ -213,15 +213,15 @@ include "PageDataConfig.php"
             <div class="card-body">
 
               <h3>Catalogue Scraper</h3>
-              <div class="customer">
-                  <form method="POST">
+
+                  <form action="userhome.php" method="POST">
                     <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
-                    <input type="submit" value="Scrape Catalogue Page" name="Scrape">
+                    <input type="submit" value="Scrape Catalogue Page" name="scrape">
                   </form>
 
                   <?php
 
-                  if (isset($_POST['Scrape'])) {
+                  if (isset($_POST['scrape'])) {
                     /* shell_exec("app.py");
                 echo "success"; */
 
@@ -261,7 +261,6 @@ include "PageDataConfig.php"
                   }
                   ?>
 
-              </div>
 
               <div class="customer">
                 <div class="info">
