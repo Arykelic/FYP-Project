@@ -210,68 +210,56 @@ include "PageDataConfig.php"
 
             <div class="card-body">
 
-            <h3>Catalogue Scraper</h3>
-            <div class="customer">
-            <form method="GET">
-                <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
-                <input type="submit" value="Scrape" name="Scrape Catalogue Page">
-              </form>
+              <h3>Catalogue Scraper</h3>
+              <div class="customer">
+                <div>
+                  <form method="GET">
+                    <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
+                    <input type="submit" value="Scrape" name="Scrape Catalogue Page">
+                  </form>
 
-              <?php
+                  <?php
 
-              if (isset($_GET['Scrape'])) {
-                /* shell_exec("app.py");
+                  if (isset($_GET['Scrape'])) {
+                    /* shell_exec("app.py");
                 echo "success"; */
 
-                /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
+                    /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
               $app_data = file_get_contents($app_link);
               echo "<br><br>" . $app_data; */
 
-                /* $command =  escapeshellcmd('sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false');
+                    /* $command =  escapeshellcmd('sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false');
                 $result = shell_exec($command);
                 echo $result; */
 
-                /* $command =  escapeshellcmd('streamlit run app.py --server.enableXsrfProtection=false');
+                    /* $command =  escapeshellcmd('streamlit run app.py --server.enableXsrfProtection=false');
                 $result = shell_exec($command);
                 echo $result; */
 
-                /* Testing the procfile variables */
+                    /* Testing the procfile variables */
 
-                /*  
+                    /*  
                 web: python AmazonSGWebScraper/AmazonSGCatalogueScraper.py
                 web: vendor/bin/heroku-php-apache2 WebApp/
                 web: sh setup.sh && streamlit run WebApp/app.py */
 
-                /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
-                /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
-                /* $result = shell_exec($command);
+                    /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
+                    /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
+                    /* $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
                 echo "</pre>"; */
 
-                $input = $_GET["cataloguescraper"];
-                $command = system("python AmazonSGCatalogueScraper.py '$input' ");
-                $result = shell_exec($command);
-                echo "<pre>";
-                print_r($result);
-                echo "</pre>";
-              }
-
-              ?>
-              </div>
-              
-              <div class="customer">
-                <div class="info">
-                  <img src="user1.jpg" width="40px" height="40px" alt="">
-                  <div>
-                    <h4>Dominic</h4>
-                    <small>User</small>
-                  </div>
-                </div>
-                <div class="contact">
-                  <span class="las la-user-circle"></span>
-                  <span class="las la-comment"></span>
-                  <span class="las la-phone"></span>
+                    $input = $_GET["cataloguescraper"];
+                    print $input;
+                    /* $command = system("python AmazonSGCatalogueScraper.py '$input' "); */
+                    /* $result = shell_exec($command); */
+                    $result = shell_exec("python AmazonSGCatalogueScraper.py '$input' 2>&1");
+                    echo "<pre>";
+                    print_r($result);
+                    echo "</pre>";
+                  }
+                  ?>
                 </div>
               </div>
 
