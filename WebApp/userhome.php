@@ -237,7 +237,6 @@ include "PageDataConfig.php"
                     print_r($result);
                     echo "</pre>";
 
-                    $input = $_POST["cataloguescraper"];
                     /* echo "<pre>";
                     print_r($input);
                     echo "</pre>"; */
