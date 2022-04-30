@@ -1,5 +1,13 @@
 {
+    "scripts": {
+        "compile": [
+          "chmod -R 777 WebApp/"
+        ]
+      }
+      ,
     "require": {
         "php": "^7.4.0"
+        
     }
+    
 }
