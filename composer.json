@@ -1,14 +1,4 @@
 {
-    "scripts": {
-        "compile": [
-          "chmod -R 777 WebApp/app.py",
-          "chmod -R 777 WebApp/AmazonSGCatalogueFiles/.",
-          "chmod -R 777 WebApp/AmazonSGPageFiles/.",
-          "chmod -R 777 WebApp/AmazonSGReviewFiles/.",
-          "chmod -R 777 WebApp/AmazonSGWebScraper/AmazonSGCatalogueScraper.py"
-        ]
-      }
-      ,
     "require": {
         "php": "^7.4.0"
         
