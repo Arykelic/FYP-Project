@@ -189,7 +189,7 @@ include "PageDataConfig.php"
                 print_r($result);
                 echo "</pre>"; */
 
-                $command =  exec("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false");
+                $command =  passthru("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false");
                 $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
@@ -224,11 +224,11 @@ include "PageDataConfig.php"
 
                   if (isset($_POST['scrape'])) {
                     /* shell_exec("app.py");
-                echo "success"; */
+                    echo "success"; */
 
                     /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
-              $app_data = file_get_contents($app_link);
-              echo "<br><br>" . $app_data; */
+                    $app_data = file_get_contents($app_link);
+                    echo "<br><br>" . $app_data; */
               
                     /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                     $input = $_POST["cataloguescraper"];
@@ -239,27 +239,14 @@ include "PageDataConfig.php"
                     echo "Script has finished running";
                     echo "</pre>";
 
-                    /* echo "<pre>";
-                    print_r($input);
-                    echo "</pre>"; */
-                    /* $command = system("python AmazonSGCatalogueScraper.py '$input' "); */
-                    /* $result = shell_exec($command); */
-
                     /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
 
+                    /* Different methods of passing through commands through shell */
                     /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
                     /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
                     /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
-                    /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'");
-                    $output = shell_exec($command);
-                    echo "<pre>";
-                    print_r($output);
-                    echo "</pre>"; */
+                    /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
 
-                    /* $result = shell_exec("python AmazonSGCatalogueScraper.py '$input' 2>&1");
-                    echo "<pre>";
-                    print_r($result);
-                    echo "</pre>"; */
                   }
                   ?>
 
