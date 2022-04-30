@@ -3,11 +3,12 @@ from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 import re
 import os
+import sys
 s = HTMLSession()
 
 #my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
 print('Enter the url link to be scraped')
-my_url = input('>')
+my_url = sys.argv[1]
 print(f'Filtering out {my_url}')
 
 # opening connection to url and grabbing page

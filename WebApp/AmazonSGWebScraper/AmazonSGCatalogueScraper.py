@@ -11,8 +11,6 @@ search_term = sys.argv[1]
 print(f'Filtering out {search_term}')
 url = "https://www.amazon.sg/s?k={}".format(search_term)
 
-print(url)
-""" url = "https://www.amazon.sg/s?k=food" """
 
 # Download the webpage
 
@@ -46,7 +44,6 @@ os.chdir('AmazonSGCatalogueFiles')
 
 
 filename = "{}+Catalogue.csv".format(search_term)
-""" filename = "food+Catalogue.csv" """
 f = open(filename, "w", encoding="utf-8")
 
 headers = "product_url, image_url, item_name, item_price, average_rating (Max Score is 5), number_of_ratings \n"
