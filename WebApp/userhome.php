@@ -188,7 +188,7 @@ include "PageDataConfig.php"
                 print_r($result);
                 echo "</pre>"; */
 
-                $command =  system("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false 2>&1");
+                $command =  system("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false");
                 $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
@@ -231,7 +231,7 @@ include "PageDataConfig.php"
               
                     /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                     $input = $_POST["cataloguescraper"];
-                    $command =  system("python AmazonSGCatalogueScraper.py '$input' 2>&1");
+                    $command =  system("python AmazonSGCatalogueScraper.py '$input'");
                     $result = shell_exec($command);
                     echo "<pre>";
                     print_r($result);
