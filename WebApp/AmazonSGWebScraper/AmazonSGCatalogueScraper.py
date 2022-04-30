@@ -40,71 +40,71 @@ def getnextpage(soup):
 # conversion of data into CSV
 
 # Change Directory
-os.chdir('AmazonSGCatalogueFiles')
-
-
+path = '/AmazonSGCatalogueFiles'
 filename = "{}+Catalogue.csv".format(search_term)
-f = open(filename, "w", encoding="utf-8")
 
-headers = "product_url, image_url, item_name, item_price, average_rating (Max Score is 5), number_of_ratings \n"
+""" f = open(filename, "w", encoding="utf-8") """
+with open(os.path.join(path, filename), 'w') as fp:
 
-f.write(headers)
+    headers = "product_url, image_url, item_name, item_price, average_rating (Max Score is 5), number_of_ratings \n"
 
-while True:
-    soup = getdata(url)
-    # pulling all data sets on current page and verifying length
-    # create containers group
-    containers = soup.findAll("div", {"class": "sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20"})
-    # use below line to check the length of the dataset
-    print(len(containers))
-    # containers
-    #filename = "{}_Catalogue.csv".format(url).replace("/",",").replace("?",",")
-    #f = open(filename, "w", encoding="utf-8")
+    fp.write(headers)
 
-    #headers = "Image_Url, Item_Name, Item_Price, Average_Rating, Number_Review\n"
+    while True:
+        soup = getdata(url)
+        # pulling all data sets on current page and verifying length
+        # create containers group
+        containers = soup.findAll("div", {"class": "sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20"})
+        # use below line to check the length of the dataset
+        print(len(containers))
+        # containers
+        #filename = "{}_Catalogue.csv".format(url).replace("/",",").replace("?",",")
+        #f = open(filename, "w", encoding="utf-8")
 
-    # f.write(headers)
+        #headers = "Image_Url, Item_Name, Item_Price, Average_Rating, Number_Review\n"
 
-    # loop inside each container
-    for container in containers:
-        Product_Url_Container = container.findAll("a", {"class": "a-link-normal s-no-outline"})
-        Product_Url = "https://www.amazon.sg" + str(Product_Url_Container[0]["href"])
+        # f.write(headers)
 
-        Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
-        Image_Url = Image_Url_Container[0].img["src"]
+        # loop inside each container
+        for container in containers:
+            Product_Url_Container = container.findAll("a", {"class": "a-link-normal s-no-outline"})
+            Product_Url = "https://www.amazon.sg" + str(Product_Url_Container[0]["href"])
 
-        Item_Name_Container = container.findAll("span", {"class": "a-size-base a-color-base a-text-normal"})
-        Item_Name = Item_Name_Container[0].text
+            Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
+            Image_Url = Image_Url_Container[0].img["src"]
 
-        try:
-            Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})
-            Item_Price = Item_Price_Container[0].text
+            Item_Name_Container = container.findAll("span", {"class": "a-size-base a-color-base a-text-normal"})
+            Item_Name = Item_Name_Container[0].text
 
-            Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
-            Average_Rating = Average_Rating_Container[0].text[0:4]
+            try:
+                Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})
+                Item_Price = Item_Price_Container[0].text
 
-            Number_Of_Ratings_Container = container.findAll("span", {"class": "a-size-base s-underline-text"})
-            Number_Of_Ratings = Number_Of_Ratings_Container[0].text
+                Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
+                Average_Rating = Average_Rating_Container[0].text[0:4]
 
-        except:
-            Item_Price = "NA"
-            Average_Rating = "NA"
-            Number_Of_Ratings = "NA"
+                Number_Of_Ratings_Container = container.findAll("span", {"class": "a-size-base s-underline-text"})
+                Number_Of_Ratings = Number_Of_Ratings_Container[0].text
 
-        print("product_url: " + Product_Url)
-        print("image_url: " + Image_Url)
-        print("item_name: " + Item_Name)
-        print("item_price: " + Item_Price)
-        print("average_rating: " + Average_Rating)
-        print("number_of_ratings: " + Number_Of_Ratings)
+            except:
+                Item_Price = "NA"
+                Average_Rating = "NA"
+                Number_Of_Ratings = "NA"
 
-        f.write(Product_Url.replace(",", "|") + "," + Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," +
-                Item_Price.replace(",", "'") + "," + Average_Rating.replace(",", "'") + "," + Number_Of_Ratings.replace(",", "'") + "\n")
+            print("product_url: " + Product_Url)
+            print("image_url: " + Image_Url)
+            print("item_name: " + Item_Name)
+            print("item_price: " + Item_Price)
+            print("average_rating: " + Average_Rating)
+            print("number_of_ratings: " + Number_Of_Ratings)
 
-    # parse the next url
-    url = getnextpage(soup)
-    if not url:
-        f.close()
-        print("End of CSV Writing")
-        break
+            fp.write(Product_Url.replace(",", "|") + "," + Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," +
+                    Item_Price.replace(",", "'") + "," + Average_Rating.replace(",", "'") + "," + Number_Of_Ratings.replace(",", "'") + "\n")
+
+        # parse the next url
+        url = getnextpage(soup)
+        if not url:
+            fp.close()
+            print("End of CSV Writing")
+            break
 sys.exit()
