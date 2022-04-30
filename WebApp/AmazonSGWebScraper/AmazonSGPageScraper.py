@@ -30,6 +30,7 @@ soup = getdata(my_url)
 # pulling all data sets on current page and verifying length
 # use below line to check the length of the dataset
 # len(containers)
+print(soup)
 
 search_term_value = soup.find("span", {"class": "a-size-large product-title-word-break"}).text
 search_term_stripped = search_term_value.strip()
@@ -51,7 +52,7 @@ Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"]
 try:
     Item_Price = soup.find("span", {"class": "a-offscreen"}).text
     Average_Rating = soup.find("span", {"class": "a-icon-alt"}).text[0:4]
-    Number_Of_Ratings = soup.find("span", {"id": "acrCustomerReviewText"}).text
+    Number_Of_Ratings = soup.find("span", {"id": "acrCustomerReviewText"}).text[0:-7]
 
 except:
     Item_Price = "NA"
