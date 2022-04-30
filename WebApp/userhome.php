@@ -189,7 +189,7 @@ include "PageDataConfig.php"
                 print_r($result);
                 echo "</pre>"; */
 
-                $command =  system("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false");
+                $command =  exec("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false");
                 $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
@@ -213,7 +213,7 @@ include "PageDataConfig.php"
 
             <div class="card-body">
 
-              <h3>Catalogue Scraper</h3>
+              <h3>Catalogue Scraper (delimit search terms with a "+")</h3>
 
                   <form action="userhome.php" method="POST">
                     <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
@@ -236,6 +236,7 @@ include "PageDataConfig.php"
                     $result = shell_exec($command);
                     echo "<pre>";
                     print_r($result);
+                    echo "Script has finished running";
                     echo "</pre>";
 
                     /* echo "<pre>";
