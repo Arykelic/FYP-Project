@@ -196,9 +196,9 @@ include "PageDataConfig.php"
                 $command =  escapeshellcmd("heroku run sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false");
                 $result = shell_exec($command);
                 echo "<div>";
-                echo "<pre>";
+                
                 print_r($result);
-                echo "</pre>";
+               
                 echo "</div>";
               }
 
@@ -239,11 +239,10 @@ include "PageDataConfig.php"
                 $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py '$input'");
                 $result = shell_exec($command);
                 echo "<div>";
-                echo "<pre>";
+                
                 print_r($result);
-                echo "</pre>";
+                
                 echo "</div>";
-                exit();
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
 
@@ -278,11 +277,10 @@ include "PageDataConfig.php"
                 $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$input'");
                 $result = shell_exec($command);
                 echo "<div>";
-                echo "<pre>";
+                
                 print_r($result);
-                echo "</pre>";
+                
                 echo "</div>";
-                exit();
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
 
@@ -317,11 +315,10 @@ include "PageDataConfig.php"
                 $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$input'");
                 $result = shell_exec($command);
                 echo "<div>";
-                echo "<pre>";
+                
                 print_r($result);
-                echo "</pre>";
+                
                 echo "</div>";
-                exit();
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
 
@@ -336,22 +333,6 @@ include "PageDataConfig.php"
 
           </div>
         </div>
-
-        <!-- <div class="customers">
-          <div class="card">
-            <div class="card-header">
-              <h3>Python Test</h3>
-
-            </div>
-
-            <div class="card-body">
-
-              
-
-            </div>
-
-          </div>
-        </div> -->
 
       </div>
     </main>
