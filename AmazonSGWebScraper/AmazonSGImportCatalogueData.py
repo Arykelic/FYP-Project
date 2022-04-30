@@ -22,4 +22,3 @@ for i,row in empdata.iterrows():
 
 connection.close()
 print("MySQL connection is closed")
-exit()

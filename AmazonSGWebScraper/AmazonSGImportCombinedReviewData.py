@@ -35,4 +35,3 @@ for i,row in df.iterrows():
 
 connection.close()
 print("MySQL connection is closed")
-exit()
