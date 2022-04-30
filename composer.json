@@ -1,7 +1,11 @@
 {
     "scripts": {
         "compile": [
-          "chmod -R 777 ./"
+          "chmod -R 777 WebApp/.",
+          "chmod -R 777 WebApp/AmazonSGCatalogueFiles/.",
+          "chmod -R 777 WebApp/AmazonSGPageFiles/.",
+          "chmod -R 777 WebApp/AmazonSGReviewFiles/.",
+          "chmod -R 777 WebApp/AmazonSGWebScraper/."
         ]
       }
       ,
