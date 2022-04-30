@@ -1,3 +1,4 @@
+from cgitb import text
 from xml.dom.minidom import Attr
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
@@ -5,7 +6,7 @@ import re
 import os
 import sys
 
-from WebApp.AmazonSGWebScraper.AmazonSGCatalogueScraper import Average_Rating, Number_Of_Ratings
+
 s = HTMLSession()
 
 #my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
@@ -30,11 +31,9 @@ soup = getdata(my_url)
 # use below line to check the length of the dataset
 # len(containers)
 
-search_term_value = soup.find(
-    "span", {"class": "a-size-large product-title-word-break"}).text
+search_term_value = soup.find("span", {"class": "a-size-large product-title-word-break"}).text
 search_term_stripped = search_term_value.strip()
-search_term = search_term_stripped.replace(
-    '"', ",").replace("|", ",").replace("-", ",")
+search_term = search_term_stripped.replace('"', ",").replace("|", ",").replace("-", ",")
 
 # Change Directory
 os.chdir('AmazonSGPageFiles')
@@ -46,12 +45,12 @@ headers = "review_url, image_url, item_name, item_price, average_rating (Max Sco
 
 f.write(headers)
 
-Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"}).href)
+Review_Url = "https://www.amazon.sg" + str(soup.find("div", {"class": "a-section a-spacing-top-extra-large"}).a["href"])
 Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"]
 
 try:
     Item_Price = soup.find("span", {"class": "a-offscreen"}).text
-    Average_Rating = soup.find("span", {"class": "a-size-medium a-color-base a-text-beside-button a-text-bold"}).text[0:4]
+    Average_Rating = soup.find("span", {"class": "a-icon-alt"}).text[0:4]
     Number_Of_Ratings = soup.find("span", {"id": "acrCustomerReviewText"}).text
 
 except:
