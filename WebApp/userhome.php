@@ -188,7 +188,7 @@ include "PageDataConfig.php"
                 print_r($result);
                 echo "</pre>"; */
 
-                $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false 2>&1");
+                $command =  system("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false 2>&1");
                 $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
