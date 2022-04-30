@@ -189,7 +189,11 @@ include "PageDataConfig.php"
                 print_r($result);
                 echo "</pre>"; */
 
-                $command =  passthru("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false");
+                /* This command has a port is being used error which means sh setup.sh should work but is contested with the current apache port
+                (find a way to close apache port and start streamlit port)
+                $command =  passthru("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
+
+                $command =  passthru("streamlit run app.py --server.enableXsrfProtection=false");
                 $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
@@ -238,6 +242,7 @@ include "PageDataConfig.php"
                     print_r($result);
                     echo "Script has finished running";
                     echo "</pre>";
+                    exit();
 
                     /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
 
