@@ -105,3 +105,4 @@ while True:
         f.close()
         print("End of CSV Writing")
         break
+exit()

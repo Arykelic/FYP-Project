@@ -77,3 +77,4 @@ for container in containers:
 
 f.close()
 print("End of CSV Writing")
+exit()
