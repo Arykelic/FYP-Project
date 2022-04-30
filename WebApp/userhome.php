@@ -195,9 +195,11 @@ include "PageDataConfig.php"
 
                 $command =  escapeshellcmd("heroku run sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false");
                 $result = shell_exec($command);
+                echo "<div>";
                 echo "<pre>";
                 print_r($result);
                 echo "</pre>";
+                echo "</div>";
               }
 
               ?>
@@ -236,10 +238,11 @@ include "PageDataConfig.php"
                 $input = $_POST["cataloguescraper"];
                 $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py '$input'");
                 $result = shell_exec($command);
+                echo "<div>";
                 echo "<pre>";
                 print_r($result);
-                echo "Script has finished running";
                 echo "</pre>";
+                echo "</div>";
                 exit();
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */

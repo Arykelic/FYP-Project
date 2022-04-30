@@ -40,7 +40,7 @@ def getnextpage(soup):
 # conversion of data into CSV
 
 # Change Directory
-os.chdir('WebApp/AmazonSGCatalogueFiles')
+os.chdir('AmazonSGCatalogueFiles')
 
 
 filename = "{}+Catalogue.csv".format(search_term)

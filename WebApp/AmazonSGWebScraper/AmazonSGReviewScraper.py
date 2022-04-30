@@ -33,7 +33,7 @@ search_term_value = soup.find("h1", {"class":"a-size-large a-text-ellipsis"}).te
 search_term = search_term_value.strip().replace('"', ",").replace("|",",").replace("/",",").replace("-",",")
 
 #Change Directory
-os.chdir('WebApp/AmazonSGReviewFiles')
+os.chdir('AmazonSGReviewFiles')
 
 filename = "{}+Reviews.csv".format(search_term)
 f = open(filename, "w", encoding="utf-8")
