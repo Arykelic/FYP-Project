@@ -107,4 +107,6 @@ while True:
         f.close()
         print("End of CSV Writing")
         break
+
+    """ Start of tryign to pump values into db """
 sys.exit()

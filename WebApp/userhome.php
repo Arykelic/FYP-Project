@@ -150,7 +150,7 @@ include "PageDataConfig.php"
             <div class="card-body">
 
               <form method="POST">
-                <input type="submit" value="Enter Recommender System" name="recommendersystem">
+              <a href="https://ratingrecommendersystem.herokuapp.com"><button class="backbutton" value="Back">Back</button></a><input type="submit" value="Enter Recommender System" name="recommendersystem">
               </form>
 
               <?php
@@ -193,13 +193,15 @@ include "PageDataConfig.php"
                 (find a way to close apache port and start streamlit port)
                 $command =  passthru("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
 
-                $command =  escapeshellcmd("heroku run sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false");
+                /* $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
+
+
+                $command =  escapeshellcmd("python apprunner.py");
                 $result = shell_exec($command);
                 echo "<div>";
-                
                 print_r($result);
-               
                 echo "</div>";
+                /* header("Location:app.py"); */
               }
 
               ?>
@@ -239,9 +241,7 @@ include "PageDataConfig.php"
                 $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py '$input'");
                 $result = shell_exec($command);
                 echo "<div>";
-                
                 print_r($result);
-                
                 echo "</div>";
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */

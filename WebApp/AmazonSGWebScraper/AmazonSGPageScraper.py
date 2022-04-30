@@ -30,7 +30,6 @@ soup = getdata(my_url)
 # pulling all data sets on current page and verifying length
 # use below line to check the length of the dataset
 # len(containers)
-print(soup)
 
 search_term_value = soup.find("span", {"class": "a-size-large product-title-word-break"}).text
 search_term_stripped = search_term_value.strip()
