@@ -193,7 +193,7 @@ include "PageDataConfig.php"
                 (find a way to close apache port and start streamlit port)
                 $command =  passthru("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
 
-                $command =  passthru("streamlit run app.py --server.enableXsrfProtection=false");
+                $command =  escapeshellcmd("streamlit run app.py --server.enableXsrfProtection=false");
                 $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
@@ -236,7 +236,7 @@ include "PageDataConfig.php"
               
                     /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                     $input = $_POST["cataloguescraper"];
-                    $command =  exec("python AmazonSGCatalogueScraper.py '$input'");
+                    $command =  passthru("python AmazonSGCatalogueScraper.py '$input'");
                     $result = shell_exec($command);
                     echo "<pre>";
                     print_r($result);
