@@ -40,7 +40,7 @@ def getnextpage(soup):
 # conversion of data into CSV
 
 # Change Directory
-os.chdir('AmazonSGCatalogueFiles')
+os.chdir('WebApp/AmazonSGCatalogueFiles')
 
 
 filename = "{}+Catalogue.csv".format(search_term)
@@ -69,33 +69,27 @@ while True:
     for container in containers:
         Product_Url_Container = container.findAll("a", {"class": "a-link-normal s-no-outline"})
         Product_Url = "https://www.amazon.sg" + str(Product_Url_Container[0]["href"])
-        print(Product_Url)
 
         Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
         Image_Url = Image_Url_Container[0].img["src"]
-        print(Image_Url)
 
         Item_Name_Container = container.findAll("span", {"class": "a-size-base a-color-base a-text-normal"})
         Item_Name = Item_Name_Container[0].text
-        print(Item_Name)
 
         try:
             Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})
-            Item_Price = Item_Price_Container[0].text[2:]
-            print(Item_Price)
+            Item_Price = Item_Price_Container[0].text
 
             Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
             Average_Rating = Average_Rating_Container[0].text[0:4]
-            print(Average_Rating)
 
             Number_Of_Ratings_Container = container.findAll("span", {"class": "a-size-base s-underline-text"})
             Number_Of_Ratings = Number_Of_Ratings_Container[0].text
-            print(Number_Of_Ratings)
 
         except:
-            Item_Price = ""
-            Average_Rating = ""
-            Number_Of_Ratings = ""
+            Item_Price = "NA"
+            Average_Rating = "NA"
+            Number_Of_Ratings = "NA"
 
         print("product_url: " + Product_Url)
         print("image_url: " + Image_Url)

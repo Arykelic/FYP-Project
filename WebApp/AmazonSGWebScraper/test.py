@@ -3,9 +3,6 @@ from bs4 import BeautifulSoup
 import sys
 import re
 import os
-from debugpy import connect
-import pymysql
-import pandas as pd
 
 s = HTMLSession()
 
@@ -14,8 +11,6 @@ search_term = sys.argv[1]
 print(f'Filtering out {search_term}')
 url = "https://www.amazon.sg/s?k={}".format(search_term)
 
-print(url)
-""" url = "https://www.amazon.sg/s?k=food" """
 
 # Download the webpage
 
@@ -42,12 +37,13 @@ def getnextpage(soup):
     except AttributeError:
         return
 
-# connect to DB
-os.chdir('AmazonSGCatalogueFiles')
+# conversion of data into CSV
+
+# Change Directory
+os.chdir('WebApp/AmazonSGCatalogueFiles')
 
 
 filename = "{}+Catalogue.csv".format(search_term)
-""" filename = "food+Catalogue.csv" """
 f = open(filename, "w", encoding="utf-8")
 
 headers = "product_url, image_url, item_name, item_price, average_rating (Max Score is 5), number_of_ratings \n"
@@ -73,28 +69,22 @@ while True:
     for container in containers:
         Product_Url_Container = container.findAll("a", {"class": "a-link-normal s-no-outline"})
         Product_Url = "https://www.amazon.sg" + str(Product_Url_Container[0]["href"])
-        print(Product_Url)
 
         Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
         Image_Url = Image_Url_Container[0].img["src"]
-        print(Image_Url)
 
         Item_Name_Container = container.findAll("span", {"class": "a-size-base a-color-base a-text-normal"})
         Item_Name = Item_Name_Container[0].text
-        print(Item_Name)
 
         try:
             Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})
             Item_Price = Item_Price_Container[0].text[2:]
-            print(Item_Price)
 
             Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
             Average_Rating = Average_Rating_Container[0].text[0:4]
-            print(Average_Rating)
 
             Number_Of_Ratings_Container = container.findAll("span", {"class": "a-size-base s-underline-text"})
             Number_Of_Ratings = Number_Of_Ratings_Container[0].text
-            print(Number_Of_Ratings)
 
         except:
             Item_Price = ""
