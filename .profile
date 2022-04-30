@@ -1,1 +1,1 @@
-chmod -R 777 WebApp
+chmod -R 777
