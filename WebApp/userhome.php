@@ -232,7 +232,7 @@ include "PageDataConfig.php"
               
                     /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                     $input = $_POST["cataloguescraper"];
-                    $command =  system("python AmazonSGCatalogueScraper.py '$input'");
+                    $command =  exec("python AmazonSGCatalogueScraper.py '$input'");
                     $result = shell_exec($command);
                     echo "<pre>";
                     print_r($result);
