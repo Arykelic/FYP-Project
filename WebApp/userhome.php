@@ -277,10 +277,11 @@ include "PageDataConfig.php"
                 $input = $_POST["pagescraper"];
                 $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$input'");
                 $result = shell_exec($command);
+                echo "<div>";
                 echo "<pre>";
                 print_r($result);
-                echo "Script has finished running";
                 echo "</pre>";
+                echo "</div>";
                 exit();
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
@@ -315,10 +316,11 @@ include "PageDataConfig.php"
                 $input = $_POST["reviewscraper"];
                 $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$input'");
                 $result = shell_exec($command);
+                echo "<div>";
                 echo "<pre>";
                 print_r($result);
-                echo "Script has finished running";
                 echo "</pre>";
+                echo "</div>";
                 exit();
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
