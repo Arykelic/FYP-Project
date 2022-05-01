@@ -42,16 +42,6 @@ def getnextpage(soup):
 # conversion of data into CSV
 
 # Change Directory
-os.chdir('AmazonSGCatalogueFiles')
-
-
-filename = "{}+Catalogue.csv".format(search_term)
-f = open(filename, "w", encoding="utf-8")
-
-headers = "product_url, image_url, item_name, item_price, average_rating (Max Score is 5), number_of_ratings \n"
-
-f.write(headers)
-
 while True:
     soup = getdata(url)
     # pulling all data sets on current page and verifying length
@@ -79,8 +69,9 @@ while True:
         Item_Name = Item_Name_Container[0].text
 
         try:
-            Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})
+            Item_Price_Container = container.findAll("span", {"class": "a-price"})
             Item_Price = Item_Price_Container[0].text[2:]
+            print(Item_Price)
 
             Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
             Average_Rating = Average_Rating_Container[0].text[0:4]
@@ -101,8 +92,6 @@ while True:
         print("average_rating: " + Average_Rating)
         print("number_of_ratings: " + Number_Of_Ratings)
 
-        f.write(Product_Url.replace(",", "|") + "," + Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," +
-        Item_Price.replace(",", "'") + "," + Average_Rating.replace(",", "'") + "," + Number_Of_Ratings.replace(",", "'") + "\n")
 
         connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
         cursor = connection.cursor()
@@ -115,9 +104,7 @@ while True:
     # parse the next url
     url = getnextpage(soup)
     if not url:
-        f.close()
         connection.close()
         print("MySQL connection is closed")
-        print("End of CSV Writing")
         break
 exit()
