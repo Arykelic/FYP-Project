@@ -153,7 +153,7 @@ include "PageDataConfig.php"
               <!-- WORST CASE SCENARIO -->
               <input type="submit" value="Enter Recommender System" name="recommendersystem">
               </form>
-              <a href="https://ratingrecommendersystem.herokuapp.com"><button class="backbutton" value="Forward">Forward</button></a>
+              <button class="backbutton" value="Forward"><a href="https://ratingrecommendersystem.herokuapp.com">Forward</a></button>
 
               <?php
 
@@ -198,7 +198,7 @@ include "PageDataConfig.php"
                 /* $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
 
 
-                $command =  escapeshellcmd("python apprunner.py");
+                $command =  exec("python apprunner.py");
                 $result = shell_exec($command);
                 echo "<div>";
                 print_r($result);

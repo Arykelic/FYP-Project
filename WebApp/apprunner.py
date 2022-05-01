@@ -434,12 +434,6 @@ def main():
         predictScore() """
 
     if __name__ == '__main__':
-        introduction()
-        overallPlots()
-        itemSelect()
-        custSelect()
-        predictScore()
-        
         if streamlit._is_running_with_streamlit:
             main()
         else:
