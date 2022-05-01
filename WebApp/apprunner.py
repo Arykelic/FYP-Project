@@ -426,14 +426,20 @@ def main():
 
 
 
+    """ if __name__ == '__main__':
+        introduction()
+        overallPlots()
+        itemSelect()
+        custSelect()
+        predictScore() """
+
     if __name__ == '__main__':
         introduction()
         overallPlots()
         itemSelect()
         custSelect()
         predictScore()
-
-    if __name__ == '__main__':
+        
         if streamlit._is_running_with_streamlit:
             main()
         else:
