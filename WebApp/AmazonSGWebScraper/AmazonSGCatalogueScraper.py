@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import sys
 import re
 import os
+from debugpy import connect
+import pymysql
 
 s = HTMLSession()
 
@@ -78,7 +80,7 @@ while True:
 
         try:
             Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})
-            Item_Price = Item_Price_Container[0].text
+            Item_Price = Item_Price_Container[0].text[2:]
 
             Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
             Average_Rating = Average_Rating_Container[0].text[0:4]
@@ -91,6 +93,7 @@ while True:
             Average_Rating = "NA"
             Number_Of_Ratings = "NA"
 
+
         print("product_url: " + Product_Url)
         print("image_url: " + Image_Url)
         print("item_name: " + Item_Name)
@@ -99,14 +102,22 @@ while True:
         print("number_of_ratings: " + Number_Of_Ratings)
 
         f.write(Product_Url.replace(",", "|") + "," + Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," +
-                Item_Price.replace(",", "'") + "," + Average_Rating.replace(",", "'") + "," + Number_Of_Ratings.replace(",", "'") + "\n")
+        Item_Price.replace(",", "'") + "," + Average_Rating.replace(",", "'") + "," + Number_Of_Ratings.replace(",", "'") + "\n")
+
+        connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
+        cursor = connection.cursor()
+        sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings) VALUES (%s,%s,%s,%s,%s,%s)"
+        data = (Product_Url, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings)
+        cursor.execute(sql, data)
+        print("Record inserted")
+        connection.commit()
 
     # parse the next url
     url = getnextpage(soup)
     if not url:
         f.close()
+        connection.close()
+        print("MySQL connection is closed")
         print("End of CSV Writing")
         break
-
-    """ Start of tryign to pump values into db """
-sys.exit()
+exit()

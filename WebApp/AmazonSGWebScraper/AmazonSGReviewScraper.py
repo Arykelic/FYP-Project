@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 import re
 import os
 import sys
+from debugpy import connect
+import pymysql
+
 s = HTMLSession()
 
 #my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
@@ -96,11 +99,20 @@ while True:
                 f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Username.replace(",", ".") 
                 + "," + Rating_Score.replace(",", ".") + "," + Review_Location_Formatted.replace(",", "|") + "," + Review_Date_Formatted.replace(",", "'") + "\n")
         
+                connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
+                cursor = connection.cursor()
+                sql = "INSERT INTO combinedreview (image_url, item_name, customername, rating_score, review_location, review_date) VALUES (%s,%s,%s,%s,%s,%s)"
+                data = (Image_Url, Item_Name, Username, Rating_Score, Review_Location_Formatted, Review_Date_Formatted)
+                cursor.execute(sql, data)
+                print("Record inserted")
+                connection.commit()
+
+        # parse the next url
         url = getnextpage(soup)
         if not url:
             f.close()
+            connection.close()
+            print("MySQL connection is closed")
             print("End of CSV Writing")
             break
-
-        """ Start of tryign to pump values into db """
 exit()
