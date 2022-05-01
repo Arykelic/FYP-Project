@@ -150,7 +150,9 @@ include "PageDataConfig.php"
             <div class="card-body">
 
               <form method="POST">
-              <a href="https://ratingrecommendersystem.herokuapp.com"><button class="backbutton" value="Back">Back</button></a><input type="submit" value="Enter Recommender System" name="recommendersystem">
+              <!-- WORST CASE SCENARIO -->
+              <button class="backbutton" value="Enter Recommender System"><a href="https://ratingrecommendersystem.herokuapp.com">Redirect to external site</a></button>
+              <input type="submit" value="Enter Recommender System" name="recommendersystem">
               </form>
 
               <?php
