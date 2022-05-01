@@ -70,7 +70,7 @@ f.write(Review_Url.replace(",", "|") + "," + Image_Url.replace(",", "|") + "," +
 
 connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
 cursor = connection.cursor()
-sql = "INSERT INTO pagedate (review_url, image_url, item_name, item_price, average_rating, number_of_ratings) VALUES (%s,%s,%s,%s,%s,%s)"
+sql = "INSERT INTO pagedata (review_url, image_url, item_name, item_price, average_rating, number_of_ratings) VALUES (%s,%s,%s,%s,%s,%s)"
 data = (Review_Url, Image_Url, search_term, Item_Price, Average_Rating, Number_Of_Ratings)
 cursor.execute(sql, data)
 print("Record inserted")
