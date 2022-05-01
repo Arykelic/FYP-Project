@@ -151,9 +151,9 @@ include "PageDataConfig.php"
 
               <form method="POST">
               <!-- WORST CASE SCENARIO -->
-              <button class="backbutton" value="Enter Recommender System"><a href="https://ratingrecommendersystem.herokuapp.com">Redirect to external site</a></button>
               <input type="submit" value="Enter Recommender System" name="recommendersystem">
               </form>
+              <a href="https://ratingrecommendersystem.herokuapp.com"><button class="backbutton" value="Forward">Forward</button></a>
 
               <?php
 
