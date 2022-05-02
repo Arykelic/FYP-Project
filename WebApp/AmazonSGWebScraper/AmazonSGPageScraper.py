@@ -50,7 +50,7 @@ Review_Url = "https://www.amazon.sg" + str(soup.find("div", {"class": "a-section
 Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"]
 
 try:
-    Item_Price_Container = soup.find("span", {"class": "a-section a-spacing-micro"})
+    Item_Price_Container = soup.find("div", {"class": "a-section a-spacing-micro"})
     Item_Price = Item_Price_Container.find("span", {"class": "a-offscreen"}).text[2:]
     Average_Rating = soup.find("span", {"class": "a-icon-alt"}).text[0:4]
     Number_Of_Ratings = soup.find("span", {"id": "acrCustomerReviewText"}).text[0:-7]
