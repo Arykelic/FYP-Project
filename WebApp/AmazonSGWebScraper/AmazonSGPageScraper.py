@@ -10,7 +10,7 @@ import pymysql
 s = HTMLSession()
 
 #my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
-print('Enter the url link to be scraped')
+""" print('Enter the url link to be scraped') """
 my_url = sys.argv[1]
 print(f'Filtering out {my_url}')
 
@@ -73,14 +73,14 @@ except:
     allSimilarItemsString = "NA"
     Item_Brand = "NA"
 
-print("review_url: " + Review_Url)
+""" print("review_url: " + Review_Url)
 print("image_url: " + Image_Url)
 print("item_name: " + search_term)
 print("item_price: " + Item_Price)
 print("average_rating: " + Average_Rating)
 print("number_of_ratings: " + Number_Of_Ratings)
 print("similar_items: " + allSimilarItemsString)
-print("item_brand: " + Item_Brand)
+print("item_brand: " + Item_Brand) """
 
 
 """ f.write(Review_Url.replace(",", "|") + "," + Image_Url.replace(",", "|") + "," + search_term.replace(",", "|") + "," +
@@ -99,6 +99,7 @@ connection.commit()
 print("End of CSV Writing") """
 
 connection.close()
-print("MySQL connection is closed")
+""" print("MySQL connection is closed") """
+print("Script has ran successfully")
 exit()
 

@@ -8,7 +8,7 @@ import pymysql
 
 s = HTMLSession()
 
-print('Enter the search term to be scraped (delimit search terms with a "+")')
+""" print('Enter the search term to be scraped (delimit search terms with a "+")') """
 search_term = sys.argv[1]
 print(f'Filtering out {search_term}')
 url = "https://www.amazon.sg/s?k={}".format(search_term)
@@ -48,7 +48,7 @@ while True:
     # create containers group
     containers = soup.findAll("div", {"class": "sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20"})
     # use below line to check the length of the dataset
-    print(len(containers))
+    """ print(len(containers)) """
     # containers
     #filename = "{}_Catalogue.csv".format(url).replace("/",",").replace("?",",")
     #f = open(filename, "w", encoding="utf-8")
@@ -103,6 +103,7 @@ while True:
     url = getnextpage(soup)
     if not url:
         connection.close()
-        print("MySQL connection is closed")
+        """ print("MySQL connection is closed") """
         break
+print("Script has ran successfully")
 exit()

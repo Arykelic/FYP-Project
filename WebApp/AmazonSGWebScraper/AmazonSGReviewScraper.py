@@ -9,7 +9,7 @@ import pymysql
 s = HTMLSession()
 
 #my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
-print('Enter the url link to be scraped')
+""" print('Enter the url link to be scraped') """
 url = sys.argv[1]
 print(f'Filtering out {url}')
 
@@ -85,13 +85,13 @@ while True:
                 Review_Date = re.search("on(.*)",Review_Date_Container)
                 Review_Date_Formatted = Review_Date.group()[3:]
 
-                print("Image Url: " + Image_Url)
+                """ print("Image Url: " + Image_Url)
                 print("Item_Name: " + Item_Name)
                 print("Username: " + Username)
                 print("Rating_Score: " + Rating_Score)
                 #print("Review_Description: " + Review_Description)
                 print("Review_Location: " + Review_Location_Formatted)
-                print("Review_Date: " + Review_Date_Formatted)
+                print("Review_Date: " + Review_Date_Formatted) """
 
                 #f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Username.replace(",", ".") 
                 #+ "," + Rating_Score.replace(",", ".") + "," + Review_Description.replace(",", "'").replace("\U0001f60a",":)") + "," + Review_Date.replace(",", "'") + "\n")
@@ -112,7 +112,8 @@ while True:
         if not url:
             """ f.close() """
             connection.close()
-            """ print("MySQL connection is closed") """
-            print("End of CSV Writing")
+            """ print("MySQL connection is closed")
+            print("End of CSV Writing") """
             break
+print("Script has ran successfully")
 exit()
