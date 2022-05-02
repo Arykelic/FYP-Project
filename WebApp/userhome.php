@@ -279,9 +279,7 @@ include "PageDataConfig.php"
                 $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$input'");
                 $result = shell_exec($command);
                 echo "<div>";
-                
                 print_r($result);
-                
                 echo "</div>";
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
@@ -317,13 +315,10 @@ include "PageDataConfig.php"
                 $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$input'");
                 $result = shell_exec($command);
                 echo "<div>";
-                
                 print_r($result);
-                
                 echo "</div>";
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
-
                 /* Different methods of passing through commands through shell */
                 /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
                 /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */

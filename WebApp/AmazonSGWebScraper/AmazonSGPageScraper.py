@@ -7,6 +7,7 @@ from debugpy import connect
 import pymysql
 
 
+
 s = HTMLSession()
 
 #my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
@@ -49,6 +50,7 @@ Review_Url = "https://www.amazon.sg" + str(soup.find("div", {"class": "a-section
 Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"]
 
 try:
+    Item_Price_Container = soup.find("span", {"class": "a-price aok-align-center"})
     Item_Price = soup.find("span", {"class": "a-offscreen"}).text[2:]
     Average_Rating = soup.find("span", {"class": "a-icon-alt"}).text[0:4]
     Number_Of_Ratings = soup.find("span", {"id": "acrCustomerReviewText"}).text[0:-7]
