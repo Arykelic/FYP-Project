@@ -52,16 +52,26 @@ try:
     Item_Price = soup.find("span", {"class": "a-offscreen"}).text[2:]
     Average_Rating = soup.find("span", {"class": "a-icon-alt"}).text[0:4]
     Number_Of_Ratings = soup.find("span", {"id": "acrCustomerReviewText"}).text[0:-7]
-    Similar_Items = soup.findAll("span", {"class": "_p13n-desktop-sims-fbt_fbt-desktop_title-truncate__1pPAM"}.span.text)
-    for items in Similar_Items:
-        print(items.strip())
+    #similar items
+    allSimilarItemsArray = []
+    Similar_Items = soup.findAll("span", {"class": "_p13n-desktop-sims-fbt_fbt-desktop_title-truncate__1pPAM"})
+    for items in Similar_Items[1:]:
+        name = items.find(class_="_p13n-desktop-sims-fbt_fbt-desktop_title-truncate__1pPAM")
+        text = ''.join(items.text.strip())
+        allSimilarItemsArray.append(text)
     
-    
+    s = ' ||AND|| '
+    allSimilarItemsString =s.join(allSimilarItemsArray)
+
+    Item_Brand_Container = soup.find("tr", {"class": "a-spacing-small po-brand"})
+    Item_Brand = Item_Brand_Container.find("td", {"class":"a-span9"}).text
+
 except:
     Item_Price = "NA"
     Average_Rating = "NA"
     Number_Of_Ratings = "NA"
-    Similar_Items = "NA"
+    allSimilarItemsString = "NA"
+    Item_Brand = "NA"
 
 print("review_url: " + Review_Url)
 print("image_url: " + Image_Url)
@@ -69,16 +79,18 @@ print("item_name: " + search_term)
 print("item_price: " + Item_Price)
 print("average_rating: " + Average_Rating)
 print("number_of_ratings: " + Number_Of_Ratings)
-print("similar_items: " , Similar_Items)
+print("similar_items: " + allSimilarItemsString)
+print("item_brand: " + Item_Brand)
 
 
 """ f.write(Review_Url.replace(",", "|") + "," + Image_Url.replace(",", "|") + "," + search_term.replace(",", "|") + "," +
  Item_Price.replace(",", "'") + "," + Average_Rating.replace(",", ".") + "," + Number_Of_Ratings.replace(",", ".")  + "\n") """
 
+#Sel part
 connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
 cursor = connection.cursor()
-sql = "INSERT INTO pagedata (review_url, image_url, item_name, item_price, average_rating, number_of_ratings) VALUES (%s,%s,%s,%s,%s,%s)"
-data = (Review_Url, Image_Url, search_term, Item_Price, Average_Rating, Number_Of_Ratings)
+sql = "INSERT INTO pagedata (review_url, image_url, item_name, item_price, average_rating, number_of_ratings, similar_items, item_brand) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+data = (Review_Url, Image_Url, search_term, Item_Price, Average_Rating, Number_Of_Ratings, allSimilarItemsString, Item_Brand)
 cursor.execute(sql, data)
 print("Record inserted")
 connection.commit()
