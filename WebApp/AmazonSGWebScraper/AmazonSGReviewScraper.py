@@ -36,14 +36,14 @@ search_term_value = soup.find("h1", {"class":"a-size-large a-text-ellipsis"}).te
 search_term = search_term_value.strip().replace('"', ",").replace("|",",").replace("/",",").replace("-",",")
 
 #Change Directory
-os.chdir('AmazonSGReviewFiles')
+""" os.chdir('AmazonSGReviewFiles')
 
 filename = "{}+Reviews.csv".format(search_term)
 f = open(filename, "w", encoding="utf-8")
 #headers = "Image_Url, Item_Name, Username, Rating_Score (Max Score is 5), Review_Description, Review_Date \n"
 headers = "image_url, item_name, customername, rating_score (Max Score is 5), review_location, review_date \n"
 
-f.write(headers)
+f.write(headers) """
     
 while True:
     
@@ -96,8 +96,8 @@ while True:
                 #f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Username.replace(",", ".") 
                 #+ "," + Rating_Score.replace(",", ".") + "," + Review_Description.replace(",", "'").replace("\U0001f60a",":)") + "," + Review_Date.replace(",", "'") + "\n")
 
-                f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Username.replace(",", ".") 
-                + "," + Rating_Score.replace(",", ".") + "," + Review_Location_Formatted.replace(",", "|") + "," + Review_Date_Formatted.replace(",", "'") + "\n")
+                """ f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Username.replace(",", ".") 
+                + "," + Rating_Score.replace(",", ".") + "," + Review_Location_Formatted.replace(",", "|") + "," + Review_Date_Formatted.replace(",", "'") + "\n") """
         
                 connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
                 cursor = connection.cursor()
@@ -110,9 +110,9 @@ while True:
         # parse the next url
         url = getnextpage(soup)
         if not url:
-            f.close()
+            """ f.close() """
             connection.close()
-            print("MySQL connection is closed")
+            """ print("MySQL connection is closed") """
             print("End of CSV Writing")
             break
 exit()

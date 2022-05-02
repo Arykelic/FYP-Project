@@ -69,9 +69,8 @@ while True:
         Item_Name = Item_Name_Container[0].text
 
         try:
-            Item_Price_Container = container.findAll("span", {"class": "a-price"})
+            Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})
             Item_Price = Item_Price_Container[0].text[2:]
-            print(Item_Price)
 
             Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
             Average_Rating = Average_Rating_Container[0].text[0:4]
@@ -85,13 +84,12 @@ while True:
             Number_Of_Ratings = "NA"
 
 
-        print("product_url: " + Product_Url)
+        """ print("product_url: " + Product_Url)
         print("image_url: " + Image_Url)
         print("item_name: " + Item_Name)
         print("item_price: " + Item_Price)
         print("average_rating: " + Average_Rating)
-        print("number_of_ratings: " + Number_Of_Ratings)
-
+        print("number_of_ratings: " + Number_Of_Ratings) """
 
         connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
         cursor = connection.cursor()
