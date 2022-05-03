@@ -51,9 +51,9 @@ Review_Url = "https://www.amazon.sg" + str(soup.find("div", {"class": "a-section
 Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"]
 
 try:
-    Item_Price_Container = soup.find("span", {"class":"a-price a-text-price"})
-    print(Item_Price_Container)
-    Item_Price = Item_Price_Container.find("span", {"class": "a-offscreen"}).text[2:]
+    """ Item_Price_Container = soup.find("span", {"class":"a-price a-text-price"})
+    print(Item_Price_Container) """
+    Item_Price = soup.find("span", {"class": "a-offscreen"}).text[2:]
     Average_Rating = soup.find("span", {"class": "a-icon-alt"}).text[0:4]
     Number_Of_Ratings = soup.find("span", {"id": "acrCustomerReviewText"}).text[0:-7]
     #similar items
@@ -76,14 +76,14 @@ except:
     allSimilarItemsString = "NA"
     Item_Brand = "NA"
 
-print("review_url: " + Review_Url)
+""" print("review_url: " + Review_Url)
 print("image_url: " + Image_Url)
 print("item_name: " + search_term)
 print("item_price: " + Item_Price)
 print("average_rating: " + Average_Rating)
 print("number_of_ratings: " + Number_Of_Ratings)
 print("similar_items: " + allSimilarItemsString)
-print("item_brand: " + Item_Brand)
+print("item_brand: " + Item_Brand) """
 
 
 """ f.write(Review_Url.replace(",", "|") + "," + Image_Url.replace(",", "|") + "," + search_term.replace(",", "|") + "," +
