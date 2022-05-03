@@ -33,7 +33,7 @@ soup = getdata(my_url)
 # use below line to check the length of the dataset
 # len(containers)
 
-search_term_value = soup.find("span", {"id": "productTitle"}).text
+search_term_value = soup.find("span", {"class": "a-size-large product-title-word-break"}).text
 search_term_stripped = search_term_value.strip()
 
 
