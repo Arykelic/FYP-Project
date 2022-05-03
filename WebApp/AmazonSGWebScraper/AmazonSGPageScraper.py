@@ -33,9 +33,9 @@ soup = getdata(my_url)
 # use below line to check the length of the dataset
 # len(containers)
 
-search_term_value = soup.find("span", {"class": "a-size-large product-title-word-break"}).text
+search_term_value = soup.find("span", {"id": "productTitle"}).text
 search_term_stripped = search_term_value.strip()
-search_term = search_term_stripped.replace('"', ",").replace("|", ",").replace("-", ",")
+
 
 # Change Directory
 """ os.chdir('AmazonSGPageFiles')
@@ -78,7 +78,7 @@ except:
 
 """ print("review_url: " + Review_Url)
 print("image_url: " + Image_Url)
-print("item_name: " + search_term)
+print("item_name: " + search_term_value)
 print("item_price: " + Item_Price)
 print("average_rating: " + Average_Rating)
 print("number_of_ratings: " + Number_Of_Ratings)
@@ -93,7 +93,7 @@ print("item_brand: " + Item_Brand) """
 connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
 cursor = connection.cursor()
 sql = "INSERT INTO pagedata (review_url, image_url, item_name, item_price, average_rating, number_of_ratings, similar_items, item_brand) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-data = (Review_Url, Image_Url, search_term, Item_Price, Average_Rating, Number_Of_Ratings, allSimilarItemsString, Item_Brand)
+data = (Review_Url, Image_Url, search_term_value, Item_Price, Average_Rating, Number_Of_Ratings, allSimilarItemsString, Item_Brand)
 cursor.execute(sql, data)
 print("Record inserted")
 connection.commit()
