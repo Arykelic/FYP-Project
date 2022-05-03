@@ -61,7 +61,6 @@ try:
         name = items.find(class_="_p13n-desktop-sims-fbt_fbt-desktop_title-truncate__1pPAM")
         text = ''.join(items.text.strip())
         allSimilarItemsArray.append(text)
-    
     s = ' ||AND|| '
     allSimilarItemsString =s.join(allSimilarItemsArray)
 
