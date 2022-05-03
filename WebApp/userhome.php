@@ -276,7 +276,7 @@ include "PageDataConfig.php"
 
                 /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                 $input = $_POST["pagescraper"];
-                $command =  system("python AmazonSGWebScraper/AmazonSGPageScraper.py '$input'");
+                $command =  exec("python AmazonSGWebScraper/AmazonSGPageScraper.py '$input'");
                 $result = shell_exec($command);
                 echo "<div>";
                 print_r($result);
