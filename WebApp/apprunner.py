@@ -436,6 +436,11 @@ def main():
     if __name__ == '__main__':
         if streamlit._is_running_with_streamlit:
             main()
+            introduction()
+            overallPlots()
+            itemSelect()
+            custSelect()
+            predictScore()
         else:
             sys.argv = ["streamlit", "run", sys.argv[0]]
             sys.exit(stcli.main())

@@ -198,12 +198,12 @@ include "PageDataConfig.php"
                 /* $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
 
 
-                $command =  system("python apprunner.py");
+                $command =  escapeshellcmd("python apprunner.py");
                 $result = shell_exec($command);
-                echo "<div>";
+                /* echo "<div>";
                 print_r($result);
-                echo "</div>";
-                /* header("Location:app.py"); */
+                echo "</div>"; */
+                header("Location:appruner.py");
               }
 
               ?>
@@ -312,7 +312,7 @@ include "PageDataConfig.php"
 
                 /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                 $input = $_POST["reviewscraper"];
-                $command =  exec("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$input'");
+                $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$input'");
                 $result = shell_exec($command);
                 echo "<div>";
                 print_r($result);
