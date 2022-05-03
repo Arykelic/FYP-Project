@@ -47,7 +47,7 @@ headers = "review_url, image_url, item_name, item_price, average_rating (Max Sco
 
 f.write(headers) """
 
-Review_Url = "https://www.amazon.sg" + str(soup.find("div", {"class": "a-section a-spacing-top-extra-large"}).a["href"])
+Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"})["href"])
 Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"]
 
 try:
