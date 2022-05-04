@@ -42,9 +42,8 @@ def getnextpage(soup):
 def beforeQuestionMark(inputStr):
     return inputStr.split("?")[0]
 
-# conversion of data into CSV
+i = 1
 
-# Change Directory
 while True:
     soup = getdata(url)
     # pulling all data sets on current page and verifying length
@@ -102,7 +101,10 @@ while True:
         data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings)
         cursor.execute(sql, data)
         print("Record inserted")
+        print(i)
         connection.commit()
+        """ limiter """
+        i += 1
 
     # parse the next url
     url = getnextpage(soup)
@@ -110,5 +112,9 @@ while True:
         connection.close()
         """ print("MySQL connection is closed") """
         break
+    if i == 100:
+        print("100 Records have been added successfully, closing the script")
+        break
+    
 print("Script has ran successfully")
 exit()
