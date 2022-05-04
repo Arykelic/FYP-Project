@@ -112,27 +112,31 @@ $mysqli->close();
   <input type="checkbox" id="nav-toggle"></input>
 
   <div class="sidebar">
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a href="userhome.php" class="active"><i class="fa-solid fa-house"></i>
-                        <span>Home</span></a>
-                </li>
-                <li>
-                    <a href="userupdatepersonalinfo.php"><span class="las la-user-circle"></span>
-                        <span>Edit Personal Information</span></a>
-                </li>
-                <li>
-                    <a href="userresetpassword.php"><span class="las la-key"></span>
-                        <span>Reset Password</span></a>
-                </li>
-                <li>
-                    <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
-                        <span>Logout</span></a>
-                </li>
-            </ul>
-        </div>
+    <div class="sidebar-menu">
+      <ul>
+        <li>
+          <a href="userhome.php" class="active"><i class="fa-solid fa-house"></i>
+            <span>Home</span></a>
+        </li>
+        <li>
+          <a href="userviewrecords.php" class="active"><i class="fa-solid fa-house"></i>
+            <span>View Records</span></a>
+        </li>
+        <li>
+          <a href="userupdatepersonalinfo.php"><span class="las la-user-circle"></span>
+            <span>Edit Personal Information</span></a>
+        </li>
+        <li>
+          <a href="userresetpassword.php"><span class="las la-key"></span>
+            <span>Reset Password</span></a>
+        </li>
+        <li>
+          <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span></a>
+        </li>
+      </ul>
     </div>
+  </div>
 
   <div class="main-content">
     <header>

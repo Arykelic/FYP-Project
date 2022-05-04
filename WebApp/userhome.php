@@ -40,6 +40,10 @@ include "PageDataConfig.php"
             <span>Home</span></a>
         </li>
         <li>
+          <a href="userviewrecords.php" class="active"><i class="fa-solid fa-house"></i>
+            <span>View Records</span></a>
+        </li>
+        <li>
           <a href="userupdatepersonalinfo.php"><span class="las la-user-circle"></span>
             <span>Edit Personal Information</span></a>
         </li>
@@ -100,7 +104,7 @@ include "PageDataConfig.php"
             $data = mysqli_fetch_assoc($result);
             echo "<h1>" . $data['total'] . "</h1>";
             ?>
-            <span>Total Item Pages</span>
+            <span>Total Product Item Data</span>
           </div>
           <div>
             <span class="las la-file"></span>
@@ -151,9 +155,9 @@ include "PageDataConfig.php"
 
               <form method="POST">
               <!-- WORST CASE SCENARIO -->
-              <input type="submit" value="Enter Recommender System" name="recommendersystem">
+              <input type="submit" value="Enter Recommender System" name="recommendersystem"> <a href="https://ratingrecommendersystem.herokuapp.com"></a> </input>
               </form>
-              <button class="backbutton" value="Forward"><a href="https://ratingrecommendersystem.herokuapp.com">Forward</a></button>
+              <!-- <button class="backbutton" value="Forward"><a href="https://ratingrecommendersystem.herokuapp.com">Forward</a></button> -->
 
               <?php
 
@@ -258,7 +262,7 @@ include "PageDataConfig.php"
             </div>
 
             <div class="card-body">
-              <h3>Page Scraper (enter a item page url)</h3>
+              <h3>Product Page Scraper (enter a item page url)</h3>
               <form action="userhome.php" method="POST">
                 <input type="text" placeholder="Enter a item page url here" name="pagescraper"><br>
                 <input type="submit" value="Scrape Item Page" name="pagescrapebutton">
