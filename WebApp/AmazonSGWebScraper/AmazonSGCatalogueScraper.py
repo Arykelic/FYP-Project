@@ -42,9 +42,10 @@ def getnextpage(soup):
 def beforeQuestionMark(inputStr):
     return inputStr.split("?")[0]
 
-i = 1
+i = 0
 
-while True:
+""" while True: """
+while i <= 10:
     soup = getdata(url)
     # pulling all data sets on current page and verifying length
     # create containers group
@@ -100,10 +101,12 @@ while True:
         sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings) VALUES (%s,%s,%s,%s,%s,%s)"
         data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings)
         cursor.execute(sql, data)
-        print("Record inserted")
-        print(i)
+        print("Record inserted", i)
         connection.commit()
         i += 1
+        if i == 10:
+            break
+        
 
     # parse the next url
     url = getnextpage(soup)
@@ -111,9 +114,12 @@ while True:
         connection.close()
         """ print("MySQL connection is closed") """
         break
-    if i == 100:
-        print("100 Records have been added successfully, closing the script")
-        break
+    
+    if i == 10:
+            print("10 Records have been added successfully, closing the script")
+            break
+    
+    i += 1
 
 print("Script has ran successfully")
 exit()
