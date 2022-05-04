@@ -42,10 +42,10 @@ def getnextpage(soup):
 def beforeQuestionMark(inputStr):
     return inputStr.split("?")[0]
 
-i = 0
+i = 1
 
 """ while True: """
-while i <= 10:
+while i <= 50:
     soup = getdata(url)
     # pulling all data sets on current page and verifying length
     # create containers group
@@ -65,7 +65,7 @@ while i <= 10:
         Product_Url_Container = container.findAll("a", {"class": "a-link-normal s-no-outline"})
         Product_Url = "https://www.amazon.sg" + str(Product_Url_Container[0]["href"])
         Product_Url_Cleaned = beforeQuestionMark(Product_Url)
-        print(Product_Url_Cleaned)
+        """ print(Product_Url_Cleaned) """
 
         Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
         Image_Url = Image_Url_Container[0].img["src"]
@@ -89,12 +89,12 @@ while i <= 10:
             Number_Of_Ratings = "NA"
 
 
-        print("product_url: " + Product_Url_Cleaned)
+        """ print("product_url: " + Product_Url_Cleaned)
         print("image_url: " + Image_Url)
         print("item_name: " + Item_Name)
         print("item_price: " + Item_Price)
         print("average_rating: " + Average_Rating)
-        print("number_of_ratings: " + Number_Of_Ratings)
+        print("number_of_ratings: " + Number_Of_Ratings) """
 
         connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
         cursor = connection.cursor()
@@ -104,7 +104,7 @@ while i <= 10:
         print("Record inserted", i)
         connection.commit()
         i += 1
-        if i == 10:
+        if i == 50:
             break
         
 
@@ -115,8 +115,8 @@ while i <= 10:
         """ print("MySQL connection is closed") """
         break
     
-    if i == 10:
-            print("10 Records have been added successfully, closing the script")
+    if i == 50:
+            print("50 Records have been added successfully, closing the script")
             break
     
     i += 1
