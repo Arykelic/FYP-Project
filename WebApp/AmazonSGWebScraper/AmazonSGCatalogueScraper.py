@@ -39,6 +39,9 @@ def getnextpage(soup):
     except AttributeError:
         return
 
+def beforeQuestionMark(inputStr):
+    return inputStr.split("?")[0]
+
 # conversion of data into CSV
 
 # Change Directory
@@ -61,6 +64,8 @@ while True:
     for container in containers:
         Product_Url_Container = container.findAll("a", {"class": "a-link-normal s-no-outline"})
         Product_Url = "https://www.amazon.sg" + str(Product_Url_Container[0]["href"])
+        Product_Url_Cleaned = beforeQuestionMark(Product_Url)
+        print(Product_Url_Cleaned)
 
         Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
         Image_Url = Image_Url_Container[0].img["src"]
@@ -84,7 +89,7 @@ while True:
             Number_Of_Ratings = "NA"
 
 
-        print("product_url: " + Product_Url)
+        print("product_url: " + Product_Url_Cleaned)
         print("image_url: " + Image_Url)
         print("item_name: " + Item_Name)
         print("item_price: " + Item_Price)
@@ -94,7 +99,7 @@ while True:
         connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
         cursor = connection.cursor()
         sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings) VALUES (%s,%s,%s,%s,%s,%s)"
-        data = (Product_Url, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings)
+        data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings)
         cursor.execute(sql, data)
         print("Record inserted")
         connection.commit()
