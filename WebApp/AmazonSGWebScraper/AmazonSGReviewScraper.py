@@ -48,7 +48,7 @@ f.write(headers) """
 i = 1
 
 """ while True: """
-while i <= 11:
+while i <= 21:
         soup = getdata(url)
         #pulling all data sets on current page and verifying length
         containers = soup.findAll("div", {"class": "a-section review aok-relative"})
@@ -109,7 +109,7 @@ while i <= 11:
                 print("Record inserted #", i)
                 connection.commit()
                 i += 1
-                if i == 11:
+                if i == 21:
                     break
 
         # parse the next url
@@ -121,8 +121,8 @@ while i <= 11:
             print("End of CSV Writing") """
             break
 
-        if i == 11:
-            print("10 Reviews have been added successfully to the database, closing the script")
+        if i == 21:
+            print("20 Reviews have been added successfully to the database, closing the script")
             break
 
         i += 1

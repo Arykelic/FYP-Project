@@ -45,7 +45,7 @@ def beforeQuestionMark(inputStr):
 i = 1
 
 """ while True: """
-while i <= 11:
+while i <= 21:
     soup = getdata(url)
     # pulling all data sets on current page and verifying length
     # create containers group
@@ -104,7 +104,7 @@ while i <= 11:
         print("Record inserted #", i)
         connection.commit()
         i += 1
-        if i == 11:
+        if i == 21:
             break
         
 
@@ -115,8 +115,8 @@ while i <= 11:
         """ print("MySQL connection is closed") """
         break
     
-    if i == 11:
-        print("10 Records have been added successfully to the database, closing the script")
+    if i == 21:
+        print("20 Records have been added successfully to the database, closing the script")
         break
     
     i += 1
