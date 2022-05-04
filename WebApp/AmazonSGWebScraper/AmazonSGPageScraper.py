@@ -25,6 +25,9 @@ def getdata(my_url):
     soup = BeautifulSoup(r.text, "html.parser")
     return soup
 
+def beforeQuestionMark(inputStr):
+    return inputStr.split("?")[0]
+
 
 # use below line to check the html set
 # page_soup.h1
@@ -48,6 +51,7 @@ headers = "review_url, image_url, item_name, item_price, average_rating (Max Sco
 f.write(headers) """
 
 Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"})["href"])
+Review_Url_Cleaned = beforeQuestionMark(Review_Url)
 Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"]
 
 try:
@@ -76,7 +80,7 @@ except:
     allSimilarItemsString = "NA"
     Item_Brand = "NA"
 
-print("review_url: " + Review_Url)
+print("review_url: " + Review_Url_Cleaned)
 print("image_url: " + Image_Url)
 print("item_name: " + search_term_value)
 print("item_price: " + Item_Price)
@@ -93,7 +97,7 @@ print("item_brand: " + Item_Brand)
 connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
 cursor = connection.cursor()
 sql = "INSERT INTO pagedata (review_url, image_url, item_name, item_price, average_rating, number_of_ratings, similar_items, item_brand) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-data = (Review_Url, Image_Url, search_term_value, Item_Price, Average_Rating, Number_Of_Ratings, allSimilarItemsString, Item_Brand)
+data = (Review_Url_Cleaned, Image_Url, search_term_value, Item_Price, Average_Rating, Number_Of_Ratings, allSimilarItemsString, Item_Brand)
 cursor.execute(sql, data)
 print("Record inserted")
 connection.commit()
