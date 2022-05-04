@@ -106,7 +106,7 @@ while i <= 50:
                 sql = "INSERT INTO combinedreview (image_url, item_name, customername, rating_score, review_location, review_date) VALUES (%s,%s,%s,%s,%s,%s)"
                 data = (Image_Url, Item_Name, Username, Rating_Score, Review_Location_Formatted, Review_Date_Formatted)
                 cursor.execute(sql, data)
-                print("Record #", i , "inserted into the database")
+                print("Record inserted #", i)
                 connection.commit()
                 i += 1
                 if i == 50:
