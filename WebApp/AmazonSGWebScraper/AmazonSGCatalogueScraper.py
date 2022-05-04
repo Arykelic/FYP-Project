@@ -115,6 +115,6 @@ while True:
     if i == 100:
         print("100 Records have been added successfully, closing the script")
         break
-    
+
 print("Script has ran successfully")
 exit()
