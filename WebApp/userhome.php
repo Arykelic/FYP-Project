@@ -239,11 +239,11 @@ include "PageDataConfig.php"
                     echo "<br><br>" . $app_data; */
 
                 /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
-                $input = $_POST["cataloguescraper"];
-                $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py '$input'");
+                $catalogueinput = $_POST["cataloguescraper"];
+                $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py '$catalogueinput'");
                 $result = shell_exec($command);
                 echo "<div>";
-                print_r($result);
+                echo "<pre>$result</pre>";
                 echo "</div>";
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
@@ -275,11 +275,11 @@ include "PageDataConfig.php"
                     echo "<br><br>" . $app_data; */
 
                 /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
-                $input = $_POST["pagescraper"];
-                $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$input'");
+                $pageinput = $_POST["pagescraper"];
+                $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$pageinput'");
                 $result = shell_exec($command);
                 echo "<div>";
-                print_r($result);
+                echo "<pre>$result</pre>";
                 echo "</div>";
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
@@ -311,11 +311,11 @@ include "PageDataConfig.php"
                     echo "<br><br>" . $app_data; */
 
                 /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
-                $input = $_POST["reviewscraper"];
-                $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$input'");
+                $reviewinput = $_POST["reviewscraper"];
+                $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$reviewinput'");
                 $result = shell_exec($command);
                 echo "<div>";
-                print_r($result);
+                echo "<pre>$result</pre>";
                 echo "</div>";
 
                 /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */

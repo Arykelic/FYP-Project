@@ -103,7 +103,6 @@ while True:
         print("Record inserted")
         print(i)
         connection.commit()
-        """ limiter """
         i += 1
 
     # parse the next url
