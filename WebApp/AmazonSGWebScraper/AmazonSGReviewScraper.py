@@ -87,13 +87,13 @@ while i <= 21:
                 Review_Date = re.search("on(.*)",Review_Date_Container)
                 Review_Date_Formatted = Review_Date.group()[3:]
 
-                print("Image Url: " + Image_Url)
+                """ print("Image Url: " + Image_Url)
                 print("Item_Name: " + Item_Name)
                 print("Username: " + Username)
                 print("Rating_Score: " + Rating_Score)
                 #print("Review_Description: " + Review_Description)
                 print("Review_Location: " + Review_Location_Formatted)
-                print("Review_Date: " + Review_Date_Formatted)
+                print("Review_Date: " + Review_Date_Formatted) """
 
                 #f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Username.replace(",", ".") 
                 #+ "," + Rating_Score.replace(",", ".") + "," + Review_Description.replace(",", "'").replace("\U0001f60a",":)") + "," + Review_Date.replace(",", "'") + "\n")
