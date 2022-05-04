@@ -44,9 +44,11 @@ f = open(filename, "w", encoding="utf-8")
 headers = "image_url, item_name, customername, rating_score (Max Score is 5), review_location, review_date \n"
 
 f.write(headers) """
-    
-while True:
-    
+
+i = 0
+
+""" while True: """
+while i <= 50:
         soup = getdata(url)
         #pulling all data sets on current page and verifying length
         containers = soup.findAll("div", {"class": "a-section review aok-relative"})
@@ -104,8 +106,11 @@ while True:
                 sql = "INSERT INTO combinedreview (image_url, item_name, customername, rating_score, review_location, review_date) VALUES (%s,%s,%s,%s,%s,%s)"
                 data = (Image_Url, Item_Name, Username, Rating_Score, Review_Location_Formatted, Review_Date_Formatted)
                 cursor.execute(sql, data)
-                print("Record inserted")
+                print("Record #", i , "inserted into the database")
                 connection.commit()
+                i += 1
+                if i == 50:
+                    break
 
         # parse the next url
         url = getnextpage(soup)
@@ -115,5 +120,11 @@ while True:
             """ print("MySQL connection is closed")
             print("End of CSV Writing") """
             break
+
+        if i == 50:
+            print("50 Reviews have been added successfully to the database, closing the script")
+            break
+
+        i += 1
 print("Script has ran successfully")
 exit()

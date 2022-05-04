@@ -101,7 +101,7 @@ while i <= 50:
         sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings) VALUES (%s,%s,%s,%s,%s,%s)"
         data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings)
         cursor.execute(sql, data)
-        print("Record inserted", i)
+        print("Record #", i , "inserted into the database")
         connection.commit()
         i += 1
         if i == 50:
@@ -116,7 +116,7 @@ while i <= 50:
         break
     
     if i == 50:
-            print("50 Records have been added successfully, closing the script")
+            print("50 Records have been added successfully to the database, closing the script")
             break
     
     i += 1

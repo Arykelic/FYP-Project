@@ -294,7 +294,7 @@ include "PageDataConfig.php"
             </div>
 
             <div class="card-body">
-              <h3>Review Scraper (enter a review page url)</h3>
+              <h3>Review Scraper (enter a review page url)(First 50 Reviews)</h3>
               <form action="userhome.php" method="POST">
                 <input type="text" placeholder="Enter a review page url here" name="reviewscraper"><br>
                 <input type="submit" value="Scrape Review Page" name="reviewscrapebutton">
