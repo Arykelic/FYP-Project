@@ -45,10 +45,10 @@ headers = "image_url, item_name, customername, rating_score (Max Score is 5), re
 
 f.write(headers) """
 
-i = 0
+i = 1
 
 """ while True: """
-while i <= 50:
+while i <= 11:
         soup = getdata(url)
         #pulling all data sets on current page and verifying length
         containers = soup.findAll("div", {"class": "a-section review aok-relative"})
@@ -109,7 +109,7 @@ while i <= 50:
                 print("Record inserted #", i)
                 connection.commit()
                 i += 1
-                if i == 50:
+                if i == 11:
                     break
 
         # parse the next url
@@ -121,8 +121,8 @@ while i <= 50:
             print("End of CSV Writing") """
             break
 
-        if i == 50:
-            print("50 Reviews have been added successfully to the database, closing the script")
+        if i == 11:
+            print("10 Reviews have been added successfully to the database, closing the script")
             break
 
         i += 1
