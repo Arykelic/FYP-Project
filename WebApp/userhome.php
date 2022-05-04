@@ -200,10 +200,10 @@ include "PageDataConfig.php"
 
                 $command =  escapeshellcmd("python apprunner.py");
                 $result = shell_exec($command);
-                /* echo "<div>";
+                echo "<div>";
                 print_r($result);
-                echo "</div>"; */
-                header("Location:appruner.py");
+                echo "</div>";
+                /* header("Location:appruner.py"); */
               }
 
               ?>
