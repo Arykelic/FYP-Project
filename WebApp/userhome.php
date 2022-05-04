@@ -163,7 +163,7 @@ include "PageDataConfig.php"
 
 
 
-              if (isset($_POST['recommendersystem'])) {
+              /* if (isset($_POST['recommendersystem'])) { */
                 /* shell_exec("app.py");
                 echo "success"; */
 
@@ -202,13 +202,13 @@ include "PageDataConfig.php"
                 /* $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
 
 
-                $command =  escapeshellcmd("python apprunner.py");
+                /* $command =  escapeshellcmd("python apprunner.py");
                 $result = shell_exec($command);
                 echo "<div>";
                 print_r($result);
-                echo "</div>";
+                echo "</div>"; */
                 /* header("Location:appruner.py"); */
-              }
+             /*  } */
 
               ?>
 

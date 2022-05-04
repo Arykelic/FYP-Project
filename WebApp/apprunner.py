@@ -1,6 +1,9 @@
 import sys
 from streamlit import cli as stcli
 import streamlit
+import subprocess
+
+subprocess.run([f"{sys.executable}", "app.py"])
     
 def main():
     import streamlit as st
