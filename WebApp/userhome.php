@@ -153,17 +153,19 @@ include "PageDataConfig.php"
 
             <div class="card-body">
 
-              <form method="POST">
+              <!-- <form method="POST"> -->
               <!-- WORST CASE SCENARIO -->
-              <input type="submit" value="Enter Recommender System" name="recommendersystem"></input>
-              </form>
-              <button class="backbutton" value="Forward"><a href="https://ratingrecommendersystem.herokuapp.com">Forward</a></button>
-
+              <!-- <input type="submit" value="Enter Recommender System" name="recommendersystem"></input>
+              </form> -->
+              <button class="backbutton" value="Forward"><a href="https://ratingrecommendersystem.herokuapp.com"></a></button>
+              <a href="https://ratingrecommendersystem.herokuapp.com"><input type="submit" value="Enter Recommender System" name="recommendersystem"></input></a>
+              <input type="submit" value="Enter Recommender System" name="recommendersystem"><a href="https://ratingrecommendersystem.herokuapp.com"></a></input>
+              <button class="submit" value="Enter Recommender System"><a href="https://ratingrecommendersystem.herokuapp.com"></a></button>
               <?php
 
 
 
-              if (isset($_POST['recommendersystem'])) {
+              /* if (isset($_POST['recommendersystem'])) { */
                 /* shell_exec("app.py");
                 echo "success"; */
 
@@ -202,13 +204,13 @@ include "PageDataConfig.php"
                 /* $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
 
 
-                $command =  escapeshellcmd("python apprunner.py");
+                /* $command =  escapeshellcmd("python apprunner.py");
                 $result = shell_exec($command);
                 echo "<div>";
                 print_r($result);
                 echo "</div>";
                 header("Location:appruner.py");
-              }
+              } */
 
               ?>
 
