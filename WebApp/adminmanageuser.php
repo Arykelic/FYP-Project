@@ -32,27 +32,23 @@ include "UserConfig.php";
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="adminhome.php" class="active"><i class="fa-solid fa-house"></i>
+          <a href="userhome.php" class="active"><span class="fa-solid fa-house"></span>
             <span>Home</span></a>
         </li>
         <li>
-          <a href="adminmanageuser.php"><span class="las la-users"></span>
-            <span>Manage Users</span></a>
+          <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database"></span>
+            <span>View Records</span></a>
         </li>
         <li>
-          <a href="adminadduser.php"><i class="fa-solid fa-user-plus"></i>
-            <span>Add Users</span></a>
-        </li>
-        <li>
-          <a href="adminupdatepersonalinfo.php"><span class="las la-user-circle"></span>
+          <a href="userupdatepersonalinfo.php"><span class="las la-user-circle"></span>
             <span>Edit Personal Information</span></a>
         </li>
         <li>
-          <a href="adminresetpassword.php"><span class="las la-key"></span>
+          <a href="userresetpassword.php"><span class="las la-key"></span>
             <span>Reset Password</span></a>
         </li>
         <li>
-          <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
+          <a href="Logout.php"><span class="fa-solid fa-right-from-bracket"></span>
             <span>Logout</span></a>
         </li>
       </ul>

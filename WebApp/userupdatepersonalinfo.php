@@ -115,11 +115,11 @@ $mysqli->close();
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="userhome.php" class="active"><i class="fa-solid fa-house"></i>
+          <a href="userhome.php" class="active"><span class="fa-solid fa-house"></span>
             <span>Home</span></a>
         </li>
         <li>
-          <a href="userviewrecords.php" class="active"><i class="fa-solid fa-database"></i>
+          <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database"></span>
             <span>View Records</span></a>
         </li>
         <li>
@@ -131,7 +131,7 @@ $mysqli->close();
             <span>Reset Password</span></a>
         </li>
         <li>
-          <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
+          <a href="Logout.php"><span class="fa-solid fa-right-from-bracket"></span>
             <span>Logout</span></a>
         </li>
       </ul>
