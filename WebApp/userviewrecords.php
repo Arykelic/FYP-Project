@@ -82,7 +82,7 @@ include "PageDataConfig.php"
 
       <div class="card">
         <div class="card-header">
-          <h2>Catalogue Data (Most Recent 20 Records)</h2>
+          <h2>Catalogue Data (Most Recent 10 Records)</h2>
           <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
@@ -104,7 +104,7 @@ include "PageDataConfig.php"
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM cataloguedata LIMIT 20";
+                $sql = "SELECT * FROM cataloguedata ORDER BY catalogueid DESC LIMIT 10";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {
@@ -135,9 +135,11 @@ include "PageDataConfig.php"
         </div>
       </div>
 
+      <br>
+
       <div class="card">
         <div class="card-header">
-          <h2>Product Page Data (Most Recent 20 Records)</h2>
+          <h2>Product Page Data (Most Recent 10 Records)</h2>
           <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
@@ -160,7 +162,7 @@ include "PageDataConfig.php"
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM pagedata LIMIT 20";
+                $sql = "SELECT * FROM pagedata ORDER BY pageid DESC LIMIT 10";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {
@@ -191,9 +193,12 @@ include "PageDataConfig.php"
           </div>
         </div>
       </div>
+      
+      <br>
+
       <div class="card">
         <div class="card-header">
-          <h2>Review Data (Most Recent 20 Records)</h2>
+          <h2>Review Data (Most Recent 10 Records)</h2>
           <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
@@ -215,7 +220,7 @@ include "PageDataConfig.php"
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM combinedreview LIMIT 20";
+                $sql = "SELECT * FROM combinedreview ORDER BY combinedreviewid DESC LIMIT 10";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {
