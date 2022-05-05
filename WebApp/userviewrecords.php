@@ -94,7 +94,7 @@ include "PageDataConfig.php"
 
       <div class="card">
         <div class="card-header">
-          <h2>Catalogue Data (Most Recent 10 Records)</h2>
+          <h2>Product Catalogue Data (Most Recent 10 Records)</h2>
           <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
