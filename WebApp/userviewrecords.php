@@ -88,7 +88,7 @@ include "PageDataConfig.php"
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
-          <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
+          <div class="table table-bordered table-striped" style="text-align:left;" width="100%">
             <table width="100%">
               <thead>
                 <tr>
@@ -145,7 +145,7 @@ include "PageDataConfig.php"
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
-          <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
+          <div class="table table-bordered table-striped" style="text-align:left;" >
             <table width="100%">
               <thead>
                 <tr>
@@ -193,7 +193,7 @@ include "PageDataConfig.php"
           </div>
         </div>
       </div>
-      
+
       <br>
 
       <div class="card">
@@ -205,7 +205,7 @@ include "PageDataConfig.php"
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-            <table width="100%">
+            <table>
               <thead>
                 <tr>
                   <td>Combined Id</td>
