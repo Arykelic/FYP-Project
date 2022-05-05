@@ -83,13 +83,13 @@ include "PageDataConfig.php"
       <div class="card">
         <div class="card-header">
           <h2>Catalogue Data (Most Recent 10 Records)</h2>
-          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
+          <!-- <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a> -->
         </div>
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-            <table width="100%">
+            <table>
               <thead>
                 <tr>
                   <td>Catalogue Id</td>
@@ -97,7 +97,7 @@ include "PageDataConfig.php"
                   <td>Item Name</td>
                   <td>Item Price</td>
                   <td>Average Rating</td>
-                  <td width="15%">No. Of Ratings</td>
+                  <td>No. Of Ratings</td>
                 </tr>
               </thead>
               <tbody>
@@ -140,7 +140,7 @@ include "PageDataConfig.php"
       <div class="card">
         <div class="card-header">
           <h2>Product Page Data (Most Recent 10 Records)</h2>
-          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
+          <!-- <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a> -->
         </div>
 
         <div class="card-body" width="100%">
@@ -199,7 +199,7 @@ include "PageDataConfig.php"
       <div class="card">
         <div class="card-header">
           <h2>Review Data (Most Recent 10 Records)</h2>
-          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
+          <!-- <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a> -->
         </div>
 
         <div class="card-body" width="100%">
