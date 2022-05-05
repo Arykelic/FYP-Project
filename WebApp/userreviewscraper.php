@@ -155,7 +155,7 @@ include "PageDataConfig.php"
 
             </div>
 
-
+            <br>
 
             <div class="card">
                 <div class="card-header">
@@ -200,6 +200,7 @@ include "PageDataConfig.php"
 
             </div>
 
+            <br>
 
             <div class="card">
                 <div class="card-header">
