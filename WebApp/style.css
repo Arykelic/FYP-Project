@@ -255,6 +255,7 @@ main {
 
 table {
   border-collapse: collapse;
+  width: 100%;
 }
 
 thead tr {
@@ -282,7 +283,7 @@ td .status {
 
 tr td:last-child {
   display: flex;
-  align-items: center;
+  align-items: left;
 }
 
 .status.purple {
