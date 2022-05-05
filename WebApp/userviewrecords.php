@@ -88,13 +88,13 @@ include "PageDataConfig.php"
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
-          <div class="table-responsive" style="text-align:left;" width="100%" cellspacing="0">
+          <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table>
               <thead>
                 <tr>
                   <td>Catalogue Id</td>
-                  <td>Product Url</td>
-                  <td>Item Name</td>
+                  <td width="20%">Product Url</td>
+                  <td width="20%">Item Name</td>
                   <td>Item Price</td>
                   <td>Average Rating</td>
                   <td>No. Of Ratings</td>
@@ -145,7 +145,7 @@ include "PageDataConfig.php"
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
-          <div class="table-responsive" style="text-align:left;" width="100%" cellspacing="0">
+          <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table width="100%">
               <thead>
                 <tr>
