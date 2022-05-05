@@ -40,7 +40,7 @@ include "PageDataConfig.php"
             <span>Home</span></a>
         </li>
         <li>
-          <a href="userviewrecords.php" class="active"><i class="las la-database"></i>
+          <a href="userviewrecords.php" class="active"><i class="fa-solid fa-database"></i>
             <span>View Records</span></a>
         </li>
         <li>
@@ -97,14 +97,14 @@ include "PageDataConfig.php"
                   <td>Item Name</td>
                   <td>Item Price</td>
                   <td>Average Rating</td>
-                  <td>Number Of Ratings</td>
+                  <td>No. Of Ratings</td>
                 </tr>
               </thead>
               <tbody>
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM cataloguedata ORDER BY catalogueid DESC LIMIT 10";
+                $sql = "SELECT * FROM cataloguedata ORDER BY catalogueid DESC LIMIT 10 ORDER BY catalogueid ASC";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {
@@ -153,7 +153,7 @@ include "PageDataConfig.php"
                   <td>Review Url</td>
                   <td>Item Name</td>
                   <td>Average Rating</td>
-                  <td>Number Of Ratings</td>
+                  <td>No. Of Ratings</td>
                   <td>Similar Items</td>
                   <td>Item Brand</td>
                 </tr>

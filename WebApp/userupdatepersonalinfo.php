@@ -119,7 +119,7 @@ $mysqli->close();
             <span>Home</span></a>
         </li>
         <li>
-          <a href="userviewrecords.php" class="active"><i class="las la-database"></i>
+          <a href="userviewrecords.php" class="active"><i class="fa-solid fa-database"></i>
             <span>View Records</span></a>
         </li>
         <li>
