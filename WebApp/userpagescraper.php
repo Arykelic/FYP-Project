@@ -12,7 +12,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 include "GlobalClass.php";
 include "CatalogueConfig.php";
 include "CombinedReviewConfig.php";
-include "PageDataConfig.php"
+include "PageDataConfig.php";
 
 ?>
 
@@ -22,7 +22,7 @@ include "PageDataConfig.php"
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>E-Commerce Insight (User)(Home)</title>
+    <title>E-Commerce Insight (User)(Product Page Scraper)</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
@@ -77,7 +77,7 @@ include "PageDataConfig.php"
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
-                E-Commerce Insight (User)(Home)
+                E-Commerce Insight (User)(Product Page Scraper)
             </h2>
 
             <div class="user-wrapper">

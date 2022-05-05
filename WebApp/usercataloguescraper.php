@@ -12,7 +12,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 include "GlobalClass.php";
 include "CatalogueConfig.php";
 include "CombinedReviewConfig.php";
-include "PageDataConfig.php"
+include "PageDataConfig.php";
 
 ?>
 
@@ -22,7 +22,7 @@ include "PageDataConfig.php"
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>E-Commerce Insight (User)(Home)</title>
+    <title>E-Commerce Insight (User)(Product Catalogue Scraper)</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
@@ -77,7 +77,7 @@ include "PageDataConfig.php"
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
-                E-Commerce Insight (User)(Home)
+                E-Commerce Insight (User)(Product Catalogue Scraper)
             </h2>
 
             <div class="user-wrapper">
@@ -205,7 +205,7 @@ include "PageDataConfig.php"
 
             <div class="card">
                 <div class="card-header">
-                    <h2>Product Catalogue Data (Most Recent 20 Records)</h2>
+                    <h2>Product Review Data (Most Recent 20 Records)</h2>
                     <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
                 </div>
 
@@ -215,29 +215,29 @@ include "PageDataConfig.php"
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Catalogue Id</td>
-                                    <td>Product Url</td>
+                                    <td>Combined Id</td>
                                     <td>Item Name</td>
-                                    <td>Item Price</td>
-                                    <td>Average Rating</td>
-                                    <td>No. Of Ratings</td>
+                                    <td>Customer Name</td>
+                                    <td>Rating Score</td>
+                                    <td>Review Location</td>
+                                    <td>Review Date</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 // Attempt select query execution
                                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                                $sql = "SELECT * FROM cataloguedata ORDER BY catalogueid DESC LIMIT 20";
+                                $sql = "SELECT * FROM combinedreview ORDER BY combinedreviewid DESC LIMIT 20";
                                 if ($result = $mysqli->query($sql)) {
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_array()) {
                                             echo "<tr>";
-                                            echo "<td>" . $row['catalogueid'] . "</td>";
-                                            echo "<td>" . $row['product_url'] . "</td>";
+                                            echo "<td>" . $row['combinedreviewid'] . "</td>";
                                             echo "<td>" . $row['item_name'] . "</td>";
-                                            echo "<td>" . $row['item_price'] . "</td>";
-                                            echo "<td>" . $row['average_rating'] . "</td>";
-                                            echo "<td>" . $row['number_of_ratings'] . "</td>";
+                                            echo "<td>" . $row['customername'] . "</td>";
+                                            echo "<td>" . $row['rating_score'] . "</td>";
+                                            echo "<td>" . $row['review_location'] . "</td>";
+                                            echo "<td>" . $row['review_date'] . "</td>";
                                             echo "</tr>";
                                         }
                                         // Free result set

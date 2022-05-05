@@ -12,7 +12,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 include "GlobalClass.php";
 include "CatalogueConfig.php";
 include "CombinedReviewConfig.php";
-include "PageDataConfig.php"
+include "PageDataConfig.php";
+
 
 ?>
 
@@ -27,6 +28,22 @@ include "PageDataConfig.php"
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
   <script src="https://app.simplefileupload.com/buckets/4f2260bbeaf342ae7d7831862b11313c.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <script type="text/javascript">
+    Event.observe($("showProductCatalogueTableBtn"), "click", toggleTable);
+
+    function toggleTable() {
+      if ($("showProductCatalogueTableBtn").value == "Show Product Catalogue Table") {
+        $("ProductCatalogueTable").show();
+        $("showProductCatalogueTableBtn").value = "Hide Product Catalogue Table";
+      } else {
+        $("ProductCatalogueTable").hide();
+        ($("showProductCatalogueTableBtn").value = "Show Product Catalogue Table");
+    }
+    }
+  </script>
+
 </head>
 
 <body>
@@ -96,12 +113,13 @@ include "PageDataConfig.php"
         <div class="card-header">
           <h2>Product Catalogue Data (Most Recent 10 Records)</h2>
           <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
+          <input type="button" id="showProductCatalogueTableBtn" value="Show Product Catalogue Table">
         </div>
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-            <table>
+            <table id="ProductCatalogueTable">
               <thead>
                 <tr>
                   <td>Catalogue Id</td>
@@ -145,6 +163,7 @@ include "PageDataConfig.php"
             </table>
           </div>
         </div>
+
       </div>
 
       <br>
@@ -210,7 +229,7 @@ include "PageDataConfig.php"
 
       <div class="card">
         <div class="card-header">
-          <h2>Review Data (Most Recent 10 Records)</h2>
+          <h2>Product Review Data (Most Recent 10 Records)</h2>
           <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
         </div>
 

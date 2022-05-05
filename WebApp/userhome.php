@@ -12,7 +12,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 include "GlobalClass.php";
 include "CatalogueConfig.php";
 include "CombinedReviewConfig.php";
-include "PageDataConfig.php"
+include "PageDataConfig.php";
 
 ?>
 
