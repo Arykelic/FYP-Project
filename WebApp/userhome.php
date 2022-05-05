@@ -40,7 +40,7 @@ include "PageDataConfig.php"
             <span>Home</span></a>
         </li>
         <li>
-          <a href="userviewrecords.php" class="active"><i class="fa-solid fa-house"></i>
+          <a href="userviewrecords.php" class="active"><i class="las la-database"></i>
             <span>View Records</span></a>
         </li>
         <li>
@@ -157,10 +157,8 @@ include "PageDataConfig.php"
               <!-- WORST CASE SCENARIO -->
               <!-- <input type="submit" value="Enter Recommender System" name="recommendersystem"></input>
               </form> -->
-              <button class="backbutton" value="Forward"><a href="https://ratingrecommendersystem.herokuapp.com"></a></button>
               <a href="https://ratingrecommendersystem.herokuapp.com"><input type="submit" value="Enter Recommender System" name="recommendersystem"></input></a>
-              <input type="submit" value="Enter Recommender System" name="recommendersystem"><a href="https://ratingrecommendersystem.herokuapp.com"></a></input>
-              <button class="submit" value="Enter Recommender System"><a href="https://ratingrecommendersystem.herokuapp.com"></a></button>
+              
               <?php
 
 

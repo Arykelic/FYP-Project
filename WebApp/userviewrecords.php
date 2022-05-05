@@ -40,7 +40,7 @@ include "PageDataConfig.php"
             <span>Home</span></a>
         </li>
         <li>
-          <a href="userviewrecords.php" class="active"><i class="fa-solid fa-house"></i>
+          <a href="userviewrecords.php" class="active"><i class="las la-database"></i>
             <span>View Records</span></a>
         </li>
         <li>
@@ -82,7 +82,62 @@ include "PageDataConfig.php"
 
       <div class="card">
         <div class="card-header">
-          <h2>Catalogue Data</h2>
+          <h2>Catalogue Data (Most Recent 20 Records)</h2>
+          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
+        </div>
+
+        <div class="card-body" width="100%">
+          <!-- <div class="table-responsive"> -->
+          <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
+            <table width="100%">
+              <thead>
+                <tr>
+                  <td>Catalogue Id</td>
+                  <td>Product Url</td>
+                  <td>Item Name</td>
+                  <td>Item Price</td>
+                  <td>Average Rating</td>
+                  <td>Number Of Ratings</td>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                // Attempt select query execution
+                $mysqli = new mysqli($servername, $username, $password, $dbname);
+                $sql = "SELECT * FROM cataloguedata LIMIT 20";
+                if ($result = $mysqli->query($sql)) {
+                  if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_array()) {
+                      echo "<tr>";
+                      echo "<td>" . $row['catalogueid'] . "</td>";
+                      echo "<td>" . $row['product_url'] . "</td>";
+                      echo "<td>" . $row['item_name'] . "</td>";
+                      echo "<td>" . $row['item_price'] . "</td>";
+                      echo "<td>" . $row['average_rating'] . "</td>";
+                      echo "<td>" . $row['number_of_ratings'] . "</td>";
+                      echo "</tr>";
+                    }
+                    // Free result set
+                    $result->free();
+                  } else {
+                    echo "<label class='error'>No records were found.</label>";
+                  }
+                } else {
+                  echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+                }
+
+                // Close connection
+                $mysqli->close();
+                ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Product Page Data (Most Recent 20 Records)</h2>
           <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
@@ -94,6 +149,7 @@ include "PageDataConfig.php"
                 <tr>
                   <td>Page Id</td>
                   <td>Review Url</td>
+                  <td>Item Name</td>
                   <td>Average Rating</td>
                   <td>Number Of Ratings</td>
                   <td>Similar Items</td>
@@ -104,26 +160,18 @@ include "PageDataConfig.php"
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM user";
+                $sql = "SELECT * FROM pagedata LIMIT 20";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {
                       echo "<tr>";
-                      echo "<td>" . $row['userid'] . "</td>";
-                      echo "<td>" . $row['username'] . "</td>";
-                      echo "<td>" . $row['firstname'] . "</td>";
-                      echo "<td>" . $row['lastname'] . "</td>";
-                      echo "<td>" . $row['phonenumber'] . "</td>";
-                      echo "<td>" . $row['emailaddress'] . "</td>";
-                      echo "<td> " . $row['BirthDate'] . "</td>";
-                      echo "<td> " . $row['Gender'] . "</td>";
-                      echo "<td> " . $row['usertype'] . "</td>";
-                      echo "<td> " . $row['accountstatus'] . "</td>";
-                      echo "<td>";
-                      echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='fa-solid fa-eye'></i></a>";
-                      echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><i class='fa-solid fa-pen-to-square'></i></a>";
-                      echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><i class='fa-solid fa-trash'></i></a>";
-                      echo "</td>";
+                      echo "<td>" . $row['pageid'] . "</td>";
+                      echo "<td>" . $row['review_url'] . "</td>";
+                      echo "<td>" . $row['item_name'] . "</td>";
+                      echo "<td>" . $row['average_rating'] . "</td>";
+                      echo "<td>" . $row['number_of_ratings'] . "</td>";
+                      echo "<td>" . $row['similar_items'] . "</td>";
+                      echo "<td>" . $row['item_brand'] . "</td>";
                       echo "</tr>";
                     }
                     // Free result set
@@ -145,8 +193,8 @@ include "PageDataConfig.php"
       </div>
       <div class="card">
         <div class="card-header">
-          <h2>Product Page Data</h2>
-          <a href="adminsearchuser.php"><button>Search Users<span class="las la-arrow-right"></span></button></a>
+          <h2>Review Data (Most Recent 20 Records)</h2>
+          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
         <div class="card-body" width="100%">
@@ -155,106 +203,29 @@ include "PageDataConfig.php"
             <table width="100%">
               <thead>
                 <tr>
-                <td>Page Id</td>
-                  <td>Review Url</td>
-                  <td>Average Rating</td>
-                  <td>Number Of Ratings</td>
-                  <td>Similar Items</td>
-                  <td>Item Brand</td>
+                  <td>Combined Id</td>
+                  <td>Item Name</td>
+                  <td>Customer Name</td>
+                  <td>Rating Score</td>
+                  <td>Review Location</td>
+                  <td>Review Date</td>
                 </tr>
               </thead>
               <tbody>
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM user";
+                $sql = "SELECT * FROM combinedreview LIMIT 20";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {
                       echo "<tr>";
-                      echo "<td>" . $row['userid'] . "</td>";
-                      echo "<td>" . $row['username'] . "</td>";
-                      echo "<td>" . $row['firstname'] . "</td>";
-                      echo "<td>" . $row['lastname'] . "</td>";
-                      echo "<td>" . $row['phonenumber'] . "</td>";
-                      echo "<td>" . $row['emailaddress'] . "</td>";
-                      echo "<td> " . $row['BirthDate'] . "</td>";
-                      echo "<td> " . $row['Gender'] . "</td>";
-                      echo "<td> " . $row['usertype'] . "</td>";
-                      echo "<td> " . $row['accountstatus'] . "</td>";
-                      echo "<td>";
-                      echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='fa-solid fa-eye'></i></a>";
-                      echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><i class='fa-solid fa-pen-to-square'></i></a>";
-                      echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><i class='fa-solid fa-trash'></i></a>";
-                      echo "</td>";
-                      echo "</tr>";
-                    }
-                    // Free result set
-                    $result->free();
-                  } else {
-                    echo "<label class='error'>No records were found.</label>";
-                  }
-                } else {
-                  echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-                }
-
-                // Close connection
-                $mysqli->close();
-                ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <h2>Catalogue Data</h2>
-          <a href="adminsearchuser.php"><button>Search Users<span class="las la-arrow-right"></span></button></a>
-        </div>
-
-        <div class="card-body" width="100%">
-          <!-- <div class="table-responsive"> -->
-          <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-            <table width="100%">
-              <thead>
-                <tr>
-                  <td>User Id</td>
-                  <td>Username</td>
-                  <td>First Name</td>
-                  <td>Last Name</td>
-                  <td>Phone Number</td>
-                  <td>Email Address</td>
-                  <td>Birth Date</td>
-                  <td>Gender</td>
-                  <td>User Type</td>
-                  <td>Account Status</td>
-                  <td>Action</td>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                // Attempt select query execution
-                $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM user";
-                if ($result = $mysqli->query($sql)) {
-                  if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_array()) {
-                      echo "<tr>";
-                      echo "<td>" . $row['userid'] . "</td>";
-                      echo "<td>" . $row['username'] . "</td>";
-                      echo "<td>" . $row['firstname'] . "</td>";
-                      echo "<td>" . $row['lastname'] . "</td>";
-                      echo "<td>" . $row['phonenumber'] . "</td>";
-                      echo "<td>" . $row['emailaddress'] . "</td>";
-                      echo "<td> " . $row['BirthDate'] . "</td>";
-                      echo "<td> " . $row['Gender'] . "</td>";
-                      echo "<td> " . $row['usertype'] . "</td>";
-                      echo "<td> " . $row['accountstatus'] . "</td>";
-                      echo "<td>";
-                      echo "<a href='adminviewuser.php?userid=" . $row['userid'] . "' title='View User' data-toggle='tooltip'><i class='fa-solid fa-eye'></i></a>";
-                      echo "<a href='adminupdateuser.php?userid=" . $row['userid'] . "' title='Update User' data-toggle='tooltip'><i class='fa-solid fa-pen-to-square'></i></a>";
-                      echo "<a href='admindeleteuser.php?userid=" . $row['userid'] . "' title='Delete User' data-toggle='tooltip'><i class='fa-solid fa-trash'></i></a>";
-                      echo "</td>";
+                      echo "<td>" . $row['combinedreviewid'] . "</td>";
+                      echo "<td>" . $row['item_name'] . "</td>";
+                      echo "<td>" . $row['customername'] . "</td>";
+                      echo "<td>" . $row['rating_score'] . "</td>";
+                      echo "<td>" . $row['review_location'] . "</td>";
+                      echo "<td>" . $row['review_date'] . "</td>";
                       echo "</tr>";
                     }
                     // Free result set
