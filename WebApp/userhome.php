@@ -44,11 +44,27 @@ include "PageDataConfig.php"
             <span>View Records</span></a>
         </li>
         <li>
-          <a href="userupdatepersonalinfo.php"><span class="las la-user-circle"></span>
+          <a href="usercataloguescarper.php" class="active"><span class="fa-solid fa-book-atlas"></span>
+            <span>Product Catalogue Scraper</span></a>
+        </li>
+        <li>
+          <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file"></span>
+            <span>Product Page Scraper</span></a>
+        </li>
+        <li>
+          <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star"></span>
+            <span>Product Review Scraper</span></a>
+        </li>
+        <li>
+          <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database"></span>
+            <span>View Records</span></a>
+        </li>
+        <li>
+          <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user"></span>
             <span>Edit Personal Information</span></a>
         </li>
         <li>
-          <a href="userresetpassword.php"><span class="las la-key"></span>
+          <a href="userresetpassword.php"><span class="fa-solid fa-key"></span>
             <span>Reset Password</span></a>
         </li>
         <li>
@@ -89,7 +105,7 @@ include "PageDataConfig.php"
             $data = mysqli_fetch_assoc($result);
             echo "<h1>" . $data['total'] . "</h1>";
             ?>
-            <span>Total Catalogue Items</span>
+            <span>Total Product Catalogue Items</span>
           </div>
           <div>
             <span class="fa-solid fa-book-atlas"></span>
@@ -119,7 +135,7 @@ include "PageDataConfig.php"
             $data = mysqli_fetch_assoc($result);
             echo "<h1>" . $data['total'] . "</h1>";
             ?>
-            <span>Total Combined Reviews</span>
+            <span>Total Combined Product Reviews</span>
           </div>
           <div>
             <span class="las la-star"></span>
@@ -158,51 +174,51 @@ include "PageDataConfig.php"
               <!-- <input type="submit" value="Enter Recommender System" name="recommendersystem"></input>
               </form> -->
               <a href="https://ratingrecommendersystem.herokuapp.com"><input type="submit" value="Enter Recommender System" name="recommendersystem"></input></a>
-              
+
               <?php
 
 
 
               /* if (isset($_POST['recommendersystem'])) { */
-                /* shell_exec("app.py");
+              /* shell_exec("app.py");
                 echo "success"; */
 
-                /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
+              /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
               $app_data = file_get_contents($app_link);
               echo "<br><br>" . $app_data; */
 
-                /* $command =  escapeshellcmd('sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false');
+              /* $command =  escapeshellcmd('sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false');
                 $result = shell_exec($command);
                 echo $result; */
 
-                /* $command =  escapeshellcmd('streamlit run app.py --server.enableXsrfProtection=false');
+              /* $command =  escapeshellcmd('streamlit run app.py --server.enableXsrfProtection=false');
                 $result = shell_exec($command);
                 echo $result; */
 
-                /* Testing the procfile variables */
+              /* Testing the procfile variables */
 
-                /*  
+              /*  
                 web: python AmazonSGWebScraper/AmazonSGCatalogueScraper.py
                 web: vendor/bin/heroku-php-apache2 WebApp/
                 web: sh setup.sh && streamlit run WebApp/app.py
                 myworker:  python dowork.py
                 */
 
-                /* $command = system("python AmazonSGCatalogueScraper.py" . $_POST["cataloguescraper"]); */
-                /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
-                /* $result = shell_exec($command);
+              /* $command = system("python AmazonSGCatalogueScraper.py" . $_POST["cataloguescraper"]); */
+              /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
+              /* $result = shell_exec($command);
                 echo "<pre>";
                 print_r($result);
                 echo "</pre>"; */
 
-                /* This command has a port is being used error which means sh setup.sh should work but is contested with the current apache port
+              /* This command has a port is being used error which means sh setup.sh should work but is contested with the current apache port
                 (find a way to close apache port and start streamlit port)
                 $command =  passthru("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
 
-                /* $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
+              /* $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
 
 
-                /* $command =  escapeshellcmd("python apprunner.py");
+              /* $command =  escapeshellcmd("python apprunner.py");
                 $result = shell_exec($command);
                 echo "<div>";
                 print_r($result);
@@ -226,7 +242,7 @@ include "PageDataConfig.php"
             </div>
 
             <div class="card-body">
-              <h3>Catalogue Scraper (delimit search terms with a "+")(First 20 Records)</h3>
+              <h3>Product Catalogue Scraper (delimit search terms with a "+")(First 20 Records)</h3>
               <form action="userhome.php" method="POST">
                 <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
                 <input type="submit" value="Scrape Catalogue Page" name="cataloguescrapebutton">
@@ -298,7 +314,7 @@ include "PageDataConfig.php"
             </div>
 
             <div class="card-body">
-              <h3>Review Scraper (enter a review page url)(First 20 Reviews)</h3>
+              <h3>Product Review Scraper (enter a product review page url)(First 20 Reviews)</h3>
               <form action="userhome.php" method="POST">
                 <input type="text" placeholder="Enter a review page url here" name="reviewscraper"><br>
                 <input type="submit" value="Scrape Review Page" name="reviewscrapebutton">

@@ -145,23 +145,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="adminhome.php" class="active"><i class="fa-solid fa-house"></i>
+          <a href="adminhome.php" class="active"><span class="fa-solid fa-house"></span>
             <span>Home</span></a>
         </li>
         <li>
-          <a href="adminmanageuser.php"><span class="las la-users"></span>
+          <a href="adminmanageuser.php"><span class="fa-solid fa-users"></span>
             <span>Manage Users</span></a>
         </li>
         <li>
-          <a href="adminadduser.php"><i class="fa-solid fa-user-plus"></i>
+          <a href="adminadduser.php"><span class="fa-solid fa-user-plus"></span>
             <span>Add Users</span></a>
         </li>
         <li>
-          <a href="adminupdatepersonalinfo.php"><span class="las la-user-circle"></span>
+          <a href="adminupdatepersonalinfo.php"><span class="fa-solid fa-circle-user"></span>
             <span>Edit Personal Information</span></a>
         </li>
         <li>
-          <a href="adminresetpassword.php"><span class="las la-key"></span>
+          <a href="adminresetpassword.php"><span class="fa-solid fa-key"></span>
             <span>Reset Password</span></a>
         </li>
         <li>

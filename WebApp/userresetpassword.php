@@ -91,31 +91,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="checkbox" id="nav-toggle"></input>
 
     <div class="sidebar">
-    <div class="sidebar-menu">
-      <ul>
-        <li>
-          <a href="userhome.php" class="active"><i class="fa-solid fa-house"></i>
-            <span>Home</span></a>
-        </li>
-        <li>
-          <a href="userviewrecords.php" class="active"><i class="fa-solid fa-database"></i>
-            <span>View Records</span></a>
-        </li>
-        <li>
-          <a href="userupdatepersonalinfo.php"><span class="las la-user-circle"></span>
-            <span>Edit Personal Information</span></a>
-        </li>
-        <li>
-          <a href="userresetpassword.php"><span class="las la-key"></span>
-            <span>Reset Password</span></a>
-        </li>
-        <li>
-          <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
-            <span>Logout</span></a>
-        </li>
-      </ul>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="userhome.php" class="active"><span class="fa-solid fa-house"></span>
+                        <span>Home</span></a>
+                </li>
+                <li>
+                    <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database"></span>
+                        <span>View Records</span></a>
+                </li>
+                <li>
+                    <a href="usercataloguescarper.php" class="active"><span class="fa-solid fa-book-atlas"></span>
+                        <span>Product Catalogue Scraper</span></a>
+                </li>
+                <li>
+                    <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file"></span>
+                        <span>Product Page Scraper</span></a>
+                </li>
+                <li>
+                    <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star"></span>
+                        <span>Product Review Scraper</span></a>
+                </li>
+                <li>
+                    <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database"></span>
+                        <span>View Records</span></a>
+                </li>
+                <li>
+                    <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user"></span>
+                        <span>Edit Personal Information</span></a>
+                </li>
+                <li>
+                    <a href="userresetpassword.php"><span class="fa-solid fa-key"></span>
+                        <span>Reset Password</span></a>
+                </li>
+                <li>
+                    <a href="Logout.php"><span class="fa-solid fa-right-from-bracket"></span>
+                        <span>Logout</span></a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
 
     <div class="main-content">
         <header>

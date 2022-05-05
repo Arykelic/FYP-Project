@@ -44,11 +44,27 @@ include "PageDataConfig.php"
             <span>View Records</span></a>
         </li>
         <li>
-          <a href="userupdatepersonalinfo.php"><span class="las la-user-circle"></span>
+          <a href="usercataloguescarper.php" class="active"><span class="fa-solid fa-book-atlas"></span>
+            <span>Product Catalogue Scraper</span></a>
+        </li>
+        <li>
+          <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file"></span>
+            <span>Product Page Scraper</span></a>
+        </li>
+        <li>
+          <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star"></span>
+            <span>Product Review Scraper</span></a>
+        </li>
+        <li>
+          <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database"></span>
+            <span>View Records</span></a>
+        </li>
+        <li>
+          <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user"></span>
             <span>Edit Personal Information</span></a>
         </li>
         <li>
-          <a href="userresetpassword.php"><span class="las la-key"></span>
+          <a href="userresetpassword.php"><span class="fa-solid fa-key"></span>
             <span>Reset Password</span></a>
         </li>
         <li>
@@ -93,8 +109,8 @@ include "PageDataConfig.php"
               <thead>
                 <tr>
                   <td>Catalogue Id</td>
-                  <td width="20%">Product Url</td>
-                  <td width="20%">Item Name</td>
+                  <td>Product Url</td>
+                  <td>Item Name</td>
                   <td>Item Price</td>
                   <td>Average Rating</td>
                   <td>No. Of Ratings</td>

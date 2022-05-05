@@ -20,33 +20,33 @@ $new_password_err = $confirm_password_err = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate new password
-    if(empty(trim($_POST["new_password"]))){
-        $new_password_err = "Please enter the new password.";     
-    } elseif(strlen(trim($_POST["new_password"])) < 6){
+    if (empty(trim($_POST["new_password"]))) {
+        $new_password_err = "Please enter the new password.";
+    } elseif (strlen(trim($_POST["new_password"])) < 6) {
         $new_password_err = "Password must have atleast 6 characters.";
-    } else{
+    } else {
         $new_password = trim($_POST["new_password"]);
     }
-    
+
     // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
+    if (empty(trim($_POST["confirm_password"]))) {
         $confirm_password_err = "Please confirm the password.";
-    } else{
+    } else {
         $confirm_password = trim($_POST["confirm_password"]);
-        if(empty($new_password_err) && ($new_password != $confirm_password)){
+        if (empty($new_password_err) && ($new_password != $confirm_password)) {
             $confirm_password_err = "Password did not match.";
         }
     }
 
     // Check input errors before updating the database
-    if(empty($new_password_err) && empty($confirm_password_err)){
+    if (empty($new_password_err) && empty($confirm_password_err)) {
         // Prepare an update statement
         $sql = "UPDATE user SET password = ?, updateddatetime = CURRENT_TIMESTAMP, updatedby=? WHERE userid = ?";
-        
-        if($stmt = $mysqli->prepare($sql)){
+
+        if ($stmt = $mysqli->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
             $stmt->bind_param("ssi", $param_password, $param_updatedby, $param_userid);
-            
+
             // Set parameters
             $param_password = password_hash($new_password, PASSWORD_DEFAULT);
             $param_updatedby = $_SESSION["username"];
@@ -91,35 +91,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="checkbox" id="nav-toggle"></input>
 
     <div class="sidebar">
-    <div class="sidebar-menu">
-      <ul>
-        <li>
-          <a href="adminhome.php" class="active"><i class="fa-solid fa-house"></i>
-            <span>Home</span></a>
-        </li>
-        <li>
-          <a href="adminmanageuser.php"><span class="las la-users"></span>
-            <span>Manage Users</span></a>
-        </li>
-        <li>
-          <a href="adminadduser.php"><i class="fa-solid fa-user-plus"></i>
-            <span>Add Users</span></a>
-        </li>
-        <li>
-          <a href="adminupdatepersonalinfo.php"><span class="las la-user-circle"></span>
-            <span>Edit Personal Information</span></a>
-        </li>
-        <li>
-          <a href="adminresetpassword.php"><span class="las la-key"></span>
-            <span>Reset Password</span></a>
-        </li>
-        <li>
-          <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
-            <span>Logout</span></a>
-        </li>
-      </ul>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="adminhome.php" class="active"><span class="fa-solid fa-house"></span>
+                        <span>Home</span></a>
+                </li>
+                <li>
+                    <a href="adminmanageuser.php"><span class="fa-solid fa-users"></span>
+                        <span>Manage Users</span></a>
+                </li>
+                <li>
+                    <a href="adminadduser.php"><span class="fa-solid fa-user-plus"></span>
+                        <span>Add Users</span></a>
+                </li>
+                <li>
+                    <a href="adminupdatepersonalinfo.php"><span class="fa-solid fa-circle-user"></span>
+                        <span>Edit Personal Information</span></a>
+                </li>
+                <li>
+                    <a href="adminresetpassword.php"><span class="fa-solid fa-key"></span>
+                        <span>Reset Password</span></a>
+                </li>
+                <li>
+                    <a href="Logout.php"><i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span></a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
 
     <div class="main-content">
         <header>
