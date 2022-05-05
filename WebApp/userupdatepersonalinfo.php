@@ -123,7 +123,7 @@ $mysqli->close();
             <span>View Records</span></a>
         </li>
         <li>
-          <a href="usercataloguescarper.php" class="active"><span class="fa-solid fa-book-atlas"></span>
+          <a href="usercataloguescraper.php" class="active"><span class="fa-solid fa-book-atlas"></span>
             <span>Product Catalogue Scraper</span></a>
         </li>
         <li>
@@ -133,10 +133,6 @@ $mysqli->close();
         <li>
           <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star"></span>
             <span>Product Review Scraper</span></a>
-        </li>
-        <li>
-          <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database"></span>
-            <span>View Records</span></a>
         </li>
         <li>
           <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user"></span>
