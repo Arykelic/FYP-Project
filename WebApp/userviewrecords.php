@@ -104,7 +104,7 @@ include "PageDataConfig.php"
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM cataloguedata ORDER BY catalogueid DESC LIMIT 10 ORDER BY catalogueid ASC";
+                $sql = "SELECT * FROM cataloguedata ORDER BY catalogueid DESC LIMIT 10";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {
