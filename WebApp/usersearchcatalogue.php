@@ -140,7 +140,7 @@ function filterTableCount($count)
               <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
               <!-- <button type="submit" name="filterResults">Refresh</button> -->
             </div>
-            <span>Number of Results: <?php $count_result?></span>
+            
             <span>
               <button type="submit" name="search">Search</button>
               <button type="submit" name="refresh">Refresh</button>
@@ -155,8 +155,8 @@ function filterTableCount($count)
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
-          <span>Number of Results: <?php $count_result?></span>
-          <div>Number of Results: <?php $count_result?></div>
+          <div>Number of Results: <?php echo $count_result?></div>
+          <br>
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table>
               <thead>
