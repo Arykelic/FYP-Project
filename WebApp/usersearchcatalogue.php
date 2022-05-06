@@ -22,21 +22,25 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   $query = "SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
      `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
-  $result_count = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
-  `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%') ";
+  $count = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
+  `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%') AS subquery ";
+  $count_result = filterTable($count);
 } else {
   if (empty(trim($_GET["searchValue"]))) {
     $query = "SELECT * FROM `cataloguedata` ";
     $search_result = filterTable($query);
-    $result_count = "SELECT COUNT(*) FROM `cataloguedata`";
+    $count = "SELECT COUNT(*) FROM `cataloguedata`";
+    $count_result = filterTable($count); 
   }
 }
 
-function filterTable($query)
+function filterTable($query,$count)
 {
   $connect = mysqli_connect("remotemysql.com", "y0vryqAKXK", "moMOpaacUP", "y0vryqAKXK");
   $filter_Result = mysqli_query($connect, $query);
+  $filter_Count = mysqli_query($connect, $count);
   return $filter_Result;
+  return $filter_Count;
 }
 
 
@@ -131,7 +135,7 @@ function filterTable($query)
               <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
               <!-- <button type="submit" name="filterResults">Refresh</button> -->
             </div>
-            <span>Number of Results: <?php $result_count?></span>
+            <span>Number of Results: <?php $count_result?></span>
             <span>
               <button type="submit" name="search">Search</button>
               <button type="submit" name="refresh">Refresh</button>
@@ -146,6 +150,8 @@ function filterTable($query)
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
+          <span>Number of Results: <?php $count_result?></span>
+          <div>Number of Results: <?php $count_result?></div>
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table>
               <thead>

@@ -22,18 +22,25 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   $query = "SELECT * FROM `combinedreview` WHERE CONCAT(`combinedreviewid`, `item_name`, `customername`, `rating_score`, `review_location`, `review_date` ,
      `createdby`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
+  $count = "SELECT COUNT(*) from (SELECT * FROM `combinedreview` WHERE CONCAT(`combinedreviewid`, `item_name`, `customername`, `rating_score`, `review_location`, `review_date` ,
+  `createdby`) LIKE '%" . $searchValue . "%') AS subquery ";
+  $count_result = filterTable($count);
 } else {
   if (empty(trim($_GET["searchValue"]))) {
     $query = "SELECT * FROM `combinedreview` ";
     $search_result = filterTable($query);
+    $count = "SELECT COUNT(*) FROM `combinedreview`";
+    $count_result = filterTable($count);
   }
 }
 
-function filterTable($query)
+function filterTable($query,$count)
 {
   $connect = mysqli_connect("remotemysql.com", "y0vryqAKXK", "moMOpaacUP", "y0vryqAKXK");
   $filter_Result = mysqli_query($connect, $query);
+  $filter_Count = mysqli_query($connect, $count);
   return $filter_Result;
+  return $filter_Count;
 }
 
 
@@ -142,6 +149,7 @@ function filterTable($query)
 
           <div class="card-body" width="100%">
             <!-- <div class="table-responsive"> -->
+            <div>Number of Results: <?php $count_result?></div>
             <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
               <table>
                 <thead>
