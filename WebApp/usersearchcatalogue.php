@@ -119,7 +119,6 @@ function filterTable($query)
       <div class="card">
         <div class="card-header">
           <h2>Search Product Catalogue Data</h2>
-          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
         <form action="usersearchcatalogue.php" method="GET">
@@ -189,11 +188,9 @@ function filterTable($query)
           </div>
         </div>
       </div>
+    </main>
   </div>
 
-
-  </main>
-  </div>
 </body>
 
 </html>

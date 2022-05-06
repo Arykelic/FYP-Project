@@ -113,13 +113,50 @@ function filterTable($query)
       </div>
     </header>
 
+    <div class="main-content">
+    <header>
+      <h2>
+        <label for="nav-toggle">
+          <span class="las la-bars"></span>
+        </label>
+        E-Commerce Insight (User)(View Records)
+      </h2>
+
+      <div class="user-wrapper">
+        <span class="las la-user-circle fa-3x"></span>
+        <div>
+          <h4> <?php echo htmlspecialchars($_SESSION["username"]); ?> </h4>
+          <small><?php echo htmlspecialchars($_SESSION["firstname"]); ?></small>
+          <small><?php echo htmlspecialchars($_SESSION["lastname"]); ?></small>
+        </div>
+      </div>
+    </header>
+
     <main>
 
       <div class="card">
         <div class="card-header">
-          <h2>Product Catalogue Data (Most Recent 10 Records)</h2>
-          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
+          <h2>Search Product Catalogue Data</h2>
         </div>
+
+        <form action="usersearchcatalogue.php" method="GET">
+          <div class="card-header">
+            <div class="search-wrapper">
+              <span class="las la-search"></span>
+              <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
+              <!-- <button type="submit" name="filterResults">Refresh</button> -->
+            </div>
+            <span>
+              <button type="submit" name="search">Search</button>
+              <button type="submit" name="refresh">Refresh</button>
+            </span>
+            <!-- <div class="search-wrapper">
+                            <button type="submit" name="filterResults">Filter Empty Fields</button>
+                            <button type="submit" name="search">Search</button>
+                            <button type="submit" onclick="location.reload();">Refresh</button>
+                        </div> -->
+          </div>
+        </form>
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
@@ -169,126 +206,7 @@ function filterTable($query)
           </div>
         </div>
       </div>
-
-      <br>
-
-      <div class="card">
-        <div class="card-header">
-          <h2>Product Page Data (Most Recent 10 Records)</h2>
-          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
-        </div>
-
-        <div class="card-body" width="100%">
-          <!-- <div class="table-responsive"> -->
-          <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-            <table width="100%">
-              <thead>
-                <tr>
-                  <td>Page Id</td>
-                  <td>Review Url</td>
-                  <td>Item Name</td>
-                  <td>Average Rating</td>
-                  <td>No. Of Ratings</td>
-                  <td>Similar Items</td>
-                  <td>Item Brand</td>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                // Attempt select query execution
-                $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM pagedata ORDER BY pageid DESC LIMIT 10";
-                if ($result = $mysqli->query($sql)) {
-                  if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_array()) {
-                      echo "<tr>";
-                      echo "<td>" . $row['pageid'] . "</td>";
-                      echo "<td>" . $row['review_url'] . "</td>";
-                      echo "<td>" . $row['item_name'] . "</td>";
-                      echo "<td>" . $row['average_rating'] . "</td>";
-                      echo "<td>" . $row['number_of_ratings'] . "</td>";
-                      echo "<td>" . $row['similar_items'] . "</td>";
-                      echo "<td>" . $row['item_brand'] . "</td>";
-                      echo "</tr>";
-                    }
-                    // Free result set
-                    $result->free();
-                  } else {
-                    echo "<label class='error'>No records were found.</label>";
-                  }
-                } else {
-                  echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-                }
-
-                // Close connection
-                $mysqli->close();
-                ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <br>
-
-      <div class="card">
-        <div class="card-header">
-          <h2>Product Review Data (Most Recent 10 Records)</h2>
-          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
-        </div>
-
-        <div class="card-body" width="100%">
-          <!-- <div class="table-responsive"> -->
-          <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-            <table>
-              <thead>
-                <tr>
-                  <td>Combined Id</td>
-                  <td>Item Name</td>
-                  <td>Customer Name</td>
-                  <td>Rating Score</td>
-                  <td>Review Location</td>
-                  <td>Review Date</td>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                // Attempt select query execution
-                $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM combinedreview ORDER BY combinedreviewid DESC LIMIT 10";
-                if ($result = $mysqli->query($sql)) {
-                  if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_array()) {
-                      echo "<tr>";
-                      echo "<td>" . $row['combinedreviewid'] . "</td>";
-                      echo "<td>" . $row['item_name'] . "</td>";
-                      echo "<td>" . $row['customername'] . "</td>";
-                      echo "<td>" . $row['rating_score'] . "</td>";
-                      echo "<td>" . $row['review_location'] . "</td>";
-                      echo "<td>" . $row['review_date'] . "</td>";
-                      echo "</tr>";
-                    }
-                    // Free result set
-                    $result->free();
-                  } else {
-                    echo "<label class='error'>No records were found.</label>";
-                  }
-                } else {
-                  echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-                }
-
-                // Close connection
-                $mysqli->close();
-                ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-  </div>
-
-
-  </main>
+    </main>
   </div>
 </body>
 

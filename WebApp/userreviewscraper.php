@@ -165,7 +165,7 @@ include "PageDataConfig.php";
 
                 <div class="card-body">
                     <h3>Product Review Scraper (enter a product review page url)(First 20 Reviews)</h3>
-                    <form action="userhome.php" method="POST">
+                    <form action="userreviewscraper.php" method="POST">
                         <input type="text" placeholder="Enter a review page url here" name="reviewscraper"><br>
                         <input type="submit" value="Scrape Review Page" name="reviewscrapebutton">
                     </form>
@@ -183,7 +183,7 @@ include "PageDataConfig.php";
                         /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                         $reviewinput = $_POST["reviewscraper"];
                         $createdby = $_SESSION["username"];
-                        $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$reviewinput', '$createdby'");
+                        $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$reviewinput''$createdby'");
                         $result = shell_exec($command);
                         echo "<div>";
                         echo "<pre>$result</pre>";
@@ -215,7 +215,7 @@ include "PageDataConfig.php";
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Combined Id</td>
+                                    <td>Combined Review Id</td>
                                     <td>Item Name</td>
                                     <td>Customer Name</td>
                                     <td>Rating Score</td>

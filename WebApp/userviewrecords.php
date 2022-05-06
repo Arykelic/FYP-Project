@@ -271,7 +271,6 @@ include "PageDataConfig.php";
 
 
   </main>
-  </div>
 </body>
 
 </html>
