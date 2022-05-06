@@ -100,7 +100,7 @@ include "PageDataConfig.php";
         <div class="card-header">
           <h2>Product Catalogue Data (Most Recent 5 Records)</h2>
           <a href="usersearchcatalogue.php"><button>Search Product Catalogue Records<span class="las la-arrow-right"></span></button></a>
-          
+
         </div>
 
         <div class="card-body" width="100%">
@@ -150,7 +150,6 @@ include "PageDataConfig.php";
             </table>
           </div>
         </div>
-
       </div>
 
       <br>

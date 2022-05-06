@@ -204,8 +204,8 @@ include "PageDataConfig.php";
 
             <div class="card">
                 <div class="card-header">
-                    <h2>Catalogue Data (Most Recent 10 Records)</h2>
-                    <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
+                    <h2>Product Review Data (Most Recent 20 Records)</h2>
+                    <a href="usersearchreview.php"><button>Search Product Review Records<span class="las la-arrow-right"></span></button></a>
                 </div>
 
                 <div class="card-body" width="100%">
@@ -214,29 +214,29 @@ include "PageDataConfig.php";
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Catalogue Id</td>
-                                    <td>Product Url</td>
+                                    <td>Combined Id</td>
                                     <td>Item Name</td>
-                                    <td>Item Price</td>
-                                    <td>Average Rating</td>
-                                    <td>No. Of Ratings</td>
+                                    <td>Customer Name</td>
+                                    <td>Rating Score</td>
+                                    <td>Review Location</td>
+                                    <td>Review Date</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 // Attempt select query execution
                                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                                $sql = "SELECT * FROM combinedreview ORDER BY catalogueid DESC LIMIT 20";
+                                $sql = "SELECT * FROM combinedreview ORDER BY combinedreviewid DESC LIMIT 20";
                                 if ($result = $mysqli->query($sql)) {
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_array()) {
                                             echo "<tr>";
-                                            echo "<td>" . $row['catalogueid'] . "</td>";
-                                            echo "<td>" . $row['product_url'] . "</td>";
+                                            echo "<td>" . $row['combinedreviewid'] . "</td>";
                                             echo "<td>" . $row['item_name'] . "</td>";
-                                            echo "<td>" . $row['item_price'] . "</td>";
-                                            echo "<td>" . $row['average_rating'] . "</td>";
-                                            echo "<td>" . $row['number_of_ratings'] . "</td>";
+                                            echo "<td>" . $row['customername'] . "</td>";
+                                            echo "<td>" . $row['rating_score'] . "</td>";
+                                            echo "<td>" . $row['review_location'] . "</td>";
+                                            echo "<td>" . $row['review_date'] . "</td>";
                                             echo "</tr>";
                                         }
                                         // Free result set

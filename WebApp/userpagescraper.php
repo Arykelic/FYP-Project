@@ -205,7 +205,7 @@ include "PageDataConfig.php";
             <div class="card">
                 <div class="card-header">
                     <h2>Product Page Data (Most Recent 20 Records)</h2>
-                    <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
+                    <a href="usersearchpage.php"><button>Search Product Page Records<span class="las la-arrow-right"></span></button></a>
                 </div>
 
                 <div class="card-body" width="100%">

@@ -169,9 +169,10 @@ include "PageDataConfig.php";
               <!-- WORST CASE SCENARIO -->
               <!-- <input type="submit" value="Enter Recommender System" name="recommendersystem"></input>
               </form> -->
-              <h3>Product Recommender System (User-User Collaborative Filtering Based)</h3>
-              <h4>Our Product Recommender System serves as a dashboarding tool aimed at helping Small-Medium Enterprises (SMEs) analyse and breakdown key trends within eCommerce Markets</h4>
-              <h4>Welcome to our system!! Click on the button below to enter our system</h4>
+              <h3>Product Recommender System (User-User Collaborative Filtering)</h3>
+              <h4>Add in Image</h4>
+              <h4>Our Product Recommender System serves as a recommender and dashboarding tool aimed at helping Small-Medium Enterprises (SMEs) analyse and breakdown key trends within eCommerce Markets to help them make informed decisions about the users and products</h4>
+              <h5>Welcome to our system!! Click on the button below to enter our system</h5>
               <a href="https://ratingrecommendersystem.herokuapp.com"><input type="submit" value="Enter Recommender System" name="recommendersystem"></input></a>
 
               <?php
@@ -236,59 +237,43 @@ include "PageDataConfig.php";
         <div class="projects">
           <div class="card">
             <div class="card-header">
-              <h2>Web Scraper</h2>
-
+              <h2>Web Scrapers</h2>
             </div>
+
+            <div class="card-body">
+              <h3>What is a Web Scraper??</h3>
+              <h4>Our Product Catalogue Scraper aims to scrape generalised information about the products that appear through a search term within AmazonSG ..etc</h4>
+            </div>
+
+            <br>
 
             <div class="card-body">
               <h3>Product Catalogue Scraper</h3>
-              <h4>Our Product Catalogue Scraper aims to scrape generalised information aobut products that appear through a search term within AmazonSG ..etc</h4>
-              <h4>Navigate the toolbar on the left or click here to see it in action!</h4>
+              <h4>Our Product Catalogue Scraper aims to scrape generalised information about the products that appear through a search term within AmazonSG ..etc</h4>
+              <h5>Navigate the toolbar on the left or click the button below to see it in action!</h5>
+              <a href="usercataloguescraper.php"><input type="submit" value="Product Catalogue" name="productcatalogue"></input></a>
             </div>
 
+            <br>
+
             <div class="card-body">
-              <h3>Product Page Scraper (enter a item page url)</h3>
-          
+              <h3>Product Page Scraper</h3>
+              <h4>Our Product Page Scraper aims to scrape detailed information about the individual products page within AmazonSG ..etc</h4>
+              <h5>Navigate the toolbar on the left or click the button below to see it in action!</h5>
+              <a href="userpagescraper.php"><input type="submit" value="Product Page" name="productpage"></input></a>
             </div>
 
+            <br>
+
             <div class="card-body">
-              <h3>Product Review Scraper (enter a product review page url)(First 20 Reviews)</h3>
-              <form action="userhome.php" method="POST">
-                <input type="text" placeholder="Enter a review page url here" name="reviewscraper"><br>
-                <input type="submit" value="Scrape Review Page" name="reviewscrapebutton">
-              </form>
-
-              <?php
-
-              if (isset($_POST['reviewscrapebutton'])) {
-                /* shell_exec("app.py");
-                    echo "success"; */
-
-                /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
-                    $app_data = file_get_contents($app_link);
-                    echo "<br><br>" . $app_data; */
-
-                /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
-                $reviewinput = $_POST["reviewscraper"];
-                $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$reviewinput'");
-                $result = shell_exec($command);
-                echo "<div>";
-                echo "<pre>$result</pre>";
-                echo "</div>";
-
-                /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
-                /* Different methods of passing through commands through shell */
-                /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
-                /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-                /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
-                /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-              }
-              ?>
+              <h3>Product Review Scraper</h3>
+              <h4>Our Product Review Scraper aims to scrape detailed information about the individual products review within AmazonSG ..etc</h4>
+              <h5>Navigate the toolbar on the left or click the button below to see it in action!</h5>
+              <a href="userreviewscraper.php"><input type="submit" value="Product Review" name="productreview"></input></a>
             </div>
 
           </div>
         </div>
-
       </div>
     </main>
   </div>
