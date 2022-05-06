@@ -22,10 +22,13 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   $query = "SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
      `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
+  $result_count = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
+  `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%') ";
 } else {
   if (empty(trim($_GET["searchValue"]))) {
     $query = "SELECT * FROM `cataloguedata` ";
     $search_result = filterTable($query);
+    $result_count = "SELECT COUNT(*) FROM `cataloguedata`";
   }
 }
 
@@ -128,6 +131,7 @@ function filterTable($query)
               <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
               <!-- <button type="submit" name="filterResults">Refresh</button> -->
             </div>
+            <span>Number of Results: <?php $result_count?></span>
             <span>
               <button type="submit" name="search">Search</button>
               <button type="submit" name="refresh">Refresh</button>
