@@ -12,6 +12,7 @@ s = HTMLSession()
 """ print('Enter the url link to be scraped') """
 url = sys.argv[1]
 print(f'Filtering out {url}')
+createdby = sys.argv[2]
 
 def getdata(url):
     r = s.get(url)
@@ -103,8 +104,8 @@ while i <= 21:
         
                 connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
                 cursor = connection.cursor()
-                sql = "INSERT INTO combinedreview (image_url, item_name, customername, rating_score, review_location, review_date) VALUES (%s,%s,%s,%s,%s,%s)"
-                data = (Image_Url, Item_Name, Username, Rating_Score, Review_Location_Formatted, Review_Date_Formatted)
+                sql = "INSERT INTO combinedreview (image_url, item_name, customername, rating_score, review_location, review_date, createdby) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+                data = (Image_Url, Item_Name, Username, Rating_Score, Review_Location_Formatted, Review_Date_Formatted, createdby)
                 cursor.execute(sql, data)
                 print("Record inserted #", i)
                 connection.commit()

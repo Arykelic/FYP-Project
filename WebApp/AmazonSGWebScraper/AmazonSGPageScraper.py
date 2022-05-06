@@ -15,6 +15,7 @@ s = HTMLSession()
 """ print('Enter the url link to be scraped') """
 my_url = sys.argv[1]
 print(f'Filtering out {my_url}')
+createdby = sys.argv[2]
 
 # opening connection to url and grabbing page
 
@@ -97,8 +98,8 @@ print("item_brand: " + Item_Brand) """
 #Sel part
 connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
 cursor = connection.cursor()
-sql = "INSERT INTO pagedata (review_url, image_url, item_name, average_rating, number_of_ratings, similar_items, item_brand) VALUES (%s,%s,%s,%s,%s,%s,%s)"
-data = (Review_Url_Cleaned, Image_Url, search_term_value, Average_Rating, Number_Of_Ratings, allSimilarItemsString, Item_Brand)
+sql = "INSERT INTO pagedata (review_url, image_url, item_name, average_rating, number_of_ratings, similar_items, item_brand, createdby) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+data = (Review_Url_Cleaned, Image_Url, search_term_value, Average_Rating, Number_Of_Ratings, allSimilarItemsString, Item_Brand, createdby)
 cursor.execute(sql, data)
 print("Record inserted")
 connection.commit()

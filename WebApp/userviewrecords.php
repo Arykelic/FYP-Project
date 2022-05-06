@@ -98,7 +98,7 @@ include "PageDataConfig.php";
 
       <div class="card">
         <div class="card-header">
-          <h2>Product Catalogue Data (Most Recent 5 Records)</h2>
+          <h2>Product Catalogue Data (Most Recent 3 Records)</h2>
           <a href="usersearchcatalogue.php"><button>Search Product Catalogue Records<span class="las la-arrow-right"></span></button></a>
 
         </div>
@@ -121,7 +121,7 @@ include "PageDataConfig.php";
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM cataloguedata ORDER BY catalogueid DESC LIMIT 5";
+                $sql = "SELECT * FROM cataloguedata ORDER BY catalogueid DESC LIMIT 3";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {
@@ -156,7 +156,7 @@ include "PageDataConfig.php";
 
       <div class="card">
         <div class="card-header">
-          <h2>Product Page Data (Most Recent 5 Records)</h2>
+          <h2>Product Page Data (Most Recent 3 Records)</h2>
           <a href="usersearchpage.php"><button>Search Product Page Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
@@ -179,7 +179,7 @@ include "PageDataConfig.php";
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM pagedata ORDER BY pageid DESC LIMIT 5";
+                $sql = "SELECT * FROM pagedata ORDER BY pageid DESC LIMIT 3";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {
@@ -215,7 +215,7 @@ include "PageDataConfig.php";
 
       <div class="card">
         <div class="card-header">
-          <h2>Product Review Data (Most Recent 5 Records)</h2>
+          <h2>Product Review Data (Most Recent 3 Records)</h2>
           <a href="usersearchreview.php"><button>Search Product Review Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
@@ -237,7 +237,7 @@ include "PageDataConfig.php";
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM combinedreview ORDER BY combinedreviewid DESC LIMIT 5";
+                $sql = "SELECT * FROM combinedreview ORDER BY combinedreviewid DESC LIMIT 3";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {

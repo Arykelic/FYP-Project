@@ -182,7 +182,8 @@ include "PageDataConfig.php";
 
                         /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                         $reviewinput = $_POST["reviewscraper"];
-                        $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$reviewinput'");
+                        $createdby = $_SESSION["username"];
+                        $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$reviewinput', '$createdby'");
                         $result = shell_exec($command);
                         echo "<div>";
                         echo "<pre>$result</pre>";

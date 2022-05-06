@@ -242,6 +242,7 @@ include "PageDataConfig.php";
 
             <div class="card-body">
               <h3>What is a Web Scraper??</h3>
+              <h4>Add in Image</h4>
               <h4>Our Product Catalogue Scraper aims to scrape generalised information about the products that appear through a search term within AmazonSG ..etc</h4>
             </div>
 
@@ -249,27 +250,30 @@ include "PageDataConfig.php";
 
             <div class="card-body">
               <h3>Product Catalogue Scraper</h3>
+              <h4>Add in Image</h4>
               <h4>Our Product Catalogue Scraper aims to scrape generalised information about the products that appear through a search term within AmazonSG ..etc</h4>
               <h5>Navigate the toolbar on the left or click the button below to see it in action!</h5>
-              <a href="usercataloguescraper.php"><input type="submit" value="Product Catalogue" name="productcatalogue"></input></a>
+              <a href="usercataloguescraper.php"><input type="submit" value="Enter Product Catalogue" name="productcatalogue"></input></a>
             </div>
 
             <br>
 
             <div class="card-body">
               <h3>Product Page Scraper</h3>
+              <h4>Add in Image</h4>
               <h4>Our Product Page Scraper aims to scrape detailed information about the individual products page within AmazonSG ..etc</h4>
               <h5>Navigate the toolbar on the left or click the button below to see it in action!</h5>
-              <a href="userpagescraper.php"><input type="submit" value="Product Page" name="productpage"></input></a>
+              <a href="userpagescraper.php"><input type="submit" value="Enter Product Page" name="productpage"></input></a>
             </div>
 
             <br>
 
             <div class="card-body">
               <h3>Product Review Scraper</h3>
+              <h4>Add in Image</h4>
               <h4>Our Product Review Scraper aims to scrape detailed information about the individual products review within AmazonSG ..etc</h4>
               <h5>Navigate the toolbar on the left or click the button below to see it in action!</h5>
-              <a href="userreviewscraper.php"><input type="submit" value="Product Review" name="productreview"></input></a>
+              <a href="userreviewscraper.php"><input type="submit" value="Enter Product Review" name="productreview"></input></a>
             </div>
 
           </div>

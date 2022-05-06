@@ -12,7 +12,7 @@ s = HTMLSession()
 search_term = sys.argv[1]
 print(f'Filtering out {search_term}')
 url = "https://www.amazon.sg/s?k={}".format(search_term)
-
+createdby = sys.argv[2]
 
 # Download the webpage
 
@@ -98,8 +98,8 @@ while i <= 21:
 
         connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
         cursor = connection.cursor()
-        sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings) VALUES (%s,%s,%s,%s,%s,%s)"
-        data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings)
+        sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings, createdby, search_term) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+        data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings, createdby, search_term)
         cursor.execute(sql, data)
         print("Record inserted #", i)
         connection.commit()
