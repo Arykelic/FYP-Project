@@ -182,7 +182,7 @@ include "PageDataConfig.php";
                         /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                         $catalogueinput = $_POST["cataloguescraper"];
                         $createdby = $_SESSION["username"];
-                        $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py '$catalogueinput''$createdby' ");
+                        $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py '$catalogueinput' '$createdby' ");
                         $result = shell_exec($command);
                         echo "<div>";
                         echo "<pre>$result</pre>";

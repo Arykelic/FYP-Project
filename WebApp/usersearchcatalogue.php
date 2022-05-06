@@ -19,8 +19,8 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   $searchValue = $_GET["searchValue"];
   // search in all table columns
   // using concat mysql function
-  $query = "SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `image_url`, `item_name`, `item_price`, `average_rating` ,
-     `number_of_ratings`) LIKE '%" . $searchValue . "%'";
+  $query = "SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
+     `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
 } else {
   if (empty(trim($_GET["searchValue"]))) {
@@ -45,7 +45,7 @@ function filterTable($query)
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>E-Commerce Insight (User)(View Records)</title>
+  <title>E-Commerce Insight (User)(Search Product Catalogue Records)</title>
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
@@ -101,7 +101,7 @@ function filterTable($query)
         <label for="nav-toggle">
           <span class="las la-bars"></span>
         </label>
-        E-Commerce Insight (User)(View Records)
+        E-Commerce Insight (User)(Search Product Catalogue Records)
       </h2>
 
       <div class="user-wrapper">
@@ -152,37 +152,25 @@ function filterTable($query)
                   <td>Item Price</td>
                   <td>Average Rating</td>
                   <td>No. Of Ratings</td>
+                  <td>Created Date Time</td>
+                  <td>Created By</td>
+                  <td>Search Term</td>
                 </tr>
               </thead>
               <tbody>
-                <?php
-                // Attempt select query execution
-                $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM cataloguedata ORDER BY catalogueid DESC LIMIT 10";
-                if ($result = $mysqli->query($sql)) {
-                  if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_array()) {
-                      echo "<tr>";
-                      echo "<td>" . $row['catalogueid'] . "</td>";
-                      echo "<td>" . $row['product_url'] . "</td>";
-                      echo "<td>" . $row['item_name'] . "</td>";
-                      echo "<td>" . $row['item_price'] . "</td>";
-                      echo "<td>" . $row['average_rating'] . "</td>";
-                      echo "<td>" . $row['number_of_ratings'] . "</td>";
-                      echo "</tr>";
-                    }
-                    // Free result set
-                    $result->free();
-                  } else {
-                    echo "<label class='error'>No records were found.</label>";
-                  }
-                } else {
-                  echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-                }
-
-                // Close connection
-                $mysqli->close();
-                ?>
+                <?php while ($row = mysqli_fetch_array($search_result)) : ?>
+                  <tr>
+                    <td><?php echo $row['catalogueid']; ?></td>
+                    <td><?php echo $row['product_url']; ?></td>
+                    <td><?php echo $row['item_name']; ?></td>
+                    <td><?php echo $row['item_price']; ?></td>
+                    <td><?php echo $row['average_rating']; ?></td>
+                    <td><?php echo $row['number_of_ratings']; ?></td>
+                    <td><?php echo $row['createddatetime']; ?></td>
+                    <td><?php echo $row['createdby']; ?></td>
+                    <td><?php echo $row['search_term']; ?></td>
+                  </tr>
+                <?php endwhile; ?>
               </tbody>
             </table>
           </div>
