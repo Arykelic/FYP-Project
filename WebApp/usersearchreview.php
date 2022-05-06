@@ -15,6 +15,28 @@ include "CombinedReviewConfig.php";
 include "PageDataConfig.php";
 
 
+if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
+    $searchValue = $_GET["searchValue"];
+    // search in all table columns
+    // using concat mysql function
+    $query = "SELECT * FROM `user` WHERE CONCAT(`userid`, `username`, `firstname`, `lastname`, `phonenumber`, `emailaddress` ,
+     `BirthDate`, `Gender` , `usertype`, `accountstatus`) LIKE '%" . $searchValue . "%'";
+    $search_result = filterTable($query);
+} else {
+    if (empty(trim($_GET["searchValue"]))) {
+        $query = "SELECT * FROM `user` ";
+        $search_result = filterTable($query);
+    }
+}
+
+function filterTable($query)
+{
+    $connect = mysqli_connect("remotemysql.com", "y0vryqAKXK", "moMOpaacUP", "y0vryqAKXK");
+    $filter_Result = mysqli_query($connect, $query);
+    return $filter_Result;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +50,6 @@ include "PageDataConfig.php";
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
   <script src="https://app.simplefileupload.com/buckets/4f2260bbeaf342ae7d7831862b11313c.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-
 </head>
 
 <body>
@@ -98,15 +117,14 @@ include "PageDataConfig.php";
 
       <div class="card">
         <div class="card-header">
-          <h2>Product Catalogue Data (Most Recent 5 Records)</h2>
-          <a href="usersearchcatalogue.php"><button>Search Product Catalogue Records<span class="las la-arrow-right"></span></button></a>
-          
+          <h2>Product Catalogue Data (Most Recent 10 Records)</h2>
+          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-            <table id="ProductCatalogueTable">
+            <table>
               <thead>
                 <tr>
                   <td>Catalogue Id</td>
@@ -121,7 +139,7 @@ include "PageDataConfig.php";
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM cataloguedata ORDER BY catalogueid DESC LIMIT 5";
+                $sql = "SELECT * FROM cataloguedata ORDER BY catalogueid DESC LIMIT 10";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {
@@ -150,15 +168,14 @@ include "PageDataConfig.php";
             </table>
           </div>
         </div>
-
       </div>
 
       <br>
 
       <div class="card">
         <div class="card-header">
-          <h2>Product Page Data (Most Recent 5 Records)</h2>
-          <a href="usersearchpage.php"><button>Search Product Page Records<span class="las la-arrow-right"></span></button></a>
+          <h2>Product Page Data (Most Recent 10 Records)</h2>
+          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
         <div class="card-body" width="100%">
@@ -180,7 +197,7 @@ include "PageDataConfig.php";
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM pagedata ORDER BY pageid DESC LIMIT 5";
+                $sql = "SELECT * FROM pagedata ORDER BY pageid DESC LIMIT 10";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {
@@ -216,8 +233,8 @@ include "PageDataConfig.php";
 
       <div class="card">
         <div class="card-header">
-          <h2>Product Review Data (Most Recent 5 Records)</h2>
-          <a href="usersearchreview.php"><button>Search Product Review Records<span class="las la-arrow-right"></span></button></a>
+          <h2>Product Review Data (Most Recent 10 Records)</h2>
+          <a href="usersearchrecords.php"><button>Search Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
         <div class="card-body" width="100%">
@@ -238,7 +255,7 @@ include "PageDataConfig.php";
                 <?php
                 // Attempt select query execution
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM combinedreview ORDER BY combinedreviewid DESC LIMIT 5";
+                $sql = "SELECT * FROM combinedreview ORDER BY combinedreviewid DESC LIMIT 10";
                 if ($result = $mysqli->query($sql)) {
                   if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) {

@@ -159,7 +159,7 @@ include "PageDataConfig.php";
         <div class="projects">
           <div class="card">
             <div class="card-header">
-              <h2> Recommender System</h2>
+              <h2>Recommender System</h2>
 
             </div>
 
@@ -169,6 +169,9 @@ include "PageDataConfig.php";
               <!-- WORST CASE SCENARIO -->
               <!-- <input type="submit" value="Enter Recommender System" name="recommendersystem"></input>
               </form> -->
+              <h3>Product Recommender System (User-User Collaborative Filtering Based)</h3>
+              <h4>Our Product Recommender System serves as a dashboarding tool aimed at helping Small-Medium Enterprises (SMEs) analyse and breakdown key trends within eCommerce Markets</h4>
+              <h4>Welcome to our system!! Click on the button below to enter our system</h4>
               <a href="https://ratingrecommendersystem.herokuapp.com"><input type="submit" value="Enter Recommender System" name="recommendersystem"></input></a>
 
               <?php
@@ -238,75 +241,14 @@ include "PageDataConfig.php";
             </div>
 
             <div class="card-body">
-              <h3>Product Catalogue Scraper (delimit search terms with a "+")(First 20 Records)</h3>
-              <form action="userhome.php" method="POST">
-                <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper"><br>
-                <input type="submit" value="Scrape Catalogue Page" name="cataloguescrapebutton">
-              </form>
-
-              <?php
-
-              if (isset($_POST['cataloguescrapebutton'])) {
-                /* shell_exec("app.py");
-                    echo "success"; */
-
-                /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
-                    $app_data = file_get_contents($app_link);
-                    echo "<br><br>" . $app_data; */
-
-                /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
-                $catalogueinput = $_POST["cataloguescraper"];
-                $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGCatalogueScraper.py '$catalogueinput'");
-                $result = shell_exec($command);
-                echo "<div>";
-                echo "<pre>$result</pre>";
-                echo "</div>";
-
-                /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
-
-                /* Different methods of passing through commands through shell */
-                /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
-                /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-                /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
-                /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-              }
-              ?>
+              <h3>Product Catalogue Scraper</h3>
+              <h4>Our Product Catalogue Scraper aims to scrape generalised information aobut products that appear through a search term within AmazonSG ..etc</h4>
+              <h4>Navigate the toolbar on the left or click here to see it in action!</h4>
             </div>
 
             <div class="card-body">
               <h3>Product Page Scraper (enter a item page url)</h3>
-              <form action="userhome.php" method="POST">
-                <input type="text" placeholder="Enter a item page url here" name="pagescraper"><br>
-                <input type="submit" value="Scrape Item Page" name="pagescrapebutton">
-              </form>
-
-              <?php
-
-              if (isset($_POST['pagescrapebutton'])) {
-                /* shell_exec("app.py");
-                    echo "success"; */
-
-                /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
-                    $app_data = file_get_contents($app_link);
-                    echo "<br><br>" . $app_data; */
-
-                /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
-                $pageinput = $_POST["pagescraper"];
-                $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$pageinput'");
-                $result = shell_exec($command);
-                echo "<div>";
-                echo "<pre>$result</pre>";
-                echo "</div>";
-
-                /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
-
-                /* Different methods of passing through commands through shell */
-                /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
-                /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-                /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
-                /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-              }
-              ?>
+          
             </div>
 
             <div class="card-body">
