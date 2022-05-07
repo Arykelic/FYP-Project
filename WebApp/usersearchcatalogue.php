@@ -164,6 +164,7 @@ function filterTableCount($count)
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
           <div>Number of Results: <?php echo $data['count'] ?></div>
+          <div>Number of Results: <?php echo $data ?></div>
           <br>
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table>
