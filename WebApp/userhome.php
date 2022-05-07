@@ -247,6 +247,22 @@ include "PageDataConfig.php";
               <a href="usercataloguescraper.php"><input type="submit" value="Enter Product Catalogue" name="productcatalogue"></input></a>
             </div>
 
+            <br>
+
+            <div class="card-body">
+              <h2>Product Review Scraper</h2>
+              <img src="ProductReviewScraperExample.jpg" alt="ProductReviewScraperExample"></img>
+              <h3>Our Product Review Scraper aims to scrape information about the individual products review within each product page that has reviews attached to it.
+                This is the bread and butter of our recommender system and the key information that will be used to train and build the user-based collaborative
+                filtering algorithm to help accurately predict the rating score a user m will give to an item n.
+                The image above shows the various types of reviews that will be scraped for the product, some key factors of the reviews is that it consists of reviews from
+                other regions across the world as well as reviews from singapore. While there are some advantages and disadvantages of this, a key advantage of this 
+                is that we are able to compare the reviews and opinions of a global reviewer base that takes into account a wider range of preferences and opinions.
+              </h3>
+              <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
+              <a href="userreviewscraper.php"><input type="submit" value="Enter Product Review" name="productreview"></input></a>
+            </div>
+
 
           </div>
         </div>
@@ -286,21 +302,7 @@ include "PageDataConfig.php";
               <a href="userpagescraper.php"><input type="submit" value="Enter Product Page" name="productpage"></input></a>
             </div>
 
-            <br>
-
-            <div class="card-body">
-              <h2>Product Review Scraper</h2>
-              <img src="ProductReviewScraperExample.jpg" alt="ProductReviewScraperExample"></img>
-              <h3>Our Product Review Scraper aims to scrape information about the individual products review within each product page that has reviews attached to it.
-                This is the bread and butter of our recommender system and the key information that will be used to train and build the user-based collaborative
-                filtering algorithm to help accurately predict the rating score a user m will give to an item n.
-                The image above shows the various types of reviews that will be scraped for the product, some key factors of the reviews is that it consists of reviews from
-                other regions across the world as well as reviews from singapore. While there are some advantages and disadvantages of this, a key advantage of this 
-                is that we are able to compare the reviews and opinions of a global reviewer base that takes into account a wider range of preferences and opinions.
-              </h3>
-              <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
-              <a href="userreviewscraper.php"><input type="submit" value="Enter Product Review" name="productreview"></input></a>
-            </div>
+          
 
           </div>
         </div>

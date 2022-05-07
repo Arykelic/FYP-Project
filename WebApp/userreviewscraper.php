@@ -27,6 +27,32 @@ include "PageDataConfig.php";
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/54052f2f04.js" crossorigin="anonymous"></script>
     <script src="https://app.simplefileupload.com/buckets/4f2260bbeaf342ae7d7831862b11313c.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.search-box input[type="text"]').on("keyup input", function() {
+                /* Get input value on change */
+                var inputVal = $(this).val();
+                var resultDropdown = $(this).siblings(".result");
+                if (inputVal.length) {
+                    $.get("backend-search.php", {
+                        reviewurl: inputVal
+                    }).done(function(data) {
+                        // Display the returned data in browser
+                        resultDropdown.html(data);
+                    });
+                } else {
+                    resultDropdown.empty();
+                }
+            });
+
+            // Set search input value on click of result item
+            $(document).on("click", ".result p", function() {
+                $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+                $(this).parent(".result").empty();
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -166,8 +192,11 @@ include "PageDataConfig.php";
                 <div class="card-body">
                     <h3>Product Review Scraper (enter a product review page url)(First 20 Reviews)</h3>
                     <form action="userreviewscraper.php" method="POST">
-                        <input type="text" placeholder="Enter a review page url here" name="reviewscraper"><br>
-                        <input type="submit" value="Scrape Review Page" name="reviewscrapebutton">
+                        <div class="search-box">
+                            <input type="text" autocomplete="off" placeholder="Enter a review page url here" name="reviewscraper"><br>
+                            <div class ="result"></div><br>
+                            <input type="submit" value="Scrape Review Page" name="reviewscrapebutton">
+                        </div>
                     </form>
 
                     <?php
