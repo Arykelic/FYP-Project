@@ -22,15 +22,15 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   $query = "SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
      `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
-  $count = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
+  /* $count = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
   `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%')";
-  $count_result = filterTableCount($count);
+  $count_result = filterTableCount($count); */
 } else {
   if (empty(trim($_GET["searchValue"]))) {
     $query = "SELECT * FROM `cataloguedata` ";
     $search_result = filterTable($query);
-    $count = "SELECT COUNT(*) FROM `cataloguedata`";
-    $count_result = filterTableCount($count); 
+    /* $count = "SELECT COUNT(*) FROM `cataloguedata`";
+    $count_result = filterTableCount($count);  */
   }
 }
 
