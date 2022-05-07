@@ -536,7 +536,7 @@ img{
 
 /* backend search */
 
-.search-box{
+/* .search-box{
   width: 300px;
   position: relative;
   display: inline-block;
@@ -547,17 +547,17 @@ img{
   padding: 5px 10px;
   border: 1px solid #CCCCCC;
   font-size: 14px;
-}
+} */
 .result{
   position: absolute;        
   z-index: 999;
   top: 100%;
   left: 0;
 }
-.search-box input[type="text"], .result{
+/* .search-box input[type="text"], .result{
   width: 100%;
   box-sizing: border-box;
-}
+} */
 /* Formatting result items */
 .result p{
   margin: 0;

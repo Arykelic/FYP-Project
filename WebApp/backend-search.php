@@ -77,7 +77,7 @@ if(isset($_REQUEST["producturl"])){
     $stmt->close();
 }
 
-if(isset($_REQUEST["reviewurl"])){
+/* if(isset($_REQUEST["reviewurl"])){
     // Prepare a select statement
     $sql = "SELECT * FROM pagedata WHERE review_url LIKE ?";
     
@@ -108,7 +108,7 @@ if(isset($_REQUEST["reviewurl"])){
      
     // Close statement
     $stmt->close();
-}
+} */
  
 // Close connection
 $mysqli->close();
