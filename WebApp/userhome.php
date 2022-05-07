@@ -235,19 +235,16 @@ include "PageDataConfig.php";
             <br>
 
             <div class="card-body">
-              <h2>What is a Web Scraper??</h2>
-              <img src="WebScraperExample.png" alt="WebScraperExample"></img>
-              <h3>The job of the web scraper is to help retrieve and parse data from any online websites and material such as online storefronts and marketplaces.
-                The web scraper parses the data from html based websites to convert into the desired output format that can be utilized by systems to process that data
-                by Extracting-Transforming-Loading (ETL) the data into meaningful information to help make informed decisions.
+              <h2>Product Catalogue Scraper</h2>
+              <img src="ProductCatalogueScraperExample.jpg" alt="ProductCatalogueScraperExample"></img>
+              <h3>Our Product Catalogue Scraper aims to scrape generalised information about the products that appear through a search term within AmazonSG aimed to help give
+                our users a general idea of what products customers are seeing when they search for products. A key metric for the catalogue scraper is the search term where 
+                finding through other analytical tools what customers are searching for can yield similar results and give our users a better understanding of what products
+                eCommerce customers are presented. For example, the image above shows the result set from the search term samsung smartphones inside the AmazonSG marketplace and
+                the various products that are presented to the user.
               </h3>
-              <img src="WebScraperExample2.png" alt="WebScraperExample2"></img>
-              <h2>Future/Potential Improvements and Developments</h2>
-              <h3>Future improvements that are being explored for the system is to potentially include scrapers for other eCommerce platforms and improving the consistency
-                and features of the current scrapers to scrape pages such as the high fluctuation items inside the AmazonSG marketplace and additional features
-                 for the recommender system to capitalize on available data. Proper error handling messages and improved usability is another field where improvements can
-                 also be made.
-              </h3>
+              <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
+              <a href="usercataloguescraper.php"><input type="submit" value="Enter Product Catalogue" name="productcatalogue"></input></a>
             </div>
 
 
@@ -261,16 +258,19 @@ include "PageDataConfig.php";
             </div>
 
             <div class="card-body">
-              <h2>Product Catalogue Scraper</h2>
-              <img src="ProductCatalogueScraperExample.jpg" alt="ProductCatalogueScraperExample"></img>
-              <h3>Our Product Catalogue Scraper aims to scrape generalised information about the products that appear through a search term within AmazonSG aimed to help give
-                our users a general idea of what products customers are seeing when they search for products. A key metric for the catalogue scraper is the search term where 
-                finding through other analytical tools what customers are searching for can yield similar results and give our users a better understanding of what products
-                eCommerce customers are presented. For example, the image above shows the result set from the search term samsung smartphones inside the AmazonSG marketplace and
-                the various products that are presented to the user.
+              <h2>What is a Web Scraper??</h2>
+              <img src="WebScraperExample.png" alt="WebScraperExample"></img>
+              <h3>The job of the web scraper is to help retrieve and parse data from any online websites and material such as online storefronts and marketplaces.
+                The web scraper parses the data from html based websites to convert into the desired output format that can be utilized by systems to process that data
+                by Extracting-Transforming-Loading (ETL) the data into meaningful information to help make informed decisions.
               </h3>
-              <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
-              <a href="usercataloguescraper.php"><input type="submit" value="Enter Product Catalogue" name="productcatalogue"></input></a>
+              <img src="WebScraperExample2.png" alt="WebScraperExample2"></img>
+              <h2>Future/Potential Improvements and Developments</h2>
+              <h3>Future improvements that are being explored for the system is to potentially include scrapers for other eCommerce platforms and improving the consistency
+                and features of the current scrapers to scrape pages such as the high fluctuation items inside the AmazonSG marketplace and additional features
+                 for the recommender system to capitalize on available data. Proper error handling messages and improved usability is another field where improvements can
+                 also be made.
+              </h3>
             </div>
 
             <br>
