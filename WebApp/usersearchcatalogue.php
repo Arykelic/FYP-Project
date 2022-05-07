@@ -30,15 +30,17 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%') as count";
   $result = mysqli_query($mysqli, $sql);
   $data = mysqli_fetch_assoc($result);
+  $count = implode(",", $data);
 } else {
   if (empty(trim($_GET["searchValue"]))) {
     $query = "SELECT * FROM `cataloguedata` ";
     $search_result = filterTable($query);
     /* $count = "SELECT COUNT(*) FROM `cataloguedata`";
     $count_result = filterTableCount($count);  */
-    $sql = "SELECT count(*) from cataloguedata";
+    $sql = "SELECT COUNT(*) from cataloguedata";
     $result = mysqli_query($mysqli, $sql);
     $data = mysqli_fetch_assoc($result);
+    $count = implode(",", $data);
   }
 }
 
@@ -164,7 +166,8 @@ function filterTable($query)
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
           <div>Number of Results: <?php echo $data['count'] ?></div>
-          <div>Number of Results: <?php echo $data ?></div>
+          
+          <div>Number of Results: <?php echo $count ?></div>
           <br>
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table>
