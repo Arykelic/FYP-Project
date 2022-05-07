@@ -237,6 +237,11 @@ main {
   padding: 1rem;
 }
 
+.card-body-image {
+  width:100%;
+  height:300px;
+}
+
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -525,5 +530,5 @@ input[type=reset]:hover {
 
 .img{
   width: 100%;
-  height: auto;
+  height: 100%;
 }
