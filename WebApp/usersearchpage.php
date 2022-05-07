@@ -154,7 +154,6 @@ function filterTableCount($count)
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
           <div>Number of Results: <?php echo $count_result['subquery']?></div>
-          <br>
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table>
               <thead>
