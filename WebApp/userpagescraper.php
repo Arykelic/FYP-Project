@@ -35,7 +35,7 @@ include "PageDataConfig.php";
                 var inputVal = $(this).val();
                 var resultDropdown = $(this).siblings(".result");
                 if (inputVal.length) {
-                    $.get("backend-search.php", {
+                    $.get("backend-search-page.php", {
                         producturl: inputVal
                     }).done(function(data) {
                         // Display the returned data in browser
