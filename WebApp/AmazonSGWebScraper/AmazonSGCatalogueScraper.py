@@ -46,80 +46,79 @@ i = 1
 
 """ while True: """
 while i <= 21:
-    soup = getdata(url)
-    # pulling all data sets on current page and verifying length
-    # create containers group
-    containers = soup.findAll("div", {"class": "sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20"})
-    # use below line to check the length of the dataset
-    """ print(len(containers)) """
-    # containers
-    #filename = "{}_Catalogue.csv".format(url).replace("/",",").replace("?",",")
-    #f = open(filename, "w", encoding="utf-8")
+        soup = getdata(url)
+        # pulling all data sets on current page and verifying length
+        # create containers group
+        containers = soup.findAll("div", {"class": "sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20"})
+        # use below line to check the length of the dataset
+        """ print(len(containers)) """
+        # containers
+        #filename = "{}_Catalogue.csv".format(url).replace("/",",").replace("?",",")
+        #f = open(filename, "w", encoding="utf-8")
 
-    #headers = "Image_Url, Item_Name, Item_Price, Average_Rating, Number_Review\n"
+        #headers = "Image_Url, Item_Name, Item_Price, Average_Rating, Number_Review\n"
 
-    # f.write(headers)
+        # f.write(headers)
 
-    # loop inside each container
-    for container in containers:
-        Product_Url_Container = container.findAll("a", {"class": "a-link-normal s-no-outline"})
-        Product_Url = "https://www.amazon.sg" + str(Product_Url_Container[0]["href"])
-        Product_Url_Cleaned = beforeQuestionMark(Product_Url)
-        """ print(Product_Url_Cleaned) """
+        # loop inside each container
+        for container in containers:
+                Product_Url_Container = container.findAll("a", {"class": "a-link-normal s-no-outline"})
+                Product_Url = "https://www.amazon.sg" + str(Product_Url_Container[0]["href"])
+                Product_Url_Cleaned = beforeQuestionMark(Product_Url)
+                """ print(Product_Url_Cleaned) """
 
-        Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
-        Image_Url = Image_Url_Container[0].img["src"]
+                Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
+                Image_Url = Image_Url_Container[0].img["src"]
 
-        Item_Name_Container = container.findAll("span", {"class": "a-size-base a-color-base a-text-normal"})
-        Item_Name = Item_Name_Container[0].text
+                Item_Name_Container = container.findAll("span", {"class": "a-size-base a-color-base a-text-normal"})
+                Item_Name = Item_Name_Container[0].text
 
-        try:
-            Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})
-            Item_Price = Item_Price_Container[0].text[2:]
+                try:
+                    Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})
+                    Item_Price = Item_Price_Container[0].text[2:]
 
-            Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
-            Average_Rating = Average_Rating_Container[0].text[0:4]
+                    Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
+                    Average_Rating = Average_Rating_Container[0].text[0:4]
 
-            Number_Of_Ratings_Container = container.findAll("span", {"class": "a-size-base s-underline-text"})
-            Number_Of_Ratings = Number_Of_Ratings_Container[0].text
+                    Number_Of_Ratings_Container = container.findAll("span", {"class": "a-size-base s-underline-text"})
+                    Number_Of_Ratings = Number_Of_Ratings_Container[0].text
 
-        except:
-            Item_Price = "NA"
-            Average_Rating = "NA"
-            Number_Of_Ratings = "NA"
+                except:
+                    Item_Price = "NA"
+                    Average_Rating = "NA"
+                    Number_Of_Ratings = "NA"
 
 
-        """ print("product_url: " + Product_Url_Cleaned)
-        print("image_url: " + Image_Url)
-        print("item_name: " + Item_Name)
-        print("item_price: " + Item_Price)
-        print("average_rating: " + Average_Rating)
-        print("number_of_ratings: " + Number_Of_Ratings) """
+                """ print("product_url: " + Product_Url_Cleaned)
+                print("image_url: " + Image_Url)
+                print("item_name: " + Item_Name)
+                print("item_price: " + Item_Price)
+                print("average_rating: " + Average_Rating)
+                print("number_of_ratings: " + Number_Of_Ratings) """
 
-        connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
-        cursor = connection.cursor()
-        sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings, createdby, search_term) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-        data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings, createdby, search_term)
-        cursor.execute(sql, data)
-        print("Record inserted #", i)
-        connection.commit()
-        i += 1
-        if i == 21:
-            break
+                connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
+                cursor = connection.cursor()
+                sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings, createdby, search_term) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+                data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings, createdby, search_term)
+                cursor.execute(sql, data)
+                print("Record inserted #", i)
+                connection.commit()
+                i += 1
+                if i == 21:
+                    break
         
 
-    # parse the next url
-    url = getnextpage(soup)
-    if not url:
-        connection.close()
-        """ print("MySQL connection is closed") """
-        break
-    
-    if i == 21:
-        print("20 Records have been added successfully to the database, closing the script")
-        break
-    
-    i += 1
-
+        # parse the next url
+        url = getnextpage(soup)
+        if not url:
+            connection.close()
+            """ print("MySQL connection is closed") """
+            break
+        
+        if i == 21:
+            print("20 Records have been added successfully to the database, closing the script")
+            break
+        
+        i += 1
 print("Script has ran successfully")
 exit()
