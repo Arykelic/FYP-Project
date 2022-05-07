@@ -23,7 +23,7 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
      `createdby`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
   $count = "SELECT COUNT(*) from (SELECT * FROM `combinedreview` WHERE CONCAT(`combinedreviewid`, `item_name`, `customername`, `rating_score`, `review_location`, `review_date` ,
-  `createdby`) LIKE '%" . $searchValue . "%') AS subquery ";
+  `createdby`) LIKE '%" . $searchValue . "%') AS count ";
   $count_result = filterTableCount($count);
 } else {
   if (empty(trim($_GET["searchValue"]))) {
@@ -107,87 +107,87 @@ function filterTableCount($count)
   </div>
 
 
-    <div class="main-content">
-      <header>
-        <h2>
-          <label for="nav-toggle">
-            <span class="las la-bars"></span>
-          </label>
-          E-Commerce Insight (User)(Search Product Review Records)
-        </h2>
+  <div class="main-content">
+    <header>
+      <h2>
+        <label for="nav-toggle">
+          <span class="las la-bars"></span>
+        </label>
+        E-Commerce Insight (User)(Search Product Review Records)
+      </h2>
 
-        <div class="user-wrapper">
-          <span class="las la-user-circle fa-3x"></span>
-          <div>
-            <h4> <?php echo htmlspecialchars($_SESSION["username"]); ?> </h4>
-            <small><?php echo htmlspecialchars($_SESSION["firstname"]); ?></small>
-            <small><?php echo htmlspecialchars($_SESSION["lastname"]); ?></small>
-          </div>
+      <div class="user-wrapper">
+        <span class="las la-user-circle fa-3x"></span>
+        <div>
+          <h4> <?php echo htmlspecialchars($_SESSION["username"]); ?> </h4>
+          <small><?php echo htmlspecialchars($_SESSION["firstname"]); ?></small>
+          <small><?php echo htmlspecialchars($_SESSION["lastname"]); ?></small>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <main>
+    <main>
 
-        <div class="card">
+      <div class="card">
+        <div class="card-header">
+          <h2>Search Product Review Data</h2>
+        </div>
+
+        <form action="usersearchreview.php" method="GET">
           <div class="card-header">
-            <h2>Search Product Review Data</h2>
-          </div>
-
-          <form action="usersearchreview.php" method="GET">
-            <div class="card-header">
-              <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
-                <!-- <button type="submit" name="filterResults">Refresh</button> -->
-              </div>
-              <span>
-                <button type="submit" name="search">Search</button>
-                <button type="submit" name="refresh">Refresh</button>
-              </span>
-              <!-- <div class="search-wrapper">
+            <div class="search-wrapper">
+              <span class="las la-search"></span>
+              <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
+              <!-- <button type="submit" name="filterResults">Refresh</button> -->
+            </div>
+            <span>
+              <button type="submit" name="search">Search</button>
+              <button type="submit" name="refresh">Refresh</button>
+            </span>
+            <!-- <div class="search-wrapper">
                             <button type="submit" name="filterResults">Filter Empty Fields</button>
                             <button type="submit" name="search">Search</button>
                             <button type="submit" onclick="location.reload();">Refresh</button>
                         </div> -->
-            </div>
-          </form>
+          </div>
+        </form>
 
-          <div class="card-body" width="100%">
-            <!-- <div class="table-responsive"> -->
-            <div>Number of Results: <?php echo $count_result?></div>
+        <div class="card-body" width="100%">
+          <!-- <div class="table-responsive"> -->
+          <div>Number of Results: <?php echo $count_result['count'] ?></div>
           <br>
-            <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-              <table>
-                <thead>
+          <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
+            <table>
+              <thead>
+                <tr>
+                  <td>Combined Review Id</td>
+                  <td>Item Name</td>
+                  <td>Customer Name</td>
+                  <td>Rating Score</td>
+                  <td>Review Location</td>
+                  <td>Review Date</td>
+                  <td>Created By</td>
+                </tr>
+              </thead>
+              <tbody>
+                <?php while ($row = mysqli_fetch_array($search_result)) : ?>
                   <tr>
-                    <td>Combined Review Id</td>
-                    <td>Item Name</td>
-                    <td>Customer Name</td>
-                    <td>Rating Score</td>
-                    <td>Review Location</td>
-                    <td>Review Date</td>
-                    <td>Created By</td>
+                    <td><?php echo $row['combinedreviewid']; ?></td>
+                    <td><?php echo $row['item_name']; ?></td>
+                    <td><?php echo $row['customername']; ?></td>
+                    <td><?php echo $row['rating_score']; ?></td>
+                    <td><?php echo $row['review_location']; ?></td>
+                    <td><?php echo $row['review_date']; ?></td>
+                    <td><?php echo $row['createdby']; ?></td>
                   </tr>
-                </thead>
-                <tbody>
-                  <?php while ($row = mysqli_fetch_array($search_result)) : ?>
-                    <tr>
-                      <td><?php echo $row['combinedreviewid']; ?></td>
-                      <td><?php echo $row['item_name']; ?></td>
-                      <td><?php echo $row['customername']; ?></td>
-                      <td><?php echo $row['rating_score']; ?></td>
-                      <td><?php echo $row['review_location']; ?></td>
-                      <td><?php echo $row['review_date']; ?></td>
-                      <td><?php echo $row['createdby']; ?></td>
-                    </tr>
-                  <?php endwhile; ?>
-                </tbody>
-              </table>
-            </div>
+                <?php endwhile; ?>
+              </tbody>
+            </table>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
+  </div>
 </body>
 
 </html>

@@ -23,7 +23,7 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
      `item_brand`, `createdby`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
   $count = "SELECT COUNT(*) from (SELECT * FROM `pagedata` WHERE CONCAT(`pageid`, `review_url`, `item_name`, `average_rating`, `number_of_ratings`, `similar_items` ,
-  `item_brand`, `createdby`) LIKE '%" . $searchValue . "%') AS subquery ";
+  `item_brand`, `createdby`) LIKE '%" . $searchValue . "%') AS count ";
   $count_result = filterTableCount($count);
 } else {
   if (empty(trim($_GET["searchValue"]))) {
@@ -153,7 +153,8 @@ function filterTableCount($count)
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
-          <div>Number of Results: <?php echo $count_result['subquery']?></div>
+          <div>Number of Results: <?php echo $count_result['count']?></div>
+          <br>
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table>
               <thead>

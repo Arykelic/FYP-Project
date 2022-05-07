@@ -22,15 +22,20 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   $query = "SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
      `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
-  /* $count = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
-  `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%')";
-  $count_result = filterTableCount($count); */
+  $count = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
+  `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%') AS count";
+  $count_result = filterTableCount($count);
+  /* $sql = "select count(*) as total from cataloguedata";
+  $result = mysqli_query($mysqli, $sql);
+  $data = mysqli_fetch_assoc($result);
+  echo "<h1>" . $data['total'] . "</h1>";
+ */
 } else {
   if (empty(trim($_GET["searchValue"]))) {
     $query = "SELECT * FROM `cataloguedata` ";
     $search_result = filterTable($query);
-    /* $count = "SELECT COUNT(*) FROM `cataloguedata`";
-    $count_result = filterTableCount($count);  */
+    $count = "SELECT COUNT(*) FROM `cataloguedata`";
+    $count_result = filterTableCount($count); 
   }
 }
 
@@ -140,7 +145,7 @@ function filterTableCount($count)
               <input type="search" name="searchValue" autocomplete="off" placeholder="Search here">
               <!-- <button type="submit" name="filterResults">Refresh</button> -->
             </div>
-            
+
             <span>
               <button type="submit" name="search">Search</button>
               <button type="submit" name="refresh">Refresh</button>
@@ -155,7 +160,8 @@ function filterTableCount($count)
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
-          <div>Number of Results: <?php echo $count_result?></div>
+          <div>Number of Results: <?php echo $count_result['count'] ?></div>
+          <br>
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table>
               <thead>
