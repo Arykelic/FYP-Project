@@ -12,7 +12,7 @@ if($mysqli === false){
 
 if(isset($_REQUEST["reviewurl"])){
     // Prepare a select statement
-    $sql = "SELECT * FROM pagedata WHERE review_url LIKE ?";
+    $sql = "SELECT * FROM pagedata WHERE review_url LIKE ? LIMIT 10";
     
     if($stmt = $mysqli->prepare($sql)){
         // Bind variables to the prepared statement as parameters

@@ -45,7 +45,8 @@ if($mysqli === false){
 
 if(isset($_REQUEST["producturl"])){
     // Prepare a select statement
-    $sql = "SELECT * FROM cataloguedata WHERE product_url LIKE ?";
+    //Able to add in limiters to restrict search results
+    $sql = "SELECT * FROM cataloguedata WHERE product_url LIKE ? LIMIT 10";
     
     if($stmt = $mysqli->prepare($sql)){
         // Bind variables to the prepared statement as parameters
