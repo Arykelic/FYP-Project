@@ -139,7 +139,8 @@ function filterTable($query)
                 </form>
 
                 <div class="card-body" width="100%">
-                <div>Number of Results: <?php echo $count ?></div>
+                    <div>Number of Results: <?php echo $count ?></div>
+                    <br>
                     <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
                         <table width="100%">
                             <thead>

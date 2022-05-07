@@ -165,12 +165,13 @@ include "PageDataConfig.php";
 
             <div class="card-body">
 
-              <!-- <form method="POST"> -->
+              <form method="POST">
               <!-- WORST CASE SCENARIO -->
-              <!-- <input type="submit" value="Enter Recommender System" name="recommendersystem"></input>
-              </form> -->
+              <input type="submit" value="Enter Recommender System" name="recommendersystem"></input>
+              </form>
+
               <h2>Product Recommender System (User-User Collaborative Filtering)</h2>
-              <h3><img src="RecommenderSystemExample.jpg" alt="RecommenderSystemExample"></img></h3>
+              <span><img src="RecommenderSystemExample.jpg" alt="RecommenderSystemExample"></img></span>
               <h4>Our Product Recommender System serves as a recommender and dashboarding tool aimed at helping Small-Medium Enterprises (SMEs) analyse and breakdown key trends within eCommerce Markets to help them make informed decisions about the users and products</h4>
               <h5>Welcome to our system!! Click on the button below to enter our system</h5>
               <a href="https://ratingrecommendersystem.herokuapp.com"><input type="submit" value="Enter Recommender System" name="recommendersystem"></input></a>
@@ -179,7 +180,7 @@ include "PageDataConfig.php";
 
 
 
-              /* if (isset($_POST['recommendersystem'])) { */
+              if (isset($_POST['recommendersystem'])) {
               /* shell_exec("app.py");
                 echo "success"; */
 
@@ -218,13 +219,13 @@ include "PageDataConfig.php";
               /* $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
 
 
-              /* $command =  escapeshellcmd("python apprunner.py");
+              $command =  escapeshellcmd("python apprunner.py");
                 $result = shell_exec($command);
                 echo "<div>";
                 print_r($result);
                 echo "</div>";
                 header("Location:appruner.py");
-              } */
+              }
 
               ?>
 
@@ -242,7 +243,7 @@ include "PageDataConfig.php";
 
             <div class="card-body">
               <h2>What is a Web Scraper??</h2>
-              <h3><img src="WebScraperExample.png" alt="WebScraperExample"></img></h3>
+              <img src="WebScraperExample.png" alt="WebScraperExample"></img>
               <h3>Our Web Scraper aims to retrieve data from online E-Commerce websites to help you</h3>
             </div>
 
