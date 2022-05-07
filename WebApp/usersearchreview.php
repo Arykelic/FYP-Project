@@ -22,15 +22,22 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   $query = "SELECT * FROM `combinedreview` WHERE CONCAT(`combinedreviewid`, `item_name`, `customername`, `rating_score`, `review_location`, `review_date` ,
      `createdby`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
-  $count = "SELECT COUNT(*) from (SELECT * FROM `combinedreview` WHERE CONCAT(`combinedreviewid`, `item_name`, `customername`, `rating_score`, `review_location`, `review_date` ,
+  /* $count = "SELECT COUNT(*) from (SELECT * FROM `combinedreview` WHERE CONCAT(`combinedreviewid`, `item_name`, `customername`, `rating_score`, `review_location`, `review_date` ,
   `createdby`) LIKE '%" . $searchValue . "%') AS count ";
-  $count_result = filterTableCount($count);
+  $count_result = filterTableCount($count); */
+  $sql = "select count(*) from (SELECT * FROM `combinedreview` WHERE CONCAT(`combinedreviewid`, `item_name`, `customername`, `rating_score`, `review_location`, `review_date` ,
+  `createdby`) LIKE '%" . $searchValue . "%') as count";
+  $result = mysqli_query($mysqli, $sql);
+  $data = mysqli_fetch_assoc($result);
 } else {
   if (empty(trim($_GET["searchValue"]))) {
     $query = "SELECT * FROM `combinedreview` ";
     $search_result = filterTable($query);
-    $count = "SELECT COUNT(*) FROM `combinedreview`";
-    $count_result = filterTableCount($count);
+    /* $count = "SELECT COUNT(*) FROM `combinedreview`";
+    $count_result = filterTableCount($count); */
+    $sql = "select count(*) from combinedreview";
+    $result = mysqli_query($mysqli, $sql);
+    $data = mysqli_fetch_assoc($result);
   }
 }
 
@@ -154,7 +161,7 @@ function filterTableCount($count)
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
-          <div>Number of Results: <?php echo $count_result['count'] ?></div>
+          <div>Number of Results: <?php echo $data['count'] ?></div>
           <br>
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table>

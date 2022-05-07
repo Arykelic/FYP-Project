@@ -22,20 +22,23 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   $query = "SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
      `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
-  $count = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
+  /* $count = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
   `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%') AS count";
-  $count_result = filterTableCount($count);
-  /* $sql = "select count(*) as total from cataloguedata";
+  $count_result = filterTableCount($count); */
+
+  $sql = "select count(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
+  `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%') as count";
   $result = mysqli_query($mysqli, $sql);
   $data = mysqli_fetch_assoc($result);
-  echo "<h1>" . $data['total'] . "</h1>";
- */
 } else {
   if (empty(trim($_GET["searchValue"]))) {
     $query = "SELECT * FROM `cataloguedata` ";
     $search_result = filterTable($query);
-    $count = "SELECT COUNT(*) FROM `cataloguedata`";
-    $count_result = filterTableCount($count); 
+    /* $count = "SELECT COUNT(*) FROM `cataloguedata`";
+    $count_result = filterTableCount($count);  */
+    $sql = "select count(*) from cataloguedata";
+    $result = mysqli_query($mysqli, $sql);
+    $data = mysqli_fetch_assoc($result);
   }
 }
 
@@ -160,7 +163,7 @@ function filterTableCount($count)
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
-          <div>Number of Results: <?php echo $count_result['count'] ?></div>
+          <div>Number of Results: <?php echo $data['count'] ?></div>
           <br>
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table>

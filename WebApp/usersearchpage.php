@@ -22,15 +22,22 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   $query = "SELECT * FROM `pagedata` WHERE CONCAT(`pageid`, `review_url`, `item_name`, `average_rating`, `number_of_ratings`, `similar_items` ,
      `item_brand`, `createdby`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
-  $count = "SELECT COUNT(*) from (SELECT * FROM `pagedata` WHERE CONCAT(`pageid`, `review_url`, `item_name`, `average_rating`, `number_of_ratings`, `similar_items` ,
+  /* $count = "SELECT COUNT(*) from (SELECT * FROM `pagedata` WHERE CONCAT(`pageid`, `review_url`, `item_name`, `average_rating`, `number_of_ratings`, `similar_items` ,
   `item_brand`, `createdby`) LIKE '%" . $searchValue . "%') AS count ";
-  $count_result = filterTableCount($count);
+  $count_result = filterTableCount($count); */
+  $sql = "select count(*) from (SELECT * FROM `pagedata` WHERE CONCAT(`pageid`, `review_url`, `item_name`, `average_rating`, `number_of_ratings`, `similar_items` ,
+  `item_brand`, `createdby`) LIKE '%" . $searchValue . "%') as count";
+  $result = mysqli_query($mysqli, $sql);
+  $data = mysqli_fetch_assoc($result);
 } else {
   if (empty(trim($_GET["searchValue"]))) {
     $query = "SELECT * FROM `pagedata` ";
     $search_result = filterTable($query);
-    $count = "SELECT COUNT(*) FROM `pagedata`";
-    $count_result = filterTableCount($count);
+    /* $count = "SELECT COUNT(*) FROM `pagedata`";
+    $count_result = filterTableCount($count); */
+    $sql = "select count(*) from pagedata";
+    $result = mysqli_query($mysqli, $sql);
+    $data = mysqli_fetch_assoc($result);
   }
 }
 
@@ -153,7 +160,7 @@ function filterTableCount($count)
 
         <div class="card-body" width="100%">
           <!-- <div class="table-responsive"> -->
-          <div>Number of Results: <?php echo $count_result['count']?></div>
+          <div>Number of Results: <?php echo $data['count']?></div>
           <br>
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
             <table>
