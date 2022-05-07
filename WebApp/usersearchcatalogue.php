@@ -23,7 +23,7 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
      `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
   $count = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
-  `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%') ";
+  `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%') AS count";
   $count_result = filterTableCount($count);
 } else {
   if (empty(trim($_GET["searchValue"]))) {
@@ -34,19 +34,21 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   }
 }
 
-function filterTable($query)
+function filterTable($query, $count)
 {
   $connect = mysqli_connect("remotemysql.com", "y0vryqAKXK", "moMOpaacUP", "y0vryqAKXK");
   $filter_Result = mysqli_query($connect, $query);
+  $filter_Count = mysqli_query($connect, $count);
+  return $filter_Count;
   return $filter_Result;
 }
 
-function filterTableCount($count)
+/* function filterTableCount($count)
 {
   $connect = mysqli_connect("remotemysql.com", "y0vryqAKXK", "moMOpaacUP", "y0vryqAKXK");
   $filter_Count = mysqli_query($connect, $count);
   return $filter_Count;
-}
+} */
 
 
 ?>
