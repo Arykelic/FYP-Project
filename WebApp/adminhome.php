@@ -184,7 +184,7 @@ include "PageDataConfig.php"
             $data = mysqli_fetch_assoc($result);
             echo "<h1>" . $data['total'] . "</h1>";
             ?>
-            <span>Total Catalogue Items</span>
+            <span>Total Product Catalogue Items</span>
           </div>
           <div>
             <span class="fa-solid fa-book-atlas"></span>
@@ -199,7 +199,7 @@ include "PageDataConfig.php"
             $data = mysqli_fetch_assoc($result);
             echo "<h1>" . $data['total'] . "</h1>";
             ?>
-            <span>Total Item Pages</span>
+            <span>Total Product Item Data</span>
           </div>
           <div>
             <span class="las la-file"></span>
@@ -214,7 +214,7 @@ include "PageDataConfig.php"
             $data = mysqli_fetch_assoc($result);
             echo "<h1>" . $data['total'] . "</h1>";
             ?>
-            <span>Total Combined Reviews</span>
+            <span>Total Combined Product Reviews</span>
           </div>
           <div>
             <span class="las la-star"></span>

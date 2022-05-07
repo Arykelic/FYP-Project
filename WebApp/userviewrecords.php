@@ -99,8 +99,7 @@ include "PageDataConfig.php";
       <div class="card">
         <div class="card-header">
           <h2>Product Catalogue Data (Most Recent 3 Records)</h2>
-          <a href="usersearchcatalogue.php"><button>Search Product Catalogue Records<span class="las la-arrow-right"></span></button></a>
-
+          <a href="usersearchcatalogue.php"><button>Search All Product Catalogue Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
         <div class="card-body" width="100%">
@@ -157,7 +156,7 @@ include "PageDataConfig.php";
       <div class="card">
         <div class="card-header">
           <h2>Product Page Data (Most Recent 3 Records)</h2>
-          <a href="usersearchpage.php"><button>Search Product Page Records<span class="las la-arrow-right"></span></button></a>
+          <a href="usersearchpage.php"><button>Search All Product Page Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
         <div class="card-body" width="100%">
@@ -216,7 +215,7 @@ include "PageDataConfig.php";
       <div class="card">
         <div class="card-header">
           <h2>Product Review Data (Most Recent 3 Records)</h2>
-          <a href="usersearchreview.php"><button>Search Product Review Records<span class="las la-arrow-right"></span></button></a>
+          <a href="usersearchreview.php"><button>Search All Product Review Records<span class="las la-arrow-right"></span></button></a>
         </div>
 
         <div class="card-body" width="100%">

@@ -4,7 +4,7 @@ import streamlit
 import subprocess
 
 """ subprocess.run([f"{sys.executable}", "apprunner.py"]) """
-streamlit.bootstrap.run('apprunner.py', flag_options={})
+streamlit.bootstrap.run('app.py', flag_options={})
     
 def main():
     import streamlit as st

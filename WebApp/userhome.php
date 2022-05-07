@@ -169,8 +169,8 @@ include "PageDataConfig.php";
               <!-- WORST CASE SCENARIO -->
               <!-- <input type="submit" value="Enter Recommender System" name="recommendersystem"></input>
               </form> -->
-              <h3>Product Recommender System (User-User Collaborative Filtering)</h3>
-              <h4>Add in Image</h4>
+              <h2>Product Recommender System (User-User Collaborative Filtering)</h2>
+              <h3><img src="RecommenderSystemExample.jpg" alt="RecommenderSystemExample"></img></h3>
               <h4>Our Product Recommender System serves as a recommender and dashboarding tool aimed at helping Small-Medium Enterprises (SMEs) analyse and breakdown key trends within eCommerce Markets to help them make informed decisions about the users and products</h4>
               <h5>Welcome to our system!! Click on the button below to enter our system</h5>
               <a href="https://ratingrecommendersystem.herokuapp.com"><input type="submit" value="Enter Recommender System" name="recommendersystem"></input></a>
@@ -237,42 +237,42 @@ include "PageDataConfig.php";
         <div class="projects">
           <div class="card">
             <div class="card-header">
-              <h2>Web Scrapers</h2>
+              <h2>Web Scraper</h2>
             </div>
 
             <div class="card-body">
-              <h3>What is a Web Scraper??</h3>
-              <h4>Add in Image</h4>
-              <h4>Our Product Catalogue Scraper aims to scrape generalised information about the products that appear through a search term within AmazonSG ..etc</h4>
+              <h2>What is a Web Scraper??</h2>
+              <h3><img src="WebScraperExample.png" alt="WebScraperExample"></img></h3>
+              <h3>Our Web Scraper aims to retrieve data from online E-Commerce websites to help you</h3>
             </div>
 
             <br>
 
             <div class="card-body">
-              <h3>Product Catalogue Scraper</h3>
-              <h4>Add in Image</h4>
-              <h4>Our Product Catalogue Scraper aims to scrape generalised information about the products that appear through a search term within AmazonSG ..etc</h4>
-              <h5>Navigate the toolbar on the left or click the button below to see it in action!</h5>
+              <h2>Product Catalogue Scraper</h2>
+              <h3><img src="ProductCatalogueScraperExample.jpg" alt="ProductCatalogueScraperExample"></img></h3>
+              <h3>Our Product Catalogue Scraper aims to scrape generalised information about the products that appear through a search term within AmazonSG ..etc</h3>
+              <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
               <a href="usercataloguescraper.php"><input type="submit" value="Enter Product Catalogue" name="productcatalogue"></input></a>
             </div>
 
             <br>
 
             <div class="card-body">
-              <h3>Product Page Scraper</h3>
-              <h4>Add in Image</h4>
-              <h4>Our Product Page Scraper aims to scrape detailed information about the individual products page within AmazonSG ..etc</h4>
-              <h5>Navigate the toolbar on the left or click the button below to see it in action!</h5>
+              <h2>Product Page Scraper</h2>
+              <h3><img src="ProductPageScraperExample.jpg" alt="ProductPageScraperExample"></img></h3>
+              <h3>Our Product Page Scraper aims to scrape detailed information about the individual products page within AmazonSG ..etc</h3>
+              <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
               <a href="userpagescraper.php"><input type="submit" value="Enter Product Page" name="productpage"></input></a>
             </div>
 
             <br>
 
             <div class="card-body">
-              <h3>Product Review Scraper</h3>
-              <h4>Add in Image</h4>
-              <h4>Our Product Review Scraper aims to scrape detailed information about the individual products review within AmazonSG ..etc</h4>
-              <h5>Navigate the toolbar on the left or click the button below to see it in action!</h5>
+              <h2>Product Review Scraper</h2>
+              <h3><img src="ProductReviewScraperExample.jpg" alt="ProductReviewScraperExample"></img></h3>
+              <h3>Our Product Review Scraper aims to scrape detailed information about the individual products review within AmazonSG ..etc</h3>
+              <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
               <a href="userreviewscraper.php"><input type="submit" value="Enter Product Review" name="productreview"></input></a>
             </div>
 

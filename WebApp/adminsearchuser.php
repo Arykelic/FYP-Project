@@ -19,10 +19,19 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
     $query = "SELECT * FROM `user` WHERE CONCAT(`userid`, `username`, `firstname`, `lastname`, `phonenumber`, `emailaddress` ,
      `BirthDate`, `Gender` , `usertype`, `accountstatus`) LIKE '%" . $searchValue . "%'";
     $search_result = filterTable($query);
+    $sql = "SELECT COUNT(*) from (SELECT * FROM `user` WHERE CONCAT(`userid`, `username`, `firstname`, `lastname`, `phonenumber`, `emailaddress` ,
+    `BirthDate`, `Gender` , `usertype`, `accountstatus`) LIKE '%" . $searchValue . "%') as count";
+    $result = mysqli_query($mysqli, $sql);
+    $data = mysqli_fetch_assoc($result);
+    $count = implode(",", $data);
 } else {
     if (empty(trim($_GET["searchValue"]))) {
         $query = "SELECT * FROM `user` ";
         $search_result = filterTable($query);
+        $sql = "SELECT COUNT(*) from user";
+        $result = mysqli_query($mysqli, $sql);
+        $data = mysqli_fetch_assoc($result);
+        $count = implode(",", $data);
     }
 }
 
@@ -130,6 +139,7 @@ function filterTable($query)
                 </form>
 
                 <div class="card-body" width="100%">
+                <div>Number of Results: <?php echo $count ?></div>
                     <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
                         <table width="100%">
                             <thead>
