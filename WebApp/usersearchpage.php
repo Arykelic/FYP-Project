@@ -25,7 +25,7 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   /* $count = "SELECT COUNT(*) from (SELECT * FROM `pagedata` WHERE CONCAT(`pageid`, `review_url`, `item_name`, `average_rating`, `number_of_ratings`, `similar_items` ,
   `item_brand`, `createdby`) LIKE '%" . $searchValue . "%') AS count ";
   $count_result = filterTableCount($count); */
-  $sql = "select count(*) from (SELECT * FROM `pagedata` WHERE CONCAT(`pageid`, `review_url`, `item_name`, `average_rating`, `number_of_ratings`, `similar_items` ,
+  $sql = "SELECT count(*) from (SELECT * FROM `pagedata` WHERE CONCAT(`pageid`, `review_url`, `item_name`, `average_rating`, `number_of_ratings`, `similar_items` ,
   `item_brand`, `createdby`) LIKE '%" . $searchValue . "%') as count";
   $result = mysqli_query($mysqli, $sql);
   $data = mysqli_fetch_assoc($result);
@@ -35,7 +35,7 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
     $search_result = filterTable($query);
     /* $count = "SELECT COUNT(*) FROM `pagedata`";
     $count_result = filterTableCount($count); */
-    $sql = "select count(*) from pagedata";
+    $sql = "SELECT count(*) from pagedata";
     $result = mysqli_query($mysqli, $sql);
     $data = mysqli_fetch_assoc($result);
   }
@@ -48,12 +48,12 @@ function filterTable($query)
   return $filter_Result;
 }
 
-function filterTableCount($count)
+/* function filterTableCount($count)
 {
   $connect = mysqli_connect("remotemysql.com", "y0vryqAKXK", "moMOpaacUP", "y0vryqAKXK");
   $filter_Count = mysqli_query($connect, $count);
   return $filter_Count;
-}
+} */
 
 ?>
 
