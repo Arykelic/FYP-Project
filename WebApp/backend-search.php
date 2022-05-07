@@ -53,7 +53,7 @@ if(isset($_REQUEST["producturl"])){
         $stmt->bind_param("s", $product_param_term);
         
         // Set parameters
-        $product_param_term = $_REQUEST["producturl"] . '%';
+        $product_param_term = '%' . $_REQUEST["producturl"] . '%';
         
         // Attempt to execute the prepared statement
         if($stmt->execute()){
@@ -77,7 +77,7 @@ if(isset($_REQUEST["producturl"])){
     $stmt->close();
 }
 
-/* if(isset($_REQUEST["reviewurl"])){
+if(isset($_REQUEST["reviewurl"])){
     // Prepare a select statement
     $sql = "SELECT * FROM pagedata WHERE review_url LIKE ?";
     
@@ -86,7 +86,7 @@ if(isset($_REQUEST["producturl"])){
         $stmt->bind_param("s", $review_param_term);
         
         // Set parameters
-        $review_param_term = $_REQUEST["reviewurl"] . '%';
+        $review_param_term = '%' . $_REQUEST["reviewurl"] . '%';
         
         // Attempt to execute the prepared statement
         if($stmt->execute()){
@@ -108,7 +108,7 @@ if(isset($_REQUEST["producturl"])){
      
     // Close statement
     $stmt->close();
-} */
+}
  
 // Close connection
 $mysqli->close();

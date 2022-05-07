@@ -548,12 +548,12 @@ img{
   border: 1px solid #CCCCCC;
   font-size: 14px;
 } */
-.result{
+/* .result{
   position: absolute;        
   z-index: 999;
   top: 100%;
   left: 0;
-}
+} */
 /* .search-box input[type="text"], .result{
   width: 100%;
   box-sizing: border-box;
@@ -563,9 +563,9 @@ img{
   margin: 0;
   padding: 7px 10px;
   border: 1px solid #CCCCCC;
-  border-top: none;
+/*   border-top: none; */
   cursor: pointer;
 }
 .result p:hover{
-  background: #f2f2f2;
+  background: #535151;
 }
