@@ -50,9 +50,11 @@ f = open(filename, "w")
 headers = "review_url, image_url, item_name, item_price, average_rating (Max Score is 5), number_of_ratings \n"
 
 f.write(headers) """
-
-Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"})["href"])
-Review_Url_Cleaned = beforeQuestionMark(Review_Url)
+try:
+    Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"})["href"])
+    Review_Url_Cleaned = beforeQuestionMark(Review_Url)
+except:
+    print("Unable to find any reviews")
 
 """ Original Image Scraper
  Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"] """
