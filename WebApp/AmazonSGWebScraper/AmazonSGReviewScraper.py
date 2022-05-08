@@ -110,10 +110,13 @@ while i <= 22:
                     cursor.execute(sql, data)
                     print("Record inserted #", i)
                     connection.commit()
-                    i += 1
+                    """ To parse through the next few records other than the duplicates (However heroku will crash due to too many requests)
+                    i += 1 """
                     
                 except pymysql.Error as err:
                     print("Something went wrong: {}".format(err))
+
+                i += 1
 
                 if i == 22:
                     break
@@ -123,12 +126,13 @@ while i <= 22:
         if not url:
             """ f.close() """
             connection.close()
-            """ print("MySQL connection is closed")
-            print("End of CSV Writing") """
+            print("MySQL connection is closed")
+            """ print("End of CSV Writing") """
             break
 
         if i == 22:
-            print("20 Reviews have been added successfully to the database, closing the script")
+            print("Script has ended")
+            """ print("20 Reviews have been added successfully to the database, closing the script") """
             break
 
         i += 1
