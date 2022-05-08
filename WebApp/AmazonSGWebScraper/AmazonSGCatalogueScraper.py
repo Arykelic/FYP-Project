@@ -74,8 +74,8 @@ while i <= 21:
                 Item_Name = Item_Name_Container[0].span.text
 
                 try:
-                    Item_Price_Container = container.findAll("span", {"class": "a-price"})
-                    Item_Price = Item_Price_Container[0].span.text[2:]
+                    Item_Price_Container = container.findAll("a", {"class": "a-size-base a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal"})
+                    Item_Price = Item_Price_Container[0].span.span.text[2:]
 
                     Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
                     Average_Rating = Average_Rating_Container[0].text[0:4]
