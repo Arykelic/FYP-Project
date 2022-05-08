@@ -8,7 +8,6 @@ import pymysql
 
 
 
-
 s = HTMLSession()
 
 #my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
@@ -54,19 +53,37 @@ f.write(headers) """
 
 Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"})["href"])
 Review_Url_Cleaned = beforeQuestionMark(Review_Url)
-Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"]
+
+""" Original Image Scraper
+ Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"] """
+Image_Url_Container = soup.findAll("div", {"id": "main-image-container"})
+Image_Url = Image_Url_Container[0].img["src"]
 
 try:
     """ Item_Price_Container = soup.find("span", {"class":"a-price a-text-price"})
     print(Item_Price_Container) """
     """ Item_Price = soup.find("span", {"class": "a-offscreen"}).text[2:] """
+
+    """ Average_Rating_Container = soup.find("div", {"id": "averageCustomerReviews"})
+    Average_Rating = Average_Rating_Container.span.span.span.a.i.text[0:4] """
+
+    """ Original Average_Rating """
     Average_Rating = soup.find("span", {"class": "a-icon-alt"}).text[0:4]
+
+    """ Number_Of_Ratings_Container = soup.find("a", {"id": "acrCustomerReviewLink"})
+    Number_Of_Ratings = Number_Of_Ratings_Container[0].a.text[0:-7] """
+
+    """ Original Number_Of_Ratings Scraper """
     Number_Of_Ratings = soup.find("span", {"id": "acrCustomerReviewText"}).text[0:-7]
+
     #similar items
     allSimilarItemsArray = []
+    #Find Number of Similar Items
     Similar_Items = soup.findAll("span", {"class": "_p13n-desktop-sims-fbt_fbt-desktop_title-truncate__1pPAM"})
+    #loop except the first item because amazon recommends first item
     for items in Similar_Items[1:]:
-        name = items.find(class_="_p13n-desktop-sims-fbt_fbt-desktop_title-truncate__1pPAM")
+        """ name = items.find(class_="_p13n-desktop-sims-fbt_fbt-desktop_title-truncate__1pPAM")
+        print(name) """
         text = ''.join(items.text.strip())
         allSimilarItemsArray.append(text)
     s = ' ||AND|| '
@@ -82,14 +99,14 @@ except:
     allSimilarItemsString = "NA"
     Item_Brand = "NA"
 
-""" print("review_url: " + Review_Url_Cleaned)
+print("review_url: " + Review_Url_Cleaned)
 print("image_url: " + Image_Url)
 print("item_name: " + search_term_value)
-print("item_price: " + Item_Price)
+""" print("item_price: " + Item_Price) """
 print("average_rating: " + Average_Rating)
 print("number_of_ratings: " + Number_Of_Ratings)
 print("similar_items: " + allSimilarItemsString)
-print("item_brand: " + Item_Brand) """
+print("item_brand: " + Item_Brand)
 
 
 """ f.write(Review_Url.replace(",", "|") + "," + Image_Url.replace(",", "|") + "," + search_term.replace(",", "|") + "," +
