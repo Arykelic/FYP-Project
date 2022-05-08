@@ -70,12 +70,12 @@ while i <= 21:
                 Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
                 Image_Url = Image_Url_Container[0].img["src"]
 
-                Item_Name_Container = container.findAll("span", {"class": "a-size-base a-color-base a-text-normal"})
-                Item_Name = Item_Name_Container[0].text
+                Item_Name_Container = container.findAll("a", {"class": "a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal"})
+                Item_Name = Item_Name_Container[0].span.text
 
                 try:
-                    Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})
-                    Item_Price = Item_Price_Container[0].text[2:]
+                    Item_Price_Container = container.findAll("span", {"class": "a-price"})
+                    Item_Price = Item_Price_Container[0].span.text[2:]
 
                     Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
                     Average_Rating = Average_Rating_Container[0].text[0:4]
@@ -89,12 +89,12 @@ while i <= 21:
                     Number_Of_Ratings = "NA"
 
 
-                """ print("product_url: " + Product_Url_Cleaned)
+                print("product_url: " + Product_Url_Cleaned)
                 print("image_url: " + Image_Url)
                 print("item_name: " + Item_Name)
                 print("item_price: " + Item_Price)
                 print("average_rating: " + Average_Rating)
-                print("number_of_ratings: " + Number_Of_Ratings) """
+                print("number_of_ratings: " + Number_Of_Ratings)
 
                 connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
                 cursor = connection.cursor()
