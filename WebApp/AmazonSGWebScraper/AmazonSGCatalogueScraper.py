@@ -67,15 +67,19 @@ while i <= 21:
                 Product_Url_Cleaned = beforeQuestionMark(Product_Url)
                 """ print(Product_Url_Cleaned) """
 
-                Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
-                Image_Url = Image_Url_Container[0].img["src"]
+                """ Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
+                Image_Url = Image_Url_Container[0].img["src"] """
+
+                Image_Url_Container = container.findAll("div", {"class": "s-product-image-container aok-relative s-image-overlay-grey s-text-center s-padding-left-small s-padding-right-small s-spacing-small s-height-equalized"})
+                Image_Url = Image_Url_Container[0].span.a.div.img["src"]
+                
 
                 Item_Name_Container = container.findAll("a", {"class": "a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal"})
                 Item_Name = Item_Name_Container[0].span.text
 
                 try:
-                    Item_Price_Container = container.findAll("a", {"class": "a-size-base a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal"})
-                    Item_Price = Item_Price_Container[0].span.span.text[2:]
+                    Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})
+                    Item_Price = Item_Price_Container[0].text[2:]
 
                     Average_Rating_Container = container.findAll("span", {"class": "a-icon-alt"})
                     Average_Rating = Average_Rating_Container[0].text[0:4]
@@ -104,7 +108,7 @@ while i <= 21:
                     cursor.execute(sql, data)
                     print("Record inserted #", i)
                     connection.commit()
-                    print("Script has ran successfully")
+                    
                     i += 1
                 except pymysql.Error as err:
                     print("Something went wrong: {}".format(err))

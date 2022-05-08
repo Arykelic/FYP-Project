@@ -49,7 +49,7 @@ f.write(headers) """
 i = 1
 
 """ while True: """
-while i <= 21:
+while i <= 22:
         soup = getdata(url)
         #pulling all data sets on current page and verifying length
         containers = soup.findAll("div", {"class": "a-section review aok-relative"})
@@ -111,11 +111,11 @@ while i <= 21:
                     print("Record inserted #", i)
                     connection.commit()
                     i += 1
-                    print("Script has ran successfully")
+                    
                 except pymysql.Error as err:
                     print("Something went wrong: {}".format(err))
 
-                if i == 21:
+                if i == 22:
                     break
 
         # parse the next url
@@ -127,7 +127,7 @@ while i <= 21:
             print("End of CSV Writing") """
             break
 
-        if i == 21:
+        if i == 22:
             print("20 Reviews have been added successfully to the database, closing the script")
             break
 

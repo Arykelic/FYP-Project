@@ -103,7 +103,7 @@ try:
     cursor.execute(sql, data)
     print("Record inserted")
     connection.commit()
-    print("Script has ran successfully")
+    
 except pymysql.Error as err:
     print("Something went wrong: {}".format(err))
 """ f.close()
