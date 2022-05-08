@@ -89,12 +89,12 @@ while i <= 21:
                     Number_Of_Ratings = "NA"
 
 
-                print("product_url: " + Product_Url_Cleaned)
+                """ print("product_url: " + Product_Url_Cleaned)
                 print("image_url: " + Image_Url)
                 print("item_name: " + Item_Name)
                 print("item_price: " + Item_Price)
                 print("average_rating: " + Average_Rating)
-                print("number_of_ratings: " + Number_Of_Ratings)
+                print("number_of_ratings: " + Number_Of_Ratings) """
 
                 connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
                 cursor = connection.cursor()
