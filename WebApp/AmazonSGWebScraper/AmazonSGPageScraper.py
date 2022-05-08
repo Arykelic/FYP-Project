@@ -53,14 +53,18 @@ f.write(headers) """
 try:
     Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"})["href"])
     Review_Url_Cleaned = beforeQuestionMark(Review_Url)
+
+    Image_Url_Container = soup.findAll("div", {"id": "main-image-container"})
+    Image_Url = Image_Url_Container[0].img["src"]
+
 except:
     print("Unable to find any reviews")
 
 """ Original Image Scraper
  Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"] """
-Image_Url_Container = soup.findAll("div", {"id": "main-image-container"})
+""" Image_Url_Container = soup.findAll("div", {"id": "main-image-container"})
 Image_Url = Image_Url_Container[0].img["src"]
-
+ """
 try:
     """ Item_Price_Container = soup.find("span", {"class":"a-price a-text-price"})
     print(Item_Price_Container) """
