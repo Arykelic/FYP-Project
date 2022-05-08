@@ -14,11 +14,15 @@ cursor = connection.cursor()
 
 for i,row in empdata.iterrows():
             #here %S means string values 
-            sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings) VALUES (%s,%s,%s,%s,%s,%s)"
-            cursor.execute(sql, tuple(row))
-            print("Record inserted")
-            # the connection is not auto committed by default, so we must commit to save our changes
-            connection.commit()
+            try:
+                sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings) VALUES (%s,%s,%s,%s,%s,%s)"
+                cursor.execute(sql, tuple(row))
+                print("Record inserted")
+                # the connection is not auto committed by default, so we must commit to save our changes
+                connection.commit()
+            except pymysql.Error as err:
+                print("Something went wrong: {}".format(err))
+
 
 connection.close()
 print("MySQL connection is closed")

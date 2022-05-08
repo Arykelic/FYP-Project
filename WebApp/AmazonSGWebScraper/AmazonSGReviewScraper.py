@@ -101,15 +101,20 @@ while i <= 21:
 
                 """ f.write(Image_Url.replace(",", "|") + "," + Item_Name.replace(",", "|") + "," + Username.replace(",", ".") 
                 + "," + Rating_Score.replace(",", ".") + "," + Review_Location_Formatted.replace(",", "|") + "," + Review_Date_Formatted.replace(",", "'") + "\n") """
-        
-                connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
-                cursor = connection.cursor()
-                sql = "INSERT INTO combinedreview (image_url, item_name, customername, rating_score, review_location, review_date, createdby) VALUES (%s,%s,%s,%s,%s,%s,%s)"
-                data = (Image_Url, Item_Name, Username, Rating_Score, Review_Location_Formatted, Review_Date_Formatted, createdby)
-                cursor.execute(sql, data)
-                print("Record inserted #", i)
-                connection.commit()
-                i += 1
+
+                try:
+                    connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
+                    cursor = connection.cursor()
+                    sql = "INSERT INTO combinedreview (image_url, item_name, customername, rating_score, review_location, review_date, createdby) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+                    data = (Image_Url, Item_Name, Username, Rating_Score, Review_Location_Formatted, Review_Date_Formatted, createdby)
+                    cursor.execute(sql, data)
+                    print("Record inserted #", i)
+                    connection.commit()
+                    i += 1
+                    print("Script has ran successfully")
+                except pymysql.Error as err:
+                    print("Something went wrong: {}".format(err))
+
                 if i == 21:
                     break
 
@@ -127,5 +132,5 @@ while i <= 21:
             break
 
         i += 1
-print("Script has ran successfully")
+
 exit()

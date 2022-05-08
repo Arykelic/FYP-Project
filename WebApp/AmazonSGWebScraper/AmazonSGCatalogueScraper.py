@@ -95,15 +95,20 @@ while i <= 21:
                 print("item_price: " + Item_Price)
                 print("average_rating: " + Average_Rating)
                 print("number_of_ratings: " + Number_Of_Ratings) """
-
-                connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
-                cursor = connection.cursor()
-                sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings, createdby, search_term) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-                data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings, createdby, search_term)
-                cursor.execute(sql, data)
-                print("Record inserted #", i)
-                connection.commit()
-                i += 1
+                
+                try:
+                    connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
+                    cursor = connection.cursor()
+                    sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings, createdby, search_term) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+                    data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings, createdby, search_term)
+                    cursor.execute(sql, data)
+                    print("Record inserted #", i)
+                    connection.commit()
+                    print("Script has ran successfully")
+                    i += 1
+                except pymysql.Error as err:
+                    print("Something went wrong: {}".format(err))
+                    
                 if i == 21:
                     break
         
@@ -120,5 +125,5 @@ while i <= 21:
             break
         
         i += 1
-print("Script has ran successfully")
+
 exit()
