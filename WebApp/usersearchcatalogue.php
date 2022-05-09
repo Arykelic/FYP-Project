@@ -176,9 +176,9 @@ function filterTable($query)
               <thead>
                 <tr>
                   <td>Catalogue Id</td>
-                  <td width="15%">Product Url</td>
+                  <td>Product Url</td>
                   <td>Image</td>
-                  <td width="15%">Item Name</td>
+                  <td>Item Name</td>
                   <td>Item Price</td>
                   <td>Average Rating</td>
                   <td>No. Of Ratings</td>
@@ -190,7 +190,7 @@ function filterTable($query)
                 <?php while ($row = mysqli_fetch_array($search_result)) : ?>
                   <tr>
                     <td><?php echo $row['catalogueid']; ?></td>
-                    <td><?php echo $row['product_url']; ?></td>
+                    <td width="10%"><?php echo $row['product_url']; ?></td>
                     <td>
                       <?php
                       $image = $row['image_url'];
@@ -198,12 +198,12 @@ function filterTable($query)
                       echo '<img src="data:image/jpeg;base64,' . $imageData . '">';
                       ?>
                     </td>
-                    <td><?php echo $row['item_name']; ?></td>
+                    <td width="10%"><?php echo $row['item_name']; ?></td>
                     <td><?php echo $row['item_price']; ?></td>
                     <td><?php echo $row['average_rating']; ?></td>
                     <td><?php echo $row['number_of_ratings']; ?></td>
-                    <td><?php echo $row['createdby']; ?></td>
-                    <td><?php echo $row['search_term']; ?></td>
+                    <td width="10%"><?php echo $row['createdby']; ?></td>
+                    <td width="10%"><?php echo $row['search_term']; ?></td>
                   </tr>
                 <?php endwhile; ?>
               </tbody>

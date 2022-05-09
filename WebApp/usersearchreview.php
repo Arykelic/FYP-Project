@@ -174,6 +174,7 @@ function filterTable($query)
               <thead>
                 <tr>
                   <td>Combined Review Id</td>
+                  <td>Image</td>
                   <td>Item Name</td>
                   <td>Customer Name</td>
                   <td>Rating Score</td>
@@ -186,6 +187,13 @@ function filterTable($query)
                 <?php while ($row = mysqli_fetch_array($search_result)) : ?>
                   <tr>
                     <td><?php echo $row['combinedreviewid']; ?></td>
+                    <td>
+                      <?php
+                      $image = $row['image_url'];
+                      $imageData = base64_encode(file_get_contents($image));
+                      echo '<img src="data:image/jpeg;base64,' . $imageData . '">';
+                      ?>
+                    </td>
                     <td><?php echo $row['item_name']; ?></td>
                     <td><?php echo $row['customername']; ?></td>
                     <td><?php echo $row['rating_score']; ?></td>

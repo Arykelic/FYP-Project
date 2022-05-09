@@ -250,6 +250,7 @@ include "PageDataConfig.php";
                                 <tr>
                                     <td>Page Id</td>
                                     <td>Review Url</td>
+                                    <td>Image</td>
                                     <td>Item Name</td>
                                     <td>Average Rating</td>
                                     <td>No. Of Ratings</td>
@@ -268,6 +269,11 @@ include "PageDataConfig.php";
                                             echo "<tr>";
                                             echo "<td>" . $row['pageid'] . "</td>";
                                             echo "<td>" . $row['review_url'] . "</td>";
+                                            echo "<td>";
+                                            $image = $row['image_url'];
+                                            $imageData = base64_encode(file_get_contents($image));
+                                            echo '<img src="data:image/jpeg;base64,' . $imageData . '">';
+                                            echo "</td>";
                                             echo "<td>" . $row['item_name'] . "</td>";
                                             echo "<td>" . $row['average_rating'] . "</td>";
                                             echo "<td>" . $row['number_of_ratings'] . "</td>";

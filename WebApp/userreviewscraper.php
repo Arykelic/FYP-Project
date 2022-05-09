@@ -249,6 +249,7 @@ include "PageDataConfig.php";
                             <thead>
                                 <tr>
                                     <td>Combined Review Id</td>
+                                    <td>Image</td>
                                     <td>Item Name</td>
                                     <td>Customer Name</td>
                                     <td>Rating Score</td>
@@ -266,6 +267,11 @@ include "PageDataConfig.php";
                                         while ($row = $result->fetch_array()) {
                                             echo "<tr>";
                                             echo "<td>" . $row['combinedreviewid'] . "</td>";
+                                            echo "<td>";
+                                            $image = $row['image_url'];
+                                            $imageData = base64_encode(file_get_contents($image));
+                                            echo '<img src="data:image/jpeg;base64,' . $imageData . '">';
+                                            echo "</td>";
                                             echo "<td>" . $row['item_name'] . "</td>";
                                             echo "<td>" . $row['customername'] . "</td>";
                                             echo "<td>" . $row['rating_score'] . "</td>";

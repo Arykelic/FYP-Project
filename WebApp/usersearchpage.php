@@ -174,6 +174,7 @@ function filterTable($query)
                 <tr>
                   <td>Page Id</td>
                   <td>Review Url</td>
+                  <td>Image</td>
                   <td>Item Name</td>
                   <td>Average Rating</td>
                   <td>No. Of Ratings</td>
@@ -187,6 +188,13 @@ function filterTable($query)
                   <tr>
                     <td><?php echo $row['pageid']; ?></td>
                     <td><?php echo $row['review_url']; ?></td>
+                    <td>
+                      <?php
+                      $image = $row['image_url'];
+                      $imageData = base64_encode(file_get_contents($image));
+                      echo '<img src="data:image/jpeg;base64,' . $imageData . '">';
+                      ?>
+                    </td>
                     <td><?php echo $row['item_name']; ?></td>
                     <td><?php echo $row['average_rating']; ?></td>
                     <td><?php echo $row['number_of_ratings']; ?></td>
