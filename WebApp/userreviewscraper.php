@@ -82,6 +82,10 @@ include "PageDataConfig.php";
                         <span>Product Review Scraper</span></a>
                 </li>
                 <li>
+                    <a href="https://ratingrecommendersystem.herokuapp.com" class="active"><span class="fa-solid fa-computer"></span>
+                        <span>Recommender System</span></a>
+                </li>
+                <li>
                     <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user"></span>
                         <span>Edit Personal Information</span></a>
                 </li>
@@ -194,7 +198,7 @@ include "PageDataConfig.php";
                     <form action="userreviewscraper.php" method="POST">
                         <div class="search-box">
                             <input type="text" autocomplete="off" placeholder="Enter a review page url here" name="reviewscraper"><br>
-                            <div class ="result"></div><br>
+                            <div class="result"></div><br>
                             <input type="submit" value="Scrape Review Page" name="reviewscrapebutton">
                         </div>
                     </form>

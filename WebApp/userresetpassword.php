@@ -114,6 +114,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <span>Product Review Scraper</span></a>
                 </li>
                 <li>
+                    <a href="https://ratingrecommendersystem.herokuapp.com" class="active"><span class="fa-solid fa-computer"></span>
+                        <span>Recommender System</span></a>
+                </li>
+                <li>
                     <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user"></span>
                         <span>Edit Personal Information</span></a>
                 </li>
