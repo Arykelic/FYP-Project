@@ -3,9 +3,8 @@ from bs4 import BeautifulSoup
 import re
 import os
 import sys
-from debugpy import connect
-import pymysql
 
+import pymysql
 
 
 s = HTMLSession()

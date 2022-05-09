@@ -103,11 +103,7 @@ while True:
                     break
         
         # parse the next url
-        url = getnextpage(soup)
-        if not url:
-            connection.close()
-            print("MySQL connection is closed")
-            break
+        
         
         if i == 21:
             print("Script has ended")
