@@ -175,12 +175,12 @@ function filterTable($query)
             <table >
               <thead >
                 <tr>
-                  <td >Catalogue Id</td>
+                  <td width="7%">Catalogue Id</td>
                   <td >Product Url</td>
                   <td >Image</td>
                   <td >Item Name</td>
                   <td >Item Price</td>
-                  <td >Average Rating</td>
+                  <td width="11%">Average Rating</td>
                   <td >No. Of Ratings</td>
                   <td >Created By</td>
                   <td >Search Term</td>
