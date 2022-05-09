@@ -262,6 +262,7 @@ table {
   table-layout: fixed;
   border-collapse: collapse;
   width: 100%;
+  word-break: break-all 
 }
 
 thead tr {
