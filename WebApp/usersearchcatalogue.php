@@ -175,35 +175,35 @@ function filterTable($query)
             <table >
               <thead >
                 <tr>
-                  <td >Catalogue Id</td>
-                  <td >Product Url</td>
-                  <td >Image</td>
-                  <td >Item Name</td>
-                  <td >Item Price</td>
-                  <td >Average Rating</td>
-                  <td >No. Of Ratings</td>
-                  <td >Created By</td>
-                  <td >Search Term</td>
+                  <td width="12%">Catalogue Id</td>
+                  <td width="12%">Product Url</td>
+                  <td width="12%">Image</td>
+                  <td width="12%">Item Name</td>
+                  <td width="10%">Item Price</td>
+                  <td width="12%">Average Rating</td>
+                  <td width="10%">No. Of Ratings</td>
+                  <td width="10%">Created By</td>
+                  <td width="10%">Search Term</td>
                 </tr>
               </thead>
               <tbody width ="100%">
                 <?php while ($row = mysqli_fetch_array($search_result)) : ?>
                   <tr>
-                    <td width="5%"><?php echo $row['catalogueid']; ?></td>
-                    <td width="15%"><?php echo $row['product_url']; ?></td>
-                    <td width="15%">
+                    <td ><?php echo $row['catalogueid']; ?></td>
+                    <td ><?php echo $row['product_url']; ?></td>
+                    <td >
                       <?php
                       $image = $row['image_url'];
                       $imageData = base64_encode(file_get_contents($image));
                       echo '<img src="data:image/jpeg;base64,' . $imageData . '">';
                       ?>
                     </td>
-                    <td width="15%"><?php echo $row['item_name']; ?></td>
-                    <td width="10%"><?php echo $row['item_price']; ?></td>
-                    <td width="10%"><?php echo $row['average_rating']; ?></td>
-                    <td width="10%"><?php echo $row['number_of_ratings']; ?></td>
-                    <td width="10%"><?php echo $row['createdby']; ?></td>
-                    <td width="10%"><?php echo $row['search_term']; ?></td>
+                    <td ><?php echo $row['item_name']; ?></td>
+                    <td ><?php echo $row['item_price']; ?></td>
+                    <td ><?php echo $row['average_rating']; ?></td>
+                    <td ><?php echo $row['number_of_ratings']; ?></td>
+                    <td ><?php echo $row['createdby']; ?></td>
+                    <td ><?php echo $row['search_term']; ?></td>
                   </tr>
                 <?php endwhile; ?>
               </tbody>
