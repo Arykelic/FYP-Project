@@ -172,8 +172,8 @@ function filterTable($query)
           <div>Number of Results: <?php echo $count ?></div>
           <br>
           <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
-            <table>
-              <thead>
+            <table width="100%">
+              <thead width="100%">
                 <tr>
                   <td width="10%">Catalogue Id</td>
                   <td width="15%">Product Url</td>
@@ -186,7 +186,7 @@ function filterTable($query)
                   <td width="10%">Search Term</td>
                 </tr>
               </thead>
-              <tbody>
+              <tbody width ="100%">
                 <?php while ($row = mysqli_fetch_array($search_result)) : ?>
                   <tr>
                     <td width="10%"><?php echo $row['catalogueid']; ?></td>
