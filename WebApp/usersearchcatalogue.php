@@ -176,12 +176,12 @@ function filterTable($query)
               <thead>
                 <tr>
                   <td>Catalogue Id</td>
-                  <td>Product Url</td>
-                  <td>Item Name</td>
+                  <td width="15%">Product Url</td>
+                  <td>Image</td>
+                  <td width="15%">Item Name</td>
                   <td>Item Price</td>
                   <td>Average Rating</td>
                   <td>No. Of Ratings</td>
-                  <td>Created Date Time</td>
                   <td>Created By</td>
                   <td>Search Term</td>
                 </tr>
@@ -191,11 +191,17 @@ function filterTable($query)
                   <tr>
                     <td><?php echo $row['catalogueid']; ?></td>
                     <td><?php echo $row['product_url']; ?></td>
+                    <td>
+                      <?php
+                      $image = $row['image_url'];
+                      $imageData = base64_encode(file_get_contents($image));
+                      echo '<img src="data:image/jpeg;base64,' . $imageData . '">';
+                      ?>
+                    </td>
                     <td><?php echo $row['item_name']; ?></td>
                     <td><?php echo $row['item_price']; ?></td>
                     <td><?php echo $row['average_rating']; ?></td>
                     <td><?php echo $row['number_of_ratings']; ?></td>
-                    <td><?php echo $row['createddatetime']; ?></td>
                     <td><?php echo $row['createdby']; ?></td>
                     <td><?php echo $row['search_term']; ?></td>
                   </tr>
@@ -207,7 +213,6 @@ function filterTable($query)
       </div>
     </main>
   </div>
-
 </body>
 
 </html>
