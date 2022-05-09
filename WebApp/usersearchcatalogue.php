@@ -171,7 +171,7 @@ function filterTable($query)
           <!-- <div class="table-responsive"> -->
           <div>Number of Results: <?php echo $count ?></div>
           <br>
-          <div class="table table-bordered table-striped" style="text-align:left;" width="100%" cellspacing="0">
+          <div class="table table-bordered table-striped" style="text-align:left; table-layout: fixed; word-break: break-all;" width="100%" cellspacing="0">
             <table width="100%">
               <thead width="100%">
                 <tr>
