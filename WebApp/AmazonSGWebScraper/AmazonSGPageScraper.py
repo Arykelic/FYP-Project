@@ -25,8 +25,8 @@ def getdata(my_url):
     soup = BeautifulSoup(r.text, "html.parser")
     return soup
 
-def beforeQuestionMark(inputStr):
-    return inputStr.split("?")[0]
+def splitString(inputStr):
+    return inputStr.split("ref")[0]
 
 
 # use below line to check the html set
@@ -52,7 +52,7 @@ headers = "review_url, image_url, item_name, item_price, average_rating (Max Sco
 f.write(headers) """
 try:
     Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"})["href"])
-    Review_Url_Cleaned = beforeQuestionMark(Review_Url)
+    Review_Url_Cleaned = splitString(Review_Url)
 
     Image_Url_Container = soup.findAll("div", {"id": "main-image-container"})
     Image_Url = Image_Url_Container[0].img["src"]

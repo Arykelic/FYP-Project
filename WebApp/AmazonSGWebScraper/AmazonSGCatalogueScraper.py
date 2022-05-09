@@ -39,8 +39,8 @@ def getnextpage(soup):
     except AttributeError:
         return
 
-def beforeQuestionMark(inputStr):
-    return inputStr.split("?")[0]
+def splitString(inputStr):
+    return inputStr.split("ref")[0]
 
 i = 1
 
@@ -64,7 +64,7 @@ while i <= 21:
         for container in containers:
                 Product_Url_Container = container.findAll("a", {"class": "a-link-normal s-no-outline"})
                 Product_Url = "https://www.amazon.sg" + str(Product_Url_Container[0]["href"])
-                Product_Url_Cleaned = beforeQuestionMark(Product_Url)
+                Product_Url_Cleaned = splitString(Product_Url)
                 """ print(Product_Url_Cleaned) """
 
                 """ Image_Url_Container = container.findAll("div", {"class": "a-section aok-relative s-image-square-aspect"})
@@ -93,12 +93,12 @@ while i <= 21:
                     Number_Of_Ratings = "NA"
 
 
-                """ print("product_url: " + Product_Url_Cleaned)
+                print("product_url: " + Product_Url_Cleaned)
                 print("image_url: " + Image_Url)
                 print("item_name: " + Item_Name)
                 print("item_price: " + Item_Price)
                 print("average_rating: " + Average_Rating)
-                print("number_of_ratings: " + Number_Of_Ratings) """
+                print("number_of_ratings: " + Number_Of_Ratings)
                 
                 try:
                     connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
@@ -113,6 +113,13 @@ while i <= 21:
 
                 except pymysql.Error as err:
                     print("Something went wrong: {}".format(err))
+                    """ connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
+                    cursor = connection.cursor()
+                    sql = "UPDATE cataloguedata SET item_price = ?, average_rating = ?, number_of_ratings = ? WHERE product_url = ?"
+                    data = (Item_Price, Average_Rating, Number_Of_Ratings, Product_Url_Cleaned)
+                    cursor.execute(sql, data)
+                    print("Record updated #", i)
+                    connection.commit() """
                 
                 i += 1
 
