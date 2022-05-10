@@ -83,8 +83,9 @@ include "PageDataConfig.php";
         <label for="nav-toggle">
           <span class="las la-bars"></span>
         </label>
+
+        <h4><img src="elogofinal.png"></img></h4>
         
-        <img src="elogofinal.png" width="10%" height="10%"/>
         
         E-Commerce Insight (User)(Home)
       </h2>
