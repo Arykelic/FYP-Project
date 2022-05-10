@@ -210,11 +210,6 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                     </form>
 
                     <?php
-                    if (!preg_match($urlregex, $_POST["pagescraper"])) {
-                        $pagescraper_err = "Please enter a valid url.";
-                    } else {
-                        $pagescraper = test_input($_POST["pagescraper"]);
-                    }
 
                     if (isset($_POST['pagescrapebutton'])) {
                         /* shell_exec("app.py");
@@ -223,7 +218,12 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                         /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
                     $app_data = file_get_contents($app_link);
                     echo "<br><br>" . $app_data; */
-                    
+                        if (!preg_match($urlregex, $_POST["pagescraper"])) {
+                            $pagescraper_err = "Please enter a valid url.";
+                        } else {
+                            $pagescraper = test_input($_POST["pagescraper"]);
+                        }
+
                         /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                         if (empty($pagescraper_err)) {
                             $pageinput = $_POST["pagescraper"];
@@ -241,6 +241,8 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                             /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
                             /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
                             /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
+                        } else {
+                            echo '<script>alert("Please enter a valid url")</script>';
                         }
                     }
                     ?>

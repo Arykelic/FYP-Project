@@ -149,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             Login into
           </h4>
           <h4 class="title text-center mt-4">
-            <img class="logo" src="elogofinal.png"></img>   E-Commerce Insight
+            <img class="logo" src="elogofinal.png"></img>      E-Commerce Insight
           </h4>
 
           <form class="form-box px-3" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
