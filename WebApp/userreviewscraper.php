@@ -228,9 +228,9 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
 
                         if (empty($reivewscraper_err)) {
                             /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
-                            $reviewinput = $_POST["reviewscraper"];
+                            /* $reviewinput = $_POST["reviewscraper"]; */
                             $createdby = $_SESSION["username"];
-                            $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$reviewinput' '$createdby'");
+                            $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$reviewscraper' '$createdby'");
                             $result = shell_exec($command);
                             echo "<div>";
                             echo "<pre>$result</pre>";
