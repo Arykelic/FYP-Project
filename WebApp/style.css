@@ -552,9 +552,10 @@ img{
     height: 10px;
 }
 
-#title{
+.title{
   position: relative;
   top: 10px;
+  text-align:left;
 }
 /* backend search */
 
