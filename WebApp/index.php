@@ -135,6 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   .error {
     color: red;
   }
+
+
 </style>
 
 <body>
@@ -147,9 +149,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             Login into
           </h4>
           <h4 class="title text-center mt-4">
-            <img src="elogo.png" style="width:'100px'; height:'100px';">E-Commerce Insight
+            <img class="logo" src="elogo.png"></img>E-Commerce Insight
           </h4>
-          
+
           <form class="form-box px-3" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
 
             <div class="form-input">

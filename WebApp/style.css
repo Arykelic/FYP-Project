@@ -534,6 +534,14 @@ img{
   object-fit: cover;
 }
 
+.logo img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  height: 50px;
+  width: 50px;
+}
+
 /* backend search */
 
 /* .search-box{
