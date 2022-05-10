@@ -241,8 +241,6 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                             /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
                             /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
                             /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-                        } else {
-                            echo '<script>alert("Something went wrong. Please try again later")</script>';
                         }
                     }
                     ?>

@@ -84,9 +84,9 @@ include "PageDataConfig.php";
           <span class="las la-bars"></span>
         </label>
 
-        <span style="text-align:left;">
-          <h4><img src="elogofinal.png"></img></h4>
-        </span>
+        <label class="info" style="text-align:left;">
+          <img src="elogofinal.png"></img>
+        </label>
 
         E-Commerce Insight (User)(Home)
       </h2>
