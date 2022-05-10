@@ -14,7 +14,7 @@ include "CatalogueConfig.php";
 include "CombinedReviewConfig.php";
 include "PageDataConfig.php";
 
-
+$reviewscraper = "";
 $reivewscraper_err = "";
 $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/";
 
@@ -203,7 +203,7 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                     <h3>Product Review Scraper (enter a product review page url)(First 20 Reviews)</h3>
                     <form action="userreviewscraper.php" method="POST">
                         <div class="search-box">
-                            <input type="text" autocomplete="off" placeholder="Enter a review page url here" name="reviewscraper" required>
+                            <input type="text" autocomplete="off" placeholder="Enter a review page url here" value="<?php echo $reviewscraper; ?>" name="reviewscraper" required>
                             <label class="error"><?php echo $reivewscraper_err; ?></label>
                             <br>
                             <div class="result"></div><br>
