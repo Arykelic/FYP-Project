@@ -14,12 +14,14 @@ include "CatalogueConfig.php";
 include "CombinedReviewConfig.php";
 include "PageDataConfig.php";
 
-$urlregex = "/^(^[689]{1})(\d{7})$/";
+$pagescraper = "";
+$pagescraper_err = "";
+$urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/";
 
-if (!preg_match($urlregex, $_POST["phonenumber"])) {
-    $phonenumber_err = "Please enter a valid phone number.";
+if (!preg_match($urlregex, $_POST["pagescraper"])) {
+    $pagescraper_err = "Please enter a valid url.";
   } else {
-    $phonenumber = test_input($_POST["phonenumber"]);
+    $pagescraper = test_input($_POST["pagescraper"]);
   }
 
 ?>
@@ -204,7 +206,9 @@ if (!preg_match($urlregex, $_POST["phonenumber"])) {
                     <h3>Product Page Scraper (enter a item page url)</h3>
                     <form action="userpagescraper.php" method="POST">
                         <div class="search-box">
-                            <input type="text" autocomplete="off" placeholder="Enter a item page url here" name="pagescraper" required><br>
+                            <input type="text" autocomplete="off" placeholder="Enter a item page url here" name="pagescraper" required>
+                            <label class="error"><?php echo $pagescraper_err; ?></label>
+                            <br>
                             <div class="result"></div><br>
                             <input type="submit" value="Scrape Item Page" name="pagescrapebutton">
                         </div>
