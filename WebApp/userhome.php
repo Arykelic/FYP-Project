@@ -86,6 +86,7 @@ include "PageDataConfig.php";
 
         <label class="info" style="text-align:left;">
           <img src="elogofinal.png" style="width: 70px;"></img>
+          E-Commerce Insight (User)(Home)
           <!-- <span style="width: 70px;"><img src="elogofinal.png"></img></span> -->
         </label>
 
