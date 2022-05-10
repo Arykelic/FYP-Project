@@ -29,6 +29,17 @@ include "PageDataConfig.php";
   <script src="https://app.simplefileupload.com/buckets/4f2260bbeaf342ae7d7831862b11313c.js"></script>
 </head>
 
+<style>
+  img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  height: 50px;
+  width: 50px;
+}
+</style>
+
+
 <body>
   <input type="checkbox" id="nav-toggle"></input>
 
@@ -82,7 +93,7 @@ include "PageDataConfig.php";
           <span class="las la-bars"></span>
         </label>
         
-        <img src ="elogo.png" style="width:'100px'; height:'100px';">
+        <img src ="elogo.png"></img>
         E-Commerce Insight (User)(Home)
       </h2>
 
