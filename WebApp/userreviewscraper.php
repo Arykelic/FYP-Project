@@ -14,6 +14,16 @@ include "CatalogueConfig.php";
 include "CombinedReviewConfig.php";
 include "PageDataConfig.php";
 
+$reviewscraper = "";
+$reivewscraper_err = "";
+$urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/";
+
+if (!preg_match($urlregex, $_POST["reviewscraper"])) {
+    $reivewscraper_err = "Please enter a valid url.";
+} else {
+    $reviewscraper = test_input($_POST["reviewscraper"]);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -197,7 +207,9 @@ include "PageDataConfig.php";
                     <h3>Product Review Scraper (enter a product review page url)(First 20 Reviews)</h3>
                     <form action="userreviewscraper.php" method="POST">
                         <div class="search-box">
-                            <input type="text" autocomplete="off" placeholder="Enter a review page url here" name="reviewscraper" required><br>
+                            <input type="text" autocomplete="off" placeholder="Enter a review page url here" name="reviewscraper" required>
+                            <label class="error"><?php echo $reivewscraper_err; ?></label>
+                            <br>
                             <div class="result"></div><br>
                             <input type="submit" value="Scrape Review Page" name="reviewscrapebutton">
                         </div>
@@ -212,7 +224,7 @@ include "PageDataConfig.php";
                         /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
                     $app_data = file_get_contents($app_link);
                     echo "<br><br>" . $app_data; */
-
+                    if (empty($reivewscraper_err)) {
                         /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                         $reviewinput = $_POST["reviewscraper"];
                         $createdby = $_SESSION["username"];
@@ -229,6 +241,10 @@ include "PageDataConfig.php";
                         /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
                         /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
                     }
+                    else{
+                        echo '<script>alert("Something went wrong. Please try again later")</script>';
+                    }
+                }
                     ?>
                 </div>
 

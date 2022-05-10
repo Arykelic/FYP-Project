@@ -20,9 +20,9 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
 
 if (!preg_match($urlregex, $_POST["pagescraper"])) {
     $pagescraper_err = "Please enter a valid url.";
-  } else {
+} else {
     $pagescraper = test_input($_POST["pagescraper"]);
-  }
+}
 
 ?>
 
@@ -225,21 +225,25 @@ if (!preg_match($urlregex, $_POST["pagescraper"])) {
                     echo "<br><br>" . $app_data; */
 
                         /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
-                        $pageinput = $_POST["pagescraper"];
-                        $createdby = $_SESSION["username"];
-                        $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$pageinput' '$createdby'");
-                        $result = shell_exec($command);
-                        echo "<div>";
-                        echo "<pre>$result</pre>";
-                        echo "</div>";
+                        if (empty($pagescraper_err)) {
+                            $pageinput = $_POST["pagescraper"];
+                            $createdby = $_SESSION["username"];
+                            $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$pageinput' '$createdby'");
+                            $result = shell_exec($command);
+                            echo "<div>";
+                            echo "<pre>$result</pre>";
+                            echo "</div>";
 
-                        /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
+                            /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
 
-                        /* Different methods of passing through commands through shell */
-                        /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
-                        /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-                        /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
-                        /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
+                            /* Different methods of passing through commands through shell */
+                            /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
+                            /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
+                            /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
+                            /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
+                        } else {
+                            echo '<script>alert("Something went wrong. Please try again later")</script>';
+                        }
                     }
                     ?>
                 </div>
