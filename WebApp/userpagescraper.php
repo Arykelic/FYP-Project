@@ -196,7 +196,7 @@ include "PageDataConfig.php";
                     <h3>Product Page Scraper (enter a item page url)</h3>
                     <form action="userpagescraper.php" method="POST">
                         <div class="search-box">
-                            <input type="text" autocomplete="off" placeholder="Enter a item page url here" name="pagescraper"><br>
+                            <input type="text" autocomplete="off" placeholder="Enter a item page url here" name="pagescraper" required><br>
                             <div class="result"></div><br>
                             <input type="submit" value="Scrape Item Page" name="pagescrapebutton">
                         </div>
