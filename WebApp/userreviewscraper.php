@@ -14,10 +14,10 @@ include "CatalogueConfig.php";
 include "CombinedReviewConfig.php";
 include "PageDataConfig.php";
 
-$reviewscraper = "";
+/* $reviewscraper = "";
 $reivewscraper_err = "";
 $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/";
-
+ */
 
 ?>
 
@@ -203,8 +203,8 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                     <h3>Product Review Scraper (enter a product review page url)(First 20 Reviews)</h3>
                     <form action="userreviewscraper.php" method="POST">
                         <div class="search-box">
-                            <input type="text" autocomplete="off" placeholder="Enter a review page url here" value="<?php echo $reviewscraper; ?>" name="reviewscraper" required>
-                            <label class="error"><?php echo $reivewscraper_err; ?></label>
+                            <input type="text" autocomplete="off" placeholder="Enter a review page url here" name="reviewscraper" required>
+                            <!-- <label class="error"><?php echo $reivewscraper_err; ?></label> -->
                             <br>
                             <div class="result"></div><br>
                             <input type="submit" value="Scrape Review Page" name="reviewscrapebutton">
@@ -221,33 +221,33 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                     $app_data = file_get_contents($app_link);
                     echo "<br><br>" . $app_data; */
 
-                        if (!preg_match($urlregex, $_POST["reviewscraper"])) {
+                        /* if (!preg_match($urlregex, $_POST["reviewscraper"])) {
                             $reivewscraper_err = "Please enter a valid url.";
                         } else {
                             $reviewscraper = $_POST["reviewscraper"];
                         }
 
-                        if (empty($reivewscraper_err)) {
-                            /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
-                            /* $reviewinput = $_POST["reviewscraper"]; */
+                        if (empty($reivewscraper_err)) { */
+                        /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
+                        /* $reviewinput = $_POST["reviewscraper"]; */
 
-                            /* $reviewscraper = $_POST["reviewscraper"]; */
-                            $createdby = $_SESSION["username"];
-                            $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$reviewscraper' '$createdby'");
-                            $result = shell_exec($command);
-                            echo "<div>";
-                            echo "<pre>$result</pre>";
-                            echo "</div>";
+                        $reviewscraper = $_POST["reviewscraper"];
+                        $createdby = $_SESSION["username"];
+                        $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$reviewscraper' '$createdby'");
+                        $result = shell_exec($command);
+                        echo "<div>";
+                        echo "<pre>$result</pre>";
+                        echo "</div>";
 
-                            /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
-                            /* Different methods of passing through commands through shell */
-                            /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
-                            /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-                            /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
-                            /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-                        } else {
+                        /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
+                        /* Different methods of passing through commands through shell */
+                        /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
+                        /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
+                        /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
+                        /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
+                        /* } else {
                             echo '<script>alert("Please enter a valid url")</script>';
-                        }
+                        } */
                     }
                     ?>
                 </div>

@@ -14,10 +14,10 @@ include "CatalogueConfig.php";
 include "CombinedReviewConfig.php";
 include "PageDataConfig.php";
 
-$pagescraper = "";
+/* $pagescraper = "";
 $pagescraper_err = "";
 $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/";
-
+ */
 
 ?>
 
@@ -202,8 +202,8 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                     <h3>Product Page Scraper (enter a item page url)</h3>
                     <form action="userpagescraper.php" method="POST">
                         <div class="search-box">
-                            <input type="text" autocomplete="off" placeholder="Enter a item page url here" value="<?php echo $pagescraper; ?>" name="pagescraper" required>
-                            <label class="error"><?php echo $pagescraper_err; ?></label>
+                            <input type="text" autocomplete="off" placeholder="Enter a item page url here" name="pagescraper" required>
+                            <!-- <label class="error"><?php echo $pagescraper_err; ?></label> -->
                             <br>
                             <div class="result"></div><br>
                             <input type="submit" value="Scrape Item Page" name="pagescrapebutton">
@@ -220,15 +220,15 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                     $app_data = file_get_contents($app_link);
                     echo "<br><br>" . $app_data; */
 
-                        if (!preg_match($urlregex, $_POST["pagescraper"])) {
+                        /* if (!preg_match($urlregex, $_POST["pagescraper"])) {
                             $pagescraper_err = "Please enter a valid url.";
                         } else {
                             $pagescraper = $_POST["pagescraper"];
                         }
-                        /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
-                        if (empty($pagescraper_err)) {
+                        $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]);
+                        if (empty($pagescraper_err)) { */
 
-                            /* $pagescraper = $_POST["pagescraper"]; */
+                            $pagescraper = $_POST["pagescraper"];
                             $createdby = $_SESSION["username"];
                             $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$pagescraper' '$createdby'");
                             $result = shell_exec($command);
@@ -243,9 +243,9 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                             /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
                             /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
                             /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-                        } else {
+                        /* } else {
                             echo '<script>alert("Please enter a valid url")</script>';
-                        }
+                        } */
                     }
                     ?>
                 </div>
