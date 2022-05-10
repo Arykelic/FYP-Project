@@ -14,95 +14,20 @@ include "CatalogueConfig.php";
 include "CombinedReviewConfig.php";
 include "PageDataConfig.php";
 
-if (isset($_GET['page_no']) && $_GET['page_no'] != "") {
-  $page_no = $_GET['page_no'];
-} else {
-  $page_no = 1;
-}
-$total_records_per_page = 20;
-$offset = ($page_no - 1) * $total_records_per_page;
-$previous_page = $page_no - 1;
-$next_page = $page_no + 1;
-$adjacents = "2";
-$result_count = mysqli_query(
-  $mysqli,
-  "SELECT COUNT(*) As total_records FROM `cataloguedata`"
-);
-$total_records = mysqli_fetch_array($result_count);
-$total_records = $total_records['total_records'];
-$total_no_of_pages = ceil($total_records / $total_records_per_page);
-$second_last = $total_no_of_pages - 1; // total pages minus 1
-
-if ($total_no_of_pages <= 10) {
-  for ($counter = 1; $counter <= $total_no_of_pages; $counter++) {
-    if ($counter == $page_no) {
-      echo "<li class='active'><a>$counter</a></li>";
-    } else {
-      echo "<li><a href='?page_no=$counter'>$counter</a></li>";
-    }
-  }
-} elseif ($total_no_of_pages > 10) {
-  // Here we will add further conditions
-}
-if ($page_no <= 4) {
-  for ($counter = 1; $counter < 8; $counter++) {
-    if ($counter == $page_no) {
-      echo "<li class='active'><a>$counter</a></li>";
-    } else {
-      echo "<li><a href='?page_no=$counter'>$counter</a></li>";
-    }
-  }
-  echo "<li><a>...</a></li>";
-  echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
-  echo "<li><a href='?page_no=$total_no_of_pages'>$total_no_of_pages</a></li>";
-} elseif ($page_no > 4 && $page_no < $total_no_of_pages - 4) {
-  echo "<li><a href='?page_no=1'>1</a></li>";
-  echo "<li><a href='?page_no=2'>2</a></li>";
-  echo "<li><a>...</a></li>";
-  for (
-    $counter = $page_no - $adjacents;
-    $counter <= $page_no + $adjacents;
-    $counter++
-  ) {
-    if ($counter == $page_no) {
-      echo "<li class='active'><a>$counter</a></li>";
-    } else {
-      echo "<li><a href='?page_no=$counter'>$counter</a></li>";
-    }
-  }
-  echo "<li><a>...</a></li>";
-  echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
-  echo "<li><a href='?page_no=$total_no_of_pages'>$total_no_of_pages</a></li>";
-} else {
-  echo "<li><a href='?page_no=1'>1</a></li>";
-  echo "<li><a href='?page_no=2'>2</a></li>";
-  echo "<li><a>...</a></li>";
-  for (
-    $counter = $total_no_of_pages - 6;
-    $counter <= $total_no_of_pages;
-    $counter++
-  ) {
-    if ($counter == $page_no) {
-      echo "<li class='active'><a>$counter</a></li>";
-    } else {
-      echo "<li><a href='?page_no=$counter'>$counter</a></li>";
-    }
-  }
-}
 
 if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
   $searchValue = $_GET["searchValue"];
   // search in all table columns
   // using concat mysql function
   $query = "SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
-     `number_of_ratings`, `createdby`, `search_term` LIMIT $offset, $total_records_per_page) LIKE '%" . $searchValue . "%'";
+     `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%'";
   $search_result = filterTable($query);
   /* $count = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
   `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%') AS count";
   $count_result = filterTableCount($count); */
 
   $sql = "SELECT COUNT(*) from (SELECT * FROM `cataloguedata` WHERE CONCAT(`catalogueid`, `product_url`, `item_name`, `item_price`, `average_rating` ,
-  `number_of_ratings`, `createdby`, `search_term` LIMIT $offset, $total_records_per_page) LIKE '%" . $searchValue . "%') as count";
+  `number_of_ratings`, `createdby`, `search_term`) LIKE '%" . $searchValue . "%') as count";
   $result = mysqli_query($mysqli, $sql);
   $data = mysqli_fetch_assoc($result);
   $count = implode(",", $data);
@@ -247,50 +172,20 @@ function filterTable($query)
           <!-- <div class="table-responsive"> -->
           <div>Number of Results: <?php echo $count ?></div>
           <br>
-
-          <div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC;'>
-            <strong>Page <?php echo $page_no . " of " . $total_no_of_pages; ?></strong>
-          </div>
-          <ul class="pagination">
-            <?php if ($page_no > 1) {
-              echo "<li><a href='?page_no=1'>First Page</a></li>";
-            } ?>
-
-            <li <?php if ($page_no <= 1) {
-                  echo "class='disabled'";
-                } ?>>
-              <a <?php if ($page_no > 1) {
-                    echo "href='?page_no=$previous_page'";
-                  } ?>>Previous</a>
-            </li>
-
-            <li <?php if ($page_no >= $total_no_of_pages) {
-                  echo "class='disabled'";
-                } ?>>
-              <a <?php if ($page_no < $total_no_of_pages) {
-                    echo "href='?page_no=$next_page'";
-                  } ?>>Next</a>
-            </li>
-
-            <?php if ($page_no < $total_no_of_pages) {
-              echo "<li><a href='?page_no=$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
-            } ?>
-
-          </ul>
-
+          
           <div class="table table-bordered table-striped" style="text-align:left; table-layout: fixed; word-break: break-all;" width="100%" cellspacing="0">
-            <table>
-              <thead>
+            <table >
+              <thead >
                 <tr>
                   <td width="7%">Catalogue Id</td>
-                  <td>Product Url</td>
-                  <td>Image</td>
-                  <td>Item Name</td>
-                  <td>Item Price</td>
+                  <td >Product Url</td>
+                  <td >Image</td>
+                  <td >Item Name</td>
+                  <td >Item Price</td>
                   <td width="11%">Average Rating</td>
-                  <td>No. Of Ratings</td>
-                  <td>Created By</td>
-                  <td>Search Term</td>
+                  <td >No. Of Ratings</td>
+                  <td >Created By</td>
+                  <td >Search Term</td>
                 </tr>
               </thead>
               <tbody>
