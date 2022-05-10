@@ -551,6 +551,11 @@ img{
     width: 10px;
     height: 10px;
 }
+
+#title{
+  position: relative;
+  top: 10px;
+}
 /* backend search */
 
 /* .search-box{
