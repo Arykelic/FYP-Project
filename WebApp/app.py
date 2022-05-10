@@ -103,7 +103,7 @@ with st.sidebar:
 
 
 
-image_list = df.iloc[:, 1].unique().tolist()
+image_list = base64.b64decode(df.iloc[:, 1].unique().tolist())
 item_list = df.iloc[:, 2].unique().tolist() 
 user_list = df.iloc[:, 3].unique().tolist()
 rs_list = df.iloc[:, 4].tolist()
