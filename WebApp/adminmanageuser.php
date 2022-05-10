@@ -65,6 +65,7 @@ include "UserConfig.php";
         <label for="nav-toggle">
           <span class="las la-bars"></span>
         </label>
+        <img src="elogofinal.png" style="position:relative; top: 10px; height: 40px; width: 40px;"></img>
         E-Commerce Insight (Admin)(Manage User)
       </h2>
 

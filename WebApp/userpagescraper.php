@@ -112,6 +112,7 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
+                <img src="elogofinal.png" style="position:relative; top: 10px; height: 40px; width: 40px;"></img>
                 E-Commerce Insight (User)(Product Page Scraper)
             </h2>
 
@@ -219,14 +220,14 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                     $app_data = file_get_contents($app_link);
                     echo "<br><br>" . $app_data; */
 
-
+                        if (!preg_match($urlregex, $_POST["pagescraper"])) {
+                            $pagescraper_err = "Please enter a valid url.";
+                        } else {
+                            $pagescraper = $_POST["pagescraper"];
+                        }
                         /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                         if (empty($pagescraper_err)) {
-                            if (!preg_match($urlregex, $_POST["pagescraper"])) {
-                                $pagescraper_err = "Please enter a valid url.";
-                            } else {
-                                $pagescraper = $_POST["pagescraper"];
-                            }
+
                             /* $pageinput = $_POST["pagescraper"]; */
                             $createdby = $_SESSION["username"];
                             $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$pagescraper' '$createdby'");

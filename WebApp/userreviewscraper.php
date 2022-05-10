@@ -112,6 +112,7 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
+                <img src="elogofinal.png" style="position:relative; top: 10px; height: 40px; width: 40px;"></img>
                 E-Commerce Insight (User)(Product Review Scraper)
             </h2>
 
@@ -220,16 +221,17 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                     $app_data = file_get_contents($app_link);
                     echo "<br><br>" . $app_data; */
 
-
+                        if (!preg_match($urlregex, $_POST["reviewscraper"])) {
+                            $reivewscraper_err = "Please enter a valid url.";
+                        } else {
+                            $reviewscraper = $_POST["reviewscraper"];
+                        }
 
                         if (empty($reivewscraper_err)) {
                             /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                             /* $reviewinput = $_POST["reviewscraper"]; */
-                            if (!preg_match($urlregex, $_POST["reviewscraper"])) {
-                                $reivewscraper_err = "Please enter a valid url.";
-                            } else {
-                                $reviewscraper = $_POST["reviewscraper"];
-                            }
+
+                            /* $reviewscraper = $_POST["reviewscraper"]; */
                             $createdby = $_SESSION["username"];
                             $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGReviewScraper.py '$reviewscraper' '$createdby'");
                             $result = shell_exec($command);

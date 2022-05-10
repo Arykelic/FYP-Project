@@ -117,6 +117,7 @@ if (isset($_GET["userid"]) && !empty(trim($_GET["userid"]))) {
         <label for="nav-toggle">
           <span class="las la-bars"></span>
         </label>
+        <img src="elogofinal.png" style="position:relative; top: 10px; height: 40px; width: 40px;"></img>
         E-Commerce Insight (Admin)(View User)
       </h2>
 

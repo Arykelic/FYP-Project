@@ -146,6 +146,7 @@ if (isset($_POST["userid"]) && !empty($_POST["userid"])) {
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
+                <img src="elogofinal.png" style="position:relative; top: 10px; height: 40px; width: 40px;"></img>
                 E-Commerce Insight (Admin)(Delete User)
             </h2>
 
