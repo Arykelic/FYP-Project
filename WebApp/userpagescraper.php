@@ -14,6 +14,14 @@ include "CatalogueConfig.php";
 include "CombinedReviewConfig.php";
 include "PageDataConfig.php";
 
+$urlregex = "/^(^[689]{1})(\d{7})$/";
+
+if (!preg_match($urlregex, $_POST["phonenumber"])) {
+    $phonenumber_err = "Please enter a valid phone number.";
+  } else {
+    $phonenumber = test_input($_POST["phonenumber"]);
+  }
+
 ?>
 
 <!DOCTYPE html>
