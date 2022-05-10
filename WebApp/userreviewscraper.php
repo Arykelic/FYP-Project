@@ -18,11 +18,6 @@ $reviewscraper = "";
 $reivewscraper_err = "";
 $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/";
 
-if (!preg_match($urlregex, $_POST["reviewscraper"])) {
-    $reivewscraper_err = "Please enter a valid url.";
-} else {
-    $reviewscraper = test_input($_POST["reviewscraper"]);
-}
 
 ?>
 
@@ -224,6 +219,13 @@ if (!preg_match($urlregex, $_POST["reviewscraper"])) {
                         /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
                     $app_data = file_get_contents($app_link);
                     echo "<br><br>" . $app_data; */
+
+                    if (!preg_match($urlregex, $_POST["reviewscraper"])) {
+                        $reivewscraper_err = "Please enter a valid url.";
+                    } else {
+                        $reviewscraper = test_input($_POST["reviewscraper"]);
+                    }
+                    
                     if (empty($reivewscraper_err)) {
                         /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                         $reviewinput = $_POST["reviewscraper"];

@@ -84,7 +84,10 @@ include "PageDataConfig.php";
           <span class="las la-bars"></span>
         </label>
 
-        <span style="text-align:left;"><img src="elogofinal.png"></img></span>
+        <span style="text-align:left;">
+          <h4><img src="elogofinal.png"></img></h4>
+        </span>
+
         E-Commerce Insight (User)(Home)
       </h2>
 
@@ -228,7 +231,7 @@ include "PageDataConfig.php";
               /* $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
 
 
-             /*  $command =  escapeshellcmd("python apprunner.py");
+              /*  $command =  escapeshellcmd("python apprunner.py");
                 $result = shell_exec($command);
                 echo "<div>";
                 print_r($result);

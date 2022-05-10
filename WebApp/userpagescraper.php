@@ -18,11 +18,6 @@ $pagescraper = "";
 $pagescraper_err = "";
 $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/";
 
-if (!preg_match($urlregex, $_POST["pagescraper"])) {
-    $pagescraper_err = "Please enter a valid url.";
-} else {
-    $pagescraper = test_input($_POST["pagescraper"]);
-}
 
 ?>
 
@@ -223,6 +218,11 @@ if (!preg_match($urlregex, $_POST["pagescraper"])) {
                         /* $app_link = "https://fyp-project-recommender-system.herokuapp.com/app.py";
                     $app_data = file_get_contents($app_link);
                     echo "<br><br>" . $app_data; */
+                    if (!preg_match($urlregex, $_POST["pagescraper"])) {
+                        $pagescraper_err = "Please enter a valid url.";
+                    } else {
+                        $pagescraper = test_input($_POST["pagescraper"]);
+                    }
 
                         /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
                         if (empty($pagescraper_err)) {
