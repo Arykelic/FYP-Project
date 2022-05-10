@@ -81,6 +81,8 @@ include "PageDataConfig.php";
         <label for="nav-toggle">
           <span class="las la-bars"></span>
         </label>
+        <label><img src ="elogo.png"></label>
+        <img src ="elogo.png">
         E-Commerce Insight (User)(Home)
       </h2>
 
@@ -224,7 +226,7 @@ include "PageDataConfig.php";
               /* $command =  escapeshellcmd("sh setup.sh && streamlit run app.py --server.enableXsrfProtection=false"); */
 
 
-              /* $command =  escapeshellcmd("python apprunner.py");
+             /*  $command =  escapeshellcmd("python apprunner.py");
                 $result = shell_exec($command);
                 echo "<div>";
                 print_r($result);

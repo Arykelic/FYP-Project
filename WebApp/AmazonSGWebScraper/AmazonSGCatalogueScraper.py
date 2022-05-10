@@ -112,7 +112,9 @@ while i <= 21:
                     i += 1 """
 
                 except pymysql.Error as err:
-                    print("Something went wrong: {}".format(err))
+                    print("This item has already been scraped, please choose a different search term")
+                    """ print("Something went wrong: {}".format(err)) """
+
                     """ connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
                     cursor = connection.cursor()
                     sql = "UPDATE cataloguedata SET item_price = ?, average_rating = ?, number_of_ratings = ? WHERE product_url = ?"

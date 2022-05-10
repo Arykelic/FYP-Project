@@ -113,7 +113,8 @@ while i <= 22:
                     i += 1 """
                     
                 except pymysql.Error as err:
-                    print("Something went wrong: {}".format(err))
+                    """ print("Something went wrong: {}".format(err)) """
+                    print("This item has already been scraped, please choose a different product page review")
 
                 i += 1
 

@@ -127,7 +127,8 @@ try:
     connection.commit()
     
 except pymysql.Error as err:
-    print("Something went wrong: {}".format(err))
+    """ print("Something went wrong: {}".format(err)) """
+    print("This item has already been scraped, please choose a different product page item")
 """ f.close()
 print("End of CSV Writing") """
 

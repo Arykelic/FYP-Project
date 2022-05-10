@@ -43,6 +43,7 @@ def main():
     option3 = st.container()
     calculate = st.container()
 
+    
     db_connection_str = 'mysql+pymysql://y0vryqAKXK:moMOpaacUP@remotemysql.com/y0vryqAKXK'
 
     query = 'select * from combinedreview'
