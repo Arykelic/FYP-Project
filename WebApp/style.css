@@ -544,6 +544,11 @@ img{
   height: 100%;
   object-fit: cover;
 }
+
+.site-logo {
+  width: 50px;
+  height: auto;
+}
 /* backend search */
 
 /* .search-box{
