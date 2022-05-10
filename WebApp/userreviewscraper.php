@@ -223,7 +223,7 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                         if (!preg_match($urlregex, $_POST["reviewscraper"])) {
                             $reivewscraper_err = "Please enter a valid url.";
                         } else {
-                            $reviewscraper = test_input($_POST["reviewscraper"]);
+                            $reviewscraper = $_POST["reviewscraper"];
                         }
 
                         if (empty($reivewscraper_err)) {

@@ -221,7 +221,7 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                         if (!preg_match($urlregex, $_POST["pagescraper"])) {
                             $pagescraper_err = "Please enter a valid url.";
                         } else {
-                            $pagescraper = test_input($_POST["pagescraper"]);
+                            $pagescraper = $_POST["pagescraper"];
                         }
 
                         /* $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]); */
