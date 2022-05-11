@@ -492,6 +492,7 @@ input[type=reset] {
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
+  font-size: 20px;
   border-radius: 4px;
   cursor: pointer;
 }
