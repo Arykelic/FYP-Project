@@ -38,7 +38,7 @@ include "PageDataConfig.php";
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="userhome.php" class="active"><span class="fa-solid fa-house fa-1.5x"></span>
+          <a href="userhome.php" class="active"><span class="fa-solid fa-house fa-1x"></span>
             <span>Home</span></a>
         </li>
         <li>
@@ -50,27 +50,27 @@ include "PageDataConfig.php";
             <span>Product Catalogue Scraper</span></a>
         </li>
         <li>
-          <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file fa-1.5x"></span>
+          <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file fa-2x"></span>
             <span>Product Page Scraper</span></a>
         </li>
         <li>
-          <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star"></span>
+          <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star fa-1x"></span>
             <span>Product Review Scraper</span></a>
         </li>
         <li>
-          <a href="https://ratingrecommendersystem.herokuapp.com" class="active"><span class="fa-solid fa-computer fa-1.5x"></span>
+          <a href="https://ratingrecommendersystem.herokuapp.com" class="active"><span class="fa-solid fa-computer fa-1x"></span>
             <span>Recommender System</span></a>
         </li>
         <li>
-          <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user fa-1.5x"></span>
+          <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user fa-1x"></span>
             <span>Edit Personal Information</span></a>
         </li>
         <li>
-          <a href="userresetpassword.php"><span class="fa-solid fa-key fa-1.5x"></span>
+          <a href="userresetpassword.php"><span class="fa-solid fa-key fa-1x"></span>
             <span>Reset Password</span></a>
         </li>
         <li>
-          <a href="Logout.php"><span class="fa-solid fa-right-from-bracket fa-1.5x"></span>
+          <a href="Logout.php"><span class="fa-solid fa-right-from-bracket fa-1x"></span>
             <span>Logout</span></a>
         </li>
       </ul>

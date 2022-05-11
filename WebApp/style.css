@@ -259,7 +259,7 @@ main {
   background: var(--main-color);
   border-radius: 10px;
   color: #fff;
-  font-size: .10rem;
+  font-size: .5rem;
   padding: .5rem 1rem;
   border: 1px solid var(--main-color);
 }
