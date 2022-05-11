@@ -52,7 +52,8 @@
 }
 
 .sidebar-menu li:hover {
-  background-color: #f63366;
+  background: #f63366;
+  border-radius: 100%;
 }
 
 .sidebar-menu a {
@@ -64,7 +65,7 @@
 
 
 .sidebar-menu a:active {
-
+  background: #f63366;
   padding-top: 1rem;
   padding-bottom: 1rem;
   color: var(--main-color);
@@ -262,6 +263,7 @@ main {
   font-size: .5rem;
   padding: .5rem 1rem;
   border: 1px solid var(--main-color);
+  cursor: pointer;
 }
 
 table {
