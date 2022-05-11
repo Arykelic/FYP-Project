@@ -38,39 +38,39 @@ include "PageDataConfig.php";
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="userhome.php" class="active"><span class="fa-solid fa-house fa-1x"></span>
+          <a href="userhome.php" class="active"><span class="fa-solid fa-house fa-sm"></span>
             <span>Home</span></a>
         </li>
         <li>
-          <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database fa-1.5x"></span>
+          <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database fa-sm"></span>
             <span>View Records</span></a>
         </li>
         <li>
-          <a href="usercataloguescraper.php" class="active"><span class="fa-solid fa-book-atlas fa-1.5x"></span>
+          <a href="usercataloguescraper.php" class="active"><span class="fa-solid fa-book-atlas fa-sm"></span>
             <span>Product Catalogue Scraper</span></a>
         </li>
         <li>
-          <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file fa-2x"></span>
+          <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file fa-sm"></span>
             <span>Product Page Scraper</span></a>
         </li>
         <li>
-          <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star fa-1x"></span>
+          <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star fa-sm"></span>
             <span>Product Review Scraper</span></a>
         </li>
         <li>
-          <a href="https://ratingrecommendersystem.herokuapp.com" class="active"><span class="fa-solid fa-computer fa-1x"></span>
+          <a href="https://ratingrecommendersystem.herokuapp.com" class="active"><span class="fa-solid fa-computer fa-sm"></span>
             <span>Recommender System</span></a>
         </li>
         <li>
-          <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user fa-1x"></span>
+          <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user fa-sm"></span>
             <span>Edit Personal Information</span></a>
         </li>
         <li>
-          <a href="userresetpassword.php"><span class="fa-solid fa-key fa-1x"></span>
+          <a href="userresetpassword.php"><span class="fa-solid fa-key fa-sm"></span>
             <span>Reset Password</span></a>
         </li>
         <li>
-          <a href="Logout.php"><span class="fa-solid fa-right-from-bracket fa-1x"></span>
+          <a href="Logout.php"><span class="fa-solid fa-right-from-bracket fa-sm"></span>
             <span>Logout</span></a>
         </li>
       </ul>
