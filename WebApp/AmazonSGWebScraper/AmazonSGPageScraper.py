@@ -104,14 +104,14 @@ except:
     allSimilarItemsString = "NA"
     Item_Brand = "NA"
 
-print("review_url: " + Review_Url_Cleaned)
+""" print("review_url: " + Review_Url_Cleaned)
 print("image_url: " + Image_Url)
-print("item_name: " + search_term_value)
+print("item_name: " + search_term_value) """
 """ print("item_price: " + Item_Price) """
-print("average_rating: " + Average_Rating)
+""" print("average_rating: " + Average_Rating)
 print("number_of_ratings: " + Number_Of_Ratings)
 print("similar_items: " + allSimilarItemsString)
-print("item_brand: " + Item_Brand)
+print("item_brand: " + Item_Brand) """
 
 
 """ f.write(Review_Url.replace(",", "|") + "," + Image_Url.replace(",", "|") + "," + search_term.replace(",", "|") + "," +

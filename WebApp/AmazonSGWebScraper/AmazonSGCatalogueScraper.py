@@ -141,8 +141,8 @@ while i <= 21:
             break
         
         if i == 21:
-            print("(" , recordsinserted , ") Records Inserted")
-            print("(" , duplicatecount , ") Duplicate Records Found")
+            print("(", recordsinserted ,") Records Inserted")
+            print("(", duplicatecount ,") Duplicate Records Found")
             print("Scraping completed")
             """ print("20 Records have been added successfully to the database, closing the script") """
             break
