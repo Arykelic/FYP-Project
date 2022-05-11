@@ -123,7 +123,7 @@ try:
     sql = "INSERT INTO pagedata (review_url, image_url, item_name, average_rating, number_of_ratings, similar_items, item_brand, createdby) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
     data = (Review_Url_Cleaned, Image_Url, search_term_value, Average_Rating, Number_Of_Ratings, allSimilarItemsString, Item_Brand, createdby)
     cursor.execute(sql, data)
-    print("Record inserted")
+    print("Scraping completed")
     connection.commit()
     
 except pymysql.Error as err:

@@ -168,6 +168,65 @@ include "PageDataConfig.php";
       <div class="r-grid">
         <div class="projects">
           <div class="card">
+
+            <div class="card-header">
+              <h2>Web Scraper</h2>
+            </div>
+
+            <div class="card-body">
+              <h2>What is a Web Scraper??</h2>
+              <img src="WebScraperExample.png" alt="WebScraperExample"></img>
+              <h3>The job of the web scraper is to help retrieve and parse data from any online websites and material such as online storefronts and marketplaces.
+                The web scraper parses the data from html based websites to convert into meaningful data to help make informed decisions.
+              </h3>
+              <!-- <img src="WebScraperExample2.png" alt="WebScraperExample2"></img>
+              <h2>Future/Potential Improvements and Developments</h2>
+              <h3>Future improvements that are being explored for the system is to potentially include scrapers for other eCommerce platforms and improving the consistency
+                and features of the current scrapers to scrape pages such as the high fluctuation items inside the AmazonSG marketplace and additional features
+                for the recommender system to capitalize on available data. Proper error handling messages and improved usability is another field where improvements can
+                also be made.
+              </h3> -->
+            </div>
+
+
+
+            <!-- <br>
+
+            <div class="card-body">
+              <h2>Product Catalogue Scraper</h2>
+              <img src="ProductCatalogueScraperExample.jpg" alt="ProductCatalogueScraperExample"></img>
+              <h3>Our Product Catalogue Scraper aims to scrape generalised information about the products that appear through a search term within AmazonSG aimed to help give
+                our users a general idea of what products customers are seeing when they search for products. A key metric for the catalogue scraper is the search term where
+                finding through other analytical tools what customers are searching for can yield similar results and give our users a better understanding of what products
+                eCommerce customers are presented. For example, the image above shows the result set from the search term samsung smartphones inside the AmazonSG marketplace and
+                the various products that are presented to the user.
+              </h3>
+              <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
+              <a href="usercataloguescraper.php"><input type="submit" value="Enter Product Catalogue" name="productcatalogue"></input></a>
+            </div>
+
+            <br> -->
+
+            <!-- <div class="card-body">
+              <h2>Product Review Scraper</h2>
+              <img src="ProductReviewScraperExample.jpg" alt="ProductReviewScraperExample"></img>
+              <h3>Our Product Review Scraper aims to scrape information about the individual products review within each product page that has reviews attached to it.
+                This is the bread and butter of our recommender system and the key information that will be used to train and build the user-based collaborative
+                filtering algorithm to help accurately predict the rating score a user m will give to an item n.
+                The image above shows the various types of reviews that will be scraped for the product, some key factors of the reviews is that it consists of reviews from
+                other regions across the world as well as reviews from singapore. While there are some advantages and disadvantages of this, a key advantage of this
+                is that we are able to compare the reviews and opinions of a global reviewer base that takes into account a wider range of preferences and opinions.
+              </h3>
+              <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
+              <a href="userreviewscraper.php"><input type="submit" value="Enter Product Review" name="productreview"></input></a>
+            </div> -->
+
+
+          </div>
+        </div>
+
+        <div class="projects">
+          <div class="card">
             <div class="card-header">
               <h2>Recommender System</h2>
 
@@ -180,14 +239,13 @@ include "PageDataConfig.php";
               <!-- <input type="submit" value="Enter Recommender System" name="recommendersystem"></input>
               </form> -->
 
-              <h2>Product Recommender System (User Based Collaborative Filtering)</h2>
+              <h2>Recommender System</h2>
               <img src="RecommenderSystemExample.jpg" alt="RecommenderSystemExample"></img>
-              <h3>Our Product Recommender System serves as a recommender and dashboarding tool aimed at helping Small-Medium Enterprises (SMEs) analyse and
-                breakdown key trends within eCommerce Markets to help them make informed decisions about the current pool of users and products.
+              <h3>
                 Receive key insights about the performance of various products and their key metrics which correlate to positive
                 ratings to enhance and improve your own products before launch</h3>
-              <h4>Welcome to our system!! Click on the button below to enter our system</h4>
-              <a href="https://ratingrecommendersystem.herokuapp.com"><input type="submit" value="Enter Recommender System" name="recommendersystem"></input></a>
+              <!-- <h4>Welcome to our system!! Click on the button below to enter our system</h4>
+              <a href="https://ratingrecommendersystem.herokuapp.com"><input type="submit" value="Enter Recommender System" name="recommendersystem"></input></a> -->
 
               <?php
 
@@ -242,64 +300,7 @@ include "PageDataConfig.php";
 
             </div>
 
-            <br>
-
-            <div class="card-body">
-              <h2>Product Catalogue Scraper</h2>
-              <img src="ProductCatalogueScraperExample.jpg" alt="ProductCatalogueScraperExample"></img>
-              <h3>Our Product Catalogue Scraper aims to scrape generalised information about the products that appear through a search term within AmazonSG aimed to help give
-                our users a general idea of what products customers are seeing when they search for products. A key metric for the catalogue scraper is the search term where
-                finding through other analytical tools what customers are searching for can yield similar results and give our users a better understanding of what products
-                eCommerce customers are presented. For example, the image above shows the result set from the search term samsung smartphones inside the AmazonSG marketplace and
-                the various products that are presented to the user.
-              </h3>
-              <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
-              <a href="usercataloguescraper.php"><input type="submit" value="Enter Product Catalogue" name="productcatalogue"></input></a>
-            </div>
-
-            <br>
-
-            <div class="card-body">
-              <h2>Product Review Scraper</h2>
-              <img src="ProductReviewScraperExample.jpg" alt="ProductReviewScraperExample"></img>
-              <h3>Our Product Review Scraper aims to scrape information about the individual products review within each product page that has reviews attached to it.
-                This is the bread and butter of our recommender system and the key information that will be used to train and build the user-based collaborative
-                filtering algorithm to help accurately predict the rating score a user m will give to an item n.
-                The image above shows the various types of reviews that will be scraped for the product, some key factors of the reviews is that it consists of reviews from
-                other regions across the world as well as reviews from singapore. While there are some advantages and disadvantages of this, a key advantage of this
-                is that we are able to compare the reviews and opinions of a global reviewer base that takes into account a wider range of preferences and opinions.
-              </h3>
-              <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
-              <a href="userreviewscraper.php"><input type="submit" value="Enter Product Review" name="productreview"></input></a>
-            </div>
-
-
-          </div>
-        </div>
-
-        <div class="projects">
-          <div class="card">
-            <div class="card-header">
-              <h2>Web Scraper</h2>
-            </div>
-
-            <div class="card-body">
-              <h2>What is a Web Scraper??</h2>
-              <img src="WebScraperExample.png" alt="WebScraperExample"></img>
-              <h3>The job of the web scraper is to help retrieve and parse data from any online websites and material such as online storefronts and marketplaces.
-                The web scraper parses the data from html based websites to convert into the desired output format that can be utilized by systems to process that data
-                by Extracting-Transforming-Loading (ETL) the data into meaningful information to help make informed decisions.
-              </h3>
-              <img src="WebScraperExample2.png" alt="WebScraperExample2"></img>
-              <h2>Future/Potential Improvements and Developments</h2>
-              <h3>Future improvements that are being explored for the system is to potentially include scrapers for other eCommerce platforms and improving the consistency
-                and features of the current scrapers to scrape pages such as the high fluctuation items inside the AmazonSG marketplace and additional features
-                for the recommender system to capitalize on available data. Proper error handling messages and improved usability is another field where improvements can
-                also be made.
-              </h3>
-            </div>
-
-            <br>
+            <!-- <br>
 
             <div class="card-body">
               <h2>Product Page Scraper</h2>
@@ -310,7 +311,7 @@ include "PageDataConfig.php";
               </h3>
               <h4>Navigate the toolbar on the left or click the button below to see it in action!</h4>
               <a href="userpagescraper.php"><input type="submit" value="Enter Product Page" name="productpage"></input></a>
-            </div>
+            </div> -->
 
 
 

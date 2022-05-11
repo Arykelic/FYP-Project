@@ -106,7 +106,7 @@ while i <= 21:
                     sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings, createdby, search_term) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
                     data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings, createdby, search_term)
                     cursor.execute(sql, data)
-                    print("Record inserted #", i)
+                    """ print("Record inserted #", i) """
                     connection.commit()
                     """ To parse through the next few records other than the duplicates (However heroku will crash due to too many requests)
                     i += 1 """
@@ -132,11 +132,11 @@ while i <= 21:
         url = getnextpage(soup)
         if not url:
             connection.close()
-            print("MySQL connection is closed")
+            """ print("MySQL connection is closed") """
             break
         
         if i == 21:
-            print("Script has ended")
+            print("Scraping completed")
             """ print("20 Records have been added successfully to the database, closing the script") """
             break
         

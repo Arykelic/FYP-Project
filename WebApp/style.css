@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
 
 :root {
-  --main-color: #4b4276;
+  --main-color: #black;
   --text-grey: #8390A2;
 }
 
@@ -59,7 +59,7 @@
 }
 
 .sidebar-menu a:active {
-  background: #fff;
+  background: #f63366;
   padding-top: 1rem;
   padding-bottom: 1rem;
   color: var(--main-color);
@@ -470,6 +470,7 @@ input[type=submit] {
   margin: 8px 0;
   border: none;
   border-radius: 4px;
+  font-size: 150%;
   cursor: pointer;
 }
 

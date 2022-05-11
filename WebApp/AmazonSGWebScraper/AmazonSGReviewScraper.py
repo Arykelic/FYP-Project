@@ -107,7 +107,7 @@ while i <= 22:
                     sql = "INSERT INTO combinedreview (image_url, item_name, customername, rating_score, review_location, review_date, createdby) VALUES (%s,%s,%s,%s,%s,%s,%s)"
                     data = (Image_Url, Item_Name, Username, Rating_Score, Review_Location_Formatted, Review_Date_Formatted, createdby)
                     cursor.execute(sql, data)
-                    print("Record inserted #", i)
+                    """ print("Record inserted #", i) """
                     connection.commit()
                     """ To parse through the next few records other than the duplicates (However heroku will crash due to too many requests)
                     i += 1 """
@@ -126,12 +126,12 @@ while i <= 22:
         if not url:
             """ f.close() """
             connection.close()
-            print("MySQL connection is closed")
+            """ print("MySQL connection is closed") """
             """ print("End of CSV Writing") """
             break
 
         if i == 22:
-            print("Script has ended")
+            print("Scraping completed")
             """ print("20 Reviews have been added successfully to the database, closing the script") """
             break
 
