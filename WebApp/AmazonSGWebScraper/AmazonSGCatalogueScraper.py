@@ -43,6 +43,8 @@ def splitString(inputStr):
     return inputStr.split("ref")[0]
 
 i = 1
+recordsinserted = 0
+duplicatecount = 0
 
 """ while True: """
 while i <= 21:
@@ -107,12 +109,15 @@ while i <= 21:
                     data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings, createdby, search_term)
                     cursor.execute(sql, data)
                     """ print("Record inserted #", i) """
+                    recordsinserted += 1
                     connection.commit()
                     """ To parse through the next few records other than the duplicates (However heroku will crash due to too many requests)
                     i += 1 """
 
                 except pymysql.Error as err:
-                    print("This item has already been scraped, please choose a different search term")
+                    duplicatecount += 1
+                    
+                    """ print("This item has already been scraped, please choose a different search term") """
                     """ print("Something went wrong: {}".format(err)) """
 
                     """ connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
@@ -136,6 +141,8 @@ while i <= 21:
             break
         
         if i == 21:
+            print("(" , recordsinserted , ") Records Inserted")
+            print("(" , duplicatecount , ") Duplicate Records Found")
             print("Scraping completed")
             """ print("20 Records have been added successfully to the database, closing the script") """
             break

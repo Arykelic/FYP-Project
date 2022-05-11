@@ -46,6 +46,8 @@ headers = "image_url, item_name, customername, rating_score (Max Score is 5), re
 f.write(headers) """
 
 i = 1
+recordsinserted = 0
+duplicatecount = 0
 
 """ while True: """
 while i <= 22:
@@ -108,13 +110,16 @@ while i <= 22:
                     data = (Image_Url, Item_Name, Username, Rating_Score, Review_Location_Formatted, Review_Date_Formatted, createdby)
                     cursor.execute(sql, data)
                     """ print("Record inserted #", i) """
+                    recordsinserted += 1
                     connection.commit()
                     """ To parse through the next few records other than the duplicates (However heroku will crash due to too many requests)
                     i += 1 """
                     
                 except pymysql.Error as err:
                     """ print("Something went wrong: {}".format(err)) """
-                    print("This item has already been scraped, please choose a different product page review")
+                    duplicatecount += 1
+                    """ print("(" , duplicatecount , ") duplicate records found") """
+                    """ print("This item has already been scraped, please choose a different product page review") """
 
                 i += 1
 
@@ -131,6 +136,8 @@ while i <= 22:
             break
 
         if i == 22:
+            print("(" , recordsinserted , ") Records Inserted")
+            print("(" , duplicatecount , ") Duplicate Records Found")
             print("Scraping completed")
             """ print("20 Reviews have been added successfully to the database, closing the script") """
             break

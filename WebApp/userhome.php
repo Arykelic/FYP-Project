@@ -174,7 +174,7 @@ include "PageDataConfig.php";
             </div>
 
             <div class="card-body">
-              <h2>What is a Web Scraper??</h2>
+              <!-- <h2>What is a Web Scraper??</h2> -->
               <img src="WebScraperExample.png" alt="WebScraperExample"></img>
               <h3>The job of the web scraper is to help retrieve and parse data from any online websites and material such as online storefronts and marketplaces.
                 The web scraper parses the data from html based websites to convert into meaningful data to help make informed decisions.
@@ -239,7 +239,7 @@ include "PageDataConfig.php";
               <!-- <input type="submit" value="Enter Recommender System" name="recommendersystem"></input>
               </form> -->
 
-              <h2>Recommender System</h2>
+              <!-- <h2>Recommender System</h2> -->
               <img src="RecommenderSystemExample.jpg" alt="RecommenderSystemExample"></img>
               <h3>
                 Receive key insights about the performance of various products and their key metrics which correlate to positive
