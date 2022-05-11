@@ -136,8 +136,8 @@ while i <= 22:
             break
 
         if i == 22:
-            print("(", recordsinserted ,") Records Inserted")
-            print("(", duplicatecount ,") Duplicate Records Found")
+            print("(",recordsinserted,") Records Inserted")
+            print("(",duplicatecount,") Duplicate Records Found")
             print("Scraping completed")
             """ print("20 Reviews have been added successfully to the database, closing the script") """
             break
