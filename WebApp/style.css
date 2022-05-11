@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
 
 :root {
-  --main-color: #006ab4;
+  --main-color: #2C3845;
   --text-grey: #8390A2;
 }
 
@@ -51,6 +51,10 @@
   padding-left: 2rem;
 }
 
+.sidebar-menu li:hover {
+  background: #f63366;
+}
+
 .sidebar-menu a {
   padding-left: 1rem;
   display: block;
@@ -58,9 +62,6 @@
   font-size: 1.1rem;
 }
 
-.sidebar-menu a:hover {
-  background: #f63366;
-}
 
 .sidebar-menu a:active {
 
@@ -475,7 +476,7 @@ input[type=submit] {
   margin: 8px 0;
   border: none;
   border-radius: 4px;
-  font-size: 15px;
+  font-size: 20px;
   cursor: pointer;
 }
 
@@ -505,6 +506,7 @@ input[type=reset]:hover {
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
+  font-size: 20px;
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
@@ -521,6 +523,7 @@ input[type=reset]:hover {
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
+  font-size: 20px;
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
