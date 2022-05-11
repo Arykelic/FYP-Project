@@ -53,7 +53,7 @@
 
 .sidebar-menu li:hover {
   background: #f63366;
-  transform: scale(1.2);
+  transform: scale(1);
 }
 
 .sidebar-menu a {
