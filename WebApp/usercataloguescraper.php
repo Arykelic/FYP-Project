@@ -194,7 +194,7 @@ include "PageDataConfig.php";
                 </div>
 
                 <div class="card-body">
-                    <h3>Product Catalogue Scraper (delimit search terms with a "+")(First 20 Records)</h3>
+                    <h3>Delimit search terms with a "+"(First 20 Records)</h3>
                     <form action="usercataloguescraper.php" method="POST">
                         <!-- <div class="search-box"> -->
                         <input type="text" placeholder="Enter a catalogue search term here" name="cataloguescraper" required><br>

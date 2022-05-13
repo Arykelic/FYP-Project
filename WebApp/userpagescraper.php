@@ -199,7 +199,7 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                 </div>
 
                 <div class="card-body">
-                    <h3>Product Page Scraper (enter a item page url)</h3>
+                    <!-- <h3>Product Page Scraper (enter a item page url)</h3> -->
                     <form action="userpagescraper.php" method="POST">
                         <div class="search-box">
                             <input type="text" autocomplete="off" placeholder="Enter a item page url here" name="pagescraper" required>

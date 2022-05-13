@@ -200,7 +200,7 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                 </div>
 
                 <div class="card-body">
-                    <h3>Product Review Scraper (enter a product review page url)(First 20 Reviews)</h3>
+                    <h3>First 20 Reviews</h3>
                     <form action="userreviewscraper.php" method="POST">
                         <div class="search-box">
                             <input type="text" autocomplete="off" placeholder="Enter a review page url here" name="reviewscraper" required>

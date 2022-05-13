@@ -64,6 +64,7 @@ while i <= 21:
 
         # loop inside each container
         for container in containers:
+            try:
                 Product_Url_Container = container.findAll("a", {"class": "a-link-normal s-no-outline"})
                 Product_Url = "https://www.amazon.sg" + str(Product_Url_Container[0]["href"])
                 Product_Url_Cleaned = splitString(Product_Url)
@@ -78,6 +79,8 @@ while i <= 21:
 
                 Item_Name_Container = container.findAll("a", {"class": "a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal"})
                 Item_Name = Item_Name_Container[0].span.text
+            except:
+                print("Scraping unsuccessfully, please try again")
 
                 try:
                     Item_Price_Container = container.findAll("span", {"class": "a-offscreen"})

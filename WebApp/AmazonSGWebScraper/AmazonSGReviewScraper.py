@@ -31,9 +31,14 @@ def getnextpage(soup):
     except AttributeError:
         return
 
+
 soup = getdata(url)
-search_term_value = soup.find("h1", {"class":"a-size-large a-text-ellipsis"}).text
-search_term = search_term_value.strip().replace('"', ",").replace("|",",").replace("/",",").replace("-",",")
+
+try:
+    search_term_value = soup.find("h1", {"class":"a-size-large a-text-ellipsis"}).text
+    search_term = search_term_value.strip().replace('"', ",").replace("|",",").replace("/",",").replace("-",",")
+except:
+    print("Scraping unsuccessfully, please try again")
 
 #Change Directory
 """ os.chdir('AmazonSGReviewFiles')

@@ -35,9 +35,9 @@ soup = getdata(my_url)
 # use below line to check the length of the dataset
 # len(containers)
 
+
+
 """ search_term_value = soup.find("h1", {"class": "a-size-large a-spacing-none"}).text """
-search_term_value = soup.find("span", {"id": "productTitle"}).text
-search_term_stripped = search_term_value.strip()
 
 
 # Change Directory
@@ -50,6 +50,10 @@ headers = "review_url, image_url, item_name, item_price, average_rating (Max Sco
 
 f.write(headers) """
 try:
+
+    search_term_value = soup.find("span", {"id": "productTitle"}).text
+    search_term_stripped = search_term_value.strip()
+
     Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"})["href"])
     Review_Url_Cleaned = splitString(Review_Url)
 
@@ -57,7 +61,7 @@ try:
     Image_Url = Image_Url_Container[0].img["src"]
 
 except:
-    print("Unable to find any reviews")
+    print("Scraping unsuccessfully, please try again")
 
 """ Original Image Scraper
  Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"] """
