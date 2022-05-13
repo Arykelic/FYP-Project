@@ -125,6 +125,7 @@ while i <= 22:
                     duplicatecount += 1
                     """ print("(" , duplicatecount , ") duplicate records found") """
                     """ print("This item has already been scraped, please choose a different product page review") """
+                    
 
                 i += 1
 

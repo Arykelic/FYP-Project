@@ -50,18 +50,23 @@ headers = "review_url, image_url, item_name, item_price, average_rating (Max Sco
 
 f.write(headers) """
 try:
-
     search_term_value = soup.find("span", {"id": "productTitle"}).text
     search_term_stripped = search_term_value.strip()
-
-    Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"})["href"])
-    Review_Url_Cleaned = splitString(Review_Url)
 
     Image_Url_Container = soup.findAll("div", {"id": "main-image-container"})
     Image_Url = Image_Url_Container[0].img["src"]
 
 except:
     print("Scraping unsuccessfully, please try again")
+
+try:
+    Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"})["href"])
+    
+    Review_Url_Cleaned = splitString(Review_Url)
+    print(Review_Url_Cleaned)
+    
+except:
+    print("Warning: No Reviews Found for this product")
 
 """ Original Image Scraper
  Image_Url = soup.find("div", {"class": "imgTagWrapper"}).img["src"] """
