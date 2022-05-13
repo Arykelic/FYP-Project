@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 import numpy as np
 import pandas as pd
 import json
-
+#import time
 
 from PIL import Image
 from surprise import Reader, Dataset
@@ -26,7 +26,7 @@ hide_st_style = """
                 #MainMenu {visibility: hidden;}
                 footer {visibility: hidden;}
                 header {visibility: hidden;}
-                </style>
+                </style> 
                 """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
@@ -59,17 +59,22 @@ option2 = st.container()
 option3 = st.container()
 calculate = st.container()
 
-db_connection_str = 'mysql+pymysql://y0vryqAKXK:moMOpaacUP@remotemysql.com/y0vryqAKXK'
+db_connection_str = 'mysql+pymysql://y0vryqAKXK:ovYvXY4sFJ@remotemysql.com/y0vryqAKXK'
 
 query = 'select * from combinedreview'
+
+def load_lottiefile(filepath: str):
+    with open(filepath, 'r') as f:
+        return json.load(f)
 
 @st.cache(allow_output_mutation=True)
 def get_connection():
     return create_engine(db_connection_str)
 
-@st.cache
+
+
 def load_data(query):
-    #with st.spinner('Loading Data...'):
+    #with st.spinner('Loading...Please Wait.'):
         #time.sleep(0.5)
     df = pd.read_sql(query, get_connection())
     return df
@@ -77,9 +82,7 @@ def load_data(query):
 df = load_data(query)
 
         
-def load_lottiefile(filepath: str):
-    with open(filepath, 'r') as f:
-        return json.load(f)
+
 
     
 
@@ -103,12 +106,14 @@ with st.sidebar:
 
 
 
-image_list = base64.b64decode(df.iloc[:, 1].unique().tolist())
+image_list = df.iloc[:, 1].unique().tolist()
 item_list = df.iloc[:, 2].unique().tolist() 
 user_list = df.iloc[:, 3].unique().tolist()
 rs_list = df.iloc[:, 4].tolist()
 country_list = df.iloc[:, 5].unique().tolist()
 date_list = df.iloc[:, 6].unique().tolist()
+
+
 
 storeImage = image_list
 
@@ -159,8 +164,21 @@ def overallPlots():
 
             ratingcounts = df['rating_score'].value_counts()
 
-            st.markdown('''<h2 style='text-align: left; color: #28e515 ;'>Displaying Overall Rating Scores</h2>''',
+            lottie_img = load_lottiefile('lottie/allstars.json')
+            
+            col1, col2 = st.columns((1,17))
+
+
+            with col1:
+                    
+                st_lottie(lottie_img, height=80, width=80, key='allstars')
+                            
+            with col2:
+                
+                st.markdown('''<h2 style='text-align: left; color: #28e515 ;'>Displaying Overall Rating Scores</h2>''',
                         unsafe_allow_html=True)
+
+
         
             st.markdown(f'*Total Rated Scores:* **{len(rs_list)}**')
                     
@@ -401,11 +419,19 @@ def custSelect():
 
          if selected == "Customers":
 
-            
+            lottie_img = load_lottiefile('lottie/profiles.json')
+
+            col1, col2 = st.columns((1,8))
+
+            with col1:
+                st_lottie(lottie_img, height=150, width=150, key='profiles')
+                
+            with col2:
+                st.markdown('''<h2 style='text-align: left; position:relative;top:50px; color:#28e515;'>Display Customer's Statistics</h2>''',
+                            unsafe_allow_html=True)
 
           
-            st.markdown('''<h2 style='text-align: left; color:#28e515;'>Display Customer's Statistics</h2>''',
-                            unsafe_allow_html=True)
+           
                 
             
             
@@ -457,21 +483,13 @@ def custSelect():
               
                 fig3 = px.pie(x, values=userdetails, names=userdetails.index, hole=.3, title='Number of each Ratings based on Customer')
                 
-                user1, user2, user3 = st.columns(3)
+                user1, user2 = st.columns(2)
 
-                lottie_img = load_lottiefile('lottie/custstats.json')
+              
+                user1.plotly_chart(fig2,use_container_width=True)
+                user2.plotly_chart(fig3, use_container_width=True)
 
-                
-                
-                with user1:
-                    user1.plotly_chart(fig2,use_container_width=True)
-
-                with user2:
-                    user2.plotly_chart(fig3, use_container_width=True)
-
-                with user3:
-                    st_lottie(lottie_img, height=450, width=450, key='cstats')
-    
+        
               
    
     
@@ -531,7 +549,9 @@ def predictScore():
                     combined = dict(zip(item_list, storeImage))
                     st.image(combined[itemsopt], width=200)
                     calculate_button = st.button('Calculate', on_click=None)
+
                     if calculate_button == True:
+
                         st.subheader('Estimated Rating Score out of 5 is:')  
                         result = st.success(svd.predict(itemsopt, usersopt).est.round(2))
             
