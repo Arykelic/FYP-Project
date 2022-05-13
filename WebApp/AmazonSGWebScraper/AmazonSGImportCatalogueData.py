@@ -8,7 +8,7 @@ empdata[" average_rating (Max Score is 5)"].fillna("NA", inplace = True)
 empdata[" number_of_ratings "].fillna("NA", inplace = True) 
 empdata.head()
 
-connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
+connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="ovYvXY4sFJ", database="y0vryqAKXK")
 cursor = connection.cursor()
 
 

@@ -37,7 +37,7 @@ if (isset($_GET["searchValue"]) && !empty(trim($_GET["searchValue"]))) {
 
 function filterTable($query)
 {
-    $connect = mysqli_connect("remotemysql.com", "y0vryqAKXK", "moMOpaacUP", "y0vryqAKXK");
+    $connect = mysqli_connect("remotemysql.com", "y0vryqAKXK", "ovYvXY4sFJ", "y0vryqAKXK");
     $filter_Result = mysqli_query($connect, $query);
     return $filter_Result;
 }

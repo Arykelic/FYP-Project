@@ -103,7 +103,7 @@ while i <= 21:
                 print("number_of_ratings: " + Number_Of_Ratings) """
                 
                 try:
-                    connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
+                    connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="ovYvXY4sFJ", database="y0vryqAKXK")
                     cursor = connection.cursor()
                     sql = "INSERT INTO cataloguedata (product_url, image_url, item_name, item_price, average_rating, number_of_ratings, createdby, search_term) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
                     data = (Product_Url_Cleaned, Image_Url, Item_Name, Item_Price, Average_Rating, Number_Of_Ratings, createdby, search_term)
@@ -120,7 +120,7 @@ while i <= 21:
                     """ print("This item has already been scraped, please choose a different search term") """
                     """ print("Something went wrong: {}".format(err)) """
 
-                    """ connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="moMOpaacUP", database="y0vryqAKXK")
+                    """ connection = pymysql.connect(host="remotemysql.com", user="y0vryqAKXK", passwd="ovYvXY4sFJ", database="y0vryqAKXK")
                     cursor = connection.cursor()
                     sql = "UPDATE cataloguedata SET item_price = ?, average_rating = ?, number_of_ratings = ? WHERE product_url = ?"
                     data = (Item_Price, Average_Rating, Number_Of_Ratings, Product_Url_Cleaned)
