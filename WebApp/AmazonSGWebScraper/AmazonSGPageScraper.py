@@ -61,9 +61,8 @@ except:
 
 try:
     Review_Url = "https://www.amazon.sg" + str(soup.find("a", {"class": "a-link-emphasis a-text-bold"})["href"])
-    
     Review_Url_Cleaned = splitString(Review_Url)
-    print(Review_Url_Cleaned)
+    
     
 except:
     print("Warning: No Reviews Found for this product")
