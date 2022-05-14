@@ -67,39 +67,39 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="userhome.php" class="active"><span class="fa-solid fa-house"></span>
-                        <span>Home</span></a>
+                    <a href="userhome.php" class="active"><span class="fa-solid fa-house "></span>
+                        <span> Home</span></a>
                 </li>
                 <li>
-                    <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database"></span>
+                    <a href="usercataloguescraper.php" class="active"><span class="fa-solid fa-book-atlas "></span>
+                        <span> Product Catalogue Scraper</span></a>
+                </li>
+                <li>
+                    <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file "></span>
+                        <span> Product Page Scraper</span></a>
+                </li>
+                <li>
+                    <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star fa-sm"></span>
+                        <span> Product Review Scraper</span></a>
+                </li>
+                <li>
+                    <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database "></span>
                         <span>View Records</span></a>
                 </li>
                 <li>
-                    <a href="usercataloguescraper.php" class="active"><span class="fa-solid fa-book-atlas"></span>
-                        <span>Product Catalogue Scraper</span></a>
-                </li>
-                <li>
-                    <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file"></span>
-                        <span>Product Page Scraper</span></a>
-                </li>
-                <li>
-                    <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star"></span>
-                        <span>Product Review Scraper</span></a>
-                </li>
-                <li>
-                    <a href="https://ratingrecommendersystem.herokuapp.com" class="active"><span class="fa-solid fa-computer"></span>
+                    <a href="https://ratingrecommendersystem.herokuapp.com" class="active"><span class="fa-solid fa-computer fa-sm"></span>
                         <span>Recommender System</span></a>
                 </li>
                 <li>
-                    <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user"></span>
+                    <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user fa-sm"></span>
                         <span>Edit Personal Information</span></a>
                 </li>
                 <li>
-                    <a href="userresetpassword.php"><span class="fa-solid fa-key"></span>
+                    <a href="userresetpassword.php"><span class="fa-solid fa-key fa-sm"></span>
                         <span>Reset Password</span></a>
                 </li>
                 <li>
-                    <a href="Logout.php"><span class="fa-solid fa-right-from-bracket"></span>
+                    <a href="Logout.php"><span class="fa-solid fa-right-from-bracket fa-sm"></span>
                         <span>Logout</span></a>
                 </li>
             </ul>
@@ -228,21 +228,21 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                         $command = system("python AmazonSGCatalogueScraper.py" . $_GET["cataloguescraper"]);
                         if (empty($pagescraper_err)) { */
 
-                            $pagescraper = $_POST["pagescraper"];
-                            $createdby = $_SESSION["username"];
-                            $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$pagescraper' '$createdby'");
-                            $result = shell_exec($command);
-                            echo "<div>";
-                            echo "<pre>$result</pre>";
-                            echo "</div>";
+                        $pagescraper = $_POST["pagescraper"];
+                        $createdby = $_SESSION["username"];
+                        $command =  escapeshellcmd("python AmazonSGWebScraper/AmazonSGPageScraper.py '$pagescraper' '$createdby'");
+                        $result = shell_exec($command);
+                        echo "<div>";
+                        echo "<pre>$result</pre>";
+                        echo "</div>";
 
-                            /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
+                        /* echo shell_exec("python3 AmazonSGCatalogueScraper.py '$input' 2>&1"); */
 
-                            /* Different methods of passing through commands through shell */
-                            /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
-                            /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
-                            /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
-                            /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
+                        /* Different methods of passing through commands through shell */
+                        /* $command =  escapeshellcmd('python /AmazonSGWebScraper/AmazonSGCatalogueScraper.py'); */
+                        /* $command = system("python AmazonSGCatalogueScraper.py 'smartphones'"); */
+                        /* $command = exec("python AmazonSGCatalogueScraper.py 'smartphones' 2>&1"); */
+                        /* $command = passthru("python AmazonSGCatalogueScraper.py 'smartphones'"); */
                         /* } else {
                             echo '<script>alert("Please enter a valid url")</script>';
                         } */

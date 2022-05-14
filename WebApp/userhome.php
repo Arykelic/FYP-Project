@@ -39,23 +39,23 @@ include "PageDataConfig.php";
       <ul>
         <li>
           <a href="userhome.php" class="active"><span class="fa-solid fa-house "></span>
-            <span>Home</span></a>
+            <span> Home</span></a>
+        </li>
+        <li>
+          <a href="usercataloguescraper.php" class="active"><span class="fa-solid fa-book-atlas "></span>
+            <span> Product Catalogue Scraper</span></a>
+        </li>
+        <li>
+          <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file "></span>
+            <span> Product Page Scraper</span></a>
+        </li>
+        <li>
+          <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star fa-sm"></span>
+            <span> Product Review Scraper</span></a>
         </li>
         <li>
           <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database "></span>
             <span>View Records</span></a>
-        </li>
-        <li>
-          <a href="usercataloguescraper.php" class="active"><span class="fa-solid fa-book-atlas "></span>
-            <span>Product Catalogue Scraper</span></a>
-        </li>
-        <li>
-          <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file "></span>
-            <span>Product Page Scraper</span></a>
-        </li>
-        <li>
-          <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star fa-sm"></span>
-            <span>Product Review Scraper</span></a>
         </li>
         <li>
           <a href="https://ratingrecommendersystem.herokuapp.com" class="active"><span class="fa-solid fa-computer fa-sm"></span>
