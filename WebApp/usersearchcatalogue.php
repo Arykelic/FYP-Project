@@ -83,39 +83,39 @@ function filterTable($query)
       <ul>
         <li>
           <a href="userhome.php" class="active"><span class="fa-solid fa-house"></span>
-            <span>Home</span></a>
-        </li>
-        <li>
-          <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database"></span>
-            <span>View Records</span></a>
+            <span style="padding: 5px;">Home</span></a>
         </li>
         <li>
           <a href="usercataloguescraper.php" class="active"><span class="fa-solid fa-book-atlas"></span>
-            <span>Product Catalogue Scraper</span></a>
+            <span style="padding: 12px; font-size: 96%;">Product Catalogue Scraper</span></a>
         </li>
         <li>
           <a href="userpagescraper.php" class="active"><span class="fa-solid fa-file"></span>
-            <span>Product Page Scraper</span></a>
+            <span style="padding: 15px;">Product Page Scraper</span></a>
         </li>
         <li>
           <a href="userreviewscraper.php" class="active"><span class="fa-solid fa-star"></span>
-            <span>Product Review Scraper</span></a>
+            <span style="padding: 5px;">Product Review Scraper</span></a>
+        </li>
+        <li>
+          <a href="userviewrecords.php" class="active"><span class="fa-solid fa-database"></span>
+            <span style="padding: 10px;">View Records</span></a>
         </li>
         <li>
           <a href="https://ratingrecommendersystem.herokuapp.com" class="active"><span class="fa-solid fa-computer"></span>
-            <span>Recommender System</span></a>
+            <span style="padding: 0px;">Recommender System</span></a>
         </li>
         <li>
           <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user"></span>
-            <span>Edit Personal Information</span></a>
+            <span style="padding: 5px;">Edit Personal Information</span></a>
         </li>
         <li>
           <a href="userresetpassword.php"><span class="fa-solid fa-key"></span>
-            <span>Reset Password</span></a>
+            <span style="padding: 5px;">Reset Password</span></a>
         </li>
         <li>
           <a href="Logout.php"><span class="fa-solid fa-right-from-bracket"></span>
-            <span>Logout</span></a>
+            <span style="padding: 5px;">Logout</span></a>
         </li>
       </ul>
     </div>
