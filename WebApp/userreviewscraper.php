@@ -201,7 +201,7 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
 
                 <div class="card-body">
                     <h3>First 20 Records</h3>
-                    <h3>example: https://www.amazon.sg/Teals-Radiance-Vitamin-Citrus-Essential/product-reviews/B07PHFRJGW/</h3>
+                    <h4>example: https://www.amazon.sg/Teals-Radiance-Vitamin-Citrus-Essential/product-reviews/B07PHFRJGW/</h4>
                     <form action="userreviewscraper.php" method="POST">
                         <div class="search-box">
                             <input type="text" autocomplete="off" placeholder="Enter a review page url here" name="reviewscraper" required>
