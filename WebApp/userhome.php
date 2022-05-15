@@ -61,6 +61,11 @@ include "PageDataConfig.php";
           <a href="https://ratingrecommendersystem.herokuapp.com" class="active"><span class="fa-solid fa-computer"></span>
             <span style="padding: 0px;">Recommender System</span></a>
         </li>
+        <!-- to open the link in a new tab
+        <li>
+          <a href="https://ratingrecommendersystem.herokuapp.com" target="_blank" class="active"><span class="fa-solid fa-computer"></span>
+            <span style="padding: 0px;">Recommender System</span></a>
+        </li> -->
         <li>
           <a href="userupdatepersonalinfo.php"><span class="fa-solid fa-circle-user"></span>
             <span style="padding: 5px;">Edit Personal Information</span></a>
