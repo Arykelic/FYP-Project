@@ -199,7 +199,8 @@ $urlregex = "/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:
                 </div>
 
                 <div class="card-body">
-                    <h4>example: https://www.amazon.sg/Teals-Radiance-Vitamin-Citrus-Essential/dp/B07PHFRJGW/</h4>
+                    <!-- <h3>Please ensure the entered url follows the same format and there are no "?"</h3>
+                    <h4>example: https://www.amazon.sg/Teals-Radiance-Vitamin-Citrus-Essential/dp/B07PHFRJGW/</h4> -->
                     <form action="userpagescraper.php" method="POST">
                         <div class="search-box">
                             <input type="text" autocomplete="off" placeholder="Enter a item page url here" name="pagescraper" required>

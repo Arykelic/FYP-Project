@@ -7,11 +7,16 @@ import pymysql
 
 s = HTMLSession()
 
+def splitString(inputStr):
+    return inputStr.split("ref")[0]
+
 #my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
 """ print('Enter the url link to be scraped') """
-url = sys.argv[1]
+url = splitString(sys.argv[1])
 print(f'Filtering out {url}')
 createdby = sys.argv[2]
+
+
 
 def getdata(url):
     r = s.get(url)

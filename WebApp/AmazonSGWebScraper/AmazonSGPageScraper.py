@@ -9,9 +9,11 @@ import pymysql
 
 s = HTMLSession()
 
+def splitString(inputStr):
+    return inputStr.split("ref")[0]
 #my_url = "https://www.amazon.sg/Samsung-Factory-Unlocked-Smartphone-Pro-Grade/dp/B08FYTSXGQ/ref=sr_1_48?crid=21O3WZX42E419&keywords=samsung+smartphones&qid=1647967669&sprefix=samsung+smartphones%2Caps%2C270&sr=8-48"
 """ print('Enter the url link to be scraped') """
-my_url = sys.argv[1]
+my_url = splitString(sys.argv[1])
 print(f'Filtering out {my_url}')
 createdby = sys.argv[2]
 
@@ -24,10 +26,8 @@ def getdata(my_url):
     soup = BeautifulSoup(r.text, "html.parser")
     return soup
 
-def splitString(inputStr):
-    return inputStr.split("ref")[0]
 
-
+""" cleaned_url = splitString(my_url) """
 # use below line to check the html set
 # page_soup.h1
 soup = getdata(my_url)
