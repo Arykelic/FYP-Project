@@ -1,9 +1,10 @@
+#import the libraries
 import streamlit as st
 from streamlit_option_menu import option_menu
 import numpy as np
 import pandas as pd
 import json
-#import time
+
 
 from PIL import Image
 from surprise import Reader, Dataset
@@ -18,6 +19,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from streamlit_lottie import st_lottie
 
+#set the webpage layout
 st.set_page_config(layout="wide")
 
 #Hide streamlit style
@@ -30,6 +32,7 @@ hide_st_style = """
                 """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+#css style button
 s = f"""
         <style>
         .button {{border: none;
@@ -52,6 +55,7 @@ s = f"""
         """
 st.markdown(s, unsafe_allow_html=True)
 
+#containers for the different sections
 header = st.container()
 option0 = st.container()
 option1 = st.container()
@@ -59,10 +63,12 @@ option2 = st.container()
 option3 = st.container()
 calculate = st.container()
 
+#connect to db
 db_connection_str = 'mysql+pymysql://y0vryqAKXK:ovYvXY4sFJ@remotemysql.com/y0vryqAKXK'
 
 query = 'select * from combinedreview'
 
+#load json animation
 def load_lottiefile(filepath: str):
     with open(filepath, 'r') as f:
         return json.load(f)
@@ -74,8 +80,6 @@ def get_connection():
 
 
 def load_data(query):
-    #with st.spinner('Loading...Please Wait.'):
-        #time.sleep(0.5)
     df = pd.read_sql(query, get_connection())
     return df
 
@@ -85,10 +89,11 @@ df = load_data(query)
 
 
     
-
+#user back button
 st.sidebar.write('''<h2 style='position:relative;left:15px;'>Go back to User Page <a target="_self" href="https://fyp-project-recommender-system.herokuapp.com/userhome.php"><button class="button button1">Back</button></a></h2>''', 
                         unsafe_allow_html=True)
-        
+
+#sidebar navigation menu        
 with st.sidebar:
     selected = option_menu(
                 menu_title="Menu", 
@@ -105,7 +110,7 @@ with st.sidebar:
                 )
 
 
-
+#filter out the data columns
 image_list = df.iloc[:, 1].unique().tolist()
 item_list = df.iloc[:, 2].unique().tolist() 
 user_list = df.iloc[:, 3].unique().tolist()
@@ -114,11 +119,11 @@ country_list = df.iloc[:, 5].unique().tolist()
 date_list = df.iloc[:, 6].unique().tolist()
 
 
-
+#store the image list
 storeImage = image_list
 
 
-
+#homepage
 def introduction():
     with header:
 
@@ -135,10 +140,7 @@ def introduction():
                 
                 st.markdown('''<h1 style='position:relative;top:100px;text-align: left; color:white ;'>Rating Recommender System</h1>''',unsafe_allow_html=True)
                 
-            
-
-            
-            
+              
             intro = st.markdown('''<h4 style='text-align: left; color: #f63366;'>The Data is based on Amazon webpage</h4>''',unsafe_allow_html=True)
             st.write('')
             st.write('')
@@ -148,19 +150,13 @@ def introduction():
             col3.metric("Total No. of Rated Scores", len(rs_list))
 
 
-
+#overall ratings page
 def overallPlots():
     
     with option0:
     
-       
-
 
         if selected == "Ratings":
-
-            #askcategory = st.sidebar.radio("Do you want to view Overall Rating Scores?" + '📊',('Yes', 'No'), index=1)
-             
-            #if askcategory == 'Yes':
 
             ratingcounts = df['rating_score'].value_counts()
 
@@ -196,16 +192,12 @@ def overallPlots():
             rate2.plotly_chart(fig4, use_container_width=True)
 
 
+#compare items/customers page
 def compareSelection():
 
     with option1:
 
         if selected == "Compare Selections":
-
-            #askselection = st.write("Compare Selections here")
-
-            #itemyes = st.checkbox('Items')
-            #useryes = st.checkbox('Customers')
 
             col1, col2 = st.columns((1,8))
 
@@ -218,8 +210,7 @@ def compareSelection():
                 st.markdown('''<h2 style='position:relative;top:25px;text-align: left; color: #28e515 ;'>Compare Selections</h2>''',
                         unsafe_allow_html=True)
 
-            
-        
+
 
             left,right,r2,r3,r4,r5,r6,r7 = st.columns(8)
 
@@ -261,9 +252,7 @@ def compareSelection():
                      
                 st.plotly_chart(fig2, use_container_width=True)
                     
-                    
-                    
-                  
+
                     
             if useryes:
 
@@ -281,6 +270,7 @@ def compareSelection():
                 st.plotly_chart(fig, use_container_width=True)
                 
 
+#item's stats page
 def itemSelect():            
     with option2:
 
@@ -308,19 +298,17 @@ def itemSelect():
                 st.info('You can view the Item information here.')
             
             else:
-                #intro.empty()
-                
+
             
                 st.markdown(f'*Item Name:* **{checkitem}**')
+
+                combined = dict(zip(item_list, storeImage))
+                st.image(combined[checkitem], width=200)
                 
                 x = df[df['item_name'] == checkitem]
 
                 itemdetails = x['rating_score'].value_counts()
                 
-                
-                
-                #filtercol = x['Review_Date '].str.split('Reviewed in').str[1]
-                #filtercol2 = filtercol.str.split('on').str[0]
 
                 countrydetails = x['review_location'].value_counts()
                 
@@ -338,7 +326,9 @@ def itemSelect():
               
                 fig3 = px.pie(x, values=itemdetails, names=itemdetails.index, hole=.3, title='Number of each Ratings based on Item')
                 
+      
                 c1.plotly_chart(fig2,use_container_width=True)
+
                 c2.plotly_chart(fig3, use_container_width=True)
                 
                 
@@ -351,11 +341,6 @@ def itemSelect():
                 filtercol3 = filtercol +' '+ filtercol2
                 
              
-
-                
-                #days_sorted = sorted(filtercol3, key=lambda day: datetime.strptime(day, "%b %y"))
-                
-                
                
                 choice = st.multiselect('Please select the month(s)',sort_order, sort_order)
                
@@ -377,11 +362,7 @@ def itemSelect():
                 bar_chart.update_xaxes(title_text='Rating Score')
                 bar_chart.update_yaxes(title_text='No. of Ratings')
                 
-                
-                
-                #checkmonth = mask.value_counts()
-                
-              
+       
                 
                 fig = px.line(dfgrouped,title='Total Ratings based on ' + str(choice))
                 fig.update_layout(xaxis=(dict(showgrid=False)),showlegend=False,plot_bgcolor='rgba(0,0,0,0)', yaxis=(dict(showgrid=False)),)
@@ -391,16 +372,7 @@ def itemSelect():
                 c3.plotly_chart(bar_chart,use_container_width=True)
                 c4.plotly_chart(fig,use_container_width=True)
                 
-                
-                
-                #fig0 = px.bar(checkmonth,text=checkmonth, color_discrete_sequence = ['#F63366'],title='Number of Ratings based on Month')
-                #fig0.update_layout(xaxis=(dict(showgrid=False)), plot_bgcolor='rgba(0,0,0,0)', yaxis=(dict(showgrid=False)),)
-                #fig0.update_xaxes(title_text='Month')
-                #fig0.update_yaxes(title_text='No. of Ratings')
-                #st.write(fig0)
-                
-                
-                
+  
                 fig4 = px.bar(countrydetails,text=countrydetails,title='Number of Ratings based on Country',color=countrydetails)
                 fig4.update_layout(xaxis=dict(tickmode='linear'),showlegend=False, plot_bgcolor='rgba(0,0,0,0)', yaxis=(dict(showgrid=False)),)
                 fig4.update_xaxes(title_text='Country')
@@ -414,6 +386,8 @@ def itemSelect():
                 leftcol.plotly_chart(fig5,use_container_width=True)
                 rightcol.plotly_chart(fig4, use_container_width=True)
 
+
+#customer's stats page
 def custSelect():            
     with option3:
 
@@ -431,10 +405,7 @@ def custSelect():
                             unsafe_allow_html=True)
 
           
-           
-                
-            
-            
+   
 
             checkuser = st.selectbox('Choose Customer Name' + '👨‍👨‍👧‍👧',['--Please type a customer name--']+user_list)
             
@@ -442,9 +413,7 @@ def custSelect():
                 st.info('You can view the Customer information here.')
             
             else:
-                #intro.empty()
-               
-                            
+             
                 dropimage = df.drop(columns=['image_url', 'combinedreviewid', 'createddatetime', 'createdby'])
                 
                 x = dropimage[dropimage['customername'] == checkuser]   
@@ -461,18 +430,7 @@ def custSelect():
                 with st.expander('Click here for more information'):
                    
                     st.table(x)
-                
-                
-                
-                # Create subplots: use 'domain' type for Pie/bar subplot
-                #fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, {'type':'domain'}]])
-                
-                #fig.add_trace(go.Pie(labels=itemdetails.index, values=itemdetails, name="pie chart"),
-                #      1, 1)
-                #fig.add_trace(go.Pie(labels=userdetails.index, values=userdetails, name="bar chart"),
-                #      1, 2)
-                #st.write(fig)
-                
+
                 
                 fig2 = px.bar(userdetails, text=userdetails,title='Number of each Ratings based on Customer')
                 fig2.update_layout(xaxis=dict(tickmode='linear'), plot_bgcolor='rgba(0,0,0,0)', yaxis=(dict(showgrid=False)),)
@@ -493,7 +451,7 @@ def custSelect():
               
    
     
-
+#predict customer score page
 def predictScore():    
     with calculate:
 
@@ -549,8 +507,10 @@ def predictScore():
                     combined = dict(zip(item_list, storeImage))
                     st.image(combined[itemsopt], width=200)
                     calculate_button = st.button('Calculate', on_click=None)
+                
 
                     if calculate_button == True:
+                  
 
                         st.subheader('Estimated Rating Score out of 5 is:')  
                         result = st.success(svd.predict(itemsopt, usersopt).est.round(2))
